@@ -52,8 +52,7 @@ class LoginController extends Controller
         session(['twAccessToken' => $access_token]);
         // return redirect()->action('MuteReminderController@list');
         // return redirect('/api/list_api');
-        return redirect('/show');
-
+        return redirect('/muter_top');
     }
 
     public function test(Request $request) {

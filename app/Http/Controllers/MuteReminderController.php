@@ -16,7 +16,6 @@ class MuteReminderController extends Controller
     {
         //TwitterOAuthのインスタンスを生成する
         $objTwitterConnection = createTwitterConnection();
-
         $tweets_params = [];
         $tweets_params = ['count' => 10];
 
@@ -35,6 +34,24 @@ class MuteReminderController extends Controller
         return view('muter.list', compact('muted_users', 'users_tweets'));
     }
 
+    // ==================================================
+    // 認証したユーザーの情報を取得するAPI
+    // ==================================================
+    public function authorized_user_api() {
+        //TwitterOAuthのインスタンスを生成する
+        $objTwitterConnection = createTwitterConnection();
+
+        $params = [
+            'include_entities' => false,
+            'skip_status'      => true,
+            'include_email'    => false
+        ];
+
+        $authorized_user_info = $objTwitterConnection->get('account/verify_credentials', $params);
+
+        return response()->json(summarizeUserInfo($authorized_user_info));
+    }
+
     public function list_api(Request $request)
     {
         //TwitterOAuthのインスタンスを生成する
@@ -45,7 +62,7 @@ class MuteReminderController extends Controller
 
         // ミュートユーザーの情報を取得し、不要な情報を削る
         $muted_users = $objTwitterConnection->get('mutes/users/list', $tweets_params);
-        $simple_users_array = summarizeUsersInfo($muted_users);
+        $simple_users_array = summarizeMutedUsersInfo($muted_users);
 
         // ミュートユーザーごとのツイートを取得し、不要な情報を削る
         foreach ($simple_users_array as $muted_user) {
@@ -58,7 +75,7 @@ class MuteReminderController extends Controller
             $user_tweets = $objTwitterConnection->get('statuses/user_timeline', $users_tweets_params);
             // ユーザーごとの配列になるようにデータを格納
             $return_array[] = [
-                "user_info" => $muted_user,
+                "muted_user_info" => $muted_user,
                 "tweets_info" => summarizeTweetsInfo($user_tweets)
             ];
         }

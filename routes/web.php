@@ -19,5 +19,6 @@ Route::get('/test', 'LoginController@test');
 Route::get('/show', 'MuteReminderController@list');
 Route::get('/muter_top', 'MuteReminderController@top');
 
+Route::get('/user_api', 'MuteReminderController@authorized_user_api');
 Route::get('/show_api', 'MuteReminderController@list_api');
 Route::get('/unmute/{screen_name}', 'MuteReminderController@unmute');
