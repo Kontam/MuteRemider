@@ -11,6 +11,16 @@ const userInfo = (state = {}, action) => {
   }
 };
 
+const mutedUsers = (state = [], action) => {
+  switch (action.type) {
+  case TwAppsConst.ACTION_CHANGE_MUTED_USERS:
+    return action.mutedUsers;
+  default:
+    return state;
+  }
+};
+
 export default combineReducers({
   userInfo,
+  mutedUsers,
 });

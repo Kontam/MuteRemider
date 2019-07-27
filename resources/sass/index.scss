@@ -1,9 +1,16 @@
+@import 'TwAppsColor';
+
 * {
+  box-sizing: border-box;
+  color: $basic-label-color;
   font-family: '游ゴシック Medium', YuGothic, YuGothicM, 'Hiragino Kaku Gothic ProN', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, sans-serif;
 }
 
 @import 'eric';
 @import 'mixin';
-@import 'TwAppsColor';
 @import 'components/TwAppsHeader';
 @import 'components/MuterMenu';
+@import 'components/MutedUserList';
+@import 'components/MutedUserInfo';
+@import 'components/UnmuteButton';
+@import 'components/ShowTweetButton';

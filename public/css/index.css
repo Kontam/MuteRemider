@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
 * {
+  box-sizing: border-box;
+  color: #5D5D5D;
   font-family: "\6E38\30B4\30B7\30C3\30AF   Medium", YuGothic, YuGothicM, "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, sans-serif;
 }
 
@@ -142,8 +144,22 @@ table {
 }
 
 .twapps-header {
+  align-items: center;
   background-color: #ececec;
+  border-bottom: #bcbcbc 1px solid;
+  display: flex;
   height: 50px;
+  justify-content: flex-end;
+  padding: 5px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.twapps-header-icon {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
 }
 
 .muter-menu {
@@ -158,8 +174,12 @@ table {
 }
 
 .tweets-count-button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: transparent;
   border: 0;
+  padding: 0;
   background: url(/images/transparent_eye_icon.svg?7177f1c6d5af942147604a3b13b16eab) center center/contain no-repeat;
   color: #6E6E6E;
   font-size: 1.8rem;
@@ -168,6 +188,134 @@ table {
 }
 
 .tweets-count-button:focus {
+  outline: 0;
+}
+
+.muter-discription {
+  background: #ececec url(/images/mute_icon.svg?26713d513c0e073d855ab77c8f1a9d95) center center/auto 70px no-repeat;
+  font-size: 1.25rem;
+  height: 80px;
+  line-height: 80px;
+  margin-top: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+.muted-user-info {
+  height: 125px;
+  list-style: none;
+  width: 100%;
+}
+
+.muted-top-container {
+  align-items: center;
+  display: flex;
+  height: 95px;
+}
+
+.muted-user-icon {
+  border-radius: 50%;
+  height: 70px;
+  margin: 0 40px 0 10px;
+  width: 70px;
+}
+
+.muted-username-container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  height: 100%;
+  justify-content: center;
+  max-width: 70%;
+  padding-top: 8px;
+}
+
+.muted-user-name {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.muted-bottom-container {
+  display: flex;
+}
+
+.show-icon {
+  background: url(/images/eye_icon.svg?2da7c1e56273fb4119a8d807ad3f7ba9) center center/contain no-repeat;
+  height: 18px;
+  margin-right: 3px;
+  width: 25px;
+}
+
+.muted-unmute-button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  background-color: #AAF9CC;
+  color: #00535D;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  width: 50%;
+}
+
+.muted-unmute-button:focus {
+  outline: 0;
+}
+
+.muted-mute-button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  background-color: #FF5B62;
+  color: #00535D;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  width: 50%;
+  color: #ffffff;
+}
+
+.muted-mute-button:focus {
+  outline: 0;
+}
+
+.unmute-icon {
+  background: url(/images/speaker_icon.svg?299377cd9be46caa51952a82a3066efe) center center/contain no-repeat;
+  height: 18px;
+  margin-right: 3px;
+  width: 25px;
+}
+
+.mute-icon {
+  background: url(/images/mute_button_icon.svg?c95e7e5b3c4683d02177acf471836011) center center/contain no-repeat;
+  height: 18px;
+  margin-right: 3px;
+  width: 25px;
+}
+
+.muted-show-button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  background-color: #AAF9EE;
+  color: #00535D;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  width: 50%;
+}
+
+.muted-show-button:focus {
   outline: 0;
 }
 

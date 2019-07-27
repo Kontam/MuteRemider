@@ -75,7 +75,7 @@ class MuteReminderController extends Controller
             $user_tweets = $objTwitterConnection->get('statuses/user_timeline', $users_tweets_params);
             // ユーザーごとの配列になるようにデータを格納
             $return_array[] = [
-                "muted_user_info" => $muted_user,
+                "muted_user" => $muted_user,
                 "tweets_info" => summarizeTweetsInfo($user_tweets)
             ];
         }

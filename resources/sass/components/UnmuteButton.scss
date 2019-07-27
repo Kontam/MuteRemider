@@ -1,0 +1,16 @@
+.muted-unmute-button {
+  @include mobile-mute-button($unmute-button-color);
+}
+
+.muted-mute-button {
+  @include mobile-mute-button($mute-button-color);
+  color: $basic-white;
+}
+
+.unmute-icon {
+  @include div-icon('../../img/speaker_icon.svg');
+}
+
+.mute-icon {
+  @include div-icon('../../img/mute_button_icon.svg');
+}

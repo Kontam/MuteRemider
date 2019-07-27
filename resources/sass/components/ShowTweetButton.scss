@@ -1,0 +1,3 @@
+.muted-show-button {
+  @include mobile-mute-button($show-button-color);
+}
