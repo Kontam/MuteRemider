@@ -20,7 +20,7 @@ class MutedUserList extends Component {
     return (
       <div className="muter-content">
         <h2 className="muter-discription">あなたがミュートしているユーザー</h2>
-        <div className="muted-user-list">
+        <ul className="muted-user-list">
           {
             mutedUsers.map(mutedUserInfo => (
               <MutedUserInfo
@@ -29,7 +29,7 @@ class MutedUserList extends Component {
               />
             ))
           }
-        </div>
+        </ul>
       </div>
     );
   }

@@ -1,0 +1,23 @@
+
+.muted-tweet-list {
+  border-top: 1px solid $dark-gray;
+  height: 0;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.tweet-list-open-animation {
+  height: auto;
+}
+
+.tweet-list-close-animation {
+  height: 0;
+}
+
+// @keyframes slideDown {
+//   0% {
+//     height: 0;
+//   }
+//   100% {
+//     height: auto;
+//   }

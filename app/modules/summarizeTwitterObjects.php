@@ -11,6 +11,10 @@ function summarizeUserInfo($user_obj)
 
 function summarizeMutedUsersInfo($users_obj)
 {
+    if (! property_exists($users_obj, "users")) {
+        dd($users_obj);
+    }
+
     $users = $users_obj->users;
     $simple_users_array = [];
 
@@ -32,12 +36,36 @@ function summarizeTweetsInfo($tweets)
     $simple_tweets_array = [];
 
     foreach ($tweets as $tweet) {
+
+        // 無省略テキストが存在すればそちらを使う
+        if (property_exists($tweet, "full_text")) {
+            $tweet_text = $tweet->full_text;
+        } else {
+            $tweet_text =  $tweet->text;
+        }
+
+        $media_infos = []; //メディア配列
+        // メディアが存在しない場合はextended_entitiesキーが存在しない
+        if (property_exists($tweet, "extended_entities")) {
+            $media_array = $tweet->extended_entities->media;
+            if (count($media_array) > 0) {
+                foreach ($media_array as $media) {
+                    $media_infos[] = [
+                        "media_url_https" => $media->media_url_https,
+                        "short_url" => $media->url,
+                        "type" => $media->type,
+                    ];
+                }
+            }
+        }
+
         $simple_tweets_array[] = [
             "tweet_id"       => $tweet->id,
             "tweet_url"      => "https://twitter.com/" . $tweet->user->screen_name . "/status/" . $tweet->id_str,
-            "tweet_text"     => $tweet->text,
+            "tweet_text"     => $tweet_text,
             "retweet_count"  => $tweet->retweet_count,
             "favorite_count" => $tweet->favorite_count,
+            "media_infos"    => $media_infos,
         ];
     }
 

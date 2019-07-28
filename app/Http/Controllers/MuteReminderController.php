@@ -12,27 +12,27 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 
 class MuteReminderController extends Controller
 {
-    public function list(Request $request)
-    {
-        //TwitterOAuthのインスタンスを生成する
-        $objTwitterConnection = createTwitterConnection();
-        $tweets_params = [];
-        $tweets_params = ['count' => 10];
-
-        $muted_users = $objTwitterConnection->get('mutes/users/list', $tweets_params);
-        $users_tweets = [];
-        foreach ($muted_users->users as $muted_user) {
-            $users_tweets_params = [
-                'user_id' => $muted_user->id,
-                'count' => 20,
-                'trim_user' => true, //ユーザー情報は省略
-                'exclude_replies' => true, // リプライは含まない
-                'include_rts' => false, //リツイートは含まない
-            ];
-            $users_tweets[] = $objTwitterConnection->get('statuses/user_timeline', $users_tweets_params);
-        }
-        return view('muter.list', compact('muted_users', 'users_tweets'));
-    }
+    // public function list(Request $request)
+    // {
+    //     //TwitterOAuthのインスタンスを生成する
+    //     $objTwitterConnection = createTwitterConnection();
+    //     $tweets_params = [];
+    //     $tweets_params = ['count' => 10];
+    //
+    //     $muted_users = $objTwitterConnection->get('mutes/users/list', $tweets_params);
+    //     $users_tweets = [];
+    //     foreach ($muted_users->users as $muted_user) {
+    //         $users_tweets_params = [
+    //             'user_id' => $muted_user->id,
+    //             'count' => 20,
+    //             'trim_user' => true, //ユーザー情報は省略
+    //             'exclude_replies' => true, // リプライは含まない
+    //             'include_rts' => false, //リツイートは含まない
+    //         ];
+    //         $users_tweets[] = $objTwitterConnection->get('statuses/user_timeline', $users_tweets_params);
+    //     }
+    //     return view('muter.list', compact('muted_users', 'users_tweets'));
+    // }
 
     // ==================================================
     // 認証したユーザーの情報を取得するAPI
@@ -71,14 +71,19 @@ class MuteReminderController extends Controller
                 'count' => 20,
                 'exclude_replies' => true, // リプライは含まない
                 'include_rts' => false, //リツイートは含まない
+                "tweet_mode" => "extended",
             ];
             $user_tweets = $objTwitterConnection->get('statuses/user_timeline', $users_tweets_params);
             // ユーザーごとの配列になるようにデータを格納
+            // dd($user_tweets);
             $return_array[] = [
                 "muted_user" => $muted_user,
                 "tweets_info" => summarizeTweetsInfo($user_tweets)
             ];
         }
+
+        // dd($return_array);
+
 
         return response()->json($return_array);
     }

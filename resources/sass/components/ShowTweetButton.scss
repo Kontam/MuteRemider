@@ -1,3 +1,15 @@
 .muted-show-button {
   @include mobile-mute-button($show-button-color);
 }
+
+.show-icon {
+  @include div-icon('../../img/eye_icon.svg');
+}
+
+.muted-hide-button {
+  @include mobile-mute-button($hide-button-color);
+}
+
+.hide-icon {
+  @include div-icon('../../img/hide_icon.svg');
+}

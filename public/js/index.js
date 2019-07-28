@@ -84,6 +84,139 @@ var requestMutedUsers = function requestMutedUsers(endpoint) {
 
 /***/ }),
 
+/***/ "./resources/js/components/MutedTweet.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/components/MutedTweet.jsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _modules_convertBreak__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/convertBreak */ "./resources/js/modules/convertBreak.js");
+
+
+
+
+var MutedTweet = function MutedTweet(_ref) {
+  var mutedTweet = _ref.mutedTweet;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "muted-tweet"
+  }, mutedTweet.tweet_text, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "tweet-media-container"
+  }, mutedTweet.media_infos.map(function (media) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      className: "tweet-media-item",
+      key: media.media_url_https
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      alt: "media",
+      className: "tweet-media",
+      src: media.media_url_https
+    }));
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "tweet-info-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "tweet-count-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "retweet-icon"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "tweet-retweet-count"
+  }, mutedTweet.retweet_count)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "tweet-count-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "favorite-icon"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "tweet-favorite-count"
+  }, mutedTweet.favorite_count)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: mutedTweet.tweet_url,
+    className: "open-twitter-link",
+    alt: "tw"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "twitter-icon"
+  }))));
+};
+
+MutedTweet.propTypes = {
+  mutedTweet: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape({
+    tweet_url: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+    tweet_text: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+    retweet_count: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
+    favorite_count: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
+    media_infos: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape({
+      media_url_https: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+    }))
+  }).isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (MutedTweet);
+
+/***/ }),
+
+/***/ "./resources/js/components/MutedTweetList.jsx":
+/*!****************************************************!*\
+  !*** ./resources/js/components/MutedTweetList.jsx ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
+/* harmony import */ var _MutedTweet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MutedTweet */ "./resources/js/components/MutedTweet.jsx");
+
+
+
+
+
+
+var MutedTweetList = function MutedTweetList(_ref) {
+  var showTweets = _ref.showTweets,
+      mutedTweets = _ref.mutedTweets;
+  var listClassName = 'muted-tweet-list';
+
+  switch (showTweets) {
+    case _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].SHOW_TWEETS_OPENED:
+      listClassName = 'muted-tweet-list tweet-list-open-animation';
+      break;
+
+    case _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].SHOW_TWEETS_CLOSED:
+      listClassName = 'muted-tweet-list tweet-list-close-animation';
+      break;
+
+    default:
+      listClassName = 'muted-tweet-list';
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: listClassName
+  }, mutedTweets.map(function (mutedTweet) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MutedTweet__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      key: mutedTweet.tweet_id,
+      mutedTweet: mutedTweet
+    });
+  }));
+};
+
+MutedTweetList.propTypes = {
+  showTweets: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  mutedTweets: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape()).isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(function (state) {
+  return {
+    mutedUsers: state.mutedUsers
+  };
+})(MutedTweetList));
+
+/***/ }),
+
 /***/ "./resources/js/components/MutedUserInfo.jsx":
 /*!***************************************************!*\
   !*** ./resources/js/components/MutedUserInfo.jsx ***!
@@ -98,8 +231,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _UnmuteButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UnmuteButton */ "./resources/js/components/UnmuteButton.jsx");
-/* harmony import */ var _ShowTweetButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ShowTweetButton */ "./resources/js/components/ShowTweetButton.jsx");
-/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
+/* harmony import */ var _ShowTweetsButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ShowTweetsButton */ "./resources/js/components/ShowTweetsButton.jsx");
+/* harmony import */ var _MutedTweetList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MutedTweetList */ "./resources/js/components/MutedTweetList.jsx");
+/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -124,6 +258,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var MutedUserInfo =
 /*#__PURE__*/
 function (_Component) {
@@ -136,7 +271,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(MutedUserInfo).call(this, props));
     _this.state = {
-      showTweets: _TwAppsConst__WEBPACK_IMPORTED_MODULE_4__["default"].SHOW_TWEETS_INITIAL,
+      showTweets: _TwAppsConst__WEBPACK_IMPORTED_MODULE_5__["default"].SHOW_TWEETS_INITIAL,
       muted: true
     };
     return _this;
@@ -151,11 +286,28 @@ function (_Component) {
       });
     }
   }, {
+    key: "handleShowTweetsClicked",
+    value: function handleShowTweetsClicked() {
+      var showTweets = this.state.showTweets;
+
+      if (showTweets === _TwAppsConst__WEBPACK_IMPORTED_MODULE_5__["default"].SHOW_TWEETS_OPENED) {
+        this.setState({
+          showTweets: _TwAppsConst__WEBPACK_IMPORTED_MODULE_5__["default"].SHOW_TWEETS_CLOSED
+        });
+        return;
+      }
+
+      this.setState({
+        showTweets: _TwAppsConst__WEBPACK_IMPORTED_MODULE_5__["default"].SHOW_TWEETS_OPENED
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      var mutedUser = this.props.mutedUserInfo.muted_user;
+      var mutedUserInfo = this.props.mutedUserInfo;
+      var mutedUser = mutedUserInfo.muted_user;
       var _this$state = this.state,
           showTweets = _this$state.showTweets,
           muted = _this$state.muted;
@@ -173,15 +325,21 @@ function (_Component) {
         className: "muted-user-name"
       }, mutedUser.user_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "muted-user-name"
-      }, "@", mutedUser.screen_name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "@", mutedUser.screen_name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MutedTweetList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        showTweets: showTweets,
+        mutedTweets: mutedUserInfo.tweets_info
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "muted-bottom-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UnmuteButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
         muted: muted,
         onClick: function onClick() {
           _this2.handleUnmuteClicked();
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ShowTweetButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        showTweets: showTweets
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ShowTweetsButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        showTweets: showTweets,
+        onClick: function onClick() {
+          _this2.handleShowTweetsClicked();
+        }
       })));
     }
   }]);
@@ -195,7 +353,8 @@ MutedUserInfo.propTypes = {
       user_name: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
       screen_name: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
       profile_image_url_https: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
-    })
+    }),
+    tweets_info: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape())
   }).isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (MutedUserInfo);
@@ -230,10 +389,10 @@ var MuterMenu = function MuterMenu() {
 
 /***/ }),
 
-/***/ "./resources/js/components/ShowTweetButton.jsx":
-/*!*****************************************************!*\
-  !*** ./resources/js/components/ShowTweetButton.jsx ***!
-  \*****************************************************/
+/***/ "./resources/js/components/ShowTweetsButton.jsx":
+/*!******************************************************!*\
+  !*** ./resources/js/components/ShowTweetsButton.jsx ***!
+  \******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -243,20 +402,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
 
 
 
-var ShowTweetButton = function ShowTweetButton() {
+
+var ShowTweetsButton = function ShowTweetsButton(_ref) {
+  var showTweets = _ref.showTweets,
+      onClick = _ref.onClick;
+  var buttonClassName = 'muted-hide-button';
+  var iconClassName = 'hide-icon';
+  var buttonLabel = '隠す';
+
+  if (showTweets !== _TwAppsConst__WEBPACK_IMPORTED_MODULE_2__["default"].SHOW_TWEETS_OPENED) {
+    buttonClassName = 'muted-show-button';
+    iconClassName = 'show-icon';
+    buttonLabel = 'チラ見';
+  }
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
-    className: "muted-show-button"
+    className: buttonClassName,
+    onClick: onClick
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "show-icon"
-  }), "\u30C1\u30E9\u898B");
+    className: iconClassName
+  }), buttonLabel);
 };
 
-ShowTweetButton.propTypes = {};
-/* harmony default export */ __webpack_exports__["default"] = (ShowTweetButton);
+ShowTweetsButton.propTypes = {
+  showTweets: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  onClick: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (ShowTweetsButton);
 
 /***/ }),
 
@@ -477,7 +654,7 @@ function (_Component) {
         className: "muter-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "muter-discription"
-      }, "\u3042\u306A\u305F\u304C\u30DF\u30E5\u30FC\u30C8\u3057\u3066\u3044\u308B\u30E6\u30FC\u30B6\u30FC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "\u3042\u306A\u305F\u304C\u30DF\u30E5\u30FC\u30C8\u3057\u3066\u3044\u308B\u30E6\u30FC\u30B6\u30FC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "muted-user-list"
       }, mutedUsers.map(function (mutedUserInfo) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MutedUserInfo__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -629,6 +806,24 @@ if (appElem) {
     store: store
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_TwitterApps__WEBPACK_IMPORTED_MODULE_7__["default"], null)), appElem);
 }
+
+/***/ }),
+
+/***/ "./resources/js/modules/convertBreak.js":
+/*!**********************************************!*\
+  !*** ./resources/js/modules/convertBreak.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var convertBreak = function convertBreak(str) {
+  var convertedStr = str.replace(/\r?\n/g, '<br>');
+  return convertedStr;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (convertBreak);
 
 /***/ }),
 

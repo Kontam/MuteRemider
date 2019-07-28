@@ -1,6 +1,5 @@
 
 .muted-user-info {
-  height: 125px;
   list-style: none;
   width: 100%;
 }
@@ -36,8 +35,4 @@
 
 .muted-bottom-container {
   display: flex;
-}
-
-.show-icon {
-  @include div-icon('../../img/eye_icon.svg');
 }

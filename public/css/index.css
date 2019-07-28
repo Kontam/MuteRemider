@@ -191,6 +191,10 @@ table {
   outline: 0;
 }
 
+.muted-user-list {
+  padding-bottom: 50px;
+}
+
 .muter-discription {
   background: #ececec url(/images/mute_icon.svg?26713d513c0e073d855ab77c8f1a9d95) center center/auto 70px no-repeat;
   font-size: 1.25rem;
@@ -202,7 +206,6 @@ table {
 }
 
 .muted-user-info {
-  height: 125px;
   list-style: none;
   width: 100%;
 }
@@ -238,13 +241,6 @@ table {
 
 .muted-bottom-container {
   display: flex;
-}
-
-.show-icon {
-  background: url(/images/eye_icon.svg?2da7c1e56273fb4119a8d807ad3f7ba9) center center/contain no-repeat;
-  height: 18px;
-  margin-right: 3px;
-  width: 25px;
 }
 
 .muted-unmute-button {
@@ -317,6 +313,128 @@ table {
 
 .muted-show-button:focus {
   outline: 0;
+}
+
+.show-icon {
+  background: url(/images/eye_icon.svg?2da7c1e56273fb4119a8d807ad3f7ba9) center center/contain no-repeat;
+  height: 18px;
+  margin-right: 3px;
+  width: 25px;
+}
+
+.muted-hide-button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  background-color: #FF91AB;
+  color: #00535D;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  width: 50%;
+}
+
+.muted-hide-button:focus {
+  outline: 0;
+}
+
+.hide-icon {
+  background: url(/images/hide_icon.svg?54a091d620804941971501be9098ed9a) center center/contain no-repeat;
+  height: 18px;
+  margin-right: 3px;
+  width: 25px;
+}
+
+.muted-tweet {
+  border-bottom: 1px solid #bcbcbc;
+  padding: 10px;
+  white-space: pre-line;
+}
+
+.tweet-media-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px auto;
+  max-height: 121px;
+  max-width: 251px;
+  overflow: hidden;
+}
+
+.tweet-media-item {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  max-height: 60px;
+  max-width: 120px;
+  overflow: hidden;
+}
+
+.tweet-media {
+  max-width: 250px;
+}
+
+.tweet-info-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px 0;
+}
+
+.tweet-count-info {
+  display: flex;
+}
+
+.retweet-icon {
+  background: url(/images/retweet_icon.svg?7b13a07ba310370f2cf4ebae3ebf61dd) center center/contain no-repeat;
+  height: 18px;
+  margin-right: 3px;
+  width: 25px;
+  margin-bottom: 3px;
+  margin-right: 8px;
+}
+
+.favorite-icon {
+  background: url(/images/favorite_icon.svg?e4df305e34486007621bec49bf543a03) center center/contain no-repeat;
+  height: 18px;
+  margin-right: 3px;
+  width: 25px;
+  margin-right: 8px;
+}
+
+.tweet-retweet-count {
+  margin-top: 2px;
+}
+
+.tweet-favorite-count {
+  margin-top: 1px;
+}
+
+.open-twitter-link {
+  display: block;
+}
+
+.twitter-icon {
+  background: url(/images/twitter_icon.svg?b0d2d71c00f6991e41586d66baba5443) center center/contain no-repeat;
+  height: 22px;
+  width: 26px;
+}
+
+.muted-tweet-list {
+  border-top: 1px solid #bcbcbc;
+  height: 0;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.tweet-list-open-animation {
+  height: auto;
+}
+
+.tweet-list-close-animation {
+  height: 0;
 }
 
 
