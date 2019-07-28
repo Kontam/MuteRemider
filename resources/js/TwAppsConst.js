@@ -1,6 +1,9 @@
 const TwAppsConst = {
-  USER_INFO_ENDPOINT: `${window.location.origin}/user_api`,
-  MUTED_USERS_ENDPOINT: `${window.location.origin}/list_api`,
+  USER_INFO_ENDPOINT: `${window.location.origin}/myapps/user_api`,
+  MUTED_USERS_ENDPOINT: `${window.location.origin}/myapps/list_api`,
+  // USER_INFO_ENDPOINT: `${window.location.origin}/user_api`,
+  // MUTED_USERS_ENDPOINT: `${window.location.origin}/list_api`,
+
 
   ACTION_CHANGE_USER_INFO: 'CHANGE_USER_INFO',
   ACTION_CHANGE_MUTED_USERS: 'CHANGE_MUTED_USERS',

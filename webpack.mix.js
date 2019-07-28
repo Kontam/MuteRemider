@@ -19,4 +19,5 @@ mix.react('resources/js/index.jsx', 'public/js')
     postCss: [
       require('autoprefixer')(),
     ],
+    processCssUrls: false,
   });

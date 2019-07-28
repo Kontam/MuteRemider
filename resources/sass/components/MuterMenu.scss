@@ -11,7 +11,7 @@
 
 .tweets-count-button {
   @include reset-button;
-  background: url('../../img/transparent_eye_icon.svg') center center / contain no-repeat;
+  background: url($image-dir + 'transparent_eye_icon.svg') center center / contain no-repeat;
   color: $icon-gray;
   font-size: 1.8rem;
   font-weight: bold;

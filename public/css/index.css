@@ -1,97 +1,21 @@
 @charset "UTF-8";
-
-* {
-  box-sizing: border-box;
-  color: #5D5D5D;
-  font-family: "\6E38\30B4\30B7\30C3\30AF   Medium", YuGothic, YuGothicM, "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, sans-serif;
-}
-
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -101,18 +25,8 @@ video {
 }
 
 /* HTML5 display-role reset for older browsers */
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
@@ -120,20 +34,16 @@ body {
   line-height: 1;
 }
 
-ol,
-ul {
+ol, ul {
   list-style: none;
 }
 
-blockquote,
-q {
+blockquote, q {
   quotes: none;
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote:before, blockquote:after,
+q:before, q:after {
   content: "";
   content: none;
 }
@@ -141,6 +51,15 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #5D5D5D;
+  font-family: "\30D2\30E9\30AE\30CE\89D2\30B4   ProN", "\6E38\30B4\30B7\30C3\30AF   Medium", "YuGothic", "YuGothicM", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "\30E1\30A4\30EA\30AA", "Meiryo", sans-serif;
 }
 
 .twapps-header {
@@ -180,13 +99,12 @@ table {
   background-color: transparent;
   border: 0;
   padding: 0;
-  background: url(/images/transparent_eye_icon.svg?7177f1c6d5af942147604a3b13b16eab) center center/contain no-repeat;
+  background: url("../img/transparent_eye_icon.svg") center center/contain no-repeat;
   color: #6E6E6E;
   font-size: 1.8rem;
   font-weight: bold;
   padding-top: 7px;
 }
-
 .tweets-count-button:focus {
   outline: 0;
 }
@@ -196,7 +114,7 @@ table {
 }
 
 .muter-discription {
-  background: #ececec url(/images/mute_icon.svg?26713d513c0e073d855ab77c8f1a9d95) center center/auto 70px no-repeat;
+  background: #ececec url("../img/mute_icon.svg") center center/auto 70px no-repeat;
   font-size: 1.25rem;
   height: 80px;
   line-height: 80px;
@@ -257,7 +175,6 @@ table {
   justify-content: center;
   width: 50%;
 }
-
 .muted-unmute-button:focus {
   outline: 0;
 }
@@ -277,20 +194,19 @@ table {
   width: 50%;
   color: #ffffff;
 }
-
 .muted-mute-button:focus {
   outline: 0;
 }
 
 .unmute-icon {
-  background: url(/images/speaker_icon.svg?299377cd9be46caa51952a82a3066efe) center center/contain no-repeat;
+  background: url("../img/speaker_icon.svg") center center/contain no-repeat;
   height: 18px;
   margin-right: 3px;
   width: 25px;
 }
 
 .mute-icon {
-  background: url(/images/mute_button_icon.svg?c95e7e5b3c4683d02177acf471836011) center center/contain no-repeat;
+  background: url("../img/mute_button_icon.svg") center center/contain no-repeat;
   height: 18px;
   margin-right: 3px;
   width: 25px;
@@ -310,13 +226,12 @@ table {
   justify-content: center;
   width: 50%;
 }
-
 .muted-show-button:focus {
   outline: 0;
 }
 
 .show-icon {
-  background: url(/images/eye_icon.svg?2da7c1e56273fb4119a8d807ad3f7ba9) center center/contain no-repeat;
+  background: url("../img/eye_icon.svg") center center/contain no-repeat;
   height: 18px;
   margin-right: 3px;
   width: 25px;
@@ -336,13 +251,12 @@ table {
   justify-content: center;
   width: 50%;
 }
-
 .muted-hide-button:focus {
   outline: 0;
 }
 
 .hide-icon {
-  background: url(/images/hide_icon.svg?54a091d620804941971501be9098ed9a) center center/contain no-repeat;
+  background: url("../img/hide_icon.svg") center center/contain no-repeat;
   height: 18px;
   margin-right: 3px;
   width: 25px;
@@ -388,7 +302,7 @@ table {
 }
 
 .retweet-icon {
-  background: url(/images/retweet_icon.svg?7b13a07ba310370f2cf4ebae3ebf61dd) center center/contain no-repeat;
+  background: url("../img/retweet_icon.svg") center center/contain no-repeat;
   height: 18px;
   margin-right: 3px;
   width: 25px;
@@ -397,7 +311,7 @@ table {
 }
 
 .favorite-icon {
-  background: url(/images/favorite_icon.svg?e4df305e34486007621bec49bf543a03) center center/contain no-repeat;
+  background: url("../img/favorite_icon.svg") center center/contain no-repeat;
   height: 18px;
   margin-right: 3px;
   width: 25px;
@@ -417,25 +331,25 @@ table {
 }
 
 .twitter-icon {
-  background: url(/images/twitter_icon.svg?b0d2d71c00f6991e41586d66baba5443) center center/contain no-repeat;
+  background: url("../img/twitter_icon.svg") center center/contain no-repeat;
   height: 22px;
   width: 26px;
 }
 
 .muted-tweet-list {
   border-top: 1px solid #bcbcbc;
+  display: none;
   height: 0;
   overflow: hidden;
   transition: 0.3s;
 }
 
 .tweet-list-open-animation {
+  display: block;
   height: auto;
 }
 
 .tweet-list-close-animation {
   height: 0;
 }
-
-
 /*# sourceMappingURL=index.css.map*/

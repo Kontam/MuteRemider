@@ -1,12 +1,17 @@
+@import 'eric';
 @import 'TwAppsColor';
 
 * {
   box-sizing: border-box;
-  color: $basic-label-color;
-  font-family: '游ゴシック Medium', YuGothic, YuGothicM, 'Hiragino Kaku Gothic ProN', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, sans-serif;
 }
 
-@import 'eric';
+body {
+  color: $basic-label-color;
+  font-family: 'ヒラギノ角ゴ ProN', '游ゴシック Medium', 'YuGothic', 'YuGothicM', 'Hiragino Kaku Gothic ProN', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', sans-serif;
+}
+
+$image-dir: '../img/';
+
 @import 'mixin';
 @import 'components/TwAppsHeader';
 @import 'components/MuterMenu';

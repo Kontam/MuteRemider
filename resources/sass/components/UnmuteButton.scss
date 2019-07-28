@@ -8,9 +8,9 @@
 }
 
 .unmute-icon {
-  @include div-icon('../../img/speaker_icon.svg');
+  @include div-icon($image-dir + 'speaker_icon.svg');
 }
 
 .mute-icon {
-  @include div-icon('../../img/mute_button_icon.svg');
+  @include div-icon($image-dir + 'mute_button_icon.svg');
 }

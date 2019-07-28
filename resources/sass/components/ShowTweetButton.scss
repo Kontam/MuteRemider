@@ -3,7 +3,7 @@
 }
 
 .show-icon {
-  @include div-icon('../../img/eye_icon.svg');
+  @include div-icon($image-dir + 'eye_icon.svg');
 }
 
 .muted-hide-button {
@@ -11,5 +11,5 @@
 }
 
 .hide-icon {
-  @include div-icon('../../img/hide_icon.svg');
+  @include div-icon($image-dir + 'hide_icon.svg');
 }

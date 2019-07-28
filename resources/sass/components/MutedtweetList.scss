@@ -1,12 +1,14 @@
 
 .muted-tweet-list {
   border-top: 1px solid $dark-gray;
+  display: none;
   height: 0;
   overflow: hidden;
   transition: .3s;
 }
 
 .tweet-list-open-animation {
+  display: block;
   height: auto;
 }
 

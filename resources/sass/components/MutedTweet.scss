@@ -42,13 +42,13 @@
 }
 
 .retweet-icon {
-  @include div-icon('../../img/retweet_icon.svg');
+  @include div-icon($image-dir + 'retweet_icon.svg');
   margin-bottom: 3px;
   margin-right: 8px;
 }
 
 .favorite-icon {
-  @include div-icon('../../img/favorite_icon.svg');
+  @include div-icon($image-dir + 'favorite_icon.svg');
   margin-right: 8px;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .twitter-icon {
-  background: url('../../img/twitter_icon.svg') center center / contain no-repeat;
+  background: url($image-dir + 'twitter_icon.svg') center center / contain no-repeat;
   height: 22px;
   width: 26px;
 }
