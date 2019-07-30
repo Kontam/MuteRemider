@@ -14,10 +14,15 @@ const mix = require('laravel-mix');
 mix.react('resources/js/index.jsx', 'public/js')
   .extract([])
   .sass('resources/sass/index.scss', 'public/css')
-  .sass('resources/sass/app.scss', 'public/css')
+  // .sass('resources/sass/app.scss', 'public/css')
   .options({
     postCss: [
       require('autoprefixer')(),
     ],
     processCssUrls: false,
+  })
+  .webpackConfig({
+    externals: {
+      base_path: 'base_path',
+    },
   });

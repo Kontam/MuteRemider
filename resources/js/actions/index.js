@@ -1,6 +1,10 @@
 import TwAppsConst from '../TwAppsConst';
 import requestToServer from '../modules/requestToServer';
 
+export const setBaseUrl = baseUrl => (dispatch) => {
+  dispatch({ type: TwAppsConst.ACTION_CHANGE_BASE_URL, baseUrl });
+};
+
 export const setUserInfo = userInfo => (dispatch) => {
   dispatch({ type: TwAppsConst.ACTION_CHANGE_USER_INFO, userInfo });
 };
@@ -8,7 +12,6 @@ export const setUserInfo = userInfo => (dispatch) => {
 export const setMutedUsers = mutedUsers => (dispatch) => {
   dispatch({ type: TwAppsConst.ACTION_CHANGE_MUTED_USERS, mutedUsers });
 };
-
 
 // 認証ユーザーの情報を取得する
 export const requestUserInfo = (endpoint, params = {}) => (dispatch) => {

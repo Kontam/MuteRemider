@@ -5,11 +5,13 @@ import { connect } from 'react-redux';
 import TwAppsConst from '../TwAppsConst';
 import TwAppsHeader from '../components/TwAppsHeader';
 import MuteReminder from './MuteReminder';
-import { requestUserInfo } from '../actions';
+import { requestUserInfo, setBaseUrl } from '../actions';
 
 class TwitterApps extends Component {
   componentDidMount() {
-    this.props.requestUserInfo(TwAppsConst.USER_INFO_ENDPOINT);
+    const { baseUrl } = this.props;
+    this.props.setBaseUrl(baseUrl);
+    this.props.requestUserInfo(baseUrl + TwAppsConst.USER_INFO_ENDPOINT);
   }
 
   render() {
@@ -23,10 +25,14 @@ class TwitterApps extends Component {
 }
 
 TwitterApps.propTypes = {
+  baseUrl: PropTypes.string.isRequired,
   requestUserInfo: PropTypes.func.isRequired,
 };
 
 export default connect(
   () => ({}),
-  { requestUserInfo },
+  {
+    setBaseUrl,
+    requestUserInfo,
+  },
 )(TwitterApps);

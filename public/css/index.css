@@ -337,11 +337,8 @@ body {
 }
 
 .muted-tweet-list {
-  border-top: 1px solid #bcbcbc;
-  display: none;
-  height: 0;
   overflow: hidden;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .tweet-list-open-animation {
@@ -350,6 +347,7 @@ body {
 }
 
 .tweet-list-close-animation {
+  display: none;
   height: 0;
 }
 /*# sourceMappingURL=index.css.map*/

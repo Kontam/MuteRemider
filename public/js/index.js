@@ -10,10 +10,10 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var TwAppsConst = {
-  USER_INFO_ENDPOINT: "".concat(window.location.origin, "/myapps/user_api"),
-  MUTED_USERS_ENDPOINT: "".concat(window.location.origin, "/myapps/list_api"),
-  // USER_INFO_ENDPOINT: `${window.location.origin}/user_api`,
-  // MUTED_USERS_ENDPOINT: `${window.location.origin}/list_api`,
+  STYLE_DARK_GRAY: '#bcbcbc',
+  USER_INFO_ENDPOINT: '/user_api',
+  MUTED_USERS_ENDPOINT: '/list_api',
+  ACTION_CHANGE_BASE_URL: 'CHANGE_BASE_URL',
   ACTION_CHANGE_USER_INFO: 'CHANGE_USER_INFO',
   ACTION_CHANGE_MUTED_USERS: 'CHANGE_MUTED_USERS',
   HEADER_MENU_INITIAL: 'initial',
@@ -31,11 +31,12 @@ var TwAppsConst = {
 /*!***************************************!*\
   !*** ./resources/js/actions/index.js ***!
   \***************************************/
-/*! exports provided: setUserInfo, setMutedUsers, requestUserInfo, requestMutedUsers */
+/*! exports provided: setBaseUrl, setUserInfo, setMutedUsers, requestUserInfo, requestMutedUsers */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setBaseUrl", function() { return setBaseUrl; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setUserInfo", function() { return setUserInfo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setMutedUsers", function() { return setMutedUsers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestUserInfo", function() { return requestUserInfo; });
@@ -44,6 +45,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_requestToServer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/requestToServer */ "./resources/js/modules/requestToServer.js");
 
 
+var setBaseUrl = function setBaseUrl(baseUrl) {
+  return function (dispatch) {
+    dispatch({
+      type: _TwAppsConst__WEBPACK_IMPORTED_MODULE_0__["default"].ACTION_CHANGE_BASE_URL,
+      baseUrl: baseUrl
+    });
+  };
+};
 var setUserInfo = function setUserInfo(userInfo) {
   return function (dispatch) {
     dispatch({
@@ -105,9 +114,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var MutedTweet = function MutedTweet(_ref) {
-  var mutedTweet = _ref.mutedTweet;
+  var mutedTweet = _ref.mutedTweet,
+      itemClassName = _ref.itemClassName;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "muted-tweet"
+    className: "muted-tweet ".concat(itemClassName)
   }, mutedTweet.tweet_text, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "tweet-media-container"
   }, mutedTweet.media_infos.map(function (media) {
@@ -151,7 +161,8 @@ MutedTweet.propTypes = {
     media_infos: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape({
       media_url_https: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
     }))
-  }).isRequired
+  }).isRequired,
+  itemClassName: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (MutedTweet);
 
@@ -173,43 +184,111 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
 /* harmony import */ var _MutedTweet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MutedTweet */ "./resources/js/components/MutedTweet.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
 
 
 
 
-var MutedTweetList = function MutedTweetList(_ref) {
-  var showTweets = _ref.showTweets,
-      mutedTweets = _ref.mutedTweets;
-  var listClassName = 'muted-tweet-list';
 
-  switch (showTweets) {
-    case _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].SHOW_TWEETS_OPENED:
-      listClassName = 'muted-tweet-list tweet-list-open-animation';
-      break;
+var MutedTweetList =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(MutedTweetList, _Component);
 
-    case _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].SHOW_TWEETS_CLOSED:
-      listClassName = 'muted-tweet-list tweet-list-close-animation';
-      break;
+  function MutedTweetList(props) {
+    var _this;
 
-    default:
-      listClassName = 'muted-tweet-list';
-  }
+    _classCallCheck(this, MutedTweetList);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-    className: listClassName
-  }, mutedTweets.map(function (mutedTweet) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MutedTweet__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      key: mutedTweet.tweet_id,
-      mutedTweet: mutedTweet
-    });
-  }));
-};
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MutedTweetList).call(this, props));
+    _this.ulStyle = {}; // this.listClassName = `list-${this.props.screenName}`;
+    // this.itemClassName = `user-${this.props.screenName}`;
+
+    return _this;
+  } // componentDidMount() {
+  //   this.itemElems = document.getElementsByClassName(this.itemClassName);
+  //   this.listElems = document.getElementsByClassName(this.listClassName);
+  //   this.listElems[0].addEventListener('load', () => {
+  //     console.log('laode');
+  //     this.listHeight = 0;
+  //     for (let i = 0; i < this.listElems.length; i += 1) {
+  //       this.listHeight += this.listElems[i].clientHeight;
+  //     }
+  //   });
+  // }
+
+
+  _createClass(MutedTweetList, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          showTweets = _this$props.showTweets,
+          mutedTweets = _this$props.mutedTweets,
+          listHeight = _this$props.listHeight,
+          listClassName = _this$props.listClassName,
+          itemClassName = _this$props.itemClassName;
+
+      switch (showTweets) {
+        case _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].SHOW_TWEETS_OPENED:
+          this.ulStyle = {
+            borderTop: "1px solid ".concat(_TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].STYLE_DARK_GRAY),
+            display: 'block',
+            maxHeight: listHeight
+          };
+          break;
+
+        case _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].SHOW_TWEETS_CLOSED:
+          this.ulStyle = {
+            maxHeight: 0
+          };
+          break;
+
+        default:
+          this.ulStyle = {
+            maxHeight: 0
+          };
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "muted-tweet-list ".concat(listClassName),
+        style: this.ulStyle
+      }, mutedTweets.map(function (mutedTweet) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MutedTweet__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          key: mutedTweet.tweet_id,
+          mutedTweet: mutedTweet,
+          itemClassName: itemClassName
+        });
+      }));
+    }
+  }]);
+
+  return MutedTweetList;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 MutedTweetList.propTypes = {
   showTweets: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
-  mutedTweets: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape()).isRequired
+  mutedTweets: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape()).isRequired,
+  // screenName: PropTypes.string.isRequired,
+  listClassName: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  itemClassName: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(function (state) {
   return {
@@ -274,12 +353,23 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(MutedUserInfo).call(this, props));
     _this.state = {
       showTweets: _TwAppsConst__WEBPACK_IMPORTED_MODULE_5__["default"].SHOW_TWEETS_INITIAL,
+      listHeight: 0,
       muted: true
     };
+    var mutedUser = _this.props.mutedUserInfo.muted_user;
+    _this.userClassName = "user-".concat(mutedUser.screen_name);
+    _this.listClassName = "list-".concat(mutedUser.screen_name);
+    _this.itemClassName = "item-".concat(mutedUser.screen_name);
     return _this;
   }
 
   _createClass(MutedUserInfo, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.itemElems = document.getElementsByClassName(this.itemClassName);
+      this.userElems = document.getElementsByClassName(this.userClassName);
+    }
+  }, {
     key: "handleUnmuteClicked",
     value: function handleUnmuteClicked() {
       var muted = this.state.muted;
@@ -295,10 +385,23 @@ function (_Component) {
       if (showTweets === _TwAppsConst__WEBPACK_IMPORTED_MODULE_5__["default"].SHOW_TWEETS_OPENED) {
         this.setState({
           showTweets: _TwAppsConst__WEBPACK_IMPORTED_MODULE_5__["default"].SHOW_TWEETS_CLOSED
-        });
+        }); // 固定ヘッダで隠れる分を考慮してスクロールする
+
+        window.scrollTo(0, this.userElems[0].offsetTop - 50);
         return;
+      } // アニメーション用にツイートリストの高さを計算する
+      // ListのComponentDidMountでは画像ロード前の高さになってしまうためズレる
+
+
+      var listHeight = 0;
+
+      for (var i = 0; i < this.itemElems.length; i += 1) {
+        listHeight += this.itemElems[i].clientHeight;
       }
 
+      this.setState({
+        listHeight: listHeight
+      });
       this.setState({
         showTweets: _TwAppsConst__WEBPACK_IMPORTED_MODULE_5__["default"].SHOW_TWEETS_OPENED
       });
@@ -312,9 +415,10 @@ function (_Component) {
       var mutedUser = mutedUserInfo.muted_user;
       var _this$state = this.state,
           showTweets = _this$state.showTweets,
-          muted = _this$state.muted;
+          muted = _this$state.muted,
+          listHeight = _this$state.listHeight;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "muted-user-info"
+        className: "muted-user-info ".concat(this.userClassName)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "muted-top-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -329,6 +433,9 @@ function (_Component) {
         className: "muted-user-name"
       }, "@", mutedUser.screen_name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MutedTweetList__WEBPACK_IMPORTED_MODULE_4__["default"], {
         showTweets: showTweets,
+        listClassName: this.listClassName,
+        itemClassName: this.itemClassName,
+        listHeight: listHeight,
         mutedTweets: mutedUserInfo.tweets_info
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "muted-bottom-container"
@@ -746,7 +853,9 @@ function (_Component) {
   _createClass(TwitterApps, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.requestUserInfo(_TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].USER_INFO_ENDPOINT);
+      var baseUrl = this.props.baseUrl;
+      this.props.setBaseUrl(baseUrl);
+      this.props.requestUserInfo(baseUrl + _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].USER_INFO_ENDPOINT);
     }
   }, {
     key: "render",
@@ -761,11 +870,13 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 TwitterApps.propTypes = {
+  baseUrl: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
   requestUserInfo: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(function () {
   return {};
 }, {
+  setBaseUrl: _actions__WEBPACK_IMPORTED_MODULE_6__["setBaseUrl"],
   requestUserInfo: _actions__WEBPACK_IMPORTED_MODULE_6__["requestUserInfo"]
 })(TwitterApps));
 
@@ -790,7 +901,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./reducers */ "./resources/js/reducers/index.js");
-/* harmony import */ var _containers_TwitterApps__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./containers/TwitterApps */ "./resources/js/containers/TwitterApps.jsx");
+/* harmony import */ var base_path__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! base_path */ "base_path");
+/* harmony import */ var base_path__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(base_path__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _containers_TwitterApps__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./containers/TwitterApps */ "./resources/js/containers/TwitterApps.jsx");
+
 
 
 
@@ -806,7 +920,9 @@ var appElem = document.querySelector('.react-homeapp');
 if (appElem) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_5__["Provider"], {
     store: store
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_TwitterApps__WEBPACK_IMPORTED_MODULE_7__["default"], null)), appElem);
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_TwitterApps__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    baseUrl: base_path__WEBPACK_IMPORTED_MODULE_7___default.a
+  })), appElem);
 }
 
 /***/ }),
@@ -872,6 +988,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var baseUrl = function baseUrl() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__["default"].ACTION_CHANGE_BASE_URL:
+      return action.baseUrl;
+
+    default:
+      return state;
+  }
+};
+
 var userInfo = function userInfo() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
@@ -899,20 +1028,10 @@ var mutedUsers = function mutedUsers() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  baseUrl: baseUrl,
   userInfo: userInfo,
   mutedUsers: mutedUsers
 }));
-
-/***/ }),
-
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -928,16 +1047,26 @@ var mutedUsers = function mutedUsers() {
 /***/ }),
 
 /***/ 0:
-/*!********************************************************************************************!*\
-  !*** multi ./resources/js/index.jsx ./resources/sass/index.scss ./resources/sass/app.scss ***!
-  \********************************************************************************************/
+/*!******************************************************************!*\
+  !*** multi ./resources/js/index.jsx ./resources/sass/index.scss ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\Users\tehay\Desktop\WORKSPACE\10.Development\20.Web\MuteReminder\MuteReminder\resources\js\index.jsx */"./resources/js/index.jsx");
-__webpack_require__(/*! C:\Users\tehay\Desktop\WORKSPACE\10.Development\20.Web\MuteReminder\MuteReminder\resources\sass\index.scss */"./resources/sass/index.scss");
-module.exports = __webpack_require__(/*! C:\Users\tehay\Desktop\WORKSPACE\10.Development\20.Web\MuteReminder\MuteReminder\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\Users\tehay\Desktop\WORKSPACE\10.Development\20.Web\MuteReminder\MuteReminder\resources\sass\index.scss */"./resources/sass/index.scss");
 
+
+/***/ }),
+
+/***/ "base_path":
+/*!****************************!*\
+  !*** external "base_path" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = base_path;
 
 /***/ })
 

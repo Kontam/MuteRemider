@@ -6,6 +6,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
+import basePath from 'base_path';
 
 import TwitterApps from './containers/TwitterApps';
 
@@ -20,7 +21,9 @@ const appElem = document.querySelector('.react-homeapp');
 if (appElem) {
   ReactDOM.render(
     <Provider store={store}>
-      <TwitterApps />
+      <TwitterApps
+        baseUrl={basePath}
+      />
     </Provider>,
     appElem,
   );

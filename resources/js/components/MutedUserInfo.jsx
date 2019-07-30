@@ -11,8 +11,18 @@ class MutedUserInfo extends Component {
     super(props);
     this.state = {
       showTweets: TwAppsConst.SHOW_TWEETS_INITIAL,
+      listHeight: 0,
       muted: true,
     };
+    const mutedUser = this.props.mutedUserInfo.muted_user;
+    this.userClassName = `user-${mutedUser.screen_name}`;
+    this.listClassName = `list-${mutedUser.screen_name}`;
+    this.itemClassName = `item-${mutedUser.screen_name}`;
+  }
+
+  componentDidMount() {
+    this.itemElems = document.getElementsByClassName(this.itemClassName);
+    this.userElems = document.getElementsByClassName(this.userClassName);
   }
 
   handleUnmuteClicked() {
@@ -24,17 +34,26 @@ class MutedUserInfo extends Component {
     const { showTweets } = this.state;
     if (showTweets === TwAppsConst.SHOW_TWEETS_OPENED) {
       this.setState({ showTweets: TwAppsConst.SHOW_TWEETS_CLOSED });
+      // 固定ヘッダで隠れる分を考慮してスクロールする
+      window.scrollTo(0, this.userElems[0].offsetTop - 50);
       return;
     }
+    // アニメーション用にツイートリストの高さを計算する
+    // ListのComponentDidMountでは画像ロード前の高さになってしまうためズレる
+    let listHeight = 0;
+    for (let i = 0; i < this.itemElems.length; i += 1) {
+      listHeight += this.itemElems[i].clientHeight;
+    }
+    this.setState({ listHeight });
     this.setState({ showTweets: TwAppsConst.SHOW_TWEETS_OPENED });
   }
 
   render() {
     const { mutedUserInfo } = this.props;
     const mutedUser = mutedUserInfo.muted_user;
-    const { showTweets, muted } = this.state;
+    const { showTweets, muted, listHeight } = this.state;
     return (
-      <li className="muted-user-info">
+      <li className={`muted-user-info ${this.userClassName}`}>
         <div className="muted-top-container">
           <img className="muted-user-icon" src={mutedUser.profile_image_url_https} alt="icon" />
           <div className="muted-username-container">
@@ -47,6 +66,9 @@ class MutedUserInfo extends Component {
         </div>
         <MutedTweetList
           showTweets={showTweets}
+          listClassName={this.listClassName}
+          itemClassName={this.itemClassName}
+          listHeight={listHeight}
           mutedTweets={mutedUserInfo.tweets_info}
         />
         <div className="muted-bottom-container">

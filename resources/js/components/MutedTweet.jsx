@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import convertBreak from '../modules/convertBreak';
 
-const MutedTweet = ({ mutedTweet }) => {
+const MutedTweet = ({ mutedTweet, itemClassName }) => {
   return (
-    <li className="muted-tweet">
+    <li className={`muted-tweet ${itemClassName}`}>
       {mutedTweet.tweet_text}
       <ul className="tweet-media-container">
         {
@@ -48,6 +48,7 @@ MutedTweet.propTypes = {
       }),
     ),
   }).isRequired,
+  itemClassName: PropTypes.string.isRequired,
 };
 
 export default MutedTweet;
