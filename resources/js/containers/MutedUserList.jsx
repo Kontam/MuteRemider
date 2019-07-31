@@ -16,16 +16,18 @@ class MutedUserList extends Component {
   }
 
   render() {
-    const { mutedUsers } = this.props;
+    const { mutedUsers, muted } = this.props;
     return (
       <div className="muter-content">
         <h2 className="muter-discription">あなたがミュートしているユーザー</h2>
         <ul className="muted-user-list">
           {
-            mutedUsers.map(mutedUserInfo => (
+            mutedUsers.map((mutedUserInfo, index) => (
               <MutedUserInfo
                 key={mutedUserInfo.muted_user.user_id}
                 mutedUserInfo={mutedUserInfo}
+                index={index}
+                isUserMuted={muted[index]}
               />
             ))
           }
@@ -44,11 +46,13 @@ MutedUserList.propTypes = {
       }),
     }),
   ).isRequired,
+  muted: PropTypes.arrayOf(PropTypes.bool).isRequired,
 };
 
 export default connect(
   state => ({
     mutedUsers: state.mutedUsers,
+    muted: state.muted,
   }),
   {
     requestMutedUsers,

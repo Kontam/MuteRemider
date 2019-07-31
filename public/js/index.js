@@ -13,15 +13,23 @@ var TwAppsConst = {
   STYLE_DARK_GRAY: '#bcbcbc',
   USER_INFO_ENDPOINT: '/user_api',
   MUTED_USERS_ENDPOINT: '/list_api',
+  UNMUTE_USER_ENDPOINT: '/unmute',
+  MUTE_USER_ENDPOINT: '/mute',
   ACTION_CHANGE_BASE_URL: 'CHANGE_BASE_URL',
   ACTION_CHANGE_USER_INFO: 'CHANGE_USER_INFO',
   ACTION_CHANGE_MUTED_USERS: 'CHANGE_MUTED_USERS',
+  ACTION_TOGGLE_MUTED: 'TOGGLE_MUTED',
+  ACTION_CHANGE_MUTED: 'CHANGE_MUTED',
+  ACTION_MUTE_REQUEST_START: 'MUTE_REQUEST_START',
+  ACTION_MUTE_REQUEST_END: 'MUTE_REQUEST_END',
   HEADER_MENU_INITIAL: 'initial',
   HEADER_MENU_CLOSED: 'closed',
   HEADER_MENU_OPENED: 'opened',
   SHOW_TWEETS_INITIAL: 'initial',
   SHOW_TWEETS_CLOSED: 'closed',
-  SHOW_TWEETS_OPENED: 'opened'
+  SHOW_TWEETS_OPENED: 'opened',
+  REQUEST_STATUS_COMPLETE: 'complete',
+  REQUEST_STATUS_LOADING: 'loading'
 };
 /* harmony default export */ __webpack_exports__["default"] = (TwAppsConst);
 
@@ -31,7 +39,7 @@ var TwAppsConst = {
 /*!***************************************!*\
   !*** ./resources/js/actions/index.js ***!
   \***************************************/
-/*! exports provided: setBaseUrl, setUserInfo, setMutedUsers, requestUserInfo, requestMutedUsers */
+/*! exports provided: setBaseUrl, setUserInfo, setMutedUsers, setMuted, toggleMuted, startMuteRequest, endMuteRequest, requestUserInfo, requestMutedUsers, requestUnmuteUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39,8 +47,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setBaseUrl", function() { return setBaseUrl; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setUserInfo", function() { return setUserInfo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setMutedUsers", function() { return setMutedUsers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setMuted", function() { return setMuted; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleMuted", function() { return toggleMuted; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "startMuteRequest", function() { return startMuteRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endMuteRequest", function() { return endMuteRequest; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestUserInfo", function() { return requestUserInfo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestMutedUsers", function() { return requestMutedUsers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestUnmuteUser", function() { return requestUnmuteUser; });
 /* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
 /* harmony import */ var _modules_requestToServer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/requestToServer */ "./resources/js/modules/requestToServer.js");
 
@@ -68,6 +81,40 @@ var setMutedUsers = function setMutedUsers(mutedUsers) {
       mutedUsers: mutedUsers
     });
   };
+}; // ユーザーごとにミュートされているかどうかのフラグ
+
+var setMuted = function setMuted(muted) {
+  return function (dispatch) {
+    dispatch({
+      type: _TwAppsConst__WEBPACK_IMPORTED_MODULE_0__["default"].ACTION_CHANGE_MUTED,
+      muted: muted
+    });
+  };
+}; // インデックス番号で指定されたユーザーのミュートフラグをトグルする
+
+var toggleMuted = function toggleMuted(index) {
+  return function (dispatch) {
+    dispatch({
+      type: _TwAppsConst__WEBPACK_IMPORTED_MODULE_0__["default"].ACTION_TOGGLE_MUTED,
+      index: index
+    });
+  };
+}; // ミュートAPIへのリクエストステータス
+
+var startMuteRequest = function startMuteRequest() {
+  return function (dispatch) {
+    dispatch({
+      type: _TwAppsConst__WEBPACK_IMPORTED_MODULE_0__["default"].ACTION_MUTE_REQUEST_START
+    });
+  };
+}; // ミュートAPIへのリクエストステータス
+
+var endMuteRequest = function endMuteRequest() {
+  return function (dispatch) {
+    dispatch({
+      type: _TwAppsConst__WEBPACK_IMPORTED_MODULE_0__["default"].ACTION_MUTE_REQUEST_END
+    });
+  };
 }; // 認証ユーザーの情報を取得する
 
 var requestUserInfo = function requestUserInfo(endpoint) {
@@ -80,14 +127,39 @@ var requestUserInfo = function requestUserInfo(endpoint) {
       return 0;
     });
   };
-};
+}; // ミュートユーザーのリストを取得し、ミュート状態のstateを初期化する
+
 var requestMutedUsers = function requestMutedUsers(endpoint) {
   var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   return function (dispatch) {
     Object(_modules_requestToServer__WEBPACK_IMPORTED_MODULE_1__["default"])(endpoint, params).then(function (_ref2) {
       var data = _ref2.data,
           status = _ref2.status;
+      // 全てミュートフラグを立てた配列をミュートの初期値としてdispatch
+      // ユーザーリストよりも先にこちらを作る（依存しているため）
+      var initializedMuted = Array(data.length).fill(true);
+      dispatch(setMuted(initializedMuted)); // ミュートユーザーをstoreに登録
+
       dispatch(setMutedUsers(data));
+      return 0;
+    });
+  };
+};
+var requestUnmuteUser = function requestUnmuteUser(endpoint, screenName, index) {
+  var params = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
+  return function (dispatch) {
+    dispatch(startMuteRequest());
+    Object(_modules_requestToServer__WEBPACK_IMPORTED_MODULE_1__["default"])(endpoint, params).then(function (_ref3) {
+      var data = _ref3.data,
+          status = _ref3.status;
+      // ミュート解除に成功した場合はユーザー情報objectが返される
+      // スクリーンネームを照合して成否を確認する
+      dispatch(endMuteRequest());
+
+      if (data.screen_name === screenName) {
+        dispatch(toggleMuted(index));
+      }
+
       return 0;
     });
   };
@@ -213,28 +285,11 @@ var MutedTweetList =
 function (_Component) {
   _inherits(MutedTweetList, _Component);
 
-  function MutedTweetList(props) {
-    var _this;
-
+  function MutedTweetList() {
     _classCallCheck(this, MutedTweetList);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(MutedTweetList).call(this, props));
-    _this.ulStyle = {}; // this.listClassName = `list-${this.props.screenName}`;
-    // this.itemClassName = `user-${this.props.screenName}`;
-
-    return _this;
-  } // componentDidMount() {
-  //   this.itemElems = document.getElementsByClassName(this.itemClassName);
-  //   this.listElems = document.getElementsByClassName(this.listClassName);
-  //   this.listElems[0].addEventListener('load', () => {
-  //     console.log('laode');
-  //     this.listHeight = 0;
-  //     for (let i = 0; i < this.listElems.length; i += 1) {
-  //       this.listHeight += this.listElems[i].clientHeight;
-  //     }
-  //   });
-  // }
-
+    return _possibleConstructorReturn(this, _getPrototypeOf(MutedTweetList).apply(this, arguments));
+  }
 
   _createClass(MutedTweetList, [{
     key: "render",
@@ -252,12 +307,6 @@ function (_Component) {
             borderTop: "1px solid ".concat(_TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].STYLE_DARK_GRAY),
             display: 'block',
             maxHeight: listHeight
-          };
-          break;
-
-        case _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].SHOW_TWEETS_CLOSED:
-          this.ulStyle = {
-            maxHeight: 0
           };
           break;
 
@@ -286,7 +335,6 @@ function (_Component) {
 MutedTweetList.propTypes = {
   showTweets: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
   mutedTweets: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape()).isRequired,
-  // screenName: PropTypes.string.isRequired,
   listClassName: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
   itemClassName: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
 };
@@ -311,10 +359,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _UnmuteButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UnmuteButton */ "./resources/js/components/UnmuteButton.jsx");
-/* harmony import */ var _ShowTweetsButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ShowTweetsButton */ "./resources/js/components/ShowTweetsButton.jsx");
-/* harmony import */ var _MutedTweetList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MutedTweetList */ "./resources/js/components/MutedTweetList.jsx");
-/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _UnmuteButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UnmuteButton */ "./resources/js/components/UnmuteButton.jsx");
+/* harmony import */ var _ShowTweetsButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ShowTweetsButton */ "./resources/js/components/ShowTweetsButton.jsx");
+/* harmony import */ var _MutedTweetList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MutedTweetList */ "./resources/js/components/MutedTweetList.jsx");
+/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -340,6 +390,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
 var MutedUserInfo =
 /*#__PURE__*/
 function (_Component) {
@@ -352,9 +404,8 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(MutedUserInfo).call(this, props));
     _this.state = {
-      showTweets: _TwAppsConst__WEBPACK_IMPORTED_MODULE_5__["default"].SHOW_TWEETS_INITIAL,
-      listHeight: 0,
-      muted: true
+      showTweets: _TwAppsConst__WEBPACK_IMPORTED_MODULE_6__["default"].SHOW_TWEETS_INITIAL,
+      listHeight: 0
     };
     var mutedUser = _this.props.mutedUserInfo.muted_user;
     _this.userClassName = "user-".concat(mutedUser.screen_name);
@@ -372,19 +423,24 @@ function (_Component) {
   }, {
     key: "handleUnmuteClicked",
     value: function handleUnmuteClicked() {
-      var muted = this.state.muted;
-      this.setState({
-        muted: !muted
-      });
+      var _this$props = this.props,
+          index = _this$props.index,
+          mutedUserInfo = _this$props.mutedUserInfo,
+          baseUrl = _this$props.baseUrl,
+          isUserMuted = _this$props.isUserMuted;
+      var accessPath = isUserMuted ? _TwAppsConst__WEBPACK_IMPORTED_MODULE_6__["default"].UNMUTE_USER_ENDPOINT : _TwAppsConst__WEBPACK_IMPORTED_MODULE_6__["default"].MUTE_USER_ENDPOINT; // 対象ユーザーがミュートか非ミュートかでエンドポイントが変わる
+
+      var endpoint = "".concat(baseUrl).concat(accessPath, "/").concat(mutedUserInfo.muted_user.screen_name);
+      this.props.requestUnmuteUser(endpoint, mutedUserInfo.muted_user.screen_name, index);
     }
   }, {
     key: "handleShowTweetsClicked",
     value: function handleShowTweetsClicked() {
       var showTweets = this.state.showTweets;
 
-      if (showTweets === _TwAppsConst__WEBPACK_IMPORTED_MODULE_5__["default"].SHOW_TWEETS_OPENED) {
+      if (showTweets === _TwAppsConst__WEBPACK_IMPORTED_MODULE_6__["default"].SHOW_TWEETS_OPENED) {
         this.setState({
-          showTweets: _TwAppsConst__WEBPACK_IMPORTED_MODULE_5__["default"].SHOW_TWEETS_CLOSED
+          showTweets: _TwAppsConst__WEBPACK_IMPORTED_MODULE_6__["default"].SHOW_TWEETS_CLOSED
         }); // 固定ヘッダで隠れる分を考慮してスクロールする
 
         window.scrollTo(0, this.userElems[0].offsetTop - 50);
@@ -396,14 +452,15 @@ function (_Component) {
       var listHeight = 0;
 
       for (var i = 0; i < this.itemElems.length; i += 1) {
-        listHeight += this.itemElems[i].clientHeight;
+        // border-bottomの分1pxを加算する
+        listHeight += this.itemElems[i].clientHeight + 1;
       }
 
       this.setState({
         listHeight: listHeight
       });
       this.setState({
-        showTweets: _TwAppsConst__WEBPACK_IMPORTED_MODULE_5__["default"].SHOW_TWEETS_OPENED
+        showTweets: _TwAppsConst__WEBPACK_IMPORTED_MODULE_6__["default"].SHOW_TWEETS_OPENED
       });
     }
   }, {
@@ -411,16 +468,17 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var mutedUserInfo = this.props.mutedUserInfo;
+      var _this$props2 = this.props,
+          mutedUserInfo = _this$props2.mutedUserInfo,
+          isUserMuted = _this$props2.isUserMuted;
       var mutedUser = mutedUserInfo.muted_user;
       var _this$state = this.state,
           showTweets = _this$state.showTweets,
-          muted = _this$state.muted,
           listHeight = _this$state.listHeight;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "muted-user-info ".concat(this.userClassName)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "muted-top-container"
+        className: "muted-top-container ".concat(isUserMuted ? '' : 'unmuted-user-bg')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "muted-user-icon",
         src: mutedUser.profile_image_url_https,
@@ -431,7 +489,7 @@ function (_Component) {
         className: "muted-user-name"
       }, mutedUser.user_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "muted-user-name"
-      }, "@", mutedUser.screen_name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MutedTweetList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }, "@", mutedUser.screen_name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MutedTweetList__WEBPACK_IMPORTED_MODULE_5__["default"], {
         showTweets: showTweets,
         listClassName: this.listClassName,
         itemClassName: this.itemClassName,
@@ -439,12 +497,12 @@ function (_Component) {
         mutedTweets: mutedUserInfo.tweets_info
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "muted-bottom-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UnmuteButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        muted: muted,
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UnmuteButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        muted: isUserMuted,
         onClick: function onClick() {
           _this2.handleUnmuteClicked();
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ShowTweetsButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ShowTweetsButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
         showTweets: showTweets,
         onClick: function onClick() {
           _this2.handleShowTweetsClicked();
@@ -461,12 +519,23 @@ MutedUserInfo.propTypes = {
     muted_user: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape({
       user_name: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
       screen_name: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
-      profile_image_url_https: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+      profile_image_url_https: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+      muted: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool.isRequired
     }),
     tweets_info: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape())
-  }).isRequired
+  }).isRequired,
+  index: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number.isRequired,
+  isUserMuted: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool.isRequired,
+  baseUrl: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
 };
-/* harmony default export */ __webpack_exports__["default"] = (MutedUserInfo);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(function (state) {
+  return {
+    baseUrl: state.baseUrl
+  };
+}, {
+  requestUnmuteUser: _actions__WEBPACK_IMPORTED_MODULE_7__["requestUnmuteUser"],
+  toggleMuted: _actions__WEBPACK_IMPORTED_MODULE_7__["toggleMuted"]
+})(MutedUserInfo));
 
 /***/ }),
 
@@ -758,17 +827,21 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var mutedUsers = this.props.mutedUsers;
+      var _this$props = this.props,
+          mutedUsers = _this$props.mutedUsers,
+          muted = _this$props.muted;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "muter-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "muter-discription"
       }, "\u3042\u306A\u305F\u304C\u30DF\u30E5\u30FC\u30C8\u3057\u3066\u3044\u308B\u30E6\u30FC\u30B6\u30FC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "muted-user-list"
-      }, mutedUsers.map(function (mutedUserInfo) {
+      }, mutedUsers.map(function (mutedUserInfo, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MutedUserInfo__WEBPACK_IMPORTED_MODULE_4__["default"], {
           key: mutedUserInfo.muted_user.user_id,
-          mutedUserInfo: mutedUserInfo
+          mutedUserInfo: mutedUserInfo,
+          index: index,
+          isUserMuted: muted[index]
         });
       })));
     }
@@ -783,11 +856,13 @@ MutedUserList.propTypes = {
     muted_user: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape({
       user_id: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number
     })
-  })).isRequired
+  })).isRequired,
+  muted: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool).isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(function (state) {
   return {
-    mutedUsers: state.mutedUsers
+    mutedUsers: state.mutedUsers,
+    muted: state.muted
   };
 }, {
   requestMutedUsers: _actions__WEBPACK_IMPORTED_MODULE_5__["requestMutedUsers"]
@@ -1027,10 +1102,48 @@ var mutedUsers = function mutedUsers() {
   }
 };
 
+var muted = function muted() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  // stateのアドレスが変わらないとレンダリングがされない
+  // 旧stateの値をコピーした変数を用意する
+  var newMuted = state.concat();
+
+  switch (action.type) {
+    case _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__["default"].ACTION_CHANGE_MUTED:
+      return action.muted;
+
+    case _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__["default"].ACTION_TOGGLE_MUTED:
+      newMuted[action.index] = !state[action.index];
+      return newMuted;
+
+    default:
+      return state;
+  }
+};
+
+var muteRequestStatus = function muteRequestStatus() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__["default"].REQUEST_STATUS_COMPLETE;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__["default"].ACTION_MUTE_REQUEST_START:
+      return _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__["default"].REQUEST_STATUS_LOADING;
+
+    case _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__["default"].ACTION_MUTE_REQUEST_END:
+      return _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__["default"].REQUEST_STATUS_COMPLETE;
+
+    default:
+      return state;
+  }
+};
+
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   baseUrl: baseUrl,
   userInfo: userInfo,
-  mutedUsers: mutedUsers
+  mutedUsers: mutedUsers,
+  muted: muted,
+  muteRequestStatus: muteRequestStatus
 }));
 
 /***/ }),

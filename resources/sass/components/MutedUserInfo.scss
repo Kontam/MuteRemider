@@ -8,6 +8,11 @@
   align-items: center;
   display: flex;
   height: 95px;
+  transition: .5s;
+}
+
+.unmuted-user-bg {
+  background-color: $unmuted-user-bg;
 }
 
 .muted-user-icon {

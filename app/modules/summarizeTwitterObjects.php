@@ -25,6 +25,7 @@ function summarizeMutedUsersInfo($users_obj)
             "screen_name"             => $user->screen_name,
             "user_url"                => $user->url,
             "profile_image_url_https" => $user->profile_image_url_https,
+            "muted"                   => true,
         ];
     }
 

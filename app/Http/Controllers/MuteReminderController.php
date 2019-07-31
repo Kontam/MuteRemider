@@ -12,28 +12,6 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 
 class MuteReminderController extends Controller
 {
-    // public function list(Request $request)
-    // {
-    //     //TwitterOAuthのインスタンスを生成する
-    //     $objTwitterConnection = createTwitterConnection();
-    //     $tweets_params = [];
-    //     $tweets_params = ['count' => 10];
-    //
-    //     $muted_users = $objTwitterConnection->get('mutes/users/list', $tweets_params);
-    //     $users_tweets = [];
-    //     foreach ($muted_users->users as $muted_user) {
-    //         $users_tweets_params = [
-    //             'user_id' => $muted_user->id,
-    //             'count' => 20,
-    //             'trim_user' => true, //ユーザー情報は省略
-    //             'exclude_replies' => true, // リプライは含まない
-    //             'include_rts' => false, //リツイートは含まない
-    //         ];
-    //         $users_tweets[] = $objTwitterConnection->get('statuses/user_timeline', $users_tweets_params);
-    //     }
-    //     return view('muter.list', compact('muted_users', 'users_tweets'));
-    // }
-
     // ==================================================
     // 認証したユーザーの情報を取得するAPI
     // ==================================================
@@ -81,10 +59,6 @@ class MuteReminderController extends Controller
                 "tweets_info" => summarizeTweetsInfo($user_tweets)
             ];
         }
-
-        // dd($return_array);
-
-
         return response()->json($return_array);
     }
 
@@ -96,8 +70,20 @@ class MuteReminderController extends Controller
 
         $result = $objTwitterConnection->post('mutes/users/destroy', $unmute_params);
 
-        return redirect('/show');
+        return response()->json($result);
     }
+
+    public function mute($screen_name) {
+        //TwitterOAuthのインスタンスを生成する
+        $objTwitterConnection = createTwitterConnection();
+
+        $mute_params = ['screen_name' => $screen_name];
+
+        $result = $objTwitterConnection->post('mutes/users/create', $mute_params);
+
+        return response()->json($result);
+    }
+
 
     public function top()
     {

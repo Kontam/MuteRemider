@@ -6,24 +6,6 @@ import TwAppsConst from '../TwAppsConst';
 import MutedTweet from './MutedTweet';
 
 class MutedTweetList extends Component {
-  constructor(props) {
-    super(props);
-    this.ulStyle = {};
-    // this.listClassName = `list-${this.props.screenName}`;
-    // this.itemClassName = `user-${this.props.screenName}`;
-  }
-
-  // componentDidMount() {
-  //   this.itemElems = document.getElementsByClassName(this.itemClassName);
-  //   this.listElems = document.getElementsByClassName(this.listClassName);
-  //   this.listElems[0].addEventListener('load', () => {
-  //     console.log('laode');
-  //     this.listHeight = 0;
-  //     for (let i = 0; i < this.listElems.length; i += 1) {
-  //       this.listHeight += this.listElems[i].clientHeight;
-  //     }
-  //   });
-  // }
 
   render() {
     const {
@@ -35,11 +17,6 @@ class MutedTweetList extends Component {
         borderTop: `1px solid ${TwAppsConst.STYLE_DARK_GRAY}`,
         display: 'block',
         maxHeight: listHeight,
-      };
-      break;
-    case TwAppsConst.SHOW_TWEETS_CLOSED:
-      this.ulStyle = {
-        maxHeight: 0,
       };
       break;
     default:
@@ -70,7 +47,6 @@ class MutedTweetList extends Component {
 MutedTweetList.propTypes = {
   showTweets: PropTypes.string.isRequired,
   mutedTweets: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  // screenName: PropTypes.string.isRequired,
   listClassName: PropTypes.string.isRequired,
   itemClassName: PropTypes.string.isRequired,
 };

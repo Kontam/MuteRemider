@@ -132,6 +132,11 @@ body {
   align-items: center;
   display: flex;
   height: 95px;
+  transition: 0.5s;
+}
+
+.unmuted-user-bg {
+  background-color: #C7FFDF;
 }
 
 .muted-user-icon {
