@@ -9,16 +9,24 @@ import { requestMutedUsers } from '../actions';
 class MutedUserList extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isLoading: true,
+    };
   }
 
   componentDidMount() {
     this.props.requestMutedUsers(TwAppsConst.MUTED_USERS_ENDPOINT);
   }
 
+  handleLoad() {
+    this.setState({ isLoading: false });
+  }
+
   render() {
     const { mutedUsers, muted } = this.props;
+    const { isLoading } = this.state;
     return (
-      <div className="muter-content">
+      <div className="muter-content" style={isLoading ? { display: 'none' } : {}} onLoad={() => { this.handleLoad(); }}>
         <h2 className="muter-discription">あなたがミュートしているユーザー</h2>
         <ul className="muted-user-list">
           {

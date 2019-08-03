@@ -33,6 +33,16 @@ export const endMuteRequest = () => (dispatch) => {
   dispatch({ type: TwAppsConst.ACTION_MUTE_REQUEST_END });
 };
 
+// ユーザーAPIへのリクエストステータス
+export const startUserRequest = () => (dispatch) => {
+  dispatch({ type: TwAppsConst.ACTION_USER_REQUEST_START });
+};
+
+// ユーザーAPIへのリクエストステータス
+export const endUserRequest = () => (dispatch) => {
+  dispatch({ type: TwAppsConst.ACTION_USER_REQUEST_END });
+};
+
 // 認証ユーザーの情報を取得する
 export const requestUserInfo = (endpoint, params = {}) => (dispatch) => {
   requestToServer(endpoint, params)
@@ -44,10 +54,12 @@ export const requestUserInfo = (endpoint, params = {}) => (dispatch) => {
 
 // ミュートユーザーのリストを取得し、ミュート状態のstateを初期化する
 export const requestMutedUsers = (endpoint, params = {}) => (dispatch) => {
+  dispatch(startUserRequest());
   requestToServer(endpoint, params)
     .then(({ data, status }) => {
       // 全てミュートフラグを立てた配列をミュートの初期値としてdispatch
       // ユーザーリストよりも先にこちらを作る（依存しているため）
+      dispatch(endUserRequest());
       const initializedMuted = Array(data.length).fill(true);
       dispatch(setMuted(initializedMuted));
       // ミュートユーザーをstoreに登録

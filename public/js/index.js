@@ -20,6 +20,8 @@ var TwAppsConst = {
   ACTION_CHANGE_MUTED_USERS: 'CHANGE_MUTED_USERS',
   ACTION_TOGGLE_MUTED: 'TOGGLE_MUTED',
   ACTION_CHANGE_MUTED: 'CHANGE_MUTED',
+  ACTION_USER_REQUEST_START: 'USER_REQUEST_START',
+  ACTION_USER_REQUEST_END: 'USER_REQUEST_END',
   ACTION_MUTE_REQUEST_START: 'MUTE_REQUEST_START',
   ACTION_MUTE_REQUEST_END: 'MUTE_REQUEST_END',
   HEADER_MENU_INITIAL: 'initial',
@@ -39,7 +41,7 @@ var TwAppsConst = {
 /*!***************************************!*\
   !*** ./resources/js/actions/index.js ***!
   \***************************************/
-/*! exports provided: setBaseUrl, setUserInfo, setMutedUsers, setMuted, toggleMuted, startMuteRequest, endMuteRequest, requestUserInfo, requestMutedUsers, requestUnmuteUser */
+/*! exports provided: setBaseUrl, setUserInfo, setMutedUsers, setMuted, toggleMuted, startMuteRequest, endMuteRequest, startUserRequest, endUserRequest, requestUserInfo, requestMutedUsers, requestUnmuteUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51,6 +53,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleMuted", function() { return toggleMuted; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "startMuteRequest", function() { return startMuteRequest; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endMuteRequest", function() { return endMuteRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "startUserRequest", function() { return startUserRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endUserRequest", function() { return endUserRequest; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestUserInfo", function() { return requestUserInfo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestMutedUsers", function() { return requestMutedUsers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestUnmuteUser", function() { return requestUnmuteUser; });
@@ -115,6 +119,22 @@ var endMuteRequest = function endMuteRequest() {
       type: _TwAppsConst__WEBPACK_IMPORTED_MODULE_0__["default"].ACTION_MUTE_REQUEST_END
     });
   };
+}; // ユーザーAPIへのリクエストステータス
+
+var startUserRequest = function startUserRequest() {
+  return function (dispatch) {
+    dispatch({
+      type: _TwAppsConst__WEBPACK_IMPORTED_MODULE_0__["default"].ACTION_USER_REQUEST_START
+    });
+  };
+}; // ユーザーAPIへのリクエストステータス
+
+var endUserRequest = function endUserRequest() {
+  return function (dispatch) {
+    dispatch({
+      type: _TwAppsConst__WEBPACK_IMPORTED_MODULE_0__["default"].ACTION_USER_REQUEST_END
+    });
+  };
 }; // 認証ユーザーの情報を取得する
 
 var requestUserInfo = function requestUserInfo(endpoint) {
@@ -132,11 +152,13 @@ var requestUserInfo = function requestUserInfo(endpoint) {
 var requestMutedUsers = function requestMutedUsers(endpoint) {
   var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   return function (dispatch) {
+    dispatch(startUserRequest());
     Object(_modules_requestToServer__WEBPACK_IMPORTED_MODULE_1__["default"])(endpoint, params).then(function (_ref2) {
       var data = _ref2.data,
           status = _ref2.status;
       // 全てミュートフラグを立てた配列をミュートの初期値としてdispatch
       // ユーザーリストよりも先にこちらを作る（依存しているため）
+      dispatch(endUserRequest());
       var initializedMuted = Array(data.length).fill(true);
       dispatch(setMuted(initializedMuted)); // ミュートユーザーをstoreに登録
 
@@ -164,6 +186,63 @@ var requestUnmuteUser = function requestUnmuteUser(endpoint, screenName, index) 
     });
   };
 };
+
+/***/ }),
+
+/***/ "./resources/js/components/LoadingImg.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/components/LoadingImg.jsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
+
+
+
+
+
+var LoadingImg = function LoadingImg(_ref) {
+  var muteRequestStatus = _ref.muteRequestStatus,
+      userRequestStatus = _ref.userRequestStatus;
+  var style = {}; // いずれかの要素がロード中の時は表示する
+
+  if (muteRequestStatus === _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].REQUEST_STATUS_COMPLETE && userRequestStatus === _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].REQUEST_STATUS_COMPLETE) {
+    style = {
+      display: 'none'
+    };
+  } // background-imageは表示の優先順位が低いらしいのでimgタグを使用する
+
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "loading-img-container",
+    style: style
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "loading-img",
+    src: "img/loading_anim.svg",
+    alt: "loading"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "loading-caption"
+  }, "loading..."));
+};
+
+LoadingImg.propTypes = {
+  muteRequestStatus: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  userRequestStatus: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(function (state) {
+  return {
+    muteRequestStatus: state.muteRequestStatus,
+    userRequestStatus: state.userRequestStatus
+  };
+})(LoadingImg));
 
 /***/ }),
 
@@ -752,15 +831,72 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_MuterMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/MuterMenu */ "./resources/js/components/MuterMenu.jsx");
 /* harmony import */ var _MutedUserList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MutedUserList */ "./resources/js/containers/MutedUserList.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
 
 
-var MuteReminder = function MuteReminder() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "mutereminder"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MuterMenu__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MutedUserList__WEBPACK_IMPORTED_MODULE_2__["default"], null));
-};
+
+var MuteReminder =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(MuteReminder, _Component);
+
+  function MuteReminder(props) {
+    var _this;
+
+    _classCallCheck(this, MuteReminder);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MuteReminder).call(this, props));
+    _this.state = {
+      isLoading: true
+    };
+    return _this;
+  }
+
+  _createClass(MuteReminder, [{
+    key: "handleLoad",
+    value: function handleLoad() {
+      this.setState({
+        isLoading: false
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var isLoading = this.state.isLoading;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mutereminder",
+        style: isLoading ? {} : {
+          display: 'block'
+        },
+        onLoad: function onLoad() {
+          _this2.handleLoad();
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MuterMenu__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MutedUserList__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+    }
+  }]);
+
+  return MuteReminder;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (MuteReminder);
 
@@ -814,9 +950,15 @@ function (_Component) {
   _inherits(MutedUserList, _Component);
 
   function MutedUserList(props) {
+    var _this;
+
     _classCallCheck(this, MutedUserList);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(MutedUserList).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MutedUserList).call(this, props));
+    _this.state = {
+      isLoading: true
+    };
+    return _this;
   }
 
   _createClass(MutedUserList, [{
@@ -825,13 +967,29 @@ function (_Component) {
       this.props.requestMutedUsers(_TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].MUTED_USERS_ENDPOINT);
     }
   }, {
+    key: "handleLoad",
+    value: function handleLoad() {
+      this.setState({
+        isLoading: false
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$props = this.props,
           mutedUsers = _this$props.mutedUsers,
           muted = _this$props.muted;
+      var isLoading = this.state.isLoading;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "muter-content"
+        className: "muter-content",
+        style: isLoading ? {
+          display: 'none'
+        } : {},
+        onLoad: function onLoad() {
+          _this2.handleLoad();
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "muter-discription"
       }, "\u3042\u306A\u305F\u304C\u30DF\u30E5\u30FC\u30C8\u3057\u3066\u3044\u308B\u30E6\u30FC\u30B6\u30FC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -888,6 +1046,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_TwAppsHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/TwAppsHeader */ "./resources/js/components/TwAppsHeader.jsx");
 /* harmony import */ var _MuteReminder__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MuteReminder */ "./resources/js/containers/MuteReminder.jsx");
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
+/* harmony import */ var _components_LoadingImg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/LoadingImg */ "./resources/js/components/LoadingImg.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -905,6 +1064,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -937,7 +1097,7 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "twitter-apps"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TwAppsHeader__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MuteReminder__WEBPACK_IMPORTED_MODULE_5__["default"], null));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_LoadingImg__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TwAppsHeader__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MuteReminder__WEBPACK_IMPORTED_MODULE_5__["default"], null));
     }
   }]);
 
@@ -1136,6 +1296,23 @@ var muteRequestStatus = function muteRequestStatus() {
     default:
       return state;
   }
+}; // ユーザー情報は最初に必ずロードするため、初期ステータスはロード中
+
+
+var userRequestStatus = function userRequestStatus() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__["default"].REQUEST_STATUS_LOADING;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__["default"].ACTION_USER_REQUEST_START:
+      return _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__["default"].REQUEST_STATUS_LOADING;
+
+    case _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__["default"].ACTION_USER_REQUEST_END:
+      return _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__["default"].REQUEST_STATUS_COMPLETE;
+
+    default:
+      return state;
+  }
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
@@ -1143,7 +1320,8 @@ var muteRequestStatus = function muteRequestStatus() {
   userInfo: userInfo,
   mutedUsers: mutedUsers,
   muted: muted,
-  muteRequestStatus: muteRequestStatus
+  muteRequestStatus: muteRequestStatus,
+  userRequestStatus: userRequestStatus
 }));
 
 /***/ }),

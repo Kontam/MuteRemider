@@ -55,10 +55,23 @@ const muteRequestStatus = (state = TwAppsConst.REQUEST_STATUS_COMPLETE, action) 
   }
 };
 
+// ユーザー情報は最初に必ずロードするため、初期ステータスはロード中
+const userRequestStatus = (state = TwAppsConst.REQUEST_STATUS_LOADING, action) => {
+  switch (action.type) {
+  case TwAppsConst.ACTION_USER_REQUEST_START:
+    return TwAppsConst.REQUEST_STATUS_LOADING;
+  case TwAppsConst.ACTION_USER_REQUEST_END:
+    return TwAppsConst.REQUEST_STATUS_COMPLETE;
+  default:
+    return state;
+  }
+};
+
 export default combineReducers({
   baseUrl,
   userInfo,
   mutedUsers,
   muted,
   muteRequestStatus,
+  userRequestStatus,
 });

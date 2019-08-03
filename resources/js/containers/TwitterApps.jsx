@@ -6,6 +6,8 @@ import TwAppsConst from '../TwAppsConst';
 import TwAppsHeader from '../components/TwAppsHeader';
 import MuteReminder from './MuteReminder';
 import { requestUserInfo, setBaseUrl } from '../actions';
+import LoadingImg from '../components/LoadingImg';
+
 
 class TwitterApps extends Component {
   componentDidMount() {
@@ -17,6 +19,7 @@ class TwitterApps extends Component {
   render() {
     return (
       <div className="twitter-apps">
+        <LoadingImg />
         <TwAppsHeader />
         <MuteReminder />
       </div>
