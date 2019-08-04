@@ -42,6 +42,11 @@ class MuteReminderController extends Controller
         $muted_users = $objTwitterConnection->get('mutes/users/list', $tweets_params);
         $simple_users_array = summarizeMutedUsersInfo($muted_users);
 
+        // エラー配列が返還されていた場合はそれをレスポンスとして返却
+        if (array_key_exists("code", $simple_users_array[0])) {
+            return response()->json($simple_users_array);
+        }
+
         // ミュートユーザーごとのツイートを取得し、不要な情報を削る
         foreach ($simple_users_array as $muted_user) {
             $users_tweets_params = [

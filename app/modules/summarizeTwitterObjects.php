@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . '/TwitterAPIErrorCheck.php');
+
 function summarizeUserInfo($user_obj)
 {
     return $simple_user_array = [
@@ -11,6 +13,14 @@ function summarizeUserInfo($user_obj)
 
 function summarizeMutedUsersInfo($users_obj)
 {
+    // API制限回数等のTwitterからのエラー処理
+    $error_status = TwitterAPIErrorCheck($users_obj);
+    if ($error_status !== "OK") {
+        return $error_status;
+    }
+
+    // 不測の事態
+    // デバッグ用にAPIのアドレスを直接売った時にddされるようにする
     if (! property_exists($users_obj, "users")) {
         dd($users_obj);
     }
