@@ -43,6 +43,16 @@ export const endUserRequest = () => (dispatch) => {
   dispatch({ type: TwAppsConst.ACTION_USER_REQUEST_END });
 };
 
+// 致命的なエラーメッセージの指定
+export const setErrMessage = message => (dispatch) => {
+  dispatch({ type: TwAppsConst.ACTION_CHANGE_ERR_MESSAGE, message });
+};
+
+// ポップアップ表示するメッセージの設定
+export const setPopUpMessage = message => (dispatch) => {
+  dispatch({ type: TwAppsConst.ACTION_CHANGE_ERR_MESSAGE, message });
+};
+
 // 認証ユーザーの情報を取得する
 export const requestUserInfo = (endpoint, params = {}) => (dispatch) => {
   requestToServer(endpoint, params)
@@ -56,7 +66,11 @@ export const requestUserInfo = (endpoint, params = {}) => (dispatch) => {
 export const requestMutedUsers = (endpoint, params = {}) => (dispatch) => {
   dispatch(startUserRequest());
   requestToServer(endpoint, params)
-    .then(({ data, status }) => {
+    .then(({ data }) => {
+      if ('code' in data[0]) {
+        dispatch(setErrMessage(data[0].message));
+        return;
+      }
       // 全てミュートフラグを立てた配列をミュートの初期値としてdispatch
       // ユーザーリストよりも先にこちらを作る（依存しているため）
       dispatch(endUserRequest());
@@ -64,7 +78,6 @@ export const requestMutedUsers = (endpoint, params = {}) => (dispatch) => {
       dispatch(setMuted(initializedMuted));
       // ミュートユーザーをstoreに登録
       dispatch(setMutedUsers(data));
-      return 0;
     });
 };
 
@@ -78,6 +91,5 @@ export const requestUnmuteUser = (endpoint, screenName, index, params = {}) => (
       if (data.screen_name === screenName) {
         dispatch(toggleMuted(index));
       }
-      return 0;
     });
 };

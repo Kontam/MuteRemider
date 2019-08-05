@@ -67,6 +67,28 @@ const userRequestStatus = (state = TwAppsConst.REQUEST_STATUS_LOADING, action) =
   }
 };
 
+// 致命的なエラー発生時に表示するメッセージ
+// 正常処理中は空文字列
+const errMessage = (state = '', action) => {
+  switch (action.type) {
+  case TwAppsConst.ACTION_CHANGE_ERR_MESSAGE:
+    return action.message;
+  default:
+    return state;
+  }
+};
+
+// ユーザーに通知する小さなメッセージ
+// なにもない場合はから文字列
+const popUpMessage = (state = '', action) => {
+  switch (action.type) {
+  case TwAppsConst.ACTION_CHANGE_POPUP_MESSAGE:
+    return action.message;
+  default:
+    return state;
+  }
+};
+
 export default combineReducers({
   baseUrl,
   userInfo,
@@ -74,4 +96,6 @@ export default combineReducers({
   muted,
   muteRequestStatus,
   userRequestStatus,
+  errMessage,
+  popUpMessage,
 });

@@ -24,6 +24,8 @@ var TwAppsConst = {
   ACTION_USER_REQUEST_END: 'USER_REQUEST_END',
   ACTION_MUTE_REQUEST_START: 'MUTE_REQUEST_START',
   ACTION_MUTE_REQUEST_END: 'MUTE_REQUEST_END',
+  ACTION_CHANGE_ERR_MESSAGE: 'CHANG_ERR_MESSAGE',
+  ACTION_CHANGE_POPUP_MESSAGE: 'CHANGE_POPUP_MESSAGE',
   HEADER_MENU_INITIAL: 'initial',
   HEADER_MENU_CLOSED: 'closed',
   HEADER_MENU_OPENED: 'opened',
@@ -41,7 +43,7 @@ var TwAppsConst = {
 /*!***************************************!*\
   !*** ./resources/js/actions/index.js ***!
   \***************************************/
-/*! exports provided: setBaseUrl, setUserInfo, setMutedUsers, setMuted, toggleMuted, startMuteRequest, endMuteRequest, startUserRequest, endUserRequest, requestUserInfo, requestMutedUsers, requestUnmuteUser */
+/*! exports provided: setBaseUrl, setUserInfo, setMutedUsers, setMuted, toggleMuted, startMuteRequest, endMuteRequest, startUserRequest, endUserRequest, setErrMessage, setPopUpMessage, requestUserInfo, requestMutedUsers, requestUnmuteUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55,6 +57,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endMuteRequest", function() { return endMuteRequest; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "startUserRequest", function() { return startUserRequest; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endUserRequest", function() { return endUserRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setErrMessage", function() { return setErrMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setPopUpMessage", function() { return setPopUpMessage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestUserInfo", function() { return requestUserInfo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestMutedUsers", function() { return requestMutedUsers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestUnmuteUser", function() { return requestUnmuteUser; });
@@ -135,6 +139,24 @@ var endUserRequest = function endUserRequest() {
       type: _TwAppsConst__WEBPACK_IMPORTED_MODULE_0__["default"].ACTION_USER_REQUEST_END
     });
   };
+}; // 致命的なエラーメッセージの指定
+
+var setErrMessage = function setErrMessage(message) {
+  return function (dispatch) {
+    dispatch({
+      type: _TwAppsConst__WEBPACK_IMPORTED_MODULE_0__["default"].ACTION_CHANGE_ERR_MESSAGE,
+      message: message
+    });
+  };
+}; // ポップアップ表示するメッセージの設定
+
+var setPopUpMessage = function setPopUpMessage(message) {
+  return function (dispatch) {
+    dispatch({
+      type: _TwAppsConst__WEBPACK_IMPORTED_MODULE_0__["default"].ACTION_CHANGE_ERR_MESSAGE,
+      message: message
+    });
+  };
 }; // 認証ユーザーの情報を取得する
 
 var requestUserInfo = function requestUserInfo(endpoint) {
@@ -154,16 +176,20 @@ var requestMutedUsers = function requestMutedUsers(endpoint) {
   return function (dispatch) {
     dispatch(startUserRequest());
     Object(_modules_requestToServer__WEBPACK_IMPORTED_MODULE_1__["default"])(endpoint, params).then(function (_ref2) {
-      var data = _ref2.data,
-          status = _ref2.status;
-      // 全てミュートフラグを立てた配列をミュートの初期値としてdispatch
+      var data = _ref2.data;
+
+      if ('code' in data[0]) {
+        dispatch(setErrMessage(data[0].message));
+        return;
+      } // 全てミュートフラグを立てた配列をミュートの初期値としてdispatch
       // ユーザーリストよりも先にこちらを作る（依存しているため）
+
+
       dispatch(endUserRequest());
       var initializedMuted = Array(data.length).fill(true);
       dispatch(setMuted(initializedMuted)); // ミュートユーザーをstoreに登録
 
       dispatch(setMutedUsers(data));
-      return 0;
     });
   };
 };
@@ -181,8 +207,6 @@ var requestUnmuteUser = function requestUnmuteUser(endpoint, screenName, index) 
       if (data.screen_name === screenName) {
         dispatch(toggleMuted(index));
       }
-
-      return 0;
     });
   };
 };
@@ -1314,6 +1338,36 @@ var userRequestStatus = function userRequestStatus() {
     default:
       return state;
   }
+}; // 致命的なエラー発生時に表示するメッセージ
+// 正常処理中は空文字列
+
+
+var errMessage = function errMessage() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__["default"].ACTION_CHANGE_ERR_MESSAGE:
+      return action.message;
+
+    default:
+      return state;
+  }
+}; // ユーザーに通知する小さなメッセージ
+// なにもない場合はから文字列
+
+
+var popUpMessage = function popUpMessage() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__["default"].ACTION_CHANGE_POPUP_MESSAGE:
+      return action.message;
+
+    default:
+      return state;
+  }
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
@@ -1322,7 +1376,9 @@ var userRequestStatus = function userRequestStatus() {
   mutedUsers: mutedUsers,
   muted: muted,
   muteRequestStatus: muteRequestStatus,
-  userRequestStatus: userRequestStatus
+  userRequestStatus: userRequestStatus,
+  errMessage: errMessage,
+  popUpMessage: popUpMessage
 }));
 
 /***/ }),
