@@ -383,4 +383,11 @@ body {
   color: #ffffff;
   font-size: 0.8rem;
 }
+
+.fatal-message-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /*# sourceMappingURL=index.css.map*/

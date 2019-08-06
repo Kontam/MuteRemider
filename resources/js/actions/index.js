@@ -69,6 +69,7 @@ export const requestMutedUsers = (endpoint, params = {}) => (dispatch) => {
     .then(({ data }) => {
       if ('code' in data[0]) {
         dispatch(setErrMessage(data[0].message));
+        dispatch(endUserRequest());
         return;
       }
       // 全てミュートフラグを立てた配列をミュートの初期値としてdispatch

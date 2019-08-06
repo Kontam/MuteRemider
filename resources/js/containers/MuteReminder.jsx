@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import MuterMenu from '../components/MuterMenu';
 import MutedUserList from './MutedUserList';
+import FatalMessage from '../components/FatalMessage';
 
 
 class MuteReminder extends Component {
@@ -26,6 +27,7 @@ class MuteReminder extends Component {
         onLoad={() => { this.handleLoad(); }}
       >
         <MuterMenu />
+        <FatalMessage />
         <MutedUserList />
       </div>
     );

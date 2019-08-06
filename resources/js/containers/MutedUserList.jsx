@@ -26,7 +26,7 @@ class MutedUserList extends Component {
     const { mutedUsers, muted } = this.props;
     const { isLoading } = this.state;
     return (
-      <div className="muter-content" style={isLoading ? { display: 'none' } : {}} onLoad={() => { this.handleLoad(); }}>
+      <div className="muter-content">
         <h2 className="muter-discription">あなたがミュートしているユーザー</h2>
         <ul className="muted-user-list">
           {
