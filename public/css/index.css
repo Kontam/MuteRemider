@@ -81,10 +81,6 @@ body {
   width: 40px;
 }
 
-.mutereminder {
-  display: none;
-}
-
 .muter-menu {
   background-color: #ececec;
   bottom: 0;
@@ -385,9 +381,13 @@ body {
 }
 
 .fatal-message-container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.fatal-message {
+  white-space: pre-wrap;
 }
 /*# sourceMappingURL=index.css.map*/

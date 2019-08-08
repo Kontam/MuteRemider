@@ -892,9 +892,10 @@ UnmuteButton.propTypes = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_MuterMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/MuterMenu */ "./resources/js/components/MuterMenu.jsx");
-/* harmony import */ var _MutedUserList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MutedUserList */ "./resources/js/containers/MutedUserList.jsx");
-/* harmony import */ var _components_FatalMessage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/FatalMessage */ "./resources/js/components/FatalMessage.jsx");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _components_MuterMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/MuterMenu */ "./resources/js/components/MuterMenu.jsx");
+/* harmony import */ var _MutedUserList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MutedUserList */ "./resources/js/containers/MutedUserList.jsx");
+/* harmony import */ var _components_FatalMessage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/FatalMessage */ "./resources/js/components/FatalMessage.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -918,52 +919,36 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var MuteReminder =
 /*#__PURE__*/
 function (_Component) {
   _inherits(MuteReminder, _Component);
 
   function MuteReminder(props) {
-    var _this;
-
     _classCallCheck(this, MuteReminder);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(MuteReminder).call(this, props));
-    _this.state = {
-      isLoading: true
-    };
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(MuteReminder).call(this, props));
   }
 
   _createClass(MuteReminder, [{
-    key: "handleLoad",
-    value: function handleLoad() {
-      this.setState({
-        isLoading: false
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
-      var isLoading = this.state.isLoading;
+      var errMessage = this.props.errMessage;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "mutereminder",
-        style: isLoading ? {} : {
-          display: 'block'
-        },
-        onLoad: function onLoad() {
-          _this2.handleLoad();
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MuterMenu__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FatalMessage__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MutedUserList__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+        className: "mutereminder"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MuterMenu__WEBPACK_IMPORTED_MODULE_2__["default"], null), errMessage ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FatalMessage__WEBPACK_IMPORTED_MODULE_4__["default"], null) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MutedUserList__WEBPACK_IMPORTED_MODULE_3__["default"], null));
     }
   }]);
 
   return MuteReminder;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (MuteReminder);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(function (state) {
+  return {
+    errMessage: state.errMessage
+  };
+})(MuteReminder));
 
 /***/ }),
 

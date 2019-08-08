@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import MuterMenu from '../components/MuterMenu';
 import MutedUserList from './MutedUserList';
@@ -8,30 +9,21 @@ import FatalMessage from '../components/FatalMessage';
 class MuteReminder extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isLoading: true,
-    };
-  }
-
-  handleLoad() {
-    this.setState({ isLoading: false });
   }
 
   render() {
-    const { isLoading } = this.state;
-
+    const { errMessage } = this.props;
     return (
-      <div
-        className="mutereminder"
-        style={isLoading ? {} : { display: 'block' }}
-        onLoad={() => { this.handleLoad(); }}
-      >
+      <div className="mutereminder">
         <MuterMenu />
-        <FatalMessage />
-        <MutedUserList />
+        { errMessage ? <FatalMessage /> : <MutedUserList /> }
       </div>
     );
   }
 }
 
-export default MuteReminder;
+export default connect(
+  state => ({
+    errMessage: state.errMessage,
+  }),
+)(MuteReminder);
