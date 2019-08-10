@@ -109,11 +109,36 @@ body {
   outline: 0;
 }
 
+@media screen and (min-width: 768px) {
+  .muter-menu {
+    display: block;
+    left: 0;
+    padding: 45px 25px;
+    position: fixed;
+    height: 100vh;
+    top: 50px;
+    width: 300px;
+  }
+
+  .tweets-count-button {
+    background: url("../img/transparent_eye_icon.svg") right/35px no-repeat;
+    font-size: 2rem;
+    padding-right: 8px;
+  }
+  .tweets-count-button::before {
+    content: "\30C1\30E9\898B\30C4\30A4\30FC\30C8\6570";
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-right: 65px;
+    vertical-align: 5px;
+  }
+}
 .muted-user-list {
   padding-bottom: 50px;
 }
 
 .muter-discription {
+  color: #6E6E6E;
   background: #ececec url("../img/mute_icon.svg") center center/auto 70px no-repeat;
   font-size: 1.25rem;
   height: 80px;
@@ -123,6 +148,18 @@ body {
   width: 100%;
 }
 
+@media screen and (min-width: 768px) {
+  .muted-user-list {
+    padding-left: 300px;
+  }
+
+  .muter-discription {
+    font-size: 2.5rem;
+    font-weight: bold;
+    height: 120px;
+    line-height: 120px;
+  }
+}
 .muted-user-info {
   list-style: none;
   width: 100%;
@@ -166,6 +203,22 @@ body {
   display: flex;
 }
 
+@media screen and (min-width: 768px) {
+  .muted-top-container {
+    height: 190px;
+  }
+
+  .muted-user-icon {
+    height: 140px;
+    width: 140px;
+    margin: 0 70px 0 40px;
+  }
+
+  .muted-user-name {
+    font-size: 1.5rem;
+    margin-bottom: 17px;
+  }
+}
 .muted-unmute-button {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -217,6 +270,15 @@ body {
   width: 25px;
 }
 
+@media screen and (min-width: 768px) {
+  .muted-unmute-button {
+    display: none;
+  }
+
+  .muted-mute-button {
+    display: none;
+  }
+}
 .muted-show-button {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -267,6 +329,41 @@ body {
   width: 25px;
 }
 
+.pc-show-button-label {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .pc-show-button-label {
+    display: inline;
+  }
+
+  .muted-show-button {
+    font-size: 1.25rem;
+    height: 50px;
+    width: 100%;
+  }
+
+  .muted-hide-button {
+    font-size: 1.25rem;
+    height: 50px;
+    width: 100%;
+  }
+
+  .show-icon {
+    background: url("../img/eye_icon.svg") center center/contain no-repeat;
+    height: 25px;
+    margin-right: 3px;
+    width: 35px;
+  }
+
+  .hide-icon {
+    background: url("../img/hide_icon.svg") center center/contain no-repeat;
+    height: 25px;
+    margin-right: 3px;
+    width: 35px;
+  }
+}
 .muted-tweet {
   border-bottom: 1px solid #bcbcbc;
   padding: 10px;

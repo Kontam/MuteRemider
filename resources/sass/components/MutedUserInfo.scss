@@ -41,3 +41,20 @@
 .muted-bottom-container {
   display: flex;
 }
+
+@include media-forPC {
+  .muted-top-container {
+    height: 190px;
+  }
+
+  .muted-user-icon {
+    height: 140px;
+    width: 140px;
+    margin: 0 70px 0 40px;
+  }
+
+  .muted-user-name {
+    font-size: 1.5rem;
+    margin-bottom: 17px;
+  }
+}

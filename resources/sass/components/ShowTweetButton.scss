@@ -13,3 +13,30 @@
 .hide-icon {
   @include div-icon($image-dir + 'hide_icon.svg');
 }
+
+.pc-show-button-label {
+  display: none;
+}
+
+
+@include media-forPC {
+  .pc-show-button-label {
+    display: inline;
+  }
+
+  .muted-show-button {
+    @include pc-show-button;
+  }
+
+  .muted-hide-button {
+    @include pc-show-button;
+  }
+
+  .show-icon {
+    @include pc-div-icon($image-dir + 'eye_icon.svg');
+  }
+
+  .hide-icon {
+    @include pc-div-icon($image-dir + 'hide_icon.svg');
+  }
+}

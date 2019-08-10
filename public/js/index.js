@@ -733,6 +733,9 @@ var ShowTweetsButton = function ShowTweetsButton(_ref) {
   var buttonClassName = 'muted-hide-button';
   var iconClassName = 'hide-icon';
   var buttonLabel = '隠す';
+  var forPCDOM = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "pc-show-button-label"
+  }, "\u30C4\u30A4\u30FC\u30C8\u3092");
 
   if (showTweets !== _TwAppsConst__WEBPACK_IMPORTED_MODULE_2__["default"].SHOW_TWEETS_OPENED) {
     buttonClassName = 'muted-show-button';
@@ -746,7 +749,7 @@ var ShowTweetsButton = function ShowTweetsButton(_ref) {
     onClick: onClick
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: iconClassName
-  }), buttonLabel);
+  }), forPCDOM, buttonLabel);
 };
 
 ShowTweetsButton.propTypes = {

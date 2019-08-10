@@ -17,3 +17,29 @@
   font-weight: bold;
   padding-top: 7px;
 }
+
+@include media-forPC {
+  .muter-menu {
+    display: block;
+    left: 0;
+    padding: 45px 25px;
+    position: fixed;
+    height: 100vh;
+    top: 50px;
+    width: 300px;
+  }
+
+  .tweets-count-button {
+    background: url($image-dir + 'transparent_eye_icon.svg') right / 35px no-repeat;
+    font-size: 2rem;
+    padding-right: 8px;
+
+    &::before {
+      content: 'チラ見ツイート数';
+      font-size: 1.125rem;
+      font-weight: bold;
+      margin-right: 65px;
+      vertical-align: 5px;
+    }
+  }
+}

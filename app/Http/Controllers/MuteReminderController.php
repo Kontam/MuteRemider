@@ -36,7 +36,7 @@ class MuteReminderController extends Controller
         $objTwitterConnection = createTwitterConnection();
 
         $tweets_params = [];
-        $tweets_params = ['count' => 10];
+        $tweets_params = ['count' => 20];
 
         // ミュートユーザーの情報を取得し、不要な情報を削る
         $muted_users = $objTwitterConnection->get('mutes/users/list', $tweets_params);

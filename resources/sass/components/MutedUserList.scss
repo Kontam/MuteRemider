@@ -4,6 +4,7 @@
 }
 
 .muter-discription {
+  color: $icon-gray;
   background: $basic-gray url($image-dir + 'mute_icon.svg') center center / auto 70px no-repeat;
   font-size: 1.25rem;
   // font-family: sans-serif;
@@ -12,4 +13,17 @@
   margin-top: 50px;
   text-align: center;
   width: 100%;
+}
+
+@include media-forPC {
+  .muted-user-list {
+    padding-left: 300px;
+  }
+
+  .muter-discription {
+    font-size: 2.5rem;
+    font-weight: bold;
+    height: 120px;
+    line-height: 120px;
+  }
 }

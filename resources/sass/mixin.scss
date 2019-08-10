@@ -1,4 +1,11 @@
 
+@mixin media-forPC {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+// ボタンタグリセット
 @mixin reset-button {
   appearance: none;
   background-color: transparent;
@@ -18,6 +25,13 @@
   width: 25px;
 }
 
+@mixin pc-div-icon($icon-url) {
+  background: url($icon-url) center center / contain no-repeat;
+  height: 25px;
+  margin-right: 3px;
+  width: 35px;
+}
+
 //携帯用の隠す、チラ見、ミュート、ミュート解除ボタン
 @mixin mobile-mute-button($bg-color) {
   @include reset-button;
@@ -27,4 +41,11 @@
   height: 30px;
   justify-content: center;
   width: 50%;
+}
+
+//mediaクエリの中で使用するPC用のチラ見ボタン用スタイル
+@mixin pc-show-button {
+  font-size: 1.25rem;
+  height: 50px;
+  width: 100%;
 }

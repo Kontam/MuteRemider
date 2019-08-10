@@ -3,11 +3,14 @@ require_once(__DIR__ . '/TwitterAPIErrorCheck.php');
 
 function summarizeUserInfo($user_obj)
 {
+    // デフォルトアイコンはnormalサイズ(48x48)なのでoriginalに変更(500x500)
+    $original_image_url = replaceProfileImgUrl($user_obj->profile_image_url_https, 'original');
+
     return $simple_user_array = [
         "user_id"                 => $user_obj->id,
         "user_name"               => $user_obj->name,
         "screen_name"             => $user_obj->screen_name,
-        "profile_image_url_https" => $user_obj->profile_image_url_https,
+        "profile_image_url_https" => $original_image_url,
     ];
 }
 
@@ -29,12 +32,15 @@ function summarizeMutedUsersInfo($users_obj)
     $simple_users_array = [];
 
     foreach ($users as $user) {
+        // デフォルトアイコンはnormalサイズ(48x48)なのでoriginalに変更(500x500)
+        $original_image_url = replaceProfileImgUrl($user->profile_image_url_https, 'original');
+
         $simple_users_array[] = [
             "user_id"                 => $user->id,
             "user_name"               => $user->name,
             "screen_name"             => $user->screen_name,
             "user_url"                => $user->url,
-            "profile_image_url_https" => $user->profile_image_url_https,
+            "profile_image_url_https" => $original_image_url,
             "muted"                   => true,
         ];
     }
@@ -42,12 +48,11 @@ function summarizeMutedUsersInfo($users_obj)
     return $simple_users_array;
 }
 
-function summarizeTweetsInfo($tweets)
+function summarizeTweetsInfo($tweets, $max_length = 3)
 {
     $simple_tweets_array = [];
 
     foreach ($tweets as $tweet) {
-
         // 無省略テキストが存在すればそちらを使う
         if (property_exists($tweet, "full_text")) {
             $tweet_text = $tweet->full_text;
@@ -78,7 +83,27 @@ function summarizeTweetsInfo($tweets)
             "favorite_count" => $tweet->favorite_count,
             "media_infos"    => $media_infos,
         ];
+        // 表示最大数まで取得したら終了
+        if (count($simple_tweets_array) === $max_length) {
+            break;
+        }
     }
 
     return $simple_tweets_array;
+}
+
+//========================================================
+// Twitterのユーザーobject付属のアイコン画像URLの指定サイズ変更を行う
+// 引数: 画像URL(str) 変更後のサイズ(str)
+// original: 500x500
+// bigger  : 73x73
+// mini    : 24x24
+// normal  : 48x48 （default）
+//========================================================
+function replaceProfileImgUrl($image_url, $size = 'original') {
+    switch ($size) {
+        default:
+            $replaced_image_url = preg_replace('/_normal/', '', $image_url);
+            return $replaced_image_url;
+    }
 }

@@ -14,3 +14,13 @@
 .mute-icon {
   @include div-icon($image-dir + 'mute_button_icon.svg');
 }
+
+@include media-forPC {
+  .muted-unmute-button {
+    display: none;
+  }
+
+  .muted-mute-button {
+    display: none;
+  }
+}
