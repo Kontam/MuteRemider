@@ -15,6 +15,15 @@
   @include div-icon($image-dir + 'mute_button_icon.svg');
 }
 
+.pc-muted-unmute-button {
+  display: none;
+}
+
+.pc-muted-mute-button {
+  display: none;
+}
+
+
 @include media-forPC {
   .muted-unmute-button {
     display: none;
@@ -22,5 +31,25 @@
 
   .muted-mute-button {
     display: none;
+  }
+
+  .unmute-icon {
+    @include pc-div-icon($image-dir + 'speaker_icon.svg');
+    margin-right: 10px;
+
+  }
+
+  .mute-icon {
+    @include pc-div-icon($image-dir + 'mute_button_icon.svg');
+    margin-right: 10px;
+  }
+
+
+  .pc-muted-unmute-button {
+    @include pc-mute-button($unmute-button-color, $button-label-color);
+  }
+
+  .pc-muted-mute-button {
+    @include pc-mute-button($mute-button-color, $basic-white);
   }
 }

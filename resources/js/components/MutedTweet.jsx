@@ -21,15 +21,16 @@ const MutedTweet = ({ mutedTweet, itemClassName }) => {
       </ul>
       <div className="tweet-info-container">
         <div className="tweet-count-info">
-          <div className="retweet-icon" />
-          <p className="tweet-retweet-count">{mutedTweet.retweet_count}</p>
-        </div>
-        <div className="tweet-count-info">
           <div className="favorite-icon" />
           <p className="tweet-favorite-count">{mutedTweet.favorite_count}</p>
         </div>
-        <a href={mutedTweet.tweet_url} className="open-twitter-link" alt="tw">
+        <div className="tweet-count-info">
+          <div className="retweet-icon" />
+          <p className="tweet-retweet-count">{mutedTweet.retweet_count}</p>
+        </div>
+        <a href={mutedTweet.tweet_url} target="_blank" rel="noopener noreferrer" className="open-twitter-link" alt="tw">
           <div className="twitter-icon" />
+          <span className="pc-twitter-label">twitterで見る</span>
         </a>
       </div>
     </li>

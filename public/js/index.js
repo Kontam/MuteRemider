@@ -348,22 +348,26 @@ var MutedTweet = function MutedTweet(_ref) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "tweet-count-info"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "retweet-icon"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "tweet-retweet-count"
-  }, mutedTweet.retweet_count)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "tweet-count-info"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "favorite-icon"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "tweet-favorite-count"
-  }, mutedTweet.favorite_count)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, mutedTweet.favorite_count)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "tweet-count-info"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "retweet-icon"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "tweet-retweet-count"
+  }, mutedTweet.retweet_count)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: mutedTweet.tweet_url,
+    target: "_blank",
+    rel: "noopener noreferrer",
     className: "open-twitter-link",
     alt: "tw"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "twitter-icon"
-  }))));
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "pc-twitter-label"
+  }, "twitter\u3067\u898B\u308B"))));
 };
 
 MutedTweet.propTypes = {
@@ -631,7 +635,13 @@ function (_Component) {
         className: "muted-user-name"
       }, mutedUser.user_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "muted-user-name"
-      }, "@", mutedUser.screen_name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MutedTweetList__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, "@", mutedUser.screen_name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UnmuteButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        isForMobile: false,
+        muted: isUserMuted,
+        onClick: function onClick() {
+          _this2.handleUnmuteClicked();
+        }
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MutedTweetList__WEBPACK_IMPORTED_MODULE_5__["default"], {
         showTweets: showTweets,
         listClassName: this.listClassName,
         itemClassName: this.itemClassName,
@@ -864,10 +874,17 @@ __webpack_require__.r(__webpack_exports__);
 
 var UnmuteButton = function UnmuteButton(_ref) {
   var muted = _ref.muted,
-      _onClick = _ref.onClick;
+      _onClick = _ref.onClick,
+      isForMobile = _ref.isForMobile;
+  var btnClassName = muted ? 'muted-unmute-button' : 'muted-mute-button';
+
+  if (!isForMobile) {
+    btnClassName = muted ? 'pc-muted-unmute-button' : 'pc-muted-mute-button';
+  }
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
-    className: muted ? 'muted-unmute-button' : 'muted-mute-button',
+    className: btnClassName,
     onClick: function onClick() {
       _onClick();
     }
@@ -878,7 +895,11 @@ var UnmuteButton = function UnmuteButton(_ref) {
 
 UnmuteButton.propTypes = {
   muted: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool.isRequired,
-  onClick: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
+  onClick: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
+  isForMobile: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool
+};
+UnmuteButton.defaultProps = {
+  isForMobile: true
 };
 /* harmony default export */ __webpack_exports__["default"] = (UnmuteButton);
 

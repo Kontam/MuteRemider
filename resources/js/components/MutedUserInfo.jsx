@@ -72,6 +72,11 @@ class MutedUserInfo extends Component {
               {mutedUser.screen_name}
             </p>
           </div>
+          <UnmuteButton
+            isForMobile={false}
+            muted={isUserMuted}
+            onClick={() => { this.handleUnmuteClicked(); }}
+          />
         </div>
         <MutedTweetList
           showTweets={showTweets}

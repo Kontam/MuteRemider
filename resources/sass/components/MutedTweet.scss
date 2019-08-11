@@ -6,7 +6,6 @@
 }
 
 .tweet-media-container {
-  // border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
   margin: 20px auto;
@@ -25,14 +24,12 @@
 }
 
 .tweet-media {
-  // max-height: 120px;
   max-width: 250px;
 }
 
 .tweet-info-container {
   align-items: center;
   display: flex;
-  // height: 30px;
   justify-content: space-between;
   padding: 15px 30px 0;
 }
@@ -68,4 +65,53 @@
   background: url($image-dir + 'twitter_icon.svg') center center / contain no-repeat;
   height: 22px;
   width: 26px;
+}
+
+.pc-twitter-label {
+  display: none;
+}
+
+@include media-forPC {
+  .muted-tweet {
+    font-size: 1.25rem;
+    line-height: 1.8rem;
+    max-width: 1000px;
+    padding: 50px 100px 15px 250px;
+  }
+
+  .tweet-info-container {
+    justify-content: flex-start;
+    padding: 0;
+  }
+
+  .tweet-count-info {
+    line-height: 1;
+    // ユーザー名コンテナが420px
+    // ファボとRTで計２つの情報があるので、半分の横幅にするとTwitterボタンがミュートボタンと合う
+    width: 210px;
+  }
+
+  .open-twitter-link {
+    @include reset-anchor;
+    align-items: center;
+    background-color: $twitter-blue;
+    border-radius: 5px;
+    color: $basic-white;
+    display: flex;
+    font-size: 1rem;
+    height: 25px;
+    padding-left: 15px;
+    width: 165px;
+  }
+
+  .twitter-icon {
+    background: url($image-dir + 'twitter_white_icon.svg') center center / contain no-repeat;
+    height: 18px;
+    width: 25px;
+  }
+
+  .pc-twitter-label {
+    display: inline;
+    margin-left: 10px;
+  }
 }

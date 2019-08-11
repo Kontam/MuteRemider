@@ -111,11 +111,12 @@ body {
 
 @media screen and (min-width: 768px) {
   .muter-menu {
+    border-right: solid 1px #bcbcbc;
     display: block;
+    height: 100vh;
     left: 0;
     padding: 45px 25px;
     position: fixed;
-    height: 100vh;
     top: 50px;
     width: 300px;
   }
@@ -150,6 +151,9 @@ body {
 
 @media screen and (min-width: 768px) {
   .muted-user-list {
+    border-top: solid 2px #bcbcbc;
+    border-bottom: solid 2px #bcbcbc;
+    padding-bottom: 0;
     padding-left: 300px;
   }
 
@@ -217,6 +221,12 @@ body {
   .muted-user-name {
     font-size: 1.5rem;
     margin-bottom: 17px;
+    line-height: 1.9rem;
+    padding-right: 30px;
+  }
+
+  .muted-username-container {
+    width: 420px;
   }
 }
 .muted-unmute-button {
@@ -270,6 +280,14 @@ body {
   width: 25px;
 }
 
+.pc-muted-unmute-button {
+  display: none;
+}
+
+.pc-muted-mute-button {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .muted-unmute-button {
     display: none;
@@ -277,6 +295,66 @@ body {
 
   .muted-mute-button {
     display: none;
+  }
+
+  .unmute-icon {
+    background: url("../img/speaker_icon.svg") center center/contain no-repeat;
+    height: 25px;
+    margin-right: 5px;
+    width: 35px;
+    margin-right: 10px;
+  }
+
+  .mute-icon {
+    background: url("../img/mute_button_icon.svg") center center/contain no-repeat;
+    height: 25px;
+    margin-right: 5px;
+    width: 35px;
+    margin-right: 10px;
+  }
+
+  .pc-muted-unmute-button {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    align-items: center;
+    background-color: #AAF9CC;
+    color: #00535D;
+    cursor: pointer;
+    display: flex;
+    font-size: 1.25rem;
+    height: 50px;
+    padding-left: 15px;
+    padding-top: 5px;
+    width: 200px;
+  }
+  .pc-muted-unmute-button:focus {
+    outline: 0;
+  }
+
+  .pc-muted-mute-button {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    align-items: center;
+    background-color: #FF5B62;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    font-size: 1.25rem;
+    height: 50px;
+    padding-left: 15px;
+    padding-top: 5px;
+    width: 200px;
+  }
+  .pc-muted-mute-button:focus {
+    outline: 0;
   }
 }
 .muted-show-button {
@@ -339,28 +417,34 @@ body {
   }
 
   .muted-show-button {
+    cursor: pointer;
     font-size: 1.25rem;
     height: 50px;
+    justify-content: flex-start;
+    padding-left: 680px;
     width: 100%;
   }
 
   .muted-hide-button {
+    cursor: pointer;
     font-size: 1.25rem;
     height: 50px;
+    justify-content: flex-start;
+    padding-left: 680px;
     width: 100%;
   }
 
   .show-icon {
     background: url("../img/eye_icon.svg") center center/contain no-repeat;
     height: 25px;
-    margin-right: 3px;
+    margin-right: 5px;
     width: 35px;
   }
 
   .hide-icon {
     background: url("../img/hide_icon.svg") center center/contain no-repeat;
     height: 25px;
-    margin-right: 3px;
+    margin-right: 5px;
     width: 35px;
   }
 }
@@ -438,6 +522,53 @@ body {
   width: 26px;
 }
 
+.pc-twitter-label {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .muted-tweet {
+    font-size: 1.25rem;
+    line-height: 1.8rem;
+    max-width: 1000px;
+    padding: 50px 100px 15px 250px;
+  }
+
+  .tweet-info-container {
+    justify-content: flex-start;
+    padding: 0;
+  }
+
+  .tweet-count-info {
+    line-height: 1;
+    width: 210px;
+  }
+
+  .open-twitter-link {
+    color: inherit;
+    text-decoration: none;
+    align-items: center;
+    background-color: #58C6E8;
+    border-radius: 5px;
+    color: #ffffff;
+    display: flex;
+    font-size: 1rem;
+    height: 25px;
+    padding-left: 15px;
+    width: 165px;
+  }
+
+  .twitter-icon {
+    background: url("../img/twitter_white_icon.svg") center center/contain no-repeat;
+    height: 18px;
+    width: 25px;
+  }
+
+  .pc-twitter-label {
+    display: inline;
+    margin-left: 10px;
+  }
+}
 .muted-tweet-list {
   overflow: hidden;
   transition: 0.5s;

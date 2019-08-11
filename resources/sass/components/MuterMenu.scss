@@ -20,11 +20,12 @@
 
 @include media-forPC {
   .muter-menu {
+    border-right: solid 1px $dark-gray;
     display: block;
+    height: 100vh;
     left: 0;
     padding: 45px 25px;
     position: fixed;
-    height: 100vh;
     top: 50px;
     width: 300px;
   }

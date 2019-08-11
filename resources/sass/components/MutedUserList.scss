@@ -17,7 +17,11 @@
 
 @include media-forPC {
   .muted-user-list {
+    border-top: solid 2px $dark-gray;
+    border-bottom: solid 2px $dark-gray;
+    padding-bottom: 0;
     padding-left: 300px;
+
   }
 
   .muter-discription {
