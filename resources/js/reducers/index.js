@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import TwAppsConst from '../TwAppsConst';
 
-const baseUrl = (state = {}, action) => {
+const baseUrl = (state = '', action) => {
   switch (action.type) {
   case TwAppsConst.ACTION_CHANGE_BASE_URL:
     return action.baseUrl;

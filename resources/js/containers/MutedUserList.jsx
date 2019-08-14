@@ -15,7 +15,8 @@ class MutedUserList extends Component {
   }
 
   componentDidMount() {
-    this.props.requestMutedUsers(TwAppsConst.MUTED_USERS_ENDPOINT);
+    const { baseUrl } = this.props;
+    this.props.requestMutedUsers(baseUrl + TwAppsConst.MUTED_USERS_ENDPOINT);
   }
 
   handleLoad() {
@@ -55,12 +56,14 @@ MutedUserList.propTypes = {
     }),
   ).isRequired,
   muted: PropTypes.arrayOf(PropTypes.bool).isRequired,
+  baseUrl: PropTypes.string.isRequired,
 };
 
 export default connect(
   state => ({
     mutedUsers: state.mutedUsers,
     muted: state.muted,
+    baseUrl: state.baseUrl,
   }),
   {
     requestMutedUsers,

@@ -1038,7 +1038,8 @@ function (_Component) {
   _createClass(MutedUserList, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.requestMutedUsers(_TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].MUTED_USERS_ENDPOINT);
+      var baseUrl = this.props.baseUrl;
+      this.props.requestMutedUsers(baseUrl + _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].MUTED_USERS_ENDPOINT);
     }
   }, {
     key: "handleLoad",
@@ -1081,12 +1082,14 @@ MutedUserList.propTypes = {
       user_id: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number
     })
   })).isRequired,
-  muted: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool).isRequired
+  muted: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool).isRequired,
+  baseUrl: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(function (state) {
   return {
     mutedUsers: state.mutedUsers,
-    muted: state.muted
+    muted: state.muted,
+    baseUrl: state.baseUrl
   };
 }, {
   requestMutedUsers: _actions__WEBPACK_IMPORTED_MODULE_5__["requestMutedUsers"]
@@ -1291,7 +1294,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var baseUrl = function baseUrl() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
