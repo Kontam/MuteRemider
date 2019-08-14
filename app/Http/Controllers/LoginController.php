@@ -24,7 +24,7 @@ class LoginController extends Controller
         $consumer_secret = config('const.CONSUMER_SECRET');
 
         $connection = new TwitterOAuth($consumer_key, $consumer_secret);
-        $request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => 'http://127.0.0.1/callback'));
+        $request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => url('/callback')));
 
         session([
             'oauth_token' => $request_token['oauth_token'],
