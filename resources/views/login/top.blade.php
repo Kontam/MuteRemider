@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1><?php echo 'APItest PHP' ?></h1>
-    <a href="/login">ログイン</a>
+    <a href={!! url('/login') !!}>ログイン</a>
     <script src="js/index.bundle.js"></script>
   </body>
 </html>
