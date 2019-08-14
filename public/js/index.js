@@ -1148,17 +1148,24 @@ var TwitterApps =
 function (_Component) {
   _inherits(TwitterApps, _Component);
 
-  function TwitterApps() {
+  function TwitterApps(props) {
+    var _this;
+
     _classCallCheck(this, TwitterApps);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(TwitterApps).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(TwitterApps).call(this, props));
+    var baseUrl = _this.props.baseUrl; // 全コンポーネントの処理の中で最初にurlのセットを行うために
+    // componentDidMountではなくConsoructorで処理を行う
+
+    _this.props.setBaseUrl(baseUrl);
+
+    return _this;
   }
 
   _createClass(TwitterApps, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var baseUrl = this.props.baseUrl;
-      this.props.setBaseUrl(baseUrl);
       this.props.requestUserInfo(baseUrl + _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].USER_INFO_ENDPOINT);
     }
   }, {
@@ -1175,7 +1182,8 @@ function (_Component) {
 
 TwitterApps.propTypes = {
   baseUrl: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
-  requestUserInfo: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
+  requestUserInfo: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
+  setBaseUrl: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(function () {
   return {};
