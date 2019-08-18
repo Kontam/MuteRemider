@@ -5,6 +5,10 @@ export const setBaseUrl = baseUrl => (dispatch) => {
   dispatch({ type: TwAppsConst.ACTION_CHANGE_BASE_URL, baseUrl });
 };
 
+export const setIsMuterMenuOpened = isMuterMenuOpened => (dispatch) => {
+  dispatch({ type: TwAppsConst.ACTION_CHANGE_ISMUTERMENU_OPENED, isMuterMenuOpened });
+};
+
 export const setUserInfo = userInfo => (dispatch) => {
   dispatch({ type: TwAppsConst.ACTION_CHANGE_USER_INFO, userInfo });
 };

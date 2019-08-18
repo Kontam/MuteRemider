@@ -4,10 +4,9 @@
 }
 
 .muter-discription {
-  color: $icon-gray;
   background: $basic-gray url($image-dir + 'mute_icon.svg') center center / auto 70px no-repeat;
+  color: $icon-gray;
   font-size: 1.25rem;
-  // font-family: sans-serif;
   height: 80px;
   line-height: 80px;
   margin-top: 50px;
@@ -17,11 +16,35 @@
 
 @include media-forPC {
   .muted-user-list {
-    border-top: solid 2px $dark-gray;
     border-bottom: solid 2px $dark-gray;
+    border-top: solid 2px $dark-gray;
     padding-bottom: 0;
-    padding-left: 300px;
+  }
 
+  .list-menu-closed {
+    animation: list-to-left .3s forwards;
+  }
+
+  .list-menu-opened {
+    animation: list-to-right .3s forwards;
+  }
+
+  @keyframes list-to-left {
+    0% {
+      padding-left: $muter-menu-width;
+    }
+    100% {
+      padding-left: $muter-menu-width - $menu-animation-distance;
+    }
+  }
+
+  @keyframes list-to-right {
+    0% {
+      padding-left: $muter-menu-width - $menu-animation-distance;
+    }
+    100% {
+      padding-left: $muter-menu-width;
+    }
   }
 
   .muter-discription {

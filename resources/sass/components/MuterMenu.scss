@@ -9,13 +9,40 @@
   width: 100%;
 }
 
+.muter-menu-closed {
+  animation: slide-to-left .3s forwards;
+}
+
+.muter-menu-opened {
+  animation: slide-to-right .3s forwards;
+}
+
+@keyframes slide-to-left {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -$menu-animation-distance;
+  }
+}
+
+@keyframes slide-to-right {
+  0% {
+    left: -$menu-animation-distance;
+  }
+  100% {
+    left: 0;
+  }
+}
+
 .tweets-count-button {
   @include reset-button;
-  background: url($image-dir + 'transparent_eye_icon.svg') center center / contain no-repeat;
+  background: url($image-dir + 'transparent_eye_icon.svg') center center / 35px no-repeat;
   color: $icon-gray;
   font-size: 1.8rem;
   font-weight: bold;
   padding-top: 7px;
+  width: 50px;
 }
 
 @include media-forPC {
@@ -24,22 +51,23 @@
     display: block;
     height: 100vh;
     left: 0;
-    padding: 45px 25px;
+    padding: 20px;
     position: fixed;
     top: 50px;
     width: 300px;
   }
 
   .tweets-count-button {
-    background: url($image-dir + 'transparent_eye_icon.svg') right / 35px no-repeat;
+    background: url($image-dir + 'transparent_eye_icon.svg') 222px / 35px no-repeat;
     font-size: 2rem;
-    padding-right: 8px;
+    margin-top: 30px;
+    width: 100%;
 
     &::before {
       content: 'チラ見ツイート数';
       font-size: 1.125rem;
       font-weight: bold;
-      margin-right: 65px;
+      margin-right: 75px;
       vertical-align: 5px;
     }
   }

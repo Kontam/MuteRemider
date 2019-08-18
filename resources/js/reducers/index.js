@@ -11,6 +11,16 @@ const baseUrl = (state = '', action) => {
   }
 };
 
+// メニュー開閉状態
+const isMuterMenuOpened = (state = true, action) => {
+  switch (action.type) {
+  case TwAppsConst.ACTION_CHANGE_ISMUTERMENU_OPENED:
+    return action.isMuterMenuOpened;
+  default:
+    return state;
+  }
+};
+
 const userInfo = (state = {}, action) => {
   switch (action.type) {
   case TwAppsConst.ACTION_CHANGE_USER_INFO:
@@ -91,6 +101,7 @@ const popUpMessage = (state = '', action) => {
 
 export default combineReducers({
   baseUrl,
+  isMuterMenuOpened,
   userInfo,
   mutedUsers,
   muted,

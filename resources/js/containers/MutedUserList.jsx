@@ -24,12 +24,12 @@ class MutedUserList extends Component {
   }
 
   render() {
-    const { mutedUsers, muted } = this.props;
+    const { mutedUsers, muted, isMuterMenuOpened } = this.props;
     const { isLoading } = this.state;
     return (
-      <div className="muter-content">
+      <div className={`muter-content`}>
         <h2 className="muter-discription">あなたがミュートしているユーザー</h2>
-        <ul className="muted-user-list">
+        <ul className={`muted-user-list ${isMuterMenuOpened ? 'list-menu-opened' : 'list-menu-closed'}`}>
           {
             mutedUsers.map((mutedUserInfo, index) => (
               <MutedUserInfo
@@ -57,6 +57,7 @@ MutedUserList.propTypes = {
   ).isRequired,
   muted: PropTypes.arrayOf(PropTypes.bool).isRequired,
   baseUrl: PropTypes.string.isRequired,
+  isMuterMenuOpened: PropTypes.bool.isRequired,
 };
 
 export default connect(
@@ -64,6 +65,7 @@ export default connect(
     mutedUsers: state.mutedUsers,
     muted: state.muted,
     baseUrl: state.baseUrl,
+    isMuterMenuOpened: state.isMuterMenuOpened,
   }),
   {
     requestMutedUsers,

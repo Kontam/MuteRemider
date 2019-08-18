@@ -11,11 +11,13 @@
 __webpack_require__.r(__webpack_exports__);
 var TwAppsConst = {
   STYLE_DARK_GRAY: '#bcbcbc',
+  IMG_DIR_PATH: 'img',
   USER_INFO_ENDPOINT: '/user_api',
   MUTED_USERS_ENDPOINT: '/list_api',
   UNMUTE_USER_ENDPOINT: '/unmute',
   MUTE_USER_ENDPOINT: '/mute',
   ACTION_CHANGE_BASE_URL: 'CHANGE_BASE_URL',
+  ACTION_CHANGE_ISMUTERMENU_OPENED: 'CHANGE_ISMUTERMENU_OPENED',
   ACTION_CHANGE_USER_INFO: 'CHANGE_USER_INFO',
   ACTION_CHANGE_MUTED_USERS: 'CHANGE_MUTED_USERS',
   ACTION_TOGGLE_MUTED: 'TOGGLE_MUTED',
@@ -43,12 +45,13 @@ var TwAppsConst = {
 /*!***************************************!*\
   !*** ./resources/js/actions/index.js ***!
   \***************************************/
-/*! exports provided: setBaseUrl, setUserInfo, setMutedUsers, setMuted, toggleMuted, startMuteRequest, endMuteRequest, startUserRequest, endUserRequest, setErrMessage, setPopUpMessage, requestUserInfo, requestMutedUsers, requestUnmuteUser */
+/*! exports provided: setBaseUrl, setIsMuterMenuOpened, setUserInfo, setMutedUsers, setMuted, toggleMuted, startMuteRequest, endMuteRequest, startUserRequest, endUserRequest, setErrMessage, setPopUpMessage, requestUserInfo, requestMutedUsers, requestUnmuteUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setBaseUrl", function() { return setBaseUrl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setIsMuterMenuOpened", function() { return setIsMuterMenuOpened; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setUserInfo", function() { return setUserInfo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setMutedUsers", function() { return setMutedUsers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setMuted", function() { return setMuted; });
@@ -71,6 +74,14 @@ var setBaseUrl = function setBaseUrl(baseUrl) {
     dispatch({
       type: _TwAppsConst__WEBPACK_IMPORTED_MODULE_0__["default"].ACTION_CHANGE_BASE_URL,
       baseUrl: baseUrl
+    });
+  };
+};
+var setIsMuterMenuOpened = function setIsMuterMenuOpened(isMuterMenuOpened) {
+  return function (dispatch) {
+    dispatch({
+      type: _TwAppsConst__WEBPACK_IMPORTED_MODULE_0__["default"].ACTION_CHANGE_ISMUTERMENU_OPENED,
+      isMuterMenuOpened: isMuterMenuOpened
     });
   };
 };
@@ -332,7 +343,9 @@ var MutedTweet = function MutedTweet(_ref) {
       itemClassName = _ref.itemClassName;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "muted-tweet ".concat(itemClassName)
-  }, mutedTweet.tweet_text, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "muted-tweet-text"
+  }, mutedTweet.tweet_text), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "tweet-media-container"
   }, mutedTweet.media_infos.map(function (media) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -702,12 +715,20 @@ MutedUserInfo.propTypes = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _containers_ToggleMuterMenuButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../containers/ToggleMuterMenuButton */ "./resources/js/containers/ToggleMuterMenuButton.jsx");
 
 
-var MuterMenu = function MuterMenu() {
+
+
+
+var MuterMenu = function MuterMenu(_ref) {
+  var isMuterMenuOpened = _ref.isMuterMenuOpened;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "muter-menu"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "muter-menu ".concat(isMuterMenuOpened ? 'muter-menu-opened' : 'muter-menu-closed')
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_ToggleMuterMenuButton__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
     className: "tweets-count-button"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -715,7 +736,14 @@ var MuterMenu = function MuterMenu() {
   }, "3")));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (MuterMenu);
+MuterMenu.propTypes = {
+  isMuterMenuOpened: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(function (state) {
+  return {
+    isMuterMenuOpened: state.isMuterMenuOpened
+  };
+})(MuterMenu));
 
 /***/ }),
 
@@ -1053,14 +1081,15 @@ function (_Component) {
     value: function render() {
       var _this$props = this.props,
           mutedUsers = _this$props.mutedUsers,
-          muted = _this$props.muted;
+          muted = _this$props.muted,
+          isMuterMenuOpened = _this$props.isMuterMenuOpened;
       var isLoading = this.state.isLoading;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "muter-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "muter-discription"
       }, "\u3042\u306A\u305F\u304C\u30DF\u30E5\u30FC\u30C8\u3057\u3066\u3044\u308B\u30E6\u30FC\u30B6\u30FC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "muted-user-list"
+        className: "muted-user-list ".concat(isMuterMenuOpened ? 'list-menu-opened' : 'list-menu-closed')
       }, mutedUsers.map(function (mutedUserInfo, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MutedUserInfo__WEBPACK_IMPORTED_MODULE_4__["default"], {
           key: mutedUserInfo.muted_user.user_id,
@@ -1083,17 +1112,129 @@ MutedUserList.propTypes = {
     })
   })).isRequired,
   muted: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool).isRequired,
-  baseUrl: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
+  baseUrl: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  isMuterMenuOpened: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(function (state) {
   return {
     mutedUsers: state.mutedUsers,
     muted: state.muted,
-    baseUrl: state.baseUrl
+    baseUrl: state.baseUrl,
+    isMuterMenuOpened: state.isMuterMenuOpened
   };
 }, {
   requestMutedUsers: _actions__WEBPACK_IMPORTED_MODULE_5__["requestMutedUsers"]
 })(MutedUserList));
+
+/***/ }),
+
+/***/ "./resources/js/containers/ToggleMuterMenuButton.jsx":
+/*!***********************************************************!*\
+  !*** ./resources/js/containers/ToggleMuterMenuButton.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+var ToggleMuterMenuButton =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(ToggleMuterMenuButton, _Component);
+
+  function ToggleMuterMenuButton(props) {
+    var _this;
+
+    _classCallCheck(this, ToggleMuterMenuButton);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ToggleMuterMenuButton).call(this, props)); // メニュー開閉アニメーション用クラス
+
+    _this.toggleAnimationClass = '';
+    return _this;
+  }
+
+  _createClass(ToggleMuterMenuButton, [{
+    key: "handleToggleClicked",
+    value: function handleToggleClicked() {
+      var isMuterMenuOpened = this.props.isMuterMenuOpened;
+
+      if (isMuterMenuOpened) {
+        this.props.setIsMuterMenuOpened(false);
+        this.toggleAnimationClass = 'muter-menu-closed';
+        return;
+      }
+
+      this.props.setIsMuterMenuOpened(true);
+      this.toggleAnimationClass = 'muter-menu-opened';
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var isMuterMenuOpened = this.props.isMuterMenuOpened;
+      var imgUrl = isMuterMenuOpened ? "".concat(_TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].IMG_DIR_PATH, "/cross_icon.svg") : "".concat(_TwAppsConst__WEBPACK_IMPORTED_MODULE_3__["default"].IMG_DIR_PATH, "/hambargar_icon.svg");
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "menu-button-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "menu-toggle-button",
+        onClick: function onClick() {
+          _this2.handleToggleClicked();
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "menu-toggle-icon",
+        src: imgUrl,
+        alt: "close"
+      })));
+    }
+  }]);
+
+  return ToggleMuterMenuButton;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+ToggleMuterMenuButton.propTypes = {
+  isMuterMenuOpened: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool.isRequired,
+  setIsMuterMenuOpened: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(function (state) {
+  return {
+    isMuterMenuOpened: state.isMuterMenuOpened
+  };
+}, {
+  setIsMuterMenuOpened: _actions__WEBPACK_IMPORTED_MODULE_4__["setIsMuterMenuOpened"]
+})(ToggleMuterMenuButton));
 
 /***/ }),
 
@@ -1312,6 +1453,20 @@ var baseUrl = function baseUrl() {
     default:
       return state;
   }
+}; // メニュー開閉状態
+
+
+var isMuterMenuOpened = function isMuterMenuOpened() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__["default"].ACTION_CHANGE_ISMUTERMENU_OPENED:
+      return action.isMuterMenuOpened;
+
+    default:
+      return state;
+  }
 };
 
 var userInfo = function userInfo() {
@@ -1425,6 +1580,7 @@ var popUpMessage = function popUpMessage() {
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   baseUrl: baseUrl,
+  isMuterMenuOpened: isMuterMenuOpened,
   userInfo: userInfo,
   mutedUsers: mutedUsers,
   muted: muted,

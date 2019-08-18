@@ -1,0 +1,24 @@
+
+.menu-button-container {
+  display: none;
+}
+
+
+
+@include media-forPC {
+  .menu-button-container {
+    display: block;
+    text-align: right;
+  }
+
+  .menu-toggle-icon {
+    height: 40px;
+    width: 40px;
+  }
+
+  .menu-toggle-button {
+    @include reset-button;
+    cursor: pointer;
+    font-size: 20px;
+  }
+}

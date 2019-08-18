@@ -92,6 +92,49 @@ body {
   width: 100%;
 }
 
+.muter-menu-closed {
+  -webkit-animation: slide-to-left 0.3s forwards;
+          animation: slide-to-left 0.3s forwards;
+}
+
+.muter-menu-opened {
+  -webkit-animation: slide-to-right 0.3s forwards;
+          animation: slide-to-right 0.3s forwards;
+}
+
+@-webkit-keyframes slide-to-left {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -220px;
+  }
+}
+
+@keyframes slide-to-left {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -220px;
+  }
+}
+@-webkit-keyframes slide-to-right {
+  0% {
+    left: -220px;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes slide-to-right {
+  0% {
+    left: -220px;
+  }
+  100% {
+    left: 0;
+  }
+}
 .tweets-count-button {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -99,11 +142,12 @@ body {
   background-color: transparent;
   border: 0;
   padding: 0;
-  background: url("../img/transparent_eye_icon.svg") center center/contain no-repeat;
+  background: url("../img/transparent_eye_icon.svg") center center/35px no-repeat;
   color: #6E6E6E;
   font-size: 1.8rem;
   font-weight: bold;
   padding-top: 7px;
+  width: 50px;
 }
 .tweets-count-button:focus {
   outline: 0;
@@ -115,22 +159,23 @@ body {
     display: block;
     height: 100vh;
     left: 0;
-    padding: 45px 25px;
+    padding: 20px;
     position: fixed;
     top: 50px;
     width: 300px;
   }
 
   .tweets-count-button {
-    background: url("../img/transparent_eye_icon.svg") right/35px no-repeat;
+    background: url("../img/transparent_eye_icon.svg") 222px/35px no-repeat;
     font-size: 2rem;
-    padding-right: 8px;
+    margin-top: 30px;
+    width: 100%;
   }
   .tweets-count-button::before {
     content: "\30C1\30E9\898B\30C4\30A4\30FC\30C8\6570";
     font-size: 1.125rem;
     font-weight: bold;
-    margin-right: 65px;
+    margin-right: 75px;
     vertical-align: 5px;
   }
 }
@@ -139,8 +184,8 @@ body {
 }
 
 .muter-discription {
-  color: #6E6E6E;
   background: #ececec url("../img/mute_icon.svg") center center/auto 70px no-repeat;
+  color: #6E6E6E;
   font-size: 1.25rem;
   height: 80px;
   line-height: 80px;
@@ -151,12 +196,54 @@ body {
 
 @media screen and (min-width: 768px) {
   .muted-user-list {
-    border-top: solid 2px #bcbcbc;
     border-bottom: solid 2px #bcbcbc;
+    border-top: solid 2px #bcbcbc;
     padding-bottom: 0;
-    padding-left: 300px;
   }
 
+  .list-menu-closed {
+    -webkit-animation: list-to-left 0.3s forwards;
+            animation: list-to-left 0.3s forwards;
+  }
+
+  .list-menu-opened {
+    -webkit-animation: list-to-right 0.3s forwards;
+            animation: list-to-right 0.3s forwards;
+  }
+
+  @-webkit-keyframes list-to-left {
+    0% {
+      padding-left: 300px;
+    }
+    100% {
+      padding-left: 80px;
+    }
+  }
+
+  @keyframes list-to-left {
+    0% {
+      padding-left: 300px;
+    }
+    100% {
+      padding-left: 80px;
+    }
+  }
+  @-webkit-keyframes list-to-right {
+    0% {
+      padding-left: 80px;
+    }
+    100% {
+      padding-left: 300px;
+    }
+  }
+  @keyframes list-to-right {
+    0% {
+      padding-left: 80px;
+    }
+    100% {
+      padding-left: 300px;
+    }
+  }
   .muter-discription {
     font-size: 2.5rem;
     font-weight: bold;
@@ -454,6 +541,10 @@ body {
   white-space: pre-line;
 }
 
+.muted-tweet-text {
+  max-width: 1200px;
+}
+
 .tweet-media-container {
   display: flex;
   flex-wrap: wrap;
@@ -530,7 +621,6 @@ body {
   .muted-tweet {
     font-size: 1.25rem;
     line-height: 1.8rem;
-    max-width: 1000px;
     padding: 50px 100px 15px 250px;
   }
 
@@ -617,5 +707,35 @@ body {
 
 .fatal-message {
   white-space: pre-wrap;
+}
+
+.menu-button-container {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .menu-button-container {
+    display: block;
+    text-align: right;
+  }
+
+  .menu-toggle-icon {
+    height: 40px;
+    width: 40px;
+  }
+
+  .menu-toggle-button {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  .menu-toggle-button:focus {
+    outline: 0;
+  }
 }
 /*# sourceMappingURL=index.css.map*/
