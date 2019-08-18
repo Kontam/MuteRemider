@@ -1416,7 +1416,6 @@ var requestToServer = function requestToServer(endpoint) {
   return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(endpoint, params).then(function (result) {
     var data = result.data,
         status = result.status;
-    console.log(result);
     return {
       data: data,
       status: status
