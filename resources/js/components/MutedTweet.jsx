@@ -6,7 +6,7 @@ import convertBreak from '../modules/convertBreak';
 const MutedTweet = ({ mutedTweet, itemClassName }) => {
   return (
     <li className={`muted-tweet ${itemClassName}`}>
-      {mutedTweet.tweet_text}
+      <p className="muted-tweet-text">{mutedTweet.tweet_text}</p>
       <ul className="tweet-media-container">
         {
           mutedTweet.media_infos.map(media => (
