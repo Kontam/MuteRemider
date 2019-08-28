@@ -1,9 +1,9 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/index"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/muter_index"],{
 
-/***/ "./resources/js/TwAppsConst.js":
-/*!*************************************!*\
-  !*** ./resources/js/TwAppsConst.js ***!
-  \*************************************/
+/***/ "./resources/js/TwApps/TwAppsConst.js":
+/*!********************************************!*\
+  !*** ./resources/js/TwApps/TwAppsConst.js ***!
+  \********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -41,10 +41,10 @@ var TwAppsConst = {
 
 /***/ }),
 
-/***/ "./resources/js/actions/index.js":
-/*!***************************************!*\
-  !*** ./resources/js/actions/index.js ***!
-  \***************************************/
+/***/ "./resources/js/TwApps/actions/index.js":
+/*!**********************************************!*\
+  !*** ./resources/js/TwApps/actions/index.js ***!
+  \**********************************************/
 /*! exports provided: setBaseUrl, setIsMuterMenuOpened, setUserInfo, setMutedUsers, setMuted, toggleMuted, startMuteRequest, endMuteRequest, startUserRequest, endUserRequest, setErrMessage, setPopUpMessage, requestUserInfo, requestMutedUsers, requestUnmuteUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -65,8 +65,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestUserInfo", function() { return requestUserInfo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestMutedUsers", function() { return requestMutedUsers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestUnmuteUser", function() { return requestUnmuteUser; });
-/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
-/* harmony import */ var _modules_requestToServer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/requestToServer */ "./resources/js/modules/requestToServer.js");
+/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwApps/TwAppsConst.js");
+/* harmony import */ var _modules_requestToServer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/requestToServer */ "./resources/js/TwApps/modules/requestToServer.js");
 
 
 var setBaseUrl = function setBaseUrl(baseUrl) {
@@ -225,10 +225,10 @@ var requestUnmuteUser = function requestUnmuteUser(endpoint, screenName, index) 
 
 /***/ }),
 
-/***/ "./resources/js/components/FatalMessage.jsx":
-/*!**************************************************!*\
-  !*** ./resources/js/components/FatalMessage.jsx ***!
-  \**************************************************/
+/***/ "./resources/js/TwApps/components/FatalMessage.jsx":
+/*!*********************************************************!*\
+  !*** ./resources/js/TwApps/components/FatalMessage.jsx ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -263,10 +263,10 @@ FatalMessage.propTypes = {
 
 /***/ }),
 
-/***/ "./resources/js/components/LoadingImg.jsx":
-/*!************************************************!*\
-  !*** ./resources/js/components/LoadingImg.jsx ***!
-  \************************************************/
+/***/ "./resources/js/TwApps/components/LoadingImg.jsx":
+/*!*******************************************************!*\
+  !*** ./resources/js/TwApps/components/LoadingImg.jsx ***!
+  \*******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -277,7 +277,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
+/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwApps/TwAppsConst.js");
 
 
 
@@ -320,10 +320,10 @@ LoadingImg.propTypes = {
 
 /***/ }),
 
-/***/ "./resources/js/components/MutedTweet.jsx":
-/*!************************************************!*\
-  !*** ./resources/js/components/MutedTweet.jsx ***!
-  \************************************************/
+/***/ "./resources/js/TwApps/components/MutedTweet.jsx":
+/*!*******************************************************!*\
+  !*** ./resources/js/TwApps/components/MutedTweet.jsx ***!
+  \*******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -333,7 +333,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _modules_convertBreak__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/convertBreak */ "./resources/js/modules/convertBreak.js");
+/* harmony import */ var _modules_convertBreak__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/convertBreak */ "./resources/js/TwApps/modules/convertBreak.js");
 
 
 
@@ -399,10 +399,10 @@ MutedTweet.propTypes = {
 
 /***/ }),
 
-/***/ "./resources/js/components/MutedTweetList.jsx":
-/*!****************************************************!*\
-  !*** ./resources/js/components/MutedTweetList.jsx ***!
-  \****************************************************/
+/***/ "./resources/js/TwApps/components/MutedTweetList.jsx":
+/*!***********************************************************!*\
+  !*** ./resources/js/TwApps/components/MutedTweetList.jsx ***!
+  \***********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -413,8 +413,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
-/* harmony import */ var _MutedTweet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MutedTweet */ "./resources/js/components/MutedTweet.jsx");
+/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwApps/TwAppsConst.js");
+/* harmony import */ var _MutedTweet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MutedTweet */ "./resources/js/TwApps/components/MutedTweet.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -505,10 +505,10 @@ MutedTweetList.propTypes = {
 
 /***/ }),
 
-/***/ "./resources/js/components/MutedUserInfo.jsx":
-/*!***************************************************!*\
-  !*** ./resources/js/components/MutedUserInfo.jsx ***!
-  \***************************************************/
+/***/ "./resources/js/TwApps/components/MutedUserInfo.jsx":
+/*!**********************************************************!*\
+  !*** ./resources/js/TwApps/components/MutedUserInfo.jsx ***!
+  \**********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -519,11 +519,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _UnmuteButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UnmuteButton */ "./resources/js/components/UnmuteButton.jsx");
-/* harmony import */ var _ShowTweetsButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ShowTweetsButton */ "./resources/js/components/ShowTweetsButton.jsx");
-/* harmony import */ var _MutedTweetList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MutedTweetList */ "./resources/js/components/MutedTweetList.jsx");
-/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
+/* harmony import */ var _UnmuteButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UnmuteButton */ "./resources/js/TwApps/components/UnmuteButton.jsx");
+/* harmony import */ var _ShowTweetsButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ShowTweetsButton */ "./resources/js/TwApps/components/ShowTweetsButton.jsx");
+/* harmony import */ var _MutedTweetList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MutedTweetList */ "./resources/js/TwApps/components/MutedTweetList.jsx");
+/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwApps/TwAppsConst.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../actions */ "./resources/js/TwApps/actions/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -704,10 +704,10 @@ MutedUserInfo.propTypes = {
 
 /***/ }),
 
-/***/ "./resources/js/components/MuterMenu.jsx":
-/*!***********************************************!*\
-  !*** ./resources/js/components/MuterMenu.jsx ***!
-  \***********************************************/
+/***/ "./resources/js/TwApps/components/MuterMenu.jsx":
+/*!******************************************************!*\
+  !*** ./resources/js/TwApps/components/MuterMenu.jsx ***!
+  \******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -718,7 +718,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _containers_ToggleMuterMenuButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../containers/ToggleMuterMenuButton */ "./resources/js/containers/ToggleMuterMenuButton.jsx");
+/* harmony import */ var _containers_ToggleMuterMenuButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../containers/ToggleMuterMenuButton */ "./resources/js/TwApps/containers/ToggleMuterMenuButton.jsx");
 
 
 
@@ -747,10 +747,10 @@ MuterMenu.propTypes = {
 
 /***/ }),
 
-/***/ "./resources/js/components/ShowTweetsButton.jsx":
-/*!******************************************************!*\
-  !*** ./resources/js/components/ShowTweetsButton.jsx ***!
-  \******************************************************/
+/***/ "./resources/js/TwApps/components/ShowTweetsButton.jsx":
+/*!*************************************************************!*\
+  !*** ./resources/js/TwApps/components/ShowTweetsButton.jsx ***!
+  \*************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -760,7 +760,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
+/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwApps/TwAppsConst.js");
 
 
 
@@ -798,10 +798,10 @@ ShowTweetsButton.propTypes = {
 
 /***/ }),
 
-/***/ "./resources/js/components/TwAppsHeader.jsx":
-/*!**************************************************!*\
-  !*** ./resources/js/components/TwAppsHeader.jsx ***!
-  \**************************************************/
+/***/ "./resources/js/TwApps/components/TwAppsHeader.jsx":
+/*!*********************************************************!*\
+  !*** ./resources/js/TwApps/components/TwAppsHeader.jsx ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -812,7 +812,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
+/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwApps/TwAppsConst.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -884,10 +884,10 @@ TwAppsHeader.propTypes = {
 
 /***/ }),
 
-/***/ "./resources/js/components/UnmuteButton.jsx":
-/*!**************************************************!*\
-  !*** ./resources/js/components/UnmuteButton.jsx ***!
-  \**************************************************/
+/***/ "./resources/js/TwApps/components/UnmuteButton.jsx":
+/*!*********************************************************!*\
+  !*** ./resources/js/TwApps/components/UnmuteButton.jsx ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -933,10 +933,10 @@ UnmuteButton.defaultProps = {
 
 /***/ }),
 
-/***/ "./resources/js/containers/MuteReminder.jsx":
-/*!**************************************************!*\
-  !*** ./resources/js/containers/MuteReminder.jsx ***!
-  \**************************************************/
+/***/ "./resources/js/TwApps/containers/MuteReminder.jsx":
+/*!*********************************************************!*\
+  !*** ./resources/js/TwApps/containers/MuteReminder.jsx ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -945,9 +945,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _components_MuterMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/MuterMenu */ "./resources/js/components/MuterMenu.jsx");
-/* harmony import */ var _MutedUserList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MutedUserList */ "./resources/js/containers/MutedUserList.jsx");
-/* harmony import */ var _components_FatalMessage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/FatalMessage */ "./resources/js/components/FatalMessage.jsx");
+/* harmony import */ var _components_MuterMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/MuterMenu */ "./resources/js/TwApps/components/MuterMenu.jsx");
+/* harmony import */ var _MutedUserList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MutedUserList */ "./resources/js/TwApps/containers/MutedUserList.jsx");
+/* harmony import */ var _components_FatalMessage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/FatalMessage */ "./resources/js/TwApps/components/FatalMessage.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1004,10 +1004,10 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/containers/MutedUserList.jsx":
-/*!***************************************************!*\
-  !*** ./resources/js/containers/MutedUserList.jsx ***!
-  \***************************************************/
+/***/ "./resources/js/TwApps/containers/MutedUserList.jsx":
+/*!**********************************************************!*\
+  !*** ./resources/js/TwApps/containers/MutedUserList.jsx ***!
+  \**********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1018,9 +1018,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
-/* harmony import */ var _components_MutedUserInfo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/MutedUserInfo */ "./resources/js/components/MutedUserInfo.jsx");
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
+/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwApps/TwAppsConst.js");
+/* harmony import */ var _components_MutedUserInfo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/MutedUserInfo */ "./resources/js/TwApps/components/MutedUserInfo.jsx");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../actions */ "./resources/js/TwApps/actions/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1128,10 +1128,10 @@ MutedUserList.propTypes = {
 
 /***/ }),
 
-/***/ "./resources/js/containers/ToggleMuterMenuButton.jsx":
-/*!***********************************************************!*\
-  !*** ./resources/js/containers/ToggleMuterMenuButton.jsx ***!
-  \***********************************************************/
+/***/ "./resources/js/TwApps/containers/ToggleMuterMenuButton.jsx":
+/*!******************************************************************!*\
+  !*** ./resources/js/TwApps/containers/ToggleMuterMenuButton.jsx ***!
+  \******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1142,8 +1142,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
+/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwApps/TwAppsConst.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../actions */ "./resources/js/TwApps/actions/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1238,10 +1238,10 @@ ToggleMuterMenuButton.propTypes = {
 
 /***/ }),
 
-/***/ "./resources/js/containers/TwitterApps.jsx":
-/*!*************************************************!*\
-  !*** ./resources/js/containers/TwitterApps.jsx ***!
-  \*************************************************/
+/***/ "./resources/js/TwApps/containers/TwitterApps.jsx":
+/*!********************************************************!*\
+  !*** ./resources/js/TwApps/containers/TwitterApps.jsx ***!
+  \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1252,11 +1252,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
-/* harmony import */ var _components_TwAppsHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/TwAppsHeader */ "./resources/js/components/TwAppsHeader.jsx");
-/* harmony import */ var _MuteReminder__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MuteReminder */ "./resources/js/containers/MuteReminder.jsx");
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../actions */ "./resources/js/actions/index.js");
-/* harmony import */ var _components_LoadingImg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/LoadingImg */ "./resources/js/components/LoadingImg.jsx");
+/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwApps/TwAppsConst.js");
+/* harmony import */ var _components_TwAppsHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/TwAppsHeader */ "./resources/js/TwApps/components/TwAppsHeader.jsx");
+/* harmony import */ var _MuteReminder__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MuteReminder */ "./resources/js/TwApps/containers/MuteReminder.jsx");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../actions */ "./resources/js/TwApps/actions/index.js");
+/* harmony import */ var _components_LoadingImg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/LoadingImg */ "./resources/js/TwApps/components/LoadingImg.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1335,55 +1335,10 @@ TwitterApps.propTypes = {
 
 /***/ }),
 
-/***/ "./resources/js/index.jsx":
-/*!********************************!*\
-  !*** ./resources/js/index.jsx ***!
-  \********************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-devtools-extension */ "./node_modules/redux-devtools-extension/index.js");
-/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./reducers */ "./resources/js/reducers/index.js");
-/* harmony import */ var base_path__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! base_path */ "base_path");
-/* harmony import */ var base_path__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(base_path__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _containers_TwitterApps__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./containers/TwitterApps */ "./resources/js/containers/TwitterApps.jsx");
-
-
-
-
-
-
-
-
-
-var store = Object(redux__WEBPACK_IMPORTED_MODULE_2__["createStore"])(_reducers__WEBPACK_IMPORTED_MODULE_6__["default"], Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__["composeWithDevTools"])(Object(redux__WEBPACK_IMPORTED_MODULE_2__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_4__["default"])) // applyMiddleware(thunk),
-);
-var appElem = document.querySelector('.react-homeapp');
-
-if (appElem) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_5__["Provider"], {
-    store: store
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_TwitterApps__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    baseUrl: base_path__WEBPACK_IMPORTED_MODULE_7___default.a
-  })), appElem);
-}
-
-/***/ }),
-
-/***/ "./resources/js/modules/convertBreak.js":
-/*!**********************************************!*\
-  !*** ./resources/js/modules/convertBreak.js ***!
-  \**********************************************/
+/***/ "./resources/js/TwApps/modules/convertBreak.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/TwApps/modules/convertBreak.js ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1398,10 +1353,10 @@ var convertBreak = function convertBreak(str) {
 
 /***/ }),
 
-/***/ "./resources/js/modules/requestToServer.js":
-/*!*************************************************!*\
-  !*** ./resources/js/modules/requestToServer.js ***!
-  \*************************************************/
+/***/ "./resources/js/TwApps/modules/requestToServer.js":
+/*!********************************************************!*\
+  !*** ./resources/js/TwApps/modules/requestToServer.js ***!
+  \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1427,17 +1382,17 @@ var requestToServer = function requestToServer(endpoint) {
 
 /***/ }),
 
-/***/ "./resources/js/reducers/index.js":
-/*!****************************************!*\
-  !*** ./resources/js/reducers/index.js ***!
-  \****************************************/
+/***/ "./resources/js/TwApps/reducers/index.js":
+/*!***********************************************!*\
+  !*** ./resources/js/TwApps/reducers/index.js ***!
+  \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwAppsConst.js");
+/* harmony import */ var _TwAppsConst__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../TwAppsConst */ "./resources/js/TwApps/TwAppsConst.js");
 
 
 
@@ -1591,6 +1546,51 @@ var popUpMessage = function popUpMessage() {
 
 /***/ }),
 
+/***/ "./resources/js/muter_index.jsx":
+/*!**************************************!*\
+  !*** ./resources/js/muter_index.jsx ***!
+  \**************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-devtools-extension */ "./node_modules/redux-devtools-extension/index.js");
+/* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _TwApps_reducers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./TwApps/reducers */ "./resources/js/TwApps/reducers/index.js");
+/* harmony import */ var base_path__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! base_path */ "base_path");
+/* harmony import */ var base_path__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(base_path__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _TwApps_containers_TwitterApps__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./TwApps/containers/TwitterApps */ "./resources/js/TwApps/containers/TwitterApps.jsx");
+
+
+
+
+
+
+
+
+
+var store = Object(redux__WEBPACK_IMPORTED_MODULE_2__["createStore"])(_TwApps_reducers__WEBPACK_IMPORTED_MODULE_6__["default"], Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__["composeWithDevTools"])(Object(redux__WEBPACK_IMPORTED_MODULE_2__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_4__["default"])) // applyMiddleware(thunk),
+);
+var appElem = document.querySelector('.react-homeapp');
+
+if (appElem) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_5__["Provider"], {
+    store: store
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TwApps_containers_TwitterApps__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    baseUrl: base_path__WEBPACK_IMPORTED_MODULE_7___default.a
+  })), appElem);
+}
+
+/***/ }),
+
 /***/ "./resources/sass/index.scss":
 /*!***********************************!*\
   !*** ./resources/sass/index.scss ***!
@@ -1603,13 +1603,13 @@ var popUpMessage = function popUpMessage() {
 /***/ }),
 
 /***/ 0:
-/*!******************************************************************!*\
-  !*** multi ./resources/js/index.jsx ./resources/sass/index.scss ***!
-  \******************************************************************/
+/*!************************************************************************!*\
+  !*** multi ./resources/js/muter_index.jsx ./resources/sass/index.scss ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\tehay\Desktop\WORKSPACE\10.Development\20.Web\MuteReminder\MuteReminder\resources\js\index.jsx */"./resources/js/index.jsx");
+__webpack_require__(/*! C:\Users\tehay\Desktop\WORKSPACE\10.Development\20.Web\MuteReminder\MuteReminder\resources\js\muter_index.jsx */"./resources/js/muter_index.jsx");
 module.exports = __webpack_require__(/*! C:\Users\tehay\Desktop\WORKSPACE\10.Development\20.Web\MuteReminder\MuteReminder\resources\sass\index.scss */"./resources/sass/index.scss");
 
 
@@ -1627,4 +1627,4 @@ module.exports = base_path;
 /***/ })
 
 },[[0,"/js/manifest","/js/vendor"]]]);
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=muter_index.js.map

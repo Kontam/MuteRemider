@@ -11,7 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.react('resources/js/index.jsx', 'public/js')
+mix.react('resources/js/muter_index.jsx', 'public/js')
+  .react('resources/js/login_index.jsx', 'public/js')
   .extract([])
   .sass('resources/sass/index.scss', 'public/css')
   // .sass('resources/sass/app.scss', 'public/css')

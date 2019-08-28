@@ -14,7 +14,6 @@
         </script>
         <script src="js/vendor.js" charset="utf-8"></script>
         <script src="js/manifest.js" charset="utf-8"></script>
-        <script src="js/index.js" charset="utf-8"></script>
-
+        @yield('scripts')
     </body>
 </html>
