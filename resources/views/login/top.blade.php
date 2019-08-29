@@ -1,5 +1,9 @@
 @extends('layouts.default')
 
+@section('head')
+<link rel="stylesheet" href="css/login_index.css">
+@endsection
+
 @section('title','ログイン｜あの人は今？チェッカー')
 @section('body')
     <div class="react-login"></div>

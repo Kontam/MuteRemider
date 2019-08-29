@@ -1,5 +1,21 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/login_index"],{
 
+/***/ "./resources/js/LoginPage/LoginConst.js":
+/*!**********************************************!*\
+  !*** ./resources/js/LoginPage/LoginConst.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var LoginConst = {
+  APPNAME_MUTER: 'APPNAME_MUTER'
+};
+/* harmony default export */ __webpack_exports__["default"] = (LoginConst);
+
+/***/ }),
+
 /***/ "./resources/js/LoginPage/components/MuterLogin.jsx":
 /*!**********************************************************!*\
   !*** ./resources/js/LoginPage/components/MuterLogin.jsx ***!
@@ -11,6 +27,8 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _PageHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PageHeader */ "./resources/js/LoginPage/components/PageHeader.jsx");
+/* harmony import */ var _LoginConst__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../LoginConst */ "./resources/js/LoginPage/LoginConst.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31,21 +49,29 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
 var MuterLogin =
 /*#__PURE__*/
 function (_Component) {
   _inherits(MuterLogin, _Component);
 
-  function MuterLogin() {
+  function MuterLogin(props) {
+    var _this;
+
     _classCallCheck(this, MuterLogin);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(MuterLogin).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MuterLogin).call(this, props));
+    _this.state = {
+      appName: _LoginConst__WEBPACK_IMPORTED_MODULE_2__["default"].APPNAME_MUTER
+    };
+    return _this;
   }
 
   _createClass(MuterLogin, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "react loaded");
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageHeader__WEBPACK_IMPORTED_MODULE_1__["default"], null);
     }
   }]);
 
@@ -53,6 +79,31 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (MuterLogin);
+
+/***/ }),
+
+/***/ "./resources/js/LoginPage/components/PageHeader.jsx":
+/*!**********************************************************!*\
+  !*** ./resources/js/LoginPage/components/PageHeader.jsx ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var PageHeader = function PageHeader() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "app-head-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "app-head"
+  }, "\u3042\u306E\u4EBA\u306F\u4ECA\uFF1F\u30C1\u30A7\u30C3\u30AB\u30FC"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PageHeader);
 
 /***/ }),
 

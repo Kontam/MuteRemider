@@ -1591,10 +1591,21 @@ if (appElem) {
 
 /***/ }),
 
-/***/ "./resources/sass/index.scss":
-/*!***********************************!*\
-  !*** ./resources/sass/index.scss ***!
-  \***********************************/
+/***/ "./resources/sass/LoginPage/login_index.scss":
+/*!***************************************************!*\
+  !*** ./resources/sass/LoginPage/login_index.scss ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/TwApps/muter_index.scss":
+/*!************************************************!*\
+  !*** ./resources/sass/TwApps/muter_index.scss ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -1603,14 +1614,15 @@ if (appElem) {
 /***/ }),
 
 /***/ 0:
-/*!************************************************************************!*\
-  !*** multi ./resources/js/muter_index.jsx ./resources/sass/index.scss ***!
-  \************************************************************************/
+/*!*********************************************************************************************************************************!*\
+  !*** multi ./resources/js/muter_index.jsx ./resources/sass/TwApps/muter_index.scss ./resources/sass/LoginPage/login_index.scss ***!
+  \*********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\Users\tehay\Desktop\WORKSPACE\10.Development\20.Web\MuteReminder\MuteReminder\resources\js\muter_index.jsx */"./resources/js/muter_index.jsx");
-module.exports = __webpack_require__(/*! C:\Users\tehay\Desktop\WORKSPACE\10.Development\20.Web\MuteReminder\MuteReminder\resources\sass\index.scss */"./resources/sass/index.scss");
+__webpack_require__(/*! C:\Users\tehay\Desktop\WORKSPACE\10.Development\20.Web\MuteReminder\MuteReminder\resources\sass\TwApps\muter_index.scss */"./resources/sass/TwApps/muter_index.scss");
+module.exports = __webpack_require__(/*! C:\Users\tehay\Desktop\WORKSPACE\10.Development\20.Web\MuteReminder\MuteReminder\resources\sass\LoginPage\login_index.scss */"./resources/sass/LoginPage/login_index.scss");
 
 
 /***/ }),

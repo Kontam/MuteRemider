@@ -1,5 +1,9 @@
 @extends('layouts.default')
 
+@section('head')
+    <link rel="stylesheet" href="css/muter_index.css">
+@endsection
+
 @section('title', 'あの人は今？チェッカー')
 @section('body')
     <div class="react-homeapp"></div>
