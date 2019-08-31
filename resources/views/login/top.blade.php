@@ -2,6 +2,7 @@
 
 @section('head')
 <link rel="stylesheet" href="css/login_index.css">
+<link rel="stylesheet" href="https://use.typekit.net/jdw4aor.css">
 @endsection
 
 @section('title','ログイン｜あの人は今？チェッカー')

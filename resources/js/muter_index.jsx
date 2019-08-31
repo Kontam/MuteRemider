@@ -13,7 +13,6 @@ import TwitterApps from './TwApps/containers/TwitterApps';
 const store = createStore(
   reducers,
   composeWithDevTools(applyMiddleware(thunk)),
-  // applyMiddleware(thunk),
 );
 
 const appElem = document.querySelector('.react-homeapp');

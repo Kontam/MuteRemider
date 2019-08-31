@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -50,5 +51,37 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #5D5D5D;
+  font-family: "\30D2\30E9\30AE\30CE\89D2\30B4   ProN", "\6E38\30B4\30B7\30C3\30AF   Medium", "YuGothic", "YuGothicM", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "\30E1\30A4\30EA\30AA", "Meiryo", sans-serif;
+}
+
+.pageHeadContainer {
+  color: #ffffff;
+  background: linear-gradient(to bottom right, #84FAB1, #8FD3F4);
+  height: 200px;
+  padding: 30px 35px 15px;
+  width: 100%;
+}
+.pageHeadContainer__head {
+  font-size: 2.125rem;
+  font-weight: 700;
+}
+.pageHeadContainer__headLine2 {
+  margin-left: 40%;
+  margin-top: 17px;
+}
+.pageHeadContainer__engHead {
+  font-family: "brush-script-std", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 25px;
 }
 /*# sourceMappingURL=login_index.css.map*/

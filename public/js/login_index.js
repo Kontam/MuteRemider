@@ -97,10 +97,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var PageHeader = function PageHeader() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "app-head-container"
+    className: "pageHeadContainer"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-    className: "app-head"
-  }, "\u3042\u306E\u4EBA\u306F\u4ECA\uFF1F\u30C1\u30A7\u30C3\u30AB\u30FC"));
+    className: "pageHeadContainer__head"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pageHeadContainer__headLine1"
+  }, " \u3042\u306E\u4EBA\u306F\u4ECA\uFF1F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pageHeadContainer__headLine2"
+  }, " \u30C1\u30A7\u30C3\u30AB\u30FC")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "pageHeadContainer__engHead"
+  }, "Mute Reminder"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PageHeader);

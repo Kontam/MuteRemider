@@ -1,3 +1,16 @@
 @import '../common/eric';
+@import '../common/_variables';
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: $basic-label-color;
+  font-family: 'ヒラギノ角ゴ ProN', '游ゴシック Medium', 'YuGothic', 'YuGothicM', 'Hiragino Kaku Gothic ProN', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', sans-serif;
+}
+
+$image-dir: '../img/';
+
+@import '../common/mixin';
 @import './components/PageHeader';
