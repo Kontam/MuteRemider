@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import MuterLogin from './LoginPage/components/MuterLogin';
+import LoginPage from './LoginPage/components/LoginPage';
 
 const loginElem = document.querySelector('.react-login');
 
 ReactDOM.render(
-  <MuterLogin />,
+  <LoginPage />,
   loginElem,
 );
