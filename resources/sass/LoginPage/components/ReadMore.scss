@@ -1,0 +1,15 @@
+.ReadMore {
+  background-color: $muter-green;
+  text-align: center;
+
+  &__message {
+    color: $basic-white;
+    font-size: .875rem;
+  }
+
+  &__arrow {
+    background: url($image-dir + 'arrow_down.svg') center / contain no-repeat;
+    height: 7px;
+    margin-top: 5px;
+  }
+}

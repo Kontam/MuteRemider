@@ -12,6 +12,7 @@ __webpack_require__.r(__webpack_exports__);
 var LoginConst = {
   OWNER_LINK: 'https://konkonta.com',
   OWNER_TWITTER_LINK: 'https://twitter.com/cha_han5656',
+  LOGIN_SLAG: '/login',
   BREAKPOINT_PC: 1200,
   APPNAME_MUTER: 'APPNAME_MUTER',
   DESCRIPTION_FIRST_MUTER: 'あなたがミュートしている\r\nユーザーを整理しましょう',
@@ -111,59 +112,6 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/LoginPage/components/LoginContainer.jsx":
-/*!**************************************************************!*\
-  !*** ./resources/js/LoginPage/components/LoginContainer.jsx ***!
-  \**************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _LoginConst__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../LoginConst */ "./resources/js/LoginPage/LoginConst.js");
-
-
-
-var LoginSection = function LoginSection() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "LoginContainer"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "LoginContainer__head"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "LoginContainer__Paragraph"
-  }, _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].DESCRIPTION_FIRST_MUTER), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "LoginContainer__Paragraph LoginContainer__Paragraph--second"
-  }, _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].DESCRIPTION_SECOND_MUTER)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "LoginRightColumn"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "ownerLink"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "ownerLink__icon",
-    src: "img/house_icon.svg",
-    alt: "home"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].OWNER_LINK,
-    className: "ownerLink__Link"
-  }, "\u5236\u4F5C\u8005\u30DB\u30FC\u30E0\u30DA\u30FC\u30B8")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "LoginForm"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    className: "LoginForm__loginLink",
-    href: "/login"
-  }, "\u30ED\u30B0\u30A4\u30F3", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "LoginForm__icon",
-    src: "img/twitter_white_icon.svg",
-    alt: "twitter"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "LoginForm__description"
-  }, _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].DESCRIPTION_LOGIN_TWITTER))));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (LoginSection);
-
-/***/ }),
-
 /***/ "./resources/js/LoginPage/components/LoginPage.jsx":
 /*!*********************************************************!*\
   !*** ./resources/js/LoginPage/components/LoginPage.jsx ***!
@@ -175,12 +123,15 @@ var LoginSection = function LoginSection() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _LoginConst__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../LoginConst */ "./resources/js/LoginPage/LoginConst.js");
-/* harmony import */ var _PageHeader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PageHeader */ "./resources/js/LoginPage/components/PageHeader.jsx");
-/* harmony import */ var _LoginContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LoginContainer */ "./resources/js/LoginPage/components/LoginContainer.jsx");
-/* harmony import */ var _Carousel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Carousel */ "./resources/js/LoginPage/components/Carousel.jsx");
-/* harmony import */ var _SNSAdSection__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SNSAdSection */ "./resources/js/LoginPage/components/SNSAdSection.jsx");
-/* harmony import */ var _PageFooter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./PageFooter */ "./resources/js/LoginPage/components/PageFooter.jsx");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _LoginConst__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../LoginConst */ "./resources/js/LoginPage/LoginConst.js");
+/* harmony import */ var _PageHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PageHeader */ "./resources/js/LoginPage/components/PageHeader.jsx");
+/* harmony import */ var _LoginSection__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./LoginSection */ "./resources/js/LoginPage/components/LoginSection.jsx");
+/* harmony import */ var _ReadMore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ReadMore */ "./resources/js/LoginPage/components/ReadMore.jsx");
+/* harmony import */ var _Carousel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Carousel */ "./resources/js/LoginPage/components/Carousel.jsx");
+/* harmony import */ var _SNSAdSection__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./SNSAdSection */ "./resources/js/LoginPage/components/SNSAdSection.jsx");
+/* harmony import */ var _PageFooter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./PageFooter */ "./resources/js/LoginPage/components/PageFooter.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -207,6 +158,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
 var LoginPage =
 /*#__PURE__*/
 function (_Component) {
@@ -219,7 +172,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(LoginPage).call(this, props));
     _this.state = {
-      appName: _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].APPNAME_MUTER
+      appName: _LoginConst__WEBPACK_IMPORTED_MODULE_2__["default"].APPNAME_MUTER
     };
     return _this;
   }
@@ -227,18 +180,78 @@ function (_Component) {
   _createClass(LoginPage, [{
     key: "render",
     value: function render() {
+      var basePath = this.props.basePath;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "loginPage"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageHeader__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoginContainer__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageHeader__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoginSection__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        basePath: basePath
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReadMore__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "carouselContainer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Carousel__WEBPACK_IMPORTED_MODULE_4__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SNSAdSection__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageFooter__WEBPACK_IMPORTED_MODULE_6__["default"], null));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Carousel__WEBPACK_IMPORTED_MODULE_6__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SNSAdSection__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageFooter__WEBPACK_IMPORTED_MODULE_8__["default"], null));
     }
   }]);
 
   return LoginPage;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
+LoginPage.propTypes = {
+  basePath: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
+};
 /* harmony default export */ __webpack_exports__["default"] = (LoginPage);
+
+/***/ }),
+
+/***/ "./resources/js/LoginPage/components/LoginSection.jsx":
+/*!************************************************************!*\
+  !*** ./resources/js/LoginPage/components/LoginSection.jsx ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _LoginConst__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../LoginConst */ "./resources/js/LoginPage/LoginConst.js");
+
+
+
+var LoginSection = function LoginSection(_ref) {
+  var basePath = _ref.basePath;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "LoginSection"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "LoginSection__head"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "LoginSection__Paragraph"
+  }, _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].DESCRIPTION_FIRST_MUTER), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "LoginSection__Paragraph LoginSection__Paragraph--second"
+  }, _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].DESCRIPTION_SECOND_MUTER)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "LoginRightColumn"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ownerLink"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "ownerLink__icon",
+    src: "img/house_icon.svg",
+    alt: "home"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].OWNER_LINK,
+    className: "ownerLink__Link"
+  }, "\u5236\u4F5C\u8005\u30DB\u30FC\u30E0\u30DA\u30FC\u30B8")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "LoginForm"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "LoginForm__loginLink",
+    href: "".concat(basePath).concat(_LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].LOGIN_SLAG)
+  }, "\u30ED\u30B0\u30A4\u30F3", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "LoginForm__icon",
+    src: "img/twitter_white_icon.svg",
+    alt: "twitter"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "LoginForm__description"
+  }, _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].DESCRIPTION_LOGIN_TWITTER))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (LoginSection);
 
 /***/ }),
 
@@ -317,6 +330,33 @@ var PageHeader = function PageHeader() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PageHeader);
+
+/***/ }),
+
+/***/ "./resources/js/LoginPage/components/ReadMore.jsx":
+/*!********************************************************!*\
+  !*** ./resources/js/LoginPage/components/ReadMore.jsx ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var ReadMore = function ReadMore() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ReadMore"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "ReadMore__message"
+  }, "\u4F55\u306E\u305F\u3081\u306E\u30C4\u30FC\u30EB\uFF1F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ReadMore__arrow"
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ReadMore);
 
 /***/ }),
 
@@ -758,12 +798,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _LoginPage_components_LoginPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LoginPage/components/LoginPage */ "./resources/js/LoginPage/components/LoginPage.jsx");
+/* harmony import */ var base_path__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! base_path */ "base_path");
+/* harmony import */ var base_path__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(base_path__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _LoginPage_components_LoginPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LoginPage/components/LoginPage */ "./resources/js/LoginPage/components/LoginPage.jsx");
+
 
 
 
 var loginElem = document.querySelector('.react-login');
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoginPage_components_LoginPage__WEBPACK_IMPORTED_MODULE_2__["default"], null), loginElem);
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoginPage_components_LoginPage__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  basePath: base_path__WEBPACK_IMPORTED_MODULE_2___default.a
+}), loginElem);
 
 /***/ }),
 
@@ -776,6 +821,17 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_
 
 module.exports = __webpack_require__(/*! C:\Users\tehay\Desktop\WORKSPACE\10.Development\20.Web\MuteReminder\MuteReminder\resources\js\login_index.jsx */"./resources/js/login_index.jsx");
 
+
+/***/ }),
+
+/***/ "base_path":
+/*!****************************!*\
+  !*** external "base_path" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = base_path;
 
 /***/ })
 

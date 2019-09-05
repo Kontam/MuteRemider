@@ -2,11 +2,11 @@ import React from 'react';
 
 import LoginConst from '../LoginConst';
 
-const LoginSection = () => (
-  <div className="LoginContainer">
-    <div className="LoginContainer__head">
-      <p className="LoginContainer__Paragraph">{LoginConst.DESCRIPTION_FIRST_MUTER}</p>
-      <p className="LoginContainer__Paragraph LoginContainer__Paragraph--second">{LoginConst.DESCRIPTION_SECOND_MUTER}</p>
+const LoginSection = ({ basePath }) => (
+  <div className="LoginSection">
+    <div className="LoginSection__head">
+      <p className="LoginSection__Paragraph">{LoginConst.DESCRIPTION_FIRST_MUTER}</p>
+      <p className="LoginSection__Paragraph LoginSection__Paragraph--second">{LoginConst.DESCRIPTION_SECOND_MUTER}</p>
     </div>
     <div className="LoginRightColumn">
       <div className="ownerLink">
@@ -14,7 +14,7 @@ const LoginSection = () => (
         <a href={LoginConst.OWNER_LINK} className="ownerLink__Link">制作者ホームページ</a>
       </div>
       <div className="LoginForm">
-        <a className="LoginForm__loginLink" href="/login">
+        <a className="LoginForm__loginLink" href={`${basePath}${LoginConst.LOGIN_SLAG}`}>
           ログイン
           <img className="LoginForm__icon" src="img/twitter_white_icon.svg" alt="twitter" />
         </a>
