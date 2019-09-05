@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-
 import LoginConst from '../LoginConst';
 import PageHeader from './PageHeader';
 import LoginContainer from './LoginContainer';
 import Carousel from './Carousel';
+import SNSAdSection from './SNSAdSection';
+import PageFooter from './PageFooter';
 
 class LoginPage extends Component {
   constructor(props) {
@@ -22,6 +23,8 @@ class LoginPage extends Component {
         <div className="carouselContainer">
           <Carousel />
         </div>
+        <SNSAdSection />
+        <PageFooter />
       </div>
     );
   }

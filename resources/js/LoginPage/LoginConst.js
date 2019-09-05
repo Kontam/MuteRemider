@@ -1,5 +1,6 @@
 const LoginConst = {
   OWNER_LINK: 'https://konkonta.com',
+  OWNER_TWITTER_LINK: 'https://twitter.com/cha_han5656',
   BREAKPOINT_PC: 1200,
 
   APPNAME_MUTER: 'APPNAME_MUTER',
