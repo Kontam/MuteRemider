@@ -344,18 +344,18 @@ body {
   margin-top: 25px;
 }
 
-.LoginContainer__head {
+.LoginSection__head {
   padding: 44px 60px 35px;
   text-align: center;
 }
-.LoginContainer__Paragraph {
+.LoginSection__Paragraph {
   color: #58C6E8;
   font-size: 1.25rem;
   font-weight: 500;
   line-height: 3;
   white-space: pre-wrap;
 }
-.LoginContainer__Paragraph--second {
+.LoginSection__Paragraph--second {
   margin-top: 14px;
 }
 
@@ -398,7 +398,12 @@ body {
   justify-content: center;
   margin: 0 auto;
   text-align: center;
+  transition: 0.2s;
   width: 280px;
+}
+.LoginForm__loginLink:active {
+  box-shadow: 0 0 #3D89A7;
+  transform: translateY(5px);
 }
 .LoginForm__icon {
   margin-left: 15px;
@@ -414,9 +419,23 @@ body {
   white-space: pre-wrap;
 }
 
+.ReadMore {
+  background-color: #86F3B0;
+  text-align: center;
+}
+.ReadMore__message {
+  color: #ffffff;
+  font-size: 0.875rem;
+}
+.ReadMore__arrow {
+  background: url("../img/arrow_down.svg") center/contain no-repeat;
+  height: 7px;
+  margin-top: 5px;
+}
+
 .carouselContainer {
   background-color: #86F3B0;
-  padding: 120px 0;
+  padding: 50px 0 120px;
 }
 
 .loginCarousel__page {

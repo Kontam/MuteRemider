@@ -1,5 +1,5 @@
 
-.LoginContainer {
+.LoginSection {
 
   &__head {
     padding: 44px 60px 35px;
@@ -58,7 +58,13 @@
     justify-content: center;
     margin: 0 auto;
     text-align: center;
+    transition: .2s;
     width: 280px;
+
+    &:active {
+      box-shadow: 0 0 $twitter-shadow-blue;
+      transform: translateY(5px);
+    }
   }
 
   &__icon {
