@@ -1,0 +1,60 @@
+.snsAdSection {
+  padding: 150px 0;
+  text-align: center;
+
+  &__head {
+    color: $twitter-blue;
+    font-size: 1.625rem;
+    font-weight: bold;
+  }
+
+  &__paragraph {
+    color: $light-label-color;
+    font-size: 1.125rem;
+    line-height: 2.5;
+    white-space: pre-wrap;
+
+    &--first {
+      margin-top: 30px;
+    }
+
+    &--second {
+      margin-top: 45px;
+    }
+
+    &--third {
+      margin-top: 45px;
+    }
+  }
+
+  &__SNSList  {
+    margin-top: 50px;
+  }
+
+  @mixin snsButton {
+    @include reset-button;
+    border-radius: 5px;
+    color: $basic-white;
+    display: block;
+    font-size: 1.25rem;
+    font-weight: bold;
+    height: 50px;
+    margin: 40px auto 0;
+    width: 180px;
+  }
+
+  .twitter-share-button {
+    @include snsButton;
+    background-color: $twitter-blue;
+  }
+
+  .line-share-button {
+    @include snsButton;
+    background-color: $muter-green;
+  }
+
+  .facebook-share-button {
+    @include snsButton;
+    background-color: $facebook-blue;
+  }
+}

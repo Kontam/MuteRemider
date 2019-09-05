@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="css/index.css">
+        @yield('head')
         <title>@yield('title')</title>
     </head>
     <body>
@@ -14,7 +14,6 @@
         </script>
         <script src="js/vendor.js" charset="utf-8"></script>
         <script src="js/manifest.js" charset="utf-8"></script>
-        <script src="js/index.js" charset="utf-8"></script>
-
+        @yield('scripts')
     </body>
 </html>

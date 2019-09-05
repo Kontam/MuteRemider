@@ -5,15 +5,14 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import reducers from './reducers';
+import reducers from './TwApps/reducers';
 import basePath from 'base_path';
 
-import TwitterApps from './containers/TwitterApps';
+import TwitterApps from './TwApps/containers/TwitterApps';
 
 const store = createStore(
   reducers,
   composeWithDevTools(applyMiddleware(thunk)),
-  // applyMiddleware(thunk),
 );
 
 const appElem = document.querySelector('.react-homeapp');

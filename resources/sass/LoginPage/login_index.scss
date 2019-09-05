@@ -1,0 +1,49 @@
+@import '../common/eric';
+@import '../common/_variables';
+
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-display: replace;
+  font-family: 'Noto Sans';
+  font-weight: 700;
+  src: url('../fonts/NotoSans_bold.woff');
+}
+
+@font-face {
+  font-display: replace;
+  font-family: 'Noto Sans';
+  font-weight: 500;
+  src: url('../fonts/NotoSans_medium.woff');
+}
+
+@font-face {
+  font-display: replace;
+  font-family: 'Noto Sans';
+  font-weight: 400;
+  src: url('../fonts/NotoSans_regular.woff');
+}
+
+body {
+  color: $basic-label-color;
+  font-family: 'Noto Sans', 'Noto ヒラギノ角ゴ ProN', '游ゴシック Medium', 'YuGothic', 'YuGothicM', 'Hiragino Kaku Gothic ProN', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', sans-serif;
+}
+
+$image-dir: '../img/';
+
+$slick-font-path: '../img/slick/fonts/';
+$slick-loader-path: '../img/slick/';
+@import './vendor/slick';
+@import './vendor/slick-theme';
+
+
+@import '../common/mixin';
+@import './components/loginPage';
+@import './components/PageHeader';
+@import './components/LoginContainer';
+@import './components/Carousel';
+@import './components/snsAdSection';
+@import './components/PageFooter';

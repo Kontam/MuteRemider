@@ -1,0 +1,78 @@
+
+.LoginContainer {
+
+  &__head {
+    padding: 44px 60px 35px;
+    text-align: center;
+  }
+
+  &__Paragraph {
+    color: $twitter-blue;
+    font-size: 1.25rem;
+    font-weight: $fw-medium;
+    line-height: 3;
+    white-space: pre-wrap;
+
+    &--second {
+      margin-top: 14px;
+    }
+  }
+}
+
+.ownerLink {
+  text-align: right;
+  padding: 0 10px;
+  margin-bottom: 3px;
+  cursor: pointer;
+
+  &__icon {
+    margin-right: 3px;
+    width: 12px;
+  }
+
+  &__Link {
+    @include reset-anchor;
+    color: $twitter-blue;
+    font-size: 0.66rem;
+    vertical-align: 1px;
+  }
+}
+
+.LoginForm {
+  background-color: $muter-green;
+  color: $basic-white;
+  padding: 70px 0 45px;
+  width: 100%;
+
+  &__loginLink {
+    @include reset-anchor;
+    align-items: center;
+    background-color: $twitter-blue;
+    border-radius: 5px;
+    box-shadow: 0 5px $twitter-shadow-blue;
+    color: $basic-white;
+    cursor: pointer;
+    display: flex;
+    font-size: 1.5rem;
+    height: 55px;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    width: 280px;
+  }
+
+  &__icon {
+    margin-left: 15px;
+    width: 40px;
+  }
+
+  &__description {
+    color: $basic-white;
+    font-size: 1.25rem;
+    font-weight: $fw-bold;
+    line-height: 2.5;
+    margin-top: 50px;
+    text-align: center;
+    white-space: pre-wrap;
+  }
+}

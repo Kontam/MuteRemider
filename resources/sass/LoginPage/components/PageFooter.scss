@@ -1,0 +1,40 @@
+.pageFooterContainer {
+  background-color: $twitter-blue;
+  color: $basic-white;
+  padding: 10px;
+  text-align: center;
+
+  &__head {
+    font-size: 1.125rem;
+  }
+
+  &__ownerName {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  &__linkList {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  &__link {
+    margin: 0 12px;
+  }
+
+  &__homeIcon {
+    width: 26px;
+  }
+
+  &__twitterIcon {
+    width: 26px;
+  }
+
+  &__copyRight {
+    font-size: 12px;
+    margin-top: 40px;
+  }
+}

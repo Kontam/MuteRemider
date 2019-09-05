@@ -1,0 +1,26 @@
+
+.pageHeadContainer {
+  color: $basic-white;
+  background: linear-gradient(to bottom right, #84FAB1, #8FD3F4);
+  height: 200px;
+  padding: 30px 35px 15px;
+  width: 100%;
+
+  &__head {
+    font-size: 2.125rem;
+    font-weight: $fw-bold;
+  }
+
+  &__headLine2 {
+    margin-left: 40%;
+    margin-top: 17px;
+  }
+
+  &__engHead {
+    font-family: $eng-head-font;
+    font-size: 2.5rem;
+    font-weight: $fw-medium;
+    text-align: center;
+    margin-top: 25px;
+  }
+}

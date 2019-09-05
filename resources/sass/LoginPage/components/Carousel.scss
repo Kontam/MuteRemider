@@ -1,0 +1,41 @@
+.carouselContainer {
+  background-color: $muter-green;
+  padding: 120px 0;
+}
+
+.loginCarousel {
+
+  &__page {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__slideImg {
+    width: 100vw;
+  }
+}
+
+//==============================================
+// slick-carouselのスタイル上書き
+//==============================================
+.slick-dots {
+  bottom: -50px;
+}
+
+.slick-dots li {
+  margin: 0 15px;
+}
+
+.slick-dots li button:before {
+  border-radius: 50%;
+  border: solid 3px $basic-white;
+  content: "";
+  height: 15px;
+  width: 15px;
+  opacity: 1;
+}
+
+.slick-dots li.slick-active button:before {
+  background-color: $basic-white;
+  opacity: 1;
+}

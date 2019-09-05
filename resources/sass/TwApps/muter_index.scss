@@ -1,7 +1,7 @@
-@import 'eric';
+@import '../common/eric';
 // @import 'TwAppsColor';
 
-@import '_variables';
+@import '../common/_variables';
 
 * {
   box-sizing: border-box;
@@ -14,7 +14,7 @@ body {
 
 $image-dir: '../img/';
 
-@import 'mixin';
+@import '../common/mixin';
 @import 'components/TwitterApps';
 @import 'components/TwAppsHeader';
 @import 'components/MuteReminder';

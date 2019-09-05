@@ -2,11 +2,13 @@
 // // Colors
 $basic-white: #ffffff;
 $basic-label-color: #5D5D5D;
+$light-label-color: #7A7A7A;
 $basic-gray: #ececec;
 $dark-gray: #bcbcbc;
 $icon-gray: #6E6E6E;
 $black-transparent: rgba(0, 0, 0, .5);
 
+$muter-green: #86F3B0;
 $unmuted-user-bg: #C7FFDF;
 $button-label-color: #00535D;
 $unmute-button-color: #AAF9CC;
@@ -14,7 +16,18 @@ $mute-button-color: #FF5B62;
 $show-button-color: #AAF9EE;
 $hide-button-color: #FF91AB;
 $twitter-blue: #58C6E8;
+$twitter-shadow-blue: #3D89A7;
+$facebook-blue: #7EA7E5;
 
+
+//font-weight
+$fw-bold: 700;
+$fw-medium: 500;
+$fw-normal: 400;
+$fw-light: 300;
+
+//font-family
+$eng-head-font: 'brush-script-std', sans-serif;
 
 //number
 $menu-animation-distance: 220px;
