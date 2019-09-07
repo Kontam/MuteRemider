@@ -75,7 +75,7 @@
   display: none;
 }
 
-@include media-forPC {
+@include media-forNotMobile {
   .muted-tweet {
     font-size: 1.25rem;
     line-height: 1.8rem;

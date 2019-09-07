@@ -10,11 +10,11 @@
 }
 
 .muter-menu-closed {
-  animation: slide-to-left .3s forwards;
+  animation: none;
 }
 
 .muter-menu-opened {
-  animation: slide-to-right .3s forwards;
+  animation: none;
 }
 
 @keyframes slide-to-left {
@@ -45,7 +45,7 @@
   width: 50px;
 }
 
-@include media-forPC {
+@include media-forNotMobile {
   .muter-menu {
     border-right: solid 1px $dark-gray;
     display: block;
@@ -70,5 +70,13 @@
       margin-right: 75px;
       vertical-align: 5px;
     }
+  }
+
+  .muter-menu-closed {
+    animation: slide-to-left .3s forwards;
+  }
+
+  .muter-menu-opened {
+    animation: slide-to-right .3s forwards;
   }
 }
