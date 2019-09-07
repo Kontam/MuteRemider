@@ -12,7 +12,7 @@ const baseUrl = (state = '', action) => {
 };
 
 // メニュー開閉状態
-const isMuterMenuOpened = (state = true, action) => {
+const isMuterMenuOpened = (state = false, action) => {
   switch (action.type) {
   case TwAppsConst.ACTION_CHANGE_ISMUTERMENU_OPENED:
     return action.isMuterMenuOpened;

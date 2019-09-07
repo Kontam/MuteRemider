@@ -10,12 +10,12 @@ const PageFooter = () => (
         <p className="footerOwnerInfo__ownerName">コンコンタ</p>
         <ul className="footerOwnerInfo__linkList">
           <li>
-            <a href={LoginConst.OWNER_LINK} className="footerOwnerInfo__link">
+            <a href={LoginConst.OWNER_LINK} className="footerOwnerInfo__link" target="_blank" rel="noopener noreferrer">
               <img src="img/house_white_icon.svg" alt="home" className="footerOwnerInfo__homeIcon" />
             </a>
           </li>
           <li>
-            <a href={LoginConst.OWNER_TWITTER_LINK} className="footerOwnerInfo__link">
+            <a href={LoginConst.OWNER_TWITTER_LINK} className="footerOwnerInfo__link" target="_blank" rel="noopener noreferrer">
               <img src="img/twitter_white_icon.svg" alt="twitter" className="footerOwnerInfo__twitterIcon" />
             </a>
           </li>

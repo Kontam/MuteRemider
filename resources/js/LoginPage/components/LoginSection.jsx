@@ -11,7 +11,7 @@ const LoginSection = ({ basePath }) => (
     <div className="LoginRightColumn">
       <div className="ownerLink">
         <img className="ownerLink__icon" src="img/house_icon.svg" alt="home" />
-        <a href={LoginConst.OWNER_LINK} className="ownerLink__Link">制作者ホームページ</a>
+        <a href={LoginConst.OWNER_LINK} className="ownerLink__Link" target="_blank" rel="noopener noreferrer">制作者ホームページ</a>
       </div>
       <div className="LoginForm">
         <a className="LoginForm__loginLink" href={`${basePath}${LoginConst.LOGIN_SLAG}`}>

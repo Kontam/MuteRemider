@@ -1411,7 +1411,7 @@ var baseUrl = function baseUrl() {
 
 
 var isMuterMenuOpened = function isMuterMenuOpened() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
@@ -1619,9 +1619,9 @@ if (appElem) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\tehay\Desktop\WORKSPACE\10.Development\20.Web\MuteReminder\MuteReminder\resources\js\muter_index.jsx */"./resources/js/muter_index.jsx");
-__webpack_require__(/*! C:\Users\tehay\Desktop\WORKSPACE\10.Development\20.Web\MuteReminder\MuteReminder\resources\sass\TwApps\muter_index.scss */"./resources/sass/TwApps/muter_index.scss");
-module.exports = __webpack_require__(/*! C:\Users\tehay\Desktop\WORKSPACE\10.Development\20.Web\MuteReminder\MuteReminder\resources\sass\LoginPage\login_index.scss */"./resources/sass/LoginPage/login_index.scss");
+__webpack_require__(/*! /Users/kanta/Desktop/WORKSPACE/10.Development/20.Web/MuteReminder/resources/js/muter_index.jsx */"./resources/js/muter_index.jsx");
+__webpack_require__(/*! /Users/kanta/Desktop/WORKSPACE/10.Development/20.Web/MuteReminder/resources/sass/TwApps/muter_index.scss */"./resources/sass/TwApps/muter_index.scss");
+module.exports = __webpack_require__(/*! /Users/kanta/Desktop/WORKSPACE/10.Development/20.Web/MuteReminder/resources/sass/LoginPage/login_index.scss */"./resources/sass/LoginPage/login_index.scss");
 
 
 /***/ }),
