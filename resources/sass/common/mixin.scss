@@ -11,6 +11,12 @@
   }
 }
 
+@mixin media-forNotMobile {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
 // ボタンタグリセット
 @mixin reset-button {
   appearance: none;
@@ -32,6 +38,7 @@
 //携帯用の隠す、チラ見、ミュート、ミュート解除アイコン
 @mixin div-icon($icon-url) {
   background: url($icon-url) center center / contain no-repeat;
+  flex-shrink: 0;
   height: 18px;
   margin-right: 3px;
   width: 25px;
@@ -52,6 +59,7 @@
   display: flex;
   height: 30px;
   justify-content: center;
+  white-space: nowrap;
   width: 50%;
 }
 
@@ -63,6 +71,7 @@
   justify-content: flex-start;
   //アイコン250px + 名前コンテナ420px + ミュートボタンのpaddingLeft15px - 微調整5px
   padding-left: 680px;
+  white-space: nowrap;
   width: 100%;
 }
 
@@ -78,5 +87,6 @@
   height: 50px;
   padding-left: 15px;
   padding-top: 5px;
+  white-space: nowrap;
   width: 200px;
 }

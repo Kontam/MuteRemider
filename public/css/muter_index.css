@@ -93,13 +93,13 @@ body {
 }
 
 .muter-menu-closed {
-  -webkit-animation: slide-to-left 0.3s forwards;
-          animation: slide-to-left 0.3s forwards;
+  -webkit-animation: none;
+          animation: none;
 }
 
 .muter-menu-opened {
-  -webkit-animation: slide-to-right 0.3s forwards;
-          animation: slide-to-right 0.3s forwards;
+  -webkit-animation: none;
+          animation: none;
 }
 
 @-webkit-keyframes slide-to-left {
@@ -153,7 +153,7 @@ body {
   outline: 0;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .muter-menu {
     border-right: solid 1px #bcbcbc;
     display: block;
@@ -178,6 +178,16 @@ body {
     margin-right: 75px;
     vertical-align: 5px;
   }
+
+  .muter-menu-closed {
+    -webkit-animation: slide-to-left 0.3s forwards;
+            animation: slide-to-left 0.3s forwards;
+  }
+
+  .muter-menu-opened {
+    -webkit-animation: slide-to-right 0.3s forwards;
+            animation: slide-to-right 0.3s forwards;
+  }
 }
 .muted-user-list {
   padding-bottom: 50px;
@@ -194,7 +204,7 @@ body {
   width: 100%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .muted-user-list {
     border-bottom: solid 2px #bcbcbc;
     border-top: solid 2px #bcbcbc;
@@ -294,7 +304,7 @@ body {
   display: flex;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .muted-top-container {
     height: 190px;
   }
@@ -328,6 +338,7 @@ body {
   display: flex;
   height: 30px;
   justify-content: center;
+  white-space: nowrap;
   width: 50%;
 }
 .muted-unmute-button:focus {
@@ -346,6 +357,7 @@ body {
   display: flex;
   height: 30px;
   justify-content: center;
+  white-space: nowrap;
   width: 50%;
   color: #ffffff;
 }
@@ -355,6 +367,7 @@ body {
 
 .unmute-icon {
   background: url("../img/speaker_icon.svg") center center/contain no-repeat;
+  flex-shrink: 0;
   height: 18px;
   margin-right: 3px;
   width: 25px;
@@ -362,6 +375,7 @@ body {
 
 .mute-icon {
   background: url("../img/mute_button_icon.svg") center center/contain no-repeat;
+  flex-shrink: 0;
   height: 18px;
   margin-right: 3px;
   width: 25px;
@@ -375,7 +389,7 @@ body {
   display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .muted-unmute-button {
     display: none;
   }
@@ -416,6 +430,7 @@ body {
     height: 50px;
     padding-left: 15px;
     padding-top: 5px;
+    white-space: nowrap;
     width: 200px;
   }
   .pc-muted-unmute-button:focus {
@@ -438,6 +453,7 @@ body {
     height: 50px;
     padding-left: 15px;
     padding-top: 5px;
+    white-space: nowrap;
     width: 200px;
   }
   .pc-muted-mute-button:focus {
@@ -456,6 +472,7 @@ body {
   display: flex;
   height: 30px;
   justify-content: center;
+  white-space: nowrap;
   width: 50%;
 }
 .muted-show-button:focus {
@@ -464,6 +481,7 @@ body {
 
 .show-icon {
   background: url("../img/eye_icon.svg") center center/contain no-repeat;
+  flex-shrink: 0;
   height: 18px;
   margin-right: 3px;
   width: 25px;
@@ -481,6 +499,7 @@ body {
   display: flex;
   height: 30px;
   justify-content: center;
+  white-space: nowrap;
   width: 50%;
 }
 .muted-hide-button:focus {
@@ -489,6 +508,7 @@ body {
 
 .hide-icon {
   background: url("../img/hide_icon.svg") center center/contain no-repeat;
+  flex-shrink: 0;
   height: 18px;
   margin-right: 3px;
   width: 25px;
@@ -498,7 +518,7 @@ body {
   display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .pc-show-button-label {
     display: inline;
   }
@@ -509,6 +529,7 @@ body {
     height: 50px;
     justify-content: flex-start;
     padding-left: 680px;
+    white-space: nowrap;
     width: 100%;
   }
 
@@ -518,6 +539,7 @@ body {
     height: 50px;
     justify-content: flex-start;
     padding-left: 680px;
+    white-space: nowrap;
     width: 100%;
   }
 
@@ -580,6 +602,7 @@ body {
 
 .retweet-icon {
   background: url("../img/retweet_icon.svg") center center/contain no-repeat;
+  flex-shrink: 0;
   height: 18px;
   margin-right: 3px;
   width: 25px;
@@ -589,6 +612,7 @@ body {
 
 .favorite-icon {
   background: url("../img/favorite_icon.svg") center center/contain no-repeat;
+  flex-shrink: 0;
   height: 18px;
   margin-right: 3px;
   width: 25px;
@@ -617,7 +641,7 @@ body {
   display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .muted-tweet {
     font-size: 1.25rem;
     line-height: 1.8rem;
@@ -713,7 +737,7 @@ body {
   display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .menu-button-container {
     display: block;
     text-align: right;

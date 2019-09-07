@@ -19,7 +19,7 @@
 }
 
 
-@include media-forPC {
+@include media-forNotMobile {
   .pc-show-button-label {
     display: inline;
   }

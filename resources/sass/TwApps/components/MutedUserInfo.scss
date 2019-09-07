@@ -42,7 +42,7 @@
   display: flex;
 }
 
-@include media-forPC {
+@include media-forNotMobile {
   .muted-top-container {
     height: 190px;
   }

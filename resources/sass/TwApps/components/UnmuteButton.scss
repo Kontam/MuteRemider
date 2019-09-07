@@ -24,7 +24,7 @@
 }
 
 
-@include media-forPC {
+@include media-forNotMobile {
   .muted-unmute-button {
     display: none;
   }

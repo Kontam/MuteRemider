@@ -14,7 +14,7 @@
   width: 100%;
 }
 
-@include media-forPC {
+@include media-forNotMobile {
   .muted-user-list {
     border-bottom: solid 2px $dark-gray;
     border-top: solid 2px $dark-gray;
