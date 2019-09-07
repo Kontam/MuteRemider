@@ -13,3 +13,20 @@
     margin-top: 5px;
   }
 }
+
+@include media-forPC {
+
+  .ReadMore {
+    height: $pc-readmore-height;
+    padding: 20px;
+
+    &__message {
+      font-size: 1.5rem;
+    }
+
+    &__arrow {
+      height: 15px;
+      margin-top: 15px;
+    }
+  }
+}

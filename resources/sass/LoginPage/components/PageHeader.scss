@@ -9,6 +9,8 @@
   &__head {
     font-size: 2.125rem;
     font-weight: $fw-bold;
+    margin: 0 auto;
+    max-width: 350px;
   }
 
   &__headLine2 {
@@ -22,5 +24,37 @@
     font-weight: $fw-medium;
     text-align: center;
     margin-top: 25px;
+  }
+}
+
+@include media-forPC {
+  .pageHeadContainer {
+    height: $pc-header-height;
+    padding: 25px 0;
+
+    &__head {
+      display: flex;
+      font-size: 5.25rem;
+      justify-content: center;
+      line-height: 140px;
+      max-width: none;
+    }
+
+    &__headLine2 {
+      margin: 0;
+    }
+
+    &__engHead {
+      font-size: 5.25rem;
+      margin: 0;
+    }
+  }
+}
+
+@include media-forTablet {
+  .pageHeadContainer {
+    &__head {
+      font-size: 4rem;
+    }
   }
 }

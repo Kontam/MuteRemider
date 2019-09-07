@@ -13,7 +13,8 @@ var LoginConst = {
   OWNER_LINK: 'https://konkonta.com',
   OWNER_TWITTER_LINK: 'https://twitter.com/cha_han5656',
   LOGIN_SLAG: '/login',
-  BREAKPOINT_PC: 1200,
+  BREAKPOINT_SP: 768,
+  BREAKPOINT_TABLET: 1024,
   APPNAME_MUTER: 'APPNAME_MUTER',
   DESCRIPTION_FIRST_MUTER: 'あなたがミュートしている\r\nユーザーを整理しましょう',
   DESCRIPTION_SECOND_MUTER: '見ても良いと思ったら\r\nミュートを解除しましょう',
@@ -76,6 +77,8 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "carouselContainer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "loginCarousel"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "loginCarousel__page"
@@ -101,7 +104,21 @@ function (_Component) {
         src: "img/slides/muter-slide4.jpg",
         alt: "\u5B89\u5168\u306A\u30A2\u30D7\u30EA\u3067\u3059\u3002\u3042\u306A\u305F\u306E\u30A2\u30AB\u30A6\u30F3\u30C8\u304B\u3089\u30C4\u30A4\u30FC\u30C8\u3059\u308B\u3053\u3068\u306F\u6C7A\u3057\u3066\u3042\u308A\u307E\u305B\u3093",
         className: "loginCarousel__slideImg"
-      })));
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "slickArrows"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "slickArrows__prevArrow",
+        type: "button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "img/slick/slick-arrow-left.svg",
+        alt: "prev"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "slickArrows__nextArrow",
+        type: "button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "img/slick/slick-arrow-right.svg",
+        alt: "next"
+      }))));
     }
   }]);
 
@@ -185,9 +202,7 @@ function (_Component) {
         className: "loginPage"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageHeader__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoginSection__WEBPACK_IMPORTED_MODULE_4__["default"], {
         basePath: basePath
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReadMore__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "carouselContainer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Carousel__WEBPACK_IMPORTED_MODULE_6__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SNSAdSection__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageFooter__WEBPACK_IMPORTED_MODULE_8__["default"], null));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReadMore__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Carousel__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SNSAdSection__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageFooter__WEBPACK_IMPORTED_MODULE_8__["default"], null));
     }
   }]);
 
@@ -273,29 +288,33 @@ __webpack_require__.r(__webpack_exports__);
 var PageFooter = function PageFooter() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
     className: "pageFooterContainer"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pageFooterContainer__wrapper"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "footerOwnerInfo"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-    className: "pageFooterContainer__head"
+    className: "footerOwnerInfo__head"
   }, "\u5236\u4F5C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "pageFooterContainer__ownerName"
+    className: "footerOwnerInfo__ownerName"
   }, "\u30B3\u30F3\u30B3\u30F3\u30BF"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-    className: "pageFooterContainer__linkList"
+    className: "footerOwnerInfo__linkList"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].OWNER_LINK,
-    className: "pageFooterContainer__link"
+    className: "footerOwnerInfo__link"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "img/house_white_icon.svg",
     alt: "home",
-    className: "pageFooterContainer__homeIcon"
+    className: "footerOwnerInfo__homeIcon"
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].OWNER_TWITTER_LINK,
-    className: "pageFooterContainer__link"
+    className: "footerOwnerInfo__link"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "img/twitter_white_icon.svg",
     alt: "twitter",
-    className: "pageFooterContainer__twitterIcon"
-  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "footerOwnerInfo__twitterIcon"
+  }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "pageFooterContainer__copyRight"
-  }, "Copyright \xA9 Konkonta All right reserved"));
+  }, "Copyright \xA9 Konkonta All right reserved")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PageFooter);
@@ -414,13 +433,25 @@ __webpack_require__.r(__webpack_exports__);
 var setSlickCarousel = function setSlickCarousel(containerClass) {
   jquery__WEBPACK_IMPORTED_MODULE_1___default()(".".concat(containerClass)).slick({
     infinite: true,
+    dots: true,
+    arrows: true,
+    dragable: true,
+    nextArrow: '.slickArrows__nextArrow',
+    prevArrow: '.slickArrows__prevArrow',
     responsive: [{
-      breakpoint: _LoginConst__WEBPACK_IMPORTED_MODULE_2__["default"].BREAKPOINT_PC,
+      breakpoint: _LoginConst__WEBPACK_IMPORTED_MODULE_2__["default"].BREAKPOINT_TABLET,
       settings: {
         slideToShow: 1,
         slideToScroll: 1,
-        fade: true,
-        dots: true
+        arrows: false
+      }
+    }, {
+      breakpoint: _LoginConst__WEBPACK_IMPORTED_MODULE_2__["default"].BREAKPOINT_SP,
+      settings: {
+        slideToShow: 1,
+        slideToScroll: 1,
+        fade: false,
+        arrows: false
       }
     }]
   });

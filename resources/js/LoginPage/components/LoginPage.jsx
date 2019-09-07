@@ -26,9 +26,7 @@ class LoginPage extends Component {
           basePath={basePath}
         />
         <ReadMore />
-        <div className="carouselContainer">
-          <Carousel />
-        </div>
+        <Carousel />
         <SNSAdSection />
         <PageFooter />
       </div>
