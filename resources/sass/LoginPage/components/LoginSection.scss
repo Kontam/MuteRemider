@@ -11,7 +11,7 @@
     font-size: 1.25rem;
     font-weight: $fw-medium;
     line-height: 3;
-    white-space: pre-wrap;
+    white-space: pre;
 
     &--second {
       margin-top: 14px;
@@ -79,6 +79,69 @@
     line-height: 2.5;
     margin-top: 50px;
     text-align: center;
-    white-space: pre-wrap;
+    white-space: pre;
+  }
+}
+
+@include media-forPC {
+  .LoginSection {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 75px 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: calc(100vh - #{$pc-header-height} - #{$pc-readmore-height});
+
+    &__head {
+      padding: 0;
+      margin-right: 9%;
+      text-align: left;
+    }
+
+    &__Paragraph {
+      font-size: 2rem;
+      font-weight: $fw-medium;
+      line-height: 2;
+
+      &--second {
+        margin-top: 55px;
+      }
+    }
+  }
+
+  .LoginForm {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 340px;
+    justify-content: flex-end;
+    padding: 48px;
+    max-width: 500px;
+
+    &__description {
+      font-size: 1.5rem;
+      margin-top: 0;
+    }
+
+    &__loginLink {
+      margin: 60px auto 0;
+    }
+  }
+}
+
+@include media-forTablet {
+  .LoginSection {
+    &__Paragraph {
+      font-size: 1.25rem;
+      margin-left: 5%;
+      min-width: 260px;
+    }
+  }
+
+  .LoginForm {
+    &__description {
+      font-size: 1.25rem;
+      min-width: 340px;
+    }
   }
 }

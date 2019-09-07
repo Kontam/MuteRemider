@@ -41,6 +41,15 @@
     height: 50px;
     margin: 40px auto 0;
     width: 180px;
+
+    @include media-forPC {
+      display: inline;
+      margin: 0 50px;
+    }
+
+    @include media-forTablet {
+      margin: 0 25px;
+    }
   }
 
   .twitter-share-button {
@@ -56,5 +65,39 @@
   .facebook-share-button {
     @include snsButton;
     background-color: $facebook-blue;
+  }
+}
+
+
+@include media-forPC {
+  .snsAdSection {
+    padding: 150px 0;
+    text-align: center;
+
+    &__head {
+      font-size: 3rem;
+    }
+
+    &__paragraph {
+      font-size: 1.25rem;
+      line-height: 3;
+      white-space: normal;
+
+      &--first {
+        margin-top: 100px;
+      }
+
+      &--second {
+        margin-top: 0;
+      }
+
+      &--third {
+        margin-top: 0;
+      }
+    }
+
+    &__SNSList {
+      margin-top: 130px;
+    }
   }
 }

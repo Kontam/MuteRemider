@@ -1,14 +1,12 @@
 .carouselContainer {
   background-color: $muter-green;
   padding: 50px 0 120px;
+  position: relative;
 }
 
 .loginCarousel {
-
-  &__page {
-    width: 100%;
-    text-align: center;
-  }
+  // スライドより大きい値に設定するとその幅がスライド間の余白になる
+  width: 120%;
 
   &__slideImg {
     width: 100vw;
@@ -20,6 +18,8 @@
 //==============================================
 .slick-dots {
   bottom: -50px;
+  //loginCarouselがWidth120%なのでこちらは100％指定するとずれる
+  width: 100vw;
 }
 
 .slick-dots li {
@@ -27,15 +27,69 @@
 }
 
 .slick-dots li button:before {
-  border-radius: 50%;
   border: solid 3px $basic-white;
-  content: "";
+  border-radius: 50%;
+  content: '';
   height: 15px;
-  width: 15px;
   opacity: 1;
+  width: 15px;
 }
 
 .slick-dots li.slick-active button:before {
   background-color: $basic-white;
   opacity: 1;
+}
+
+.slickArrows {
+  display: none;
+}
+
+@include media-forPC {
+  .loginCarousel {
+    margin: 0 auto;
+    max-width: 1400px;
+    width: 90%;
+
+    &__slideImg {
+      margin: 0 auto;
+      max-width: 1200px;
+      width: 90%;
+    }
+  }
+
+  .slickArrows {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    left: 50%;
+    margin: 0 auto;
+    max-width: 1500px;
+    position: absolute;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+
+    &__prevArrow, &__nextArrow {
+      @include reset-button;
+    }
+  }
+
+  .slick-dots {
+    // 携帯版のみ親要素がw120となり特別
+    // それ以外では元の記述に戻す
+    width: 100%;
+  }
+}
+
+
+@include media-forTablet {
+  .slickArrows {
+    display: none;
+  }
+
+  .slick-dots {
+    // 携帯版のみ親要素がw120となり特別
+    // それ以外では元の記述に戻す
+    width: 100%;
+  }
 }
