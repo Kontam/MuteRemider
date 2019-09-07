@@ -251,7 +251,9 @@ var LoginSection = function LoginSection(_ref) {
     alt: "home"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].OWNER_LINK,
-    className: "ownerLink__Link"
+    className: "ownerLink__Link",
+    target: "_blank",
+    rel: "noopener noreferrer"
   }, "\u5236\u4F5C\u8005\u30DB\u30FC\u30E0\u30DA\u30FC\u30B8")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "LoginForm"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -300,14 +302,18 @@ var PageFooter = function PageFooter() {
     className: "footerOwnerInfo__linkList"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].OWNER_LINK,
-    className: "footerOwnerInfo__link"
+    className: "footerOwnerInfo__link",
+    target: "_blank",
+    rel: "noopener noreferrer"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "img/house_white_icon.svg",
     alt: "home",
     className: "footerOwnerInfo__homeIcon"
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].OWNER_TWITTER_LINK,
-    className: "footerOwnerInfo__link"
+    className: "footerOwnerInfo__link",
+    target: "_blank",
+    rel: "noopener noreferrer"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "img/twitter_white_icon.svg",
     alt: "twitter",
@@ -850,7 +856,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\tehay\Desktop\WORKSPACE\10.Development\20.Web\MuteReminder\MuteReminder\resources\js\login_index.jsx */"./resources/js/login_index.jsx");
+module.exports = __webpack_require__(/*! /Users/kanta/Desktop/WORKSPACE/10.Development/20.Web/MuteReminder/resources/js/login_index.jsx */"./resources/js/login_index.jsx");
 
 
 /***/ }),

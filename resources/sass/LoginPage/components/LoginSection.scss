@@ -91,6 +91,7 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    min-height: 400px;
     height: calc(100vh - #{$pc-header-height} - #{$pc-readmore-height});
 
     &__head {

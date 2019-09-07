@@ -9,6 +9,7 @@
   width: 120%;
 
   &__slideImg {
+    max-height: 90vh;
     width: 100vw;
   }
 }
@@ -47,13 +48,13 @@
 @include media-forPC {
   .loginCarousel {
     margin: 0 auto;
-    max-width: 1400px;
-    width: 90%;
+    width: 1400px;
+    max-width: 95%;
 
     &__slideImg {
       margin: 0 auto;
       max-width: 1200px;
-      width: 90%;
+      width: auto;
     }
   }
 
@@ -63,14 +64,20 @@
     justify-content: space-between;
     left: 50%;
     margin: 0 auto;
-    max-width: 1500px;
+    width: 1400px;
     position: absolute;
     top: 45%;
     transform: translate(-50%, -50%);
-    width: 95%;
+    max-width: 90%;
+    min-width: 1000px;
 
     &__prevArrow, &__nextArrow {
       @include reset-button;
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 50px;
     }
   }
 
@@ -83,6 +90,11 @@
 
 
 @include media-forTablet {
+  .loginCarousel {
+    &__slideImg {
+      max-width: 90%;
+    }
+  }
   .slickArrows {
     display: none;
   }
