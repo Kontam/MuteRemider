@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 require_once(__DIR__ . '/../../../vendor/autoload.php');
 require_once(__DIR__ . '/../../modules/createTwitterConnection.php');
 require_once(__DIR__ . '/../../modules/summarizeTwitterObjects.php');
+// require_once(__DIR__ . '/../../Users.php');
 
 
 use Illuminate\Http\Request;
 use Abraham\TwitterOAuth\TwitterOAuth;
+// use Illuminate\Database\Eloquent\Model;
+use App\Users;
 
 class MuteReminderController extends Controller
 {
@@ -26,8 +29,19 @@ class MuteReminderController extends Controller
         ];
 
         $authorized_user_info = $objTwitterConnection->get('account/verify_credentials', $params);
+        $summarized_user_info = summarizeUserInfo($authorized_user_info);
 
-        return response()->json(summarizeUserInfo($authorized_user_info));
+        // 利用経験のあるユーザーかどうかを検証する
+        $notNewUser = Users::where('screen_name', $summarized_user_info["screen_name"])->get();
+
+        if(count($notNewUser) === 0) {
+            // 初めて利用したユーザー情報をDBにロギングする
+            Users::create([
+                'screen_name' => $summarized_user_info["screen_name"],
+            ]);
+        }
+
+        return response()->json($summarized_user_info);
     }
 
     public function list_api(Request $request)
