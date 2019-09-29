@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Abraham\TwitterOAuth\TwitterOAuth;
 // use Illuminate\Database\Eloquent\Model;
 use App\Users;
+use App\MutedUsers;
 
 class MuteReminderController extends Controller
 {
@@ -31,13 +32,15 @@ class MuteReminderController extends Controller
         $authorized_user_info = $objTwitterConnection->get('account/verify_credentials', $params);
         $summarized_user_info = summarizeUserInfo($authorized_user_info);
 
-        // 利用経験のあるユーザーかどうかを検証する
-        $notNewUser = Users::where('screen_name', $summarized_user_info["screen_name"])->get();
+        // ユーザーIDをクッキーに保存
+        session(['user_id' => $summarized_user_info["user_id"]]);
 
-        if(count($notNewUser) === 0) {
+        // 利用経験のあるユーザーかどうかを検証する
+        if(!Users::where('screen_name', $summarized_user_info["screen_name"])->exists()) {
             // 初めて利用したユーザー情報をDBにロギングする
             Users::create([
                 'screen_name' => $summarized_user_info["screen_name"],
+                'user_id' => $summarized_user_info["user_id"],
             ]);
         }
 
@@ -57,10 +60,37 @@ class MuteReminderController extends Controller
         $simple_users_array = summarizeMutedUsersInfo($muted_users);
 
         // エラー配列が返還されていた場合はそれをレスポンスとして返却
-        if (array_key_exists("code", $simple_users_array[0])) {
-            return response()->json($simple_users_array);
-        }
+        if (count($simple_users_array)) {
+            if (array_key_exists("code", $simple_users_array[0])) {
+                return response()->json($simple_users_array);
+            }
+        } else {
+            // レコード0の場合はnodataを１番上に入れたエラー配列を返す
+            $nodata_error = [
+                [
+                    "code" => 901,
+                    "message" => "ミュートしているユーザーが存在しません。\r\n" .
+                        "ミュート機能を有効活用しましょう。",
+                ]
+            ];
+            return response()->json($nodata_error);
+        };
 
+        //ミュートユーザーの情報をDBに格納
+        foreach ($simple_users_array as $muted_user) {
+            if (MutedUsers::where('user_id', $muted_user["user_id"])->exists()) {
+                MutedUsers::where('user_id', $muted_user["user_id"])
+                ->increment('count');
+            } else {
+                MutedUsers::create([
+                   'user_id' => $muted_user["user_id"],
+                   'screen_name' => $muted_user["screen_name"],
+                   'count' => 1,
+                ]);
+            }
+        };
+
+        $return_array = [];
         // ミュートユーザーごとのツイートを取得し、不要な情報を削る
         foreach ($simple_users_array as $muted_user) {
             $users_tweets_params = [

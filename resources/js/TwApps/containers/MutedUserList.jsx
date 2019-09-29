@@ -27,7 +27,7 @@ class MutedUserList extends Component {
     const { mutedUsers, muted, isMuterMenuOpened } = this.props;
     const { isLoading } = this.state;
     return (
-      <div className={`muter-content`}>
+      <div className="muter-content">
         <h2 className="muter-discription">あなたがミュートしているユーザー</h2>
         <ul className={`muted-user-list ${isMuterMenuOpened ? 'list-menu-opened' : 'list-menu-closed'}`}>
           {
@@ -66,6 +66,7 @@ export default connect(
     muted: state.muted,
     baseUrl: state.baseUrl,
     isMuterMenuOpened: state.isMuterMenuOpened,
+    userInfo: state.userInfo,
   }),
   {
     requestMutedUsers,

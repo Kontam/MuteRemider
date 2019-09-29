@@ -4,8 +4,43 @@
   display: flex;
   height: 100vh;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.fatal-message-content {
+    text-align: center;
 }
 
 .fatal-message {
   white-space: pre-wrap;
+  color: $light-label-color;
+  font-weight: bold;
+  line-height: 2;
+  width: 100%;
+
+  @include media-forPC {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+.fatalLink {
+    @include reset-anchor;
+    border-radius: 5px;
+    display: flex;
+    margin: 30px auto 0;
+    width: 50%;
+    height: 40px;
+    background-color: $twitter-blue;
+    color: $basic-white;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 5px $twitter-shadow-blue;
+    transition: .3s;
+    font-weight: bold;
+
+    &:active {
+        transform: translateY(5px);
+        box-shadow: 0 0 $twitter-shadow-blue;
+    }
 }

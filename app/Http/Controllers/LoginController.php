@@ -14,7 +14,6 @@ class LoginController extends Controller
     public function top()
     {
         return view('login.top');
-        // return config('const.TEST');
     }
 
     public function twLogin(Request $request)
@@ -53,12 +52,5 @@ class LoginController extends Controller
         // return redirect()->action('MuteReminderController@list');
         // return redirect('/api/list_api');
         return redirect('/muter_top');
-    }
-
-    public function test(Request $request) {
-        session_start();
-
-        dd($_SESSION);
-        return 'a';
     }
 }
