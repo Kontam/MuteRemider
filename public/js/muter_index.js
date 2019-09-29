@@ -186,6 +186,7 @@ var requestMutedUsers = function requestMutedUsers(endpoint) {
   var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   return function (dispatch) {
     dispatch(startUserRequest());
+    console.log(params);
     Object(_modules_requestToServer__WEBPACK_IMPORTED_MODULE_1__["default"])(endpoint, params).then(function (_ref2) {
       var data = _ref2.data;
 
@@ -244,20 +245,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var FatalMessage = function FatalMessage(_ref) {
-  var errMessage = _ref.errMessage;
+  var errMessage = _ref.errMessage,
+      baseUrl = _ref.baseUrl;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "fatal-message-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "fatal-message-content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "fatal-message"
-  }, errMessage));
+  }, errMessage), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: baseUrl,
+    className: "fatalLink"
+  }, "Top\u3078\u623B\u308B")));
 };
 
 FatalMessage.propTypes = {
-  errMessage: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
+  errMessage: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  baseUrl: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(function (state) {
   return {
-    errMessage: state.errMessage
+    errMessage: state.errMessage,
+    baseUrl: state.baseUrl
   };
 })(FatalMessage));
 
@@ -1120,7 +1129,8 @@ MutedUserList.propTypes = {
     mutedUsers: state.mutedUsers,
     muted: state.muted,
     baseUrl: state.baseUrl,
-    isMuterMenuOpened: state.isMuterMenuOpened
+    isMuterMenuOpened: state.isMuterMenuOpened,
+    userInfo: state.userInfo
   };
 }, {
   requestMutedUsers: _actions__WEBPACK_IMPORTED_MODULE_5__["requestMutedUsers"]
