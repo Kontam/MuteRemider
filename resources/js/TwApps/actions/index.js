@@ -69,7 +69,6 @@ export const requestUserInfo = (endpoint, params = {}) => (dispatch) => {
 // ミュートユーザーのリストを取得し、ミュート状態のstateを初期化する
 export const requestMutedUsers = (endpoint, params = {}) => (dispatch) => {
   dispatch(startUserRequest());
-  console.log(params);
   requestToServer(endpoint, params)
     .then(({ data }) => {
       if ('code' in data[0]) {
