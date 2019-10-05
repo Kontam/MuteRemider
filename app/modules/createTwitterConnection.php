@@ -7,9 +7,14 @@ function createTwitterConnection() {
     ###アクセストークン確認
     $twAccessToken = session('twAccessToken');
     if (! $twAccessToken) {
-        echo "不正なアクセスです\r\n";
-        print_r(session()->all());
-        exit;
+        // エラー配列を生成して返却する
+        $errors_array = [];
+        $errors_array[] = [
+            "code" => 911,
+            "message" => "不正なアクセスです。\r\n" .
+                "TOPページからログインしてください。",
+        ];
+        return $errors_array;
     }
     ##########################################################
     ### ユーザー情報の取得
@@ -22,4 +27,12 @@ function createTwitterConnection() {
     );
 
     return $objTwitterConnection;
+}
+
+// 返却されたTwitterConnectionのエラーチェック
+function checkTwitterConnection($objTwitterConnection) {
+    if (is_array($objTwitterConnection)) {
+        return false;
+    }
+    return true;
 }
