@@ -61,13 +61,12 @@ export const setPopUpMessage = message => (dispatch) => {
 export const requestUserInfo = (endpoint, params = {}) => (dispatch) => {
   requestToServer(endpoint, params)
     .then(({ data, status }) => {
-      if ('code' in data[0]) {
+      if (Array.isArray(data) && 'code' in data[0]) {
         dispatch(setErrMessage(data[0].message));
         dispatch(endUserRequest());
         return;
       }
       dispatch(setUserInfo(data));
-      return 0;
     });
 };
 
