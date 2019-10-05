@@ -22,6 +22,10 @@ class MuteReminderController extends Controller
     public function authorized_user_api() {
         //TwitterOAuthのインスタンスを生成する
         $objTwitterConnection = createTwitterConnection();
+        // エラー配列が返却されて入ればそれがレスポンスになる
+        if(! checkTwitterConnection($objTwitterConnection)) {
+            return response()->json($objTwitterConnection);
+        }
 
         $params = [
             'include_entities' => false,
@@ -49,8 +53,12 @@ class MuteReminderController extends Controller
 
     public function list_api(Request $request)
     {
-        //TwitterOAuthのインスタンスを生成する
+        // TwitterOAuthのインスタンスを生成する
         $objTwitterConnection = createTwitterConnection();
+        // エラー配列が返却されて入ればそれがレスポンスになる
+        if(! checkTwitterConnection($objTwitterConnection)) {
+            return response()->json($objTwitterConnection);
+        }
 
         $tweets_params = [];
         $tweets_params = ['count' => 20];
