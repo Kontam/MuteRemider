@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { HashRouter, Route, Link } from 'react-router-dom';
 
 import TwAppsConst from '../TwAppsConst';
-import TwAppsHeader from '../components/TwAppsHeader';
-import MuteReminder from './MuteReminder';
-import { requestUserInfo, setBaseUrl } from '../actions';
-import LoadingImg from '../components/LoadingImg';
+import TwAppsHeader from './TwAppsHeader';
+import MuteReminder from '../MuteReminder/containers/MuteReminder';
+import BlockReminder from '../BlockReminder/components/BlockReminder.tsx';
+import { requestUserInfo, setBaseUrl } from '../MuteReminder/actions';
+import LoadingImg from './LoadingImg';
 
 
 class TwitterApps extends Component {
@@ -25,11 +27,14 @@ class TwitterApps extends Component {
 
   render() {
     return (
-      <div className="twitter-apps">
-        <LoadingImg />
-        <TwAppsHeader />
-        <MuteReminder />
-      </div>
+      <HashRouter>
+        <div className="twitter-apps">
+          <LoadingImg />
+          <TwAppsHeader />
+          <Route path="/MuteReminder" component={MuteReminder} />
+          <Route path="/BlockReminder" component={BlockReminder} />
+        </div>
+      </HashRouter>
     );
   }
 }

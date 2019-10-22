@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import TwAppsConst from '../TwAppsConst';
+import TwAppsConst from '../../TwAppsConst';
 
 const ShowTweetsButton = ({ showTweets, onClick }) => {
   let buttonClassName = 'muted-hide-button';

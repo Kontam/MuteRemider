@@ -1,1 +1,876 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{51:function(e,t,n){e.exports=n(54)},54:function(e,t,n){"use strict";n.r(t);var r=n(0),o=n.n(r),a=n(6),i=n.n(a),c=n(7),s=n.n(c),l=n(1),u=n.n(l),f={OWNER_LINK:"https://konkonta.com",OWNER_TWITTER_LINK:"https://twitter.com/cha_han5656",LOGIN_SLAG:"/login",BREAKPOINT_SP:768,BREAKPOINT_TABLET:1024,APPNAME_MUTER:"APPNAME_MUTER",DESCRIPTION_FIRST_MUTER:"あなたがミュートしている\r\nユーザーを整理しましょう",DESCRIPTION_SECOND_MUTER:"見ても良いと思ったら\r\nミュートを解除しましょう",DESCRIPTION_LOGIN_TWITTER:"このツールがあなたのアカウントで\r\nツイートすることはありません"},p=function(){return o.a.createElement("div",{className:"pageHeadContainer"},o.a.createElement("h1",{className:"pageHeadContainer__head"},o.a.createElement("div",{className:"pageHeadContainer__headLine1"}," あの人は今？"),o.a.createElement("div",{className:"pageHeadContainer__headLine2"}," チェッカー")),o.a.createElement("p",{className:"pageHeadContainer__engHead"},"Mute Reminder"))},m=function(e){var t=e.basePath;return o.a.createElement("div",{className:"LoginSection"},o.a.createElement("div",{className:"LoginSection__head"},o.a.createElement("p",{className:"LoginSection__Paragraph"},f.DESCRIPTION_FIRST_MUTER),o.a.createElement("p",{className:"LoginSection__Paragraph LoginSection__Paragraph--second"},f.DESCRIPTION_SECOND_MUTER)),o.a.createElement("div",{className:"LoginRightColumn"},o.a.createElement("div",{className:"ownerLink"},o.a.createElement("img",{className:"ownerLink__icon",src:"img/house_icon.svg",alt:"home"}),o.a.createElement("a",{href:f.OWNER_LINK,className:"ownerLink__Link",target:"_blank",rel:"noopener noreferrer"},"制作者ホームページ")),o.a.createElement("div",{className:"LoginForm"},o.a.createElement("a",{className:"LoginForm__loginLink",href:"".concat(t).concat(f.LOGIN_SLAG)},"ログイン",o.a.createElement("img",{className:"LoginForm__icon",src:"img/twitter_white_icon.svg",alt:"twitter"})),o.a.createElement("p",{className:"LoginForm__description"},f.DESCRIPTION_LOGIN_TWITTER))))},_=function(){return o.a.createElement("div",{className:"ReadMore"},o.a.createElement("p",{className:"ReadMore__message"},"何のためのツール？"),o.a.createElement("div",{className:"ReadMore__arrow"}))},y=(n(52),n(11)),h=n.n(y),b=function(e){h()(".".concat(e)).slick({infinite:!0,dots:!0,arrows:!0,dragable:!0,nextArrow:".slickArrows__nextArrow",prevArrow:".slickArrows__prevArrow",responsive:[{breakpoint:f.BREAKPOINT_TABLET,settings:{slideToShow:1,slideToScroll:1,arrows:!1}},{breakpoint:f.BREAKPOINT_SP,settings:{slideToShow:1,slideToScroll:1,fade:!1,arrows:!1}}]})};function E(e){return(E="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function g(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function d(e,t){return!t||"object"!==E(t)&&"function"!=typeof t?function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e):t}function w(e){return(w=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function N(e,t){return(N=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}var O=function(e){function t(){return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t),d(this,w(t).apply(this,arguments))}var n,a,i;return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&N(e,t)}(t,r["Component"]),n=t,(a=[{key:"componentDidMount",value:function(){b("loginCarousel")}},{key:"render",value:function(){return o.a.createElement("div",{className:"carouselContainer"},o.a.createElement("div",{className:"loginCarousel"},o.a.createElement("div",{className:"loginCarousel__page"},o.a.createElement("img",{src:"img/slides/muter-slide1.jpg",alt:"Twitterのミュートを有効活用しましょう",className:"loginCarousel__slideImg"})),o.a.createElement("div",{className:"loginCarousel__page"},o.a.createElement("img",{src:"img/slides/muter-slide2.jpg",alt:"あなたがミュートしたユーザーを一覧表示 その場でミュート解除もできます",className:"loginCarousel__slideImg"})),o.a.createElement("div",{className:"loginCarousel__page"},o.a.createElement("img",{src:"img/slides/muter-slide3.jpg",alt:"「チラ見」機能で、その人のツイートをいくつか見ることができます",className:"loginCarousel__slideImg"})),o.a.createElement("div",{className:"loginCarousel__page"},o.a.createElement("img",{src:"img/slides/muter-slide4.jpg",alt:"安全なアプリです。あなたのアカウントからツイートすることは決してありません",className:"loginCarousel__slideImg"}))),o.a.createElement("div",{className:"slickArrows"},o.a.createElement("button",{className:"slickArrows__prevArrow",type:"button"},o.a.createElement("img",{src:"img/slick/slick-arrow-left.svg",alt:"prev"})),o.a.createElement("button",{className:"slickArrows__nextArrow",type:"button"},o.a.createElement("img",{src:"img/slick/slick-arrow-right.svg",alt:"next"}))))}}])&&g(n.prototype,a),i&&g(n,i),t}(),v=n(8),S=n.n(v),P=function(e,t){return S.a.get(e,{params:t})},T={LOG_FILENAME_KEY:"f_name",LOG_SNS_FILENAME:"js_sns",LOG_SNS_KEY_NAME:"sns_name",LOG_SNS_KEY_SHARE_URL:"share_url"};function L(e){return(L="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function R(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function I(e,t){return!t||"object"!==L(t)&&"function"!=typeof t?function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e):t}function k(e){return(k=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function j(e,t){return(j=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}var A=function(e){function t(e){var n;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t),(n=I(this,k(t).call(this,e))).width=800,n.height=470;var r=window.location,o=r.origin,a=r.pathname;return n.shareURL=o+a,n.href="",n.text="",n.className="",n}var n,a,i;return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&j(e,t)}(t,r["Component"]),n=t,(a=[{key:"makeLogParams",value:function(){var e={};return e[T.LOG_FILENAME_KEY]=T.LOG_SNS_FILENAME,e[T.LOG_SNS_KEY_NAME]=this.sns_name,e[T.LOG_SNS_KEY_SHARE_URL]=this.shareURL,e}},{key:"handleClick",value:function(){var e=this.props.logEndPoint;window.open(encodeURI(decodeURI(this.href)),"sns-window","width=".concat(this.width,",")+"height=".concat(this.height,",")+"personalbar=0,toolbar=0,scrollbars=1,sizable=1"),e&&P(e,this.makeLogParams())}},{key:"render",value:function(){var e=this;return o.a.createElement("button",{className:this.className,type:"button",onClick:function(){e.handleClick()}},this.text)}}])&&R(n.prototype,a),i&&R(n,i),t}();A.propTypes={logEndPoint:u.a.string},A.defaultProps={logEndPoint:""};var C=A;function M(e){return(M="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function x(e,t){return!t||"object"!==M(t)&&"function"!=typeof t?function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e):t}function K(e){return(K=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function U(e,t){return(U=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}var F=function(e){function t(e){var n;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t),(n=x(this,K(t).call(this,e))).sns_name="Twitter",n.endPoint="http://twitter.com/share",n.shareText="Twitter連携アプリ｜あの人は今？チェッカー",n.href="".concat(n.endPoint,"?text=").concat(n.shareText,"%0a&url=").concat(n.shareURL),n.className="twitter-share-button",n.text="".concat(n.sns_name,"で紹介"),n}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&U(e,t)}(t,C),t}();function G(e){return(G="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function D(e,t){return!t||"object"!==G(t)&&"function"!=typeof t?function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e):t}function W(e){return(W=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function H(e,t){return(H=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}var B=function(e){function t(e){var n;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t),(n=D(this,W(t).call(this,e))).sns_name="Line",n.endPoint="https://social-plugins.line.me/lineit/share",n.href="".concat(n.endPoint,"?url=").concat(n.shareURL),n.className="line-share-button",n.text="".concat(n.sns_name,"で紹介"),n}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&H(e,t)}(t,C),t}();function Y(e){return(Y="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function q(e,t){return!t||"object"!==Y(t)&&"function"!=typeof t?function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e):t}function J(e){return(J=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function z(e,t){return(z=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}var Q=function(e){function t(e){var n;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t),(n=q(this,J(t).call(this,e))).sns_name="Facebook",n.endPoint="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&display=popup&ref=plugin&src=share_button",n.href="".concat(n.endPoint,"&u=").concat(n.shareURL),n.className="facebook-share-button",n.text="".concat(n.sns_name,"で紹介"),n}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&z(e,t)}(t,C),t}(),V=function(e){var t=e.logEndPoint;return o.a.createElement("div",{className:"snsAdSection__SNSList"},o.a.createElement(F,{logEndPoint:t}),o.a.createElement(B,{logEndPoint:t}),o.a.createElement(Q,{logEndPoint:t}))};V.propTypes={logEndPoint:u.a.string},V.defaultProps={logEndPoint:""};var X=V,Z=function(){return o.a.createElement("div",{className:"snsAdSection"},o.a.createElement("h2",{className:"snsAdSection__head"},"気に入ってくださいましたら"),o.a.createElement("p",{className:"snsAdSection__paragraph snsAdSection__paragraph--first"},"「あの人は今？チェッカー」は\r\n個人で開発されました"),o.a.createElement("p",{className:"snsAdSection__paragraph snsAdSection__paragraph--second"},"たくさんのユーザーに利用されることが\r\n開発者の励みになります"),o.a.createElement("p",{className:"snsAdSection__paragraph snsAdSection__paragraph--third"},"あなたのお友達にもこのアプリを\r\nぜひご紹介ください"),o.a.createElement(X,null))},$=function(){return o.a.createElement("footer",{className:"pageFooterContainer"},o.a.createElement("div",{className:"pageFooterContainer__wrapper"},o.a.createElement("div",{className:"footerOwnerInfo"},o.a.createElement("h2",{className:"footerOwnerInfo__head"},"制作"),o.a.createElement("p",{className:"footerOwnerInfo__ownerName"},"コンコンタ"),o.a.createElement("ul",{className:"footerOwnerInfo__linkList"},o.a.createElement("li",null,o.a.createElement("a",{href:f.OWNER_LINK,className:"footerOwnerInfo__link",target:"_blank",rel:"noopener noreferrer"},o.a.createElement("img",{src:"img/house_white_icon.svg",alt:"home",className:"footerOwnerInfo__homeIcon"}))),o.a.createElement("li",null,o.a.createElement("a",{href:f.OWNER_TWITTER_LINK,className:"footerOwnerInfo__link",target:"_blank",rel:"noopener noreferrer"},o.a.createElement("img",{src:"img/twitter_white_icon.svg",alt:"twitter",className:"footerOwnerInfo__twitterIcon"}))))),o.a.createElement("p",{className:"pageFooterContainer__copyRight"},"Copyright © Konkonta All right reserved")))};function ee(e){return(ee="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function te(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function ne(e,t){return!t||"object"!==ee(t)&&"function"!=typeof t?function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e):t}function re(e){return(re=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function oe(e,t){return(oe=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}var ae=function(e){function t(e){var n;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t),(n=ne(this,re(t).call(this,e))).state={appName:f.APPNAME_MUTER},n}var n,a,i;return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&oe(e,t)}(t,r["Component"]),n=t,(a=[{key:"render",value:function(){var e=this.props.basePath;return o.a.createElement("div",{className:"loginPage"},o.a.createElement(p,null),o.a.createElement(m,{basePath:e}),o.a.createElement(_,null),o.a.createElement(O,null),o.a.createElement(Z,null),o.a.createElement($,null))}}])&&te(n.prototype,a),i&&te(n,i),t}();ae.propTypes={basePath:u.a.string.isRequired};var ie=ae,ce=document.querySelector(".react-login");i.a.render(o.a.createElement(ie,{basePath:s.a}),ce)},7:function(e,t){e.exports=base_path}},[[51,0,1]]]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/login_index"],{
+
+/***/ "./resources/js/LoginPage/LoginConst.js":
+/*!**********************************************!*\
+  !*** ./resources/js/LoginPage/LoginConst.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var LoginConst = {
+  OWNER_LINK: 'https://konkonta.com',
+  OWNER_TWITTER_LINK: 'https://twitter.com/cha_han5656',
+  LOGIN_SLAG: '/login',
+  BREAKPOINT_SP: 768,
+  BREAKPOINT_TABLET: 1024,
+  APPNAME_MUTER: 'APPNAME_MUTER',
+  DESCRIPTION_FIRST_MUTER: 'あなたがミュートしている\r\nユーザーを整理しましょう',
+  DESCRIPTION_SECOND_MUTER: '見ても良いと思ったら\r\nミュートを解除しましょう',
+  DESCRIPTION_LOGIN_TWITTER: 'このツールがあなたのアカウントで\r\nツイートすることはありません'
+};
+/* harmony default export */ __webpack_exports__["default"] = (LoginConst);
+
+/***/ }),
+
+/***/ "./resources/js/LoginPage/components/Carousel.jsx":
+/*!********************************************************!*\
+  !*** ./resources/js/LoginPage/components/Carousel.jsx ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modules_setSlickCarousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/setSlickCarousel */ "./resources/js/LoginPage/modules/setSlickCarousel.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var Carousel =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Carousel, _Component);
+
+  function Carousel() {
+    _classCallCheck(this, Carousel);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Carousel).apply(this, arguments));
+  }
+
+  _createClass(Carousel, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      Object(_modules_setSlickCarousel__WEBPACK_IMPORTED_MODULE_1__["default"])('loginCarousel');
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "carouselContainer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "loginCarousel"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "loginCarousel__page"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "img/slides/muter-slide1.jpg",
+        alt: "Twitter\u306E\u30DF\u30E5\u30FC\u30C8\u3092\u6709\u52B9\u6D3B\u7528\u3057\u307E\u3057\u3087\u3046",
+        className: "loginCarousel__slideImg"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "loginCarousel__page"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "img/slides/muter-slide2.jpg",
+        alt: "\u3042\u306A\u305F\u304C\u30DF\u30E5\u30FC\u30C8\u3057\u305F\u30E6\u30FC\u30B6\u30FC\u3092\u4E00\u89A7\u8868\u793A \u305D\u306E\u5834\u3067\u30DF\u30E5\u30FC\u30C8\u89E3\u9664\u3082\u3067\u304D\u307E\u3059",
+        className: "loginCarousel__slideImg"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "loginCarousel__page"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "img/slides/muter-slide3.jpg",
+        alt: "\u300C\u30C1\u30E9\u898B\u300D\u6A5F\u80FD\u3067\u3001\u305D\u306E\u4EBA\u306E\u30C4\u30A4\u30FC\u30C8\u3092\u3044\u304F\u3064\u304B\u898B\u308B\u3053\u3068\u304C\u3067\u304D\u307E\u3059",
+        className: "loginCarousel__slideImg"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "loginCarousel__page"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "img/slides/muter-slide4.jpg",
+        alt: "\u5B89\u5168\u306A\u30A2\u30D7\u30EA\u3067\u3059\u3002\u3042\u306A\u305F\u306E\u30A2\u30AB\u30A6\u30F3\u30C8\u304B\u3089\u30C4\u30A4\u30FC\u30C8\u3059\u308B\u3053\u3068\u306F\u6C7A\u3057\u3066\u3042\u308A\u307E\u305B\u3093",
+        className: "loginCarousel__slideImg"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "slickArrows"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "slickArrows__prevArrow",
+        type: "button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "img/slick/slick-arrow-left.svg",
+        alt: "prev"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "slickArrows__nextArrow",
+        type: "button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "img/slick/slick-arrow-right.svg",
+        alt: "next"
+      }))));
+    }
+  }]);
+
+  return Carousel;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Carousel);
+
+/***/ }),
+
+/***/ "./resources/js/LoginPage/components/LoginPage.jsx":
+/*!*********************************************************!*\
+  !*** ./resources/js/LoginPage/components/LoginPage.jsx ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _LoginConst__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../LoginConst */ "./resources/js/LoginPage/LoginConst.js");
+/* harmony import */ var _PageHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PageHeader */ "./resources/js/LoginPage/components/PageHeader.jsx");
+/* harmony import */ var _LoginSection__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./LoginSection */ "./resources/js/LoginPage/components/LoginSection.jsx");
+/* harmony import */ var _ReadMore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ReadMore */ "./resources/js/LoginPage/components/ReadMore.jsx");
+/* harmony import */ var _Carousel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Carousel */ "./resources/js/LoginPage/components/Carousel.jsx");
+/* harmony import */ var _SNSAdSection__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./SNSAdSection */ "./resources/js/LoginPage/components/SNSAdSection.jsx");
+/* harmony import */ var _PageFooter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./PageFooter */ "./resources/js/LoginPage/components/PageFooter.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+
+
+
+
+var LoginPage =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(LoginPage, _Component);
+
+  function LoginPage(props) {
+    var _this;
+
+    _classCallCheck(this, LoginPage);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(LoginPage).call(this, props));
+    _this.state = {
+      appName: _LoginConst__WEBPACK_IMPORTED_MODULE_2__["default"].APPNAME_MUTER
+    };
+    return _this;
+  }
+
+  _createClass(LoginPage, [{
+    key: "render",
+    value: function render() {
+      var basePath = this.props.basePath;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "loginPage"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageHeader__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoginSection__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        basePath: basePath
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReadMore__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Carousel__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SNSAdSection__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageFooter__WEBPACK_IMPORTED_MODULE_8__["default"], null));
+    }
+  }]);
+
+  return LoginPage;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+LoginPage.propTypes = {
+  basePath: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (LoginPage);
+
+/***/ }),
+
+/***/ "./resources/js/LoginPage/components/LoginSection.jsx":
+/*!************************************************************!*\
+  !*** ./resources/js/LoginPage/components/LoginSection.jsx ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _LoginConst__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../LoginConst */ "./resources/js/LoginPage/LoginConst.js");
+
+
+
+var LoginSection = function LoginSection(_ref) {
+  var basePath = _ref.basePath;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "LoginSection"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "LoginSection__head"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "LoginSection__Paragraph"
+  }, _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].DESCRIPTION_FIRST_MUTER), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "LoginSection__Paragraph LoginSection__Paragraph--second"
+  }, _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].DESCRIPTION_SECOND_MUTER)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "LoginRightColumn"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ownerLink"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "ownerLink__icon",
+    src: "img/house_icon.svg",
+    alt: "home"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].OWNER_LINK,
+    className: "ownerLink__Link",
+    target: "_blank",
+    rel: "noopener noreferrer"
+  }, "\u5236\u4F5C\u8005\u30DB\u30FC\u30E0\u30DA\u30FC\u30B8")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "LoginForm"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "LoginForm__loginLink",
+    href: "".concat(basePath).concat(_LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].LOGIN_SLAG)
+  }, "\u30ED\u30B0\u30A4\u30F3", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "LoginForm__icon",
+    src: "img/twitter_white_icon.svg",
+    alt: "twitter"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "LoginForm__description"
+  }, _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].DESCRIPTION_LOGIN_TWITTER))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (LoginSection);
+
+/***/ }),
+
+/***/ "./resources/js/LoginPage/components/PageFooter.jsx":
+/*!**********************************************************!*\
+  !*** ./resources/js/LoginPage/components/PageFooter.jsx ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _LoginConst__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../LoginConst */ "./resources/js/LoginPage/LoginConst.js");
+
+
+
+var PageFooter = function PageFooter() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
+    className: "pageFooterContainer"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pageFooterContainer__wrapper"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "footerOwnerInfo"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "footerOwnerInfo__head"
+  }, "\u5236\u4F5C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "footerOwnerInfo__ownerName"
+  }, "\u30B3\u30F3\u30B3\u30F3\u30BF"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "footerOwnerInfo__linkList"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].OWNER_LINK,
+    className: "footerOwnerInfo__link",
+    target: "_blank",
+    rel: "noopener noreferrer"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "img/house_white_icon.svg",
+    alt: "home",
+    className: "footerOwnerInfo__homeIcon"
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: _LoginConst__WEBPACK_IMPORTED_MODULE_1__["default"].OWNER_TWITTER_LINK,
+    className: "footerOwnerInfo__link",
+    target: "_blank",
+    rel: "noopener noreferrer"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "img/twitter_white_icon.svg",
+    alt: "twitter",
+    className: "footerOwnerInfo__twitterIcon"
+  }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "pageFooterContainer__copyRight"
+  }, "Copyright \xA9 Konkonta All right reserved")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PageFooter);
+
+/***/ }),
+
+/***/ "./resources/js/LoginPage/components/PageHeader.jsx":
+/*!**********************************************************!*\
+  !*** ./resources/js/LoginPage/components/PageHeader.jsx ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var PageHeader = function PageHeader() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pageHeadContainer"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "pageHeadContainer__head"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pageHeadContainer__headLine1"
+  }, " \u3042\u306E\u4EBA\u306F\u4ECA\uFF1F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pageHeadContainer__headLine2"
+  }, " \u30C1\u30A7\u30C3\u30AB\u30FC")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "pageHeadContainer__engHead"
+  }, "Mute Reminder"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PageHeader);
+
+/***/ }),
+
+/***/ "./resources/js/LoginPage/components/ReadMore.jsx":
+/*!********************************************************!*\
+  !*** ./resources/js/LoginPage/components/ReadMore.jsx ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var ReadMore = function ReadMore() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ReadMore"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "ReadMore__message"
+  }, "\u4F55\u306E\u305F\u3081\u306E\u30C4\u30FC\u30EB\uFF1F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ReadMore__arrow"
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ReadMore);
+
+/***/ }),
+
+/***/ "./resources/js/LoginPage/components/SNSAdSection.jsx":
+/*!************************************************************!*\
+  !*** ./resources/js/LoginPage/components/SNSAdSection.jsx ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _SNSLinks_components_SNSLinks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../SNSLinks/components/SNSLinks */ "./resources/js/SNSLinks/components/SNSLinks.jsx");
+
+
+
+var SNSAdSection = function SNSAdSection() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "snsAdSection"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "snsAdSection__head"
+  }, "\u6C17\u306B\u5165\u3063\u3066\u304F\u3060\u3055\u3044\u307E\u3057\u305F\u3089"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "snsAdSection__paragraph snsAdSection__paragraph--first"
+  }, '「あの人は今？チェッカー」は\r\n個人で開発されました'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "snsAdSection__paragraph snsAdSection__paragraph--second"
+  }, 'たくさんのユーザーに利用されることが\r\n開発者の励みになります'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "snsAdSection__paragraph snsAdSection__paragraph--third"
+  }, 'あなたのお友達にもこのアプリを\r\nぜひご紹介ください'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SNSLinks_components_SNSLinks__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SNSAdSection);
+
+/***/ }),
+
+/***/ "./resources/js/LoginPage/modules/setSlickCarousel.js":
+/*!************************************************************!*\
+  !*** ./resources/js/LoginPage/modules/setSlickCarousel.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
+/* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(slick_carousel__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _LoginConst__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../LoginConst */ "./resources/js/LoginPage/LoginConst.js");
+
+
+
+
+var setSlickCarousel = function setSlickCarousel(containerClass) {
+  jquery__WEBPACK_IMPORTED_MODULE_1___default()(".".concat(containerClass)).slick({
+    infinite: true,
+    dots: true,
+    arrows: true,
+    dragable: true,
+    nextArrow: '.slickArrows__nextArrow',
+    prevArrow: '.slickArrows__prevArrow',
+    responsive: [{
+      breakpoint: _LoginConst__WEBPACK_IMPORTED_MODULE_2__["default"].BREAKPOINT_TABLET,
+      settings: {
+        slideToShow: 1,
+        slideToScroll: 1,
+        arrows: false
+      }
+    }, {
+      breakpoint: _LoginConst__WEBPACK_IMPORTED_MODULE_2__["default"].BREAKPOINT_SP,
+      settings: {
+        slideToShow: 1,
+        slideToScroll: 1,
+        fade: false,
+        arrows: false
+      }
+    }]
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (setSlickCarousel);
+
+/***/ }),
+
+/***/ "./resources/js/SNSLinks/SNSLinksConst.js":
+/*!************************************************!*\
+  !*** ./resources/js/SNSLinks/SNSLinksConst.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var SNSLinksConst = {
+  LOG_FILENAME_KEY: 'f_name',
+  LOG_SNS_FILENAME: 'js_sns',
+  LOG_SNS_KEY_NAME: 'sns_name',
+  LOG_SNS_KEY_SHARE_URL: 'share_url'
+};
+/* harmony default export */ __webpack_exports__["default"] = (SNSLinksConst);
+
+/***/ }),
+
+/***/ "./resources/js/SNSLinks/components/FacebookLinkButton.jsx":
+/*!*****************************************************************!*\
+  !*** ./resources/js/SNSLinks/components/FacebookLinkButton.jsx ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SNSLinkButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SNSLinkButton */ "./resources/js/SNSLinks/components/SNSLinkButton.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var FacebookLinkButton =
+/*#__PURE__*/
+function (_SNSLinkButton) {
+  _inherits(FacebookLinkButton, _SNSLinkButton);
+
+  function FacebookLinkButton(props) {
+    var _this;
+
+    _classCallCheck(this, FacebookLinkButton);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(FacebookLinkButton).call(this, props));
+    _this.sns_name = 'Facebook'; // ログ出力用
+
+    _this.endPoint = 'https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&display=popup&ref=plugin&src=share_button';
+    _this.href = "".concat(_this.endPoint, "&u=").concat(_this.shareURL);
+    _this.className = 'facebook-share-button';
+    _this.text = "".concat(_this.sns_name, "\u3067\u7D39\u4ECB");
+    return _this;
+  }
+
+  return FacebookLinkButton;
+}(_SNSLinkButton__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (FacebookLinkButton);
+
+/***/ }),
+
+/***/ "./resources/js/SNSLinks/components/LineLinkButton.jsx":
+/*!*************************************************************!*\
+  !*** ./resources/js/SNSLinks/components/LineLinkButton.jsx ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SNSLinkButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SNSLinkButton */ "./resources/js/SNSLinks/components/SNSLinkButton.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var LineLinkButton =
+/*#__PURE__*/
+function (_SNSLinkButton) {
+  _inherits(LineLinkButton, _SNSLinkButton);
+
+  function LineLinkButton(props) {
+    var _this;
+
+    _classCallCheck(this, LineLinkButton);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(LineLinkButton).call(this, props));
+    _this.sns_name = 'Line'; // ログ出力用
+
+    _this.endPoint = 'https://social-plugins.line.me/lineit/share';
+    _this.href = "".concat(_this.endPoint, "?url=").concat(_this.shareURL);
+    _this.className = 'line-share-button';
+    _this.text = "".concat(_this.sns_name, "\u3067\u7D39\u4ECB");
+    return _this;
+  }
+
+  return LineLinkButton;
+}(_SNSLinkButton__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (LineLinkButton);
+
+/***/ }),
+
+/***/ "./resources/js/SNSLinks/components/SNSLinkButton.jsx":
+/*!************************************************************!*\
+  !*** ./resources/js/SNSLinks/components/SNSLinkButton.jsx ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _commonModules_sendLogData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../commonModules/sendLogData */ "./resources/js/commonModules/sendLogData.js");
+/* harmony import */ var _SNSLinksConst__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../SNSLinksConst */ "./resources/js/SNSLinks/SNSLinksConst.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var SNSLinkButton =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(SNSLinkButton, _Component);
+
+  function SNSLinkButton(props) {
+    var _this;
+
+    _classCallCheck(this, SNSLinkButton);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SNSLinkButton).call(this, props));
+    _this.width = 800;
+    _this.height = 470;
+    var _window$location = window.location,
+        origin = _window$location.origin,
+        pathname = _window$location.pathname;
+    _this.shareURL = origin + pathname;
+    _this.href = '';
+    _this.text = '';
+    _this.className = '';
+    return _this;
+  }
+
+  _createClass(SNSLinkButton, [{
+    key: "makeLogParams",
+    value: function makeLogParams() {
+      var logParams = {};
+      logParams[_SNSLinksConst__WEBPACK_IMPORTED_MODULE_3__["default"].LOG_FILENAME_KEY] = _SNSLinksConst__WEBPACK_IMPORTED_MODULE_3__["default"].LOG_SNS_FILENAME;
+      logParams[_SNSLinksConst__WEBPACK_IMPORTED_MODULE_3__["default"].LOG_SNS_KEY_NAME] = this.sns_name;
+      logParams[_SNSLinksConst__WEBPACK_IMPORTED_MODULE_3__["default"].LOG_SNS_KEY_SHARE_URL] = this.shareURL;
+      return logParams;
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick() {
+      var logEndPoint = this.props.logEndPoint;
+      window.open(encodeURI(decodeURI(this.href)), 'sns-window', "width=".concat(this.width, ",") + "height=".concat(this.height, ",") + 'personalbar=0,' + 'toolbar=0,' + 'scrollbars=1,' + 'sizable=1'); // ログ送信先があればログ送信
+
+      if (logEndPoint) {
+        Object(_commonModules_sendLogData__WEBPACK_IMPORTED_MODULE_2__["default"])(logEndPoint, this.makeLogParams());
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: this.className,
+        type: "button",
+        onClick: function onClick() {
+          _this2.handleClick();
+        }
+      }, this.text);
+    }
+  }]);
+
+  return SNSLinkButton;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+SNSLinkButton.propTypes = {
+  logEndPoint: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+};
+SNSLinkButton.defaultProps = {
+  logEndPoint: ''
+};
+/* harmony default export */ __webpack_exports__["default"] = (SNSLinkButton);
+
+/***/ }),
+
+/***/ "./resources/js/SNSLinks/components/SNSLinks.jsx":
+/*!*******************************************************!*\
+  !*** ./resources/js/SNSLinks/components/SNSLinks.jsx ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _TwitterLinkButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TwitterLinkButton */ "./resources/js/SNSLinks/components/TwitterLinkButton.jsx");
+/* harmony import */ var _LineLinkButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LineLinkButton */ "./resources/js/SNSLinks/components/LineLinkButton.jsx");
+/* harmony import */ var _FacebookLinkButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FacebookLinkButton */ "./resources/js/SNSLinks/components/FacebookLinkButton.jsx");
+
+
+
+
+
+
+var SNSLinks = function SNSLinks(_ref) {
+  var logEndPoint = _ref.logEndPoint;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "snsAdSection__SNSList"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TwitterLinkButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    logEndPoint: logEndPoint
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LineLinkButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    logEndPoint: logEndPoint
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FacebookLinkButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    logEndPoint: logEndPoint
+  }));
+};
+
+SNSLinks.propTypes = {
+  logEndPoint: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+};
+SNSLinks.defaultProps = {
+  logEndPoint: ''
+};
+/* harmony default export */ __webpack_exports__["default"] = (SNSLinks);
+
+/***/ }),
+
+/***/ "./resources/js/SNSLinks/components/TwitterLinkButton.jsx":
+/*!****************************************************************!*\
+  !*** ./resources/js/SNSLinks/components/TwitterLinkButton.jsx ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SNSLinkButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SNSLinkButton */ "./resources/js/SNSLinks/components/SNSLinkButton.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var TwitterLinkButton =
+/*#__PURE__*/
+function (_SNSLinkButton) {
+  _inherits(TwitterLinkButton, _SNSLinkButton);
+
+  function TwitterLinkButton(props) {
+    var _this;
+
+    _classCallCheck(this, TwitterLinkButton);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(TwitterLinkButton).call(this, props));
+    _this.sns_name = 'Twitter'; // ログ出力用
+
+    _this.endPoint = 'http://twitter.com/share';
+    _this.shareText = 'Twitter連携アプリ｜あの人は今？チェッカー';
+    _this.href = "".concat(_this.endPoint, "?text=").concat(_this.shareText, "%0a&url=").concat(_this.shareURL);
+    _this.className = 'twitter-share-button';
+    _this.text = "".concat(_this.sns_name, "\u3067\u7D39\u4ECB");
+    return _this;
+  }
+
+  return TwitterLinkButton;
+}(_SNSLinkButton__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (TwitterLinkButton);
+
+/***/ }),
+
+/***/ "./resources/js/commonModules/sendLogData.js":
+/*!***************************************************!*\
+  !*** ./resources/js/commonModules/sendLogData.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var sendLogData = function sendLogData(logEndPoint, params) {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(logEndPoint, {
+    params: params
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (sendLogData);
+
+/***/ }),
+
+/***/ "./resources/js/login_index.jsx":
+/*!**************************************!*\
+  !*** ./resources/js/login_index.jsx ***!
+  \**************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var base_path__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! base_path */ "base_path");
+/* harmony import */ var base_path__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(base_path__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _LoginPage_components_LoginPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LoginPage/components/LoginPage */ "./resources/js/LoginPage/components/LoginPage.jsx");
+
+
+
+
+var loginElem = document.querySelector('.react-login');
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoginPage_components_LoginPage__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  basePath: base_path__WEBPACK_IMPORTED_MODULE_2___default.a
+}), loginElem);
+
+/***/ }),
+
+/***/ 1:
+/*!********************************************!*\
+  !*** multi ./resources/js/login_index.jsx ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! /Users/kanta/Desktop/WORKSPACE/10.Development/20.Web/MuteReminder/resources/js/login_index.jsx */"./resources/js/login_index.jsx");
+
+
+/***/ }),
+
+/***/ "base_path":
+/*!****************************!*\
+  !*** external "base_path" ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = base_path;
+
+/***/ })
+
+},[[1,"/js/manifest","/js/vendor"]]]);
+//# sourceMappingURL=login_index.js.map

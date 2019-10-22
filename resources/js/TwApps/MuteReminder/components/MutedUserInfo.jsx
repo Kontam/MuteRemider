@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import UnmuteButton from './UnmuteButton';
 import ShowTweetsButton from './ShowTweetsButton';
 import MutedTweetList from './MutedTweetList';
-import TwAppsConst from '../TwAppsConst';
+import TwAppsConst from '../../TwAppsConst';
 import { toggleMuted, requestUnmuteUser } from '../actions';
 
 class MutedUserInfo extends Component {

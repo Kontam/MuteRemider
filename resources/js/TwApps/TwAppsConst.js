@@ -8,6 +8,11 @@ const TwAppsConst = {
   UNMUTE_USER_ENDPOINT: '/unmute',
   MUTE_USER_ENDPOINT: '/mute',
 
+  /*
+    ==============================================
+     アクション名
+    ==============================================
+  */
   ACTION_CHANGE_BASE_URL: 'CHANGE_BASE_URL',
   ACTION_CHANGE_ISMUTERMENU_OPENED: 'CHANGE_ISMUTERMENU_OPENED',
   ACTION_CHANGE_USER_INFO: 'CHANGE_USER_INFO',

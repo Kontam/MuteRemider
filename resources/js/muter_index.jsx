@@ -5,10 +5,10 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import reducers from './TwApps/reducers';
+import reducers from './TwApps/MuteReminder/reducers';
 import basePath from 'base_path';
 
-import TwitterApps from './TwApps/containers/TwitterApps';
+import TwitterApps from './TwApps/components/TwitterApps';
 
 const store = createStore(
   reducers,

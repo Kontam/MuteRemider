@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import TwAppsConst from '../TwAppsConst';
+import TwAppsConst from '../../TwAppsConst';
 import MutedUserInfo from '../components/MutedUserInfo';
 import { requestMutedUsers } from '../actions';
 

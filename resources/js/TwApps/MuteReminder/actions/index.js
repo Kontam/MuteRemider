@@ -1,11 +1,11 @@
-import TwAppsConst from '../TwAppsConst';
+import TwAppsConst from '../../TwAppsConst';
 import requestToServer from '../modules/requestToServer';
 
 export const setBaseUrl = baseUrl => (dispatch) => {
   dispatch({ type: TwAppsConst.ACTION_CHANGE_BASE_URL, baseUrl });
 };
 
-export const setIsMuterMenuOpened = isMuterMenuOpened => (dispatch) => {
+export const setIsMuterMenuOpened = isMuterMenuOpened => (dispatchs) => {
   dispatch({ type: TwAppsConst.ACTION_CHANGE_ISMUTERMENU_OPENED, isMuterMenuOpened });
 };
 

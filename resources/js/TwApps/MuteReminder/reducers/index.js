@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import TwAppsConst from '../TwAppsConst';
+import TwAppsConst from '../../TwAppsConst';
 
 const baseUrl = (state = '', action) => {
   switch (action.type) {
