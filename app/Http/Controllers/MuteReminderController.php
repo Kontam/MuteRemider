@@ -16,42 +16,6 @@ use App\MutedUsers;
 
 class MuteReminderController extends Controller
 {
-    // ==================================================
-    // 認証したユーザーの情報を取得するAPI
-    // ログイン成功時にトップページにユーザー情報を埋め込むので不要になった
-    // ==================================================
-    // public function authorized_user_api() {
-    //     //TwitterOAuthのインスタンスを生成する
-    //     $objTwitterConnection = createTwitterConnection();
-    //     // エラー配列が返却されて入ればそれがレスポンスになる
-    //     if(! checkTwitterConnection($objTwitterConnection)) {
-    //         return response()->json($objTwitterConnection);
-    //     }
-
-    //     $params = [
-    //         'include_entities' => false,
-    //         'skip_status'      => true,
-    //         'include_email'    => false
-    //     ];
-
-    //     $authorized_user_info = $objTwitterConnection->get('account/verify_credentials', $params);
-    //     $summarized_user_info = summarizeUserInfo($authorized_user_info);
-
-    //     // ユーザーIDをクッキーに保存
-    //     session(['user_id' => $summarized_user_info["user_id"]]);
-
-    //     // 利用経験のあるユーザーかどうかを検証する
-    //     if(!Users::where('screen_name', $summarized_user_info["screen_name"])->exists()) {
-    //         // 初めて利用したユーザー情報をDBにロギングする
-    //         Users::create([
-    //             'screen_name' => $summarized_user_info["screen_name"],
-    //             'user_id' => $summarized_user_info["user_id"],
-    //         ]);
-    //     }
-
-    //     return response()->json($summarized_user_info);
-    // }
-
     public function list_api(Request $request)
     {
         // TwitterOAuthのインスタンスを生成する
@@ -163,14 +127,14 @@ class MuteReminderController extends Controller
       $summarized_user_info = summarizeUserInfo($authorized_user_info);
 
       // ユーザーIDをクッキーに保存
-      session(['twUserInfo' => $summarized_user_info]);
+      session([config('pg-const.SESSION_TW_USERINFO') => $summarized_user_info]);
 
       // 利用経験のあるユーザーかどうかを検証する
-      if(!Users::where('screen_name', $summarized_user_info["screen_name"])->exists()) {
+      if(!Users::where(config('pg-const.USERS_SCREEN_NAME'), $summarized_user_info["screen_name"])->exists()) {
           // 初めて利用したユーザー情報をDBにロギングする
           Users::create([
-              'screen_name' => $summarized_user_info["screen_name"],
-              'user_id' => $summarized_user_info["user_id"],
+             config('pg-const.USERS_SCREEN_NAME') => $summarized_user_info["screen_name"],
+             config('pg-const.USERS_USER_ID') => $summarized_user_info["user_id"],
           ]);
       }
         return view('muter.top');

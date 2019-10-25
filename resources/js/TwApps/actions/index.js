@@ -57,21 +57,6 @@ export const setPopUpMessage = message => (dispatch) => {
   dispatch({ type: TwAppsConst.ACTION_CHANGE_ERR_MESSAGE, message });
 };
 
-// 認証ユーザーの情報を取得する
-// ログイン成功時にHTMLに埋め込むようにしたので不要
-// しばらく開発したのち削除する
-// export const requestUserInfo = (endpoint, params = {}) => (dispatch) => {
-//   requestToServer(endpoint, params)
-//     .then(({ data, status }) => {
-//       if (Array.isArray(data) && 'code' in data[0]) {
-//         dispatch(setErrMessage(data[0].message));
-//         dispatch(endUserRequest());
-//         return;
-//       }
-//       dispatch(setUserInfo(data));
-//     });
-// };
-
 // ミュートユーザーのリストを取得し、ミュート状態のstateを初期化する
 export const requestMutedUsers = (endpoint, params = {}) => (dispatch) => {
   dispatch(startUserRequest());
