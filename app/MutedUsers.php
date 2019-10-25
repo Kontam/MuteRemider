@@ -8,7 +8,7 @@ class MutedUsers extends Model
 {
 
     protected $table = 'muted_users';
-    protected $fillable = ['user_id', 'screen_name', 'count']; //挿入可能なカラム一覧
+    protected $fillable = ['user_id', 'screen_name', 'muted_by']; //挿入可能なカラム一覧
     //
 
     public function getData() {

@@ -86,15 +86,17 @@ class MuteReminderController extends Controller
         };
 
         //ミュートユーザーの情報をDBに格納
+        $tw_user_info = session("twUserInfo");
         foreach ($simple_users_array as $muted_user) {
-            if (MutedUsers::where('user_id', $muted_user["user_id"])->exists()) {
-                MutedUsers::where('user_id', $muted_user["user_id"])
-                ->increment('count');
-            } else {
+            $where = [
+                ['user_id', '=', $muted_user["user_id"]],
+                ['muted_by', '=', $tw_user_info["user_id"]],
+            ];
+            if (!MutedUsers::where($where)->exists()) {
                 MutedUsers::create([
                    'user_id' => $muted_user["user_id"],
                    'screen_name' => $muted_user["screen_name"],
-                   'count' => 1,
+                   'muted_by' => $tw_user_info["user_id"],
                 ]);
             }
         };
@@ -142,10 +144,8 @@ class MuteReminderController extends Controller
         return response()->json($result);
     }
 
-
     public function top()
     {
-
         //TwitterOAuthのインスタンスを生成する
         $objTwitterConnection = createTwitterConnection();
         // エラー配列が返却されて入ればそれがレスポンスになる

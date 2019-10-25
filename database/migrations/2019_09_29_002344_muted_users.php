@@ -18,7 +18,7 @@ class MutedUsers extends Migration
             $table->increments('id');
             $table->string('user_id');
             $table->string('screen_name');
-            $table->integer('count');
+            $table->string('muted_by');
             $table->timestamps();
         });
     }
