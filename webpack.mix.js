@@ -25,5 +25,6 @@ mix.react('resources/js/muter_index.jsx', 'public/js')
   .webpackConfig({
     externals: {
       base_path: 'base_path',
+      twUserInfo: 'twUserInfo',
     },
   });
