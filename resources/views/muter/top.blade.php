@@ -10,4 +10,10 @@
 @endsection
 @section('scripts')
     <script src="js/muter_index.js" charset="utf-8"></script>
+    <script>
+      var twUserInfo = {
+        "user_id": {{ session('user_id') }},
+        "screen_name": {{ session('screen_name') }},
+      };
+    </script>
 @endsection
