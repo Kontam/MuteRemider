@@ -1,8 +1,13 @@
 import React from 'react';
 
 import LoginConst from '../LoginConst';
+import { string } from 'postcss-selector-parser';
 
-const LoginSection = ({ basePath }) => (
+interface LoginSectionProps {
+  basePath: string;
+};
+
+const LoginSection = ({ basePath } :LoginSectionProps) => (
   <div className="LoginSection">
     <div className="LoginSection__head">
       <p className="LoginSection__Paragraph">{LoginConst.DESCRIPTION_FIRST_MUTER}</p>

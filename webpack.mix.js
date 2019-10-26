@@ -12,7 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.react('resources/js/muter_index.jsx', 'public/js')
-  .react('resources/js/login_index.jsx', 'public/js')
+  .react('resources/js/login_index.tsx', 'public/js')
   .react('resources/js/test_index.tsx', 'public/js')
   .extract([])
   .sass('resources/sass/TwApps/muter_index.scss', 'public/css')
