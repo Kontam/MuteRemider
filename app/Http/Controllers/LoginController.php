@@ -49,6 +49,8 @@ class LoginController extends Controller
         $access_token = $connection->oauth("oauth/access_token", array("oauth_verifier" => $_REQUEST['oauth_verifier']));
 
         session(['twAccessToken' => $access_token]);
+
         return redirect('/muter_top#/MuteReminder');
+
     }
 }

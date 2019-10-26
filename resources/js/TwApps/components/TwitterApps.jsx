@@ -7,7 +7,7 @@ import TwAppsConst from '../TwAppsConst';
 import TwAppsHeader from './TwAppsHeader';
 import MuteReminder from '../MuteReminder/containers/MuteReminder';
 import BlockReminder from '../BlockReminder/components/BlockReminder.tsx';
-import { requestUserInfo, setBaseUrl } from '../MuteReminder/actions';
+import { setUserInfo, setBaseUrl } from '../MuteReminder/actions';
 import LoadingImg from './LoadingImg';
 
 
@@ -21,8 +21,9 @@ class TwitterApps extends Component {
   }
 
   componentDidMount() {
-    const { baseUrl } = this.props;
-    this.props.requestUserInfo(baseUrl + TwAppsConst.USER_INFO_ENDPOINT);
+    // htmlに埋め込みで渡ってきたユーザー情報をstateに格納する
+    const { twUserInfo } = this.props;
+    this.props.setUserInfo(twUserInfo);
   }
 
   render() {
@@ -41,14 +42,15 @@ class TwitterApps extends Component {
 
 TwitterApps.propTypes = {
   baseUrl: PropTypes.string.isRequired,
-  requestUserInfo: PropTypes.func.isRequired,
+  setUserInfo: PropTypes.func.isRequired,
   setBaseUrl: PropTypes.func.isRequired,
+  twUserInfo: PropTypes.shape().isRequired,
 };
 
 export default connect(
   () => ({}),
   {
     setBaseUrl,
-    requestUserInfo,
+    setUserInfo,
   },
 )(TwitterApps);

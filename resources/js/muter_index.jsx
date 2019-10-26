@@ -7,6 +7,8 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import reducers from './TwApps/MuteReminder/reducers';
 import basePath from 'base_path';
+import twUserInfo from 'twUserInfo';
+
 
 import TwitterApps from './TwApps/components/TwitterApps';
 
@@ -22,6 +24,7 @@ if (appElem) {
     <Provider store={store}>
       <TwitterApps
         baseUrl={basePath}
+        twUserInfo={twUserInfo}
       />
     </Provider>,
     appElem,
