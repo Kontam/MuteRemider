@@ -93,6 +93,35 @@ function summarizeTweetsInfo($tweets, $max_length = 3)
 }
 
 //========================================================
+// ブロックユーザーリストのAPI返り値を必要な情報だけに絞り込む
+// 引数: $blocked_users_obj API返り値のオブジェクト
+//========================================================
+function summarizeBlockedUserInfo($blocked_users_obj) {
+      // API制限回数等のTwitterからのエラー処理
+      $error_status = TwitterAPIErrorCheck($blocked_users_obj);
+      if ($error_status !== "OK") {
+          return $error_status;
+      }
+
+      $simple_users_array = [];
+
+      $users = $blocked_users_obj->users;
+      foreach ($users as $user) {
+        // デフォルトアイコンはnormalサイズ(48x48)なのでoriginalに変更(500x500)
+        $original_image_url = replaceProfileImgUrl($user->profile_image_url_https, 'original');
+
+        $blocked_userss_array[] = [
+          "user_id"                 => $user->id,
+          "user_name"               => $user->name,
+          "screen_name"             => $user->screen_name,
+          "profile_image_url_https" => $original_image_url,
+        ];
+      }
+
+      return $blocked_userss_array;
+}
+
+//========================================================
 // Twitterのユーザーobject付属のアイコン画像URLの指定サイズ変更を行う
 // 引数: 画像URL(str) 変更後のサイズ(str)
 // original: 500x500

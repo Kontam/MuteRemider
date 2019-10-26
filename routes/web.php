@@ -23,6 +23,9 @@ Route::get('/list_api', 'MuteReminderController@list_api');
 Route::get('/unmute/{screen_name}', 'MuteReminderController@unmute');
 Route::get('/mute/{screen_name}', 'MuteReminderController@mute');
 
+// ブロックユーザー
+Route::get('/block_list_api', 'BlockReminderController@block_list');
+
 // テストコード
 // 動作確認を行わないときはコメントアウトされていて良い
 Route::get('/test', 'TestController@test');
