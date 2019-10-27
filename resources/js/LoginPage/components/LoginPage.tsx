@@ -9,7 +9,7 @@ interface LoginPageProps {
   basePath :string;
 }
 
-const LoginPage = ({ basePath } :LoginPageProps) => (
+const LoginPage = ({ basePath } :LoginPageProps) :JSX.Element  => (
     <HashRouter>
       <div className="loginPage">
         <Route exact path="/" component={ApplicationTop} />

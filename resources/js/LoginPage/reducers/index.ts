@@ -1,3 +1,4 @@
+import ActionTypes from '../actions/types';
 import { combineReducers } from 'redux';
 
 interface appNameAction {
@@ -9,8 +10,13 @@ export interface LoginPageState {
   appName :string;
 }
 
-const appName = (state :any, action :appNameAction) => {
-  return "MuteReminder";
+const appName = (state :string = "", action :appNameAction) => {
+  switch (action.type) {
+    case ActionTypes.SET_APPNAME:
+      return action.payload;
+    default:
+      return state;
+  };
 };
 
 export default combineReducers<LoginPageState>({
