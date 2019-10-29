@@ -1,3 +1,5 @@
+import { css } from 'styled-components';
+
 const StyleConst :{[key:string]: string | number} = {
   // Colors
   basicWhite: '#ffffff',
@@ -34,5 +36,21 @@ const StyleConst :{[key:string]: string | number} = {
   pcHeaderHeight: '280px',
   pcReadmoreHeight: '100px',
 };
+
+export const resetAnchor = css`
+  color: inherit;
+  text-decoration: none;
+`;
+
+export const resetButton = css`
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+
+  &:focus {
+    outline: 0;
+  }
+`;
 
 export default StyleConst;

@@ -7,10 +7,10 @@ import StyleConst from '../styles/define';
 const PageHeader = () => (
   <PageHeadContainer>
     <PageHead>
-      <div className="pageHeadContainer__headLine1"> あの人は今？</div>
-      <div className="pageHeadContainer__headLine2"> チェッカー</div>
+      <HeadLine1> あの人は今？</HeadLine1>
+      <HeadLine2> チェッカー</HeadLine2>
     </PageHead>
-    <p className="pageHeadContainer__engHead">Mute Reminder</p>
+    <EnglishHead>Mute Reminder</EnglishHead>
   </PageHeadContainer>
 );
 
@@ -40,6 +40,29 @@ const PageHead = styled.h1`
     `}
     ${media.tablet`
       font-size: 4rem;
+    `}
+`;
+
+const HeadLine1 = styled.div`
+`;
+
+const HeadLine2 = styled.div`
+    margin-top: 17px;
+    text-align: right;
+    ${media.pc`
+      margin: 0;
+    `}
+`;
+
+const EnglishHead = styled.div`
+    font-family: ${StyleConst.engHeadFont};
+    font-size: 2.5rem;
+    font-weight: ${StyleConst.fwMedium};
+    text-align: center;
+    margin-top: 25px;
+    ${media.pc`
+      font-size: 5.25rem;
+      margin: 0;
     `}
 `;
 

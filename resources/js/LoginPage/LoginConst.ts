@@ -1,4 +1,4 @@
-const LoginConst = {
+const LoginConst :{[key :string] :string | number} = {
   OWNER_LINK: 'https://konkonta.com',
   OWNER_TWITTER_LINK: 'https://twitter.com/cha_han5656',
   LOGIN_SLAG: '/login',

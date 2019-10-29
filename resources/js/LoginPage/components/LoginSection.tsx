@@ -1,32 +1,80 @@
 import React from 'react';
+import styled,{ css } from 'styled-components';
 
+import media from '../styles/media';
+import StyleConst from '../styles/define';
 import LoginConst from '../LoginConst';
-import { string } from 'postcss-selector-parser';
+import LoginForm from './auganisms/LoginForm';
+
+
 
 interface LoginSectionProps {
   basePath: string;
 };
 
 const LoginSection = ({ basePath } :LoginSectionProps) => (
-  <div className="LoginSection">
-    <div className="LoginSection__head">
-      <p className="LoginSection__Paragraph">{LoginConst.DESCRIPTION_FIRST_MUTER}</p>
-      <p className="LoginSection__Paragraph LoginSection__Paragraph--second">{LoginConst.DESCRIPTION_SECOND_MUTER}</p>
-    </div>
-    <div className="LoginRightColumn">
-      <div className="ownerLink">
-        <img className="ownerLink__icon" src="img/house_icon.svg" alt="home" />
-        <a href={LoginConst.OWNER_LINK} className="ownerLink__Link" target="_blank" rel="noopener noreferrer">制作者ホームページ</a>
-      </div>
-      <div className="LoginForm">
-        <a className="LoginForm__loginLink" href={`${basePath}${LoginConst.LOGIN_SLAG}`}>
-          ログイン
-          <img className="LoginForm__icon" src="img/twitter_white_icon.svg" alt="twitter" />
-        </a>
-        <p className="LoginForm__description">{LoginConst.DESCRIPTION_LOGIN_TWITTER}</p>
-      </div>
-    </div>
-  </div>
+  <LoginContainer>
+    <LoginDiscription>
+      <Paragraph1>{LoginConst.DESCRIPTION_FIRST_MUTER}</Paragraph1>
+      <Paragraph2>{LoginConst.DESCRIPTION_SECOND_MUTER}</Paragraph2>
+    </LoginDiscription>
+    <LoginRightColumn>
+      <LoginForm />
+    </LoginRightColumn>
+  </LoginContainer>
 );
+
+const LoginContainer = styled.div`
+  ${media.pc`
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 75px 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 400px;
+    height: calc(100vh - ${StyleConst.pcHeaderHeight} - ${StyleConst.pcReadmoreHeight});
+  `}
+`;
+const LoginDiscription = styled.div`
+  padding: 44px 60px 35px;
+  text-align: center;
+  ${media.pc`
+    padding: 0;
+    margin-right: 9%;
+    text-align: left;
+  `}
+`;
+
+const ParagraphCommon = css`
+  color: ${StyleConst.twitterBlue};
+  font-size: 1.25rem;
+  font-weight: ${StyleConst.fwMedium};
+  line-height: 3;
+  white-space: pre;
+  ${media.pc`
+    font-size: 2rem;
+    font-weight: ${StyleConst.fwMedium};
+    line-height: 2;
+  `}
+  ${media.tablet`
+    font-size: 1.25rem;
+    margin-left: 5%;
+    min-width: 260px;
+  `}
+`;
+
+const Paragraph1 = styled.p`
+  ${ParagraphCommon}
+`;
+const Paragraph2 = styled.p`
+  ${ParagraphCommon}
+  margin-top: 14px;
+  ${media.pc`
+    margin-top: 55px;
+  `}
+`;
+
+const LoginRightColumn = styled.div``;
 
 export default LoginSection;

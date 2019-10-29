@@ -7,7 +7,7 @@ import { setAppName } from '../Actions';
 
 import PageHeader from './PageHeader';
 import LoginSection from './LoginSection';
-import ReadMore from './ReadMore';
+import ReadMore from './molecules/ReadMore';
 import Carousel from './Carousel';
 import SNSAdSection from './SNSAdSection';
 import PageFooter from './PageFooter';
