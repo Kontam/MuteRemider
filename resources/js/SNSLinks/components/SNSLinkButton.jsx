@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 
+import media from '../../commonModules/media.ts';
 import sendLogData from '../../commonModules/sendLogData';
 import SNSLinksConst from '../SNSLinksConst';
 
@@ -11,9 +13,37 @@ class SNSLinkButton extends Component {
     this.height = 470;
     const { origin, pathname } = window.location;
     this.shareURL = origin + pathname;
-    this.href = '';
-    this.text = '';
-    this.className = '';
+    this.href = ''; // リンク先
+    this.text = ''; // ラベル
+    this.styledComponent = styled.button``;
+    // ボタンの共通スタイルを定義
+    this.commonStyle = css`
+      appearance: none;
+      background-color: transparent;
+      border: 0;
+      padding: 0;
+
+      &:focus {
+        outline: 0;
+      }
+
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      display: block;
+      font-size: 1.25rem;
+      font-weight: bold;
+      height: 50px;
+      margin: 40px auto 0;
+      width: 180px;
+      ${media.pc`
+        display: inline;
+        margin: 0 50px;
+      `}
+      ${media.tablet`
+        margin: 0 25px;
+      `}
+    `;
   }
 
   makeLogParams() {
@@ -45,13 +75,12 @@ class SNSLinkButton extends Component {
 
   render() {
     return (
-      <button
-        className={this.className}
+      <this.styledComponent
         type="button"
         onClick={() => { this.handleClick(); }}
       >
         {this.text}
-      </button>
+      </this.styledComponent>
     );
   }
 }

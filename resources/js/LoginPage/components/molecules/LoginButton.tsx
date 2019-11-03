@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import styled from 'styled-components';
 import LoginState, { LoginPageState } from '../../reducers';
 
-import LoginConst from '../../LoginConst.js';
+import LoginConst from '../../LoginConst';
 import StyleConst, { resetAnchor } from '../../styles/define';
-import media from '../../styles/media';
+import media from '../../../commonModules/media';
 
 interface StateByProps {
   basePath: string,

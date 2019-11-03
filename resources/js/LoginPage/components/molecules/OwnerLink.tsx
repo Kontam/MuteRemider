@@ -1,14 +1,14 @@
 import React from 'react';
 import styled,{ css } from 'styled-components';
 
-import media from '../../styles/media';
+import media from '../../../commonModules/media';
 import StyleConst, { resetAnchor } from '../../styles/define';
 import LoginConst from '../../LoginConst';
 
 const OwnerLink = () => (
   <OwnerLinkText>
       <OwnerIcon src="img/house_icon.svg" alt="home" />
-      <Link href={LoginConst.OWNER_LINK} target="_blank" rel="noopener noreferrer">制作者ホームページ</OwnerLink>
+      <Link href={LoginConst.OWNER_LINK} target="_blank" rel="noopener noreferrer">制作者ホームページ</Link>
     </OwnerLinkText>
 );
 

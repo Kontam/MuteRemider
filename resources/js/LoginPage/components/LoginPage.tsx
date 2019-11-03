@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { HashRouter, Route, Redirect } from 'react-router-dom';
 
-import LoginConst from '../LoginConst';
 import { setBasePath } from '../actions';
-import { LoginPageState } from '../reducers';
 import ApplicationTop from './ApplicationTop';
 
 interface LoginPageProps {
@@ -20,10 +18,10 @@ const LoginPage = ({ basePath, setBasePath } :LoginPageProps) :JSX.Element  => {
 
   return (
     <HashRouter>
-      <div className="loginPage">
+      <Container>
         <Route exact path="/" render={() => <Redirect to="/MuteReminder" />} />
         <Route path="/:appName" component={ApplicationTop} />
-      </div>
+      </Container>
     </HashRouter>
   );
 }
@@ -31,4 +29,8 @@ const LoginPage = ({ basePath, setBasePath } :LoginPageProps) :JSX.Element  => {
 export default connect(
   () => ({}),
   { setBasePath }
-  )(LoginPage);
+)(LoginPage);
+
+const Container = styled.div`
+    overflow-x: hidden;
+`;

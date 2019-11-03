@@ -1,7 +1,7 @@
 import React from 'react';
 import styled,{ css } from 'styled-components';
 
-import media from '../styles/media';
+import media from '../../commonModules/media';
 import StyleConst from '../styles/define';
 import LoginConst from '../LoginConst';
 import LoginForm from './auganisms/LoginForm';

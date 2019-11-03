@@ -1,12 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import media from '../../commonModules/media.ts';
 import TwitterLinkButton from './TwitterLinkButton';
 import LineLinkButton from './LineLinkButton';
 import FacebookLinkButton from './FacebookLinkButton';
 
 const SNSLinks = ({ logEndPoint }) => (
-  <div className="snsAdSection__SNSList">
+  <Container>
     <TwitterLinkButton
       logEndPoint={logEndPoint}
     />
@@ -16,7 +18,7 @@ const SNSLinks = ({ logEndPoint }) => (
     <FacebookLinkButton
       logEndPoint={logEndPoint}
     />
-  </div>
+  </Container>
 );
 
 SNSLinks.propTypes = {
@@ -28,3 +30,10 @@ SNSLinks.defaultProps = {
 };
 
 export default SNSLinks;
+
+const Container = styled.div`
+    margin-top: 50px;
+    ${media.pc`
+      margin-top: 130px;
+    `}
+`;

@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import SNSLinkButton from './SNSLinkButton';
 
 class TwitterLinkButton extends SNSLinkButton {
@@ -7,8 +8,11 @@ class TwitterLinkButton extends SNSLinkButton {
     this.endPoint = 'http://twitter.com/share';
     this.shareText = 'Twitter連携アプリ｜あの人は今？チェッカー';
     this.href = `${this.endPoint}?text=${this.shareText}%0a&url=${this.shareURL}`;
-    this.className = 'twitter-share-button';
     this.text = `${this.sns_name}で紹介`;
+    this.styledComponent = styled.button`
+      ${this.commonStyle}
+      background-color: #58C6E8;
+    `;
   }
 }
 

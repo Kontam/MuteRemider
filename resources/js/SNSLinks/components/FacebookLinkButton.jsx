@@ -1,3 +1,5 @@
+import styled from 'styled-components';
+
 import SNSLinkButton from './SNSLinkButton';
 
 class FacebookLinkButton extends SNSLinkButton {
@@ -8,6 +10,10 @@ class FacebookLinkButton extends SNSLinkButton {
     this.href = `${this.endPoint}&u=${this.shareURL}`;
     this.className = 'facebook-share-button';
     this.text = `${this.sns_name}で紹介`;
+    this.styledComponent = styled.button`
+      ${this.commonStyle}
+      background-color: #7EA7E5
+    `;
   }
 }
 

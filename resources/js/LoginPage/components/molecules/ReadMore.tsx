@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import media from '../../styles/media';
+import media from '../../../commonModules/media';
 import StyleConst from '../../styles/define';
 import arrow_down from '../../../../img/arrow_down.svg';
 
@@ -16,7 +16,7 @@ const Container = styled.div`
   background-color: ${StyleConst.muterGreen};
   text-align: center;
   ${media.pc`
-    height: ${StyleConst.pcHeaderHeight};
+    height: ${StyleConst.pcReadmoreHeight};
     padding: 20px;
   `}
 `;
