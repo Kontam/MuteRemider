@@ -5,7 +5,8 @@ const LoginConst :{[key :string] :string | number} = {
   BREAKPOINT_SP: 768,
   BREAKPOINT_TABLET: 1024,
 
-  APPNAME_MUTER: 'APPNAME_MUTER',
+  APPNAME_MUTER: 'MuteReminder',
+  APPNAME_BLOCKER: 'BlockReminder',
   DESCRIPTION_FIRST_MUTER: 'あなたがミュートしている\r\nユーザーを整理しましょう',
   DESCRIPTION_SECOND_MUTER: '見ても良いと思ったら\r\nミュートを解除しましょう',
   DESCRIPTION_LOGIN_TWITTER: 'このツールがあなたのアカウントで\r\nツイートすることはありません',

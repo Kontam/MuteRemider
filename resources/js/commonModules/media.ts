@@ -6,11 +6,18 @@ const breakPoints = {
   notMobile: 'screen and (min-width: 1024px)',
 };
 
+export const mediaQ = {
+  pc: '@media screen and (min-width: 768px)',
+  tablet: '@media screen and (min-width: 768px) and (max-width: 1024px)',
+  notMobile: '@media screen and (min-width: 1024px)',
+};
+
 const media = {
-  pc: (...args :any) => css`
+  pc: (...args :any) => {
+    return (css`
     @media ${breakPoints.PC} {
       ${css(...args)}
-    }`,
+    }`)},
   tablet: (...args :any) => css`
     @media ${breakPoints.Tablet} {
       ${css(...args)}

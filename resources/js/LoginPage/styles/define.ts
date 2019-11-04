@@ -11,6 +11,8 @@ const StyleConst :{[key:string]: string | number} = {
   blackTransparent: 'rgba(0, 0, 0, .5)',
 
   muterGreen: '#86F3B0',
+  muterLightGreen: '#AFFFCE',
+  blockerBlue: '#8DCAFF',
   unmutedUserBg: '#C7FFDF',
   buttonLabelColor: '#00535D',
   unmuteButtonColor: '#AAF9CC',

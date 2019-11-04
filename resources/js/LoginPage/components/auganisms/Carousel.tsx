@@ -48,7 +48,7 @@ const Carousel = () => {
     return (
       <Container>
         <CarouselBody style={hidden ? {opacity: 0} : {opacity: 1}}>
-          {carouselInfos.map((carouselInfo, index)=>(
+          {carouselInfos.map((carouselInfo, index) :JSX.Element =>(
             <CarouselPage carouselInfo={carouselInfo} key={index} />
           ))}
         </CarouselBody>

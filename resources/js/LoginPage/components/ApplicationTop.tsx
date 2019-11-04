@@ -6,9 +6,10 @@ import { LoginPageState } from '../reducers';
 import { setAppName } from '../Actions';
 
 import PageHeader from './PageHeader';
-import LoginSection from './LoginSection';
+import LoginSection from './auganisms/LoginSection';
 import ReadMore from './molecules/ReadMore';
 import Carousel from './auganisms/Carousel';
+import SwitchSection from './auganisms/SwitchSection';
 import SNSAdSection from './auganisms/SNSAdSection';
 import PageFooter from './auganisms/PageFooter';
 
@@ -23,8 +24,6 @@ interface AppicationTopProps {
 }
 
 const ApplicationTop = ({ basePath, match, setAppName }: AppicationTopProps) :JSX.Element => {
-  console.log(match);
-
   useEffect(() :void => {
     setAppName(match.params.appName);
   }, []);
@@ -37,6 +36,7 @@ const ApplicationTop = ({ basePath, match, setAppName }: AppicationTopProps) :JS
       />
       <ReadMore />
       <Carousel />
+      <SwitchSection />
       <SNSAdSection />
       <PageFooter />
     </>
