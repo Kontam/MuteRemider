@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import StyleConst, { resetButton } from '../../styles/define';
-import media from '../../../commonModules/media';
+import { mediaQ } from '../../../commonModules/media';
 
 const CarouselArrows = () => {
   return (
@@ -21,7 +21,7 @@ export default CarouselArrows;
 
 const Arrows = styled.div`
   display: none;
-  ${media.pc`
+  ${mediaQ.pc}{
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -33,10 +33,10 @@ const Arrows = styled.div`
     transform: translate(-50%, -50%);
     max-width: 90%;
     min-width: 1000px;
-  `}
-  ${media.tablet`
+  }
+  ${mediaQ.tablet}{
     display: none;
-  `}
+  }
 `;
 
 const ArrowImg = styled.img`
@@ -50,8 +50,8 @@ const SlickArrow = ({className, js_slick, children} :{className: string, js_slic
 );
 
 const Arrow = styled(SlickArrow)`
- ${media.pc`
+ ${mediaQ.pc}{
      ${resetButton};
      cursor: pointer;
- `}
+ }
 `;

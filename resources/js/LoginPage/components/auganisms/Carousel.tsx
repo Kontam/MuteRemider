@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import setSlickCarousel from '../../modules/setSlickCarousel';
-import CarouselPage from '../atoms/CarouslePage';
+import setSlickCarousel from '../../modules/setSlickCarousel.js';
+import CarouselPage from '../atoms/CarouselPage';
 import CarouselArrows from '../molecules/CarouselArrows';
 import StyleConst, { resetButton } from '../../styles/define';
-import media from '../../../commonModules/media';
+import { mediaQ } from '../../../commonModules/media';
 
 export interface CarouselInfo {
   src: string;
@@ -71,12 +71,12 @@ const Slick = ({className, children} :{className: string, children: JSX.Element}
 
 const CarouselBody = styled(Slick)`
   width: 120%;
-  ${media.pc`
+  ${mediaQ.pc}{
     margin: 0 auto;
     width: 1400px;
     max-width: 95%;
     min-height: 620px;
-  `}
+  }
 `;
 
 export default Carousel;

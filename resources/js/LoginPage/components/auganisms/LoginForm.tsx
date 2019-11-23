@@ -1,7 +1,7 @@
 import React from 'react';
 import styled,{ css } from 'styled-components';
 
-import media from '../../../commonModules/media';
+import { mediaQ } from '../../../commonModules/media';
 import StyleConst from '../../styles/define';
 import LoginConst from '../../LoginConst';
 import LoginButton from '../molecules/LoginButton';
@@ -24,14 +24,14 @@ const LoginContainer = styled.div`
   padding: 70px 0 45px;
   width: 100%;
 
-  ${media.pc`
+  ${mediaQ.pc}{
     display: flex;
     flex-direction: column-reverse;
     height: 340px;
     justify-content: flex-end;
     padding: 48px;
     max-width: 500px;
-  `}
+  }
 `;
 
 const LoginDescription = styled.p`
@@ -42,14 +42,14 @@ const LoginDescription = styled.p`
   margin-top: 50px;
   text-align: center;
   white-space: pre;
-  ${media.pc`
+  ${mediaQ.pc}{
     font-size: 1.5rem;
     margin-top: 0;
-  `}
-  ${media.tablet`
+  }
+  ${mediaQ.tablet}{
     font-size: 1.25rem;
     min-width: 340px;
-  `}
+  }
 `;
 
 export default LoginForm;

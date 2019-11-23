@@ -12,16 +12,16 @@ export const mediaQ = {
   notMobile: '@media screen and (min-width: 1024px)',
 };
 
-const media = {
-  pc: (...args :any) => {
-    return (css`
-    @media ${breakPoints.PC} {
-      ${css(...args)}
-    }`)},
-  tablet: (...args :any) => css`
-    @media ${breakPoints.Tablet} {
-      ${css(...args)}
-    }`,
-};
+// const media = {
+//   pc: (...args :any) => {
+//     return (css`
+//     @media ${breakPoints.PC} {
+//       ${css(...args)}
+//     }`)},
+//   tablet: (...args :any) => css`
+//     @media ${breakPoints.Tablet} {
+//       ${css(...args)}
+//     }`,
+// };
 
-export default media;
+// export default media;

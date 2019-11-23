@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 
 import SNSLinks from '../../../SNSLinks/components/SNSLinks';
 import StyleConst from '../../styles/define';
-import media from '../../../commonModules/media';
+import { mediaQ } from '../../../commonModules/media';
 
 const SNSAdSection = () => (
   <Container>
@@ -21,19 +21,19 @@ export default SNSAdSection;
 const Container = styled.div`
   padding: 150px 0;
   text-align: center;
-  ${media.pc`
+  ${mediaQ.pc}{
     padding: 150px 0;
     text-align: center;
-  `}
+  }
 `;
 
 const Head = styled.h2`
   color: ${StyleConst.twitterBlue};
   font-size: 1.625rem;
   font-weight: bold;
-  ${media.pc`
+  ${mediaQ.pc}{
     font-size: 3rem;
-  `}
+  }
 `;
 
 const Paragraph = css`
@@ -41,34 +41,34 @@ const Paragraph = css`
   font-size: 1.125rem;
   line-height: 2.5;
   white-space: pre-wrap;
-  ${media.pc`
+  ${mediaQ.pc}{
     font-size: 1.25rem;
     line-height: 3;
     white-space: normal;
-  `}
+  }
 `;
 
 const FirstP = styled.p`
   ${Paragraph}
   margin-top: 30px;
-  ${media.pc`
+  ${mediaQ.pc}{
     margin-top: 100px;
-  `}
+  }
 `;
 
 const SecondP = styled.p`
   ${Paragraph}
   margin-top: 45px;
-  ${media.pc`
+  ${mediaQ.pc}{
     margin-top: 0;
-  `}
+  }
 `;
 
 const ThirdP = styled.p`
   ${Paragraph}
   margin-top: 45px;
-  ${media.pc`
+  ${mediaQ.pc}{
     margin-top: 0;
-  `}
+  }
 `;
 

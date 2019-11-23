@@ -1,5 +1,5 @@
-import slick from 'slick-carousel';
 import $ from 'jquery';
+import slick from 'slick-carousel';
 
 import LoginConst from '../LoginConst';
 

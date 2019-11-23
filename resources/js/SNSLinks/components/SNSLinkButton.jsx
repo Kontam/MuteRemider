@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 
-import media from '../../commonModules/media.ts';
+import { mediaQ } from '../../commonModules/media.ts';
 import sendLogData from '../../commonModules/sendLogData';
 import SNSLinksConst from '../SNSLinksConst';
 
@@ -36,13 +36,13 @@ class SNSLinkButton extends Component {
       height: 50px;
       margin: 40px auto 0;
       width: 180px;
-      ${media.pc`
+      ${mediaQ.pc}{
         display: inline;
         margin: 0 50px;
-      `}
-      ${media.tablet`
+      }
+      ${mediaQ.tablet}{
         margin: 0 25px;
-      `}
+      }
     `;
   }
 

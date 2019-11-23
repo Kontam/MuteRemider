@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import media from '../../../commonModules/media';
+import { mediaQ } from '../../../commonModules/media';
 // import StyleConst from '../styles/define';
 import LoginConst from '../../LoginConst';
 
@@ -28,42 +28,42 @@ const OwnerInfo = () => (
 export default OwnerInfo;
 
 const Container = styled.div`
-  ${media.pc`
+  ${mediaQ.pc}{
     align-items: flex-end;
     display: flex;
     justify-content: flex-end;
-  `}
+  }
 `;
 const OwnerHead = styled.h2`
   font-size: 1.125rem;
-  ${media.pc`
+  ${mediaQ.pc}{
     font-size: 1.375rem;
     margin-right: 25px;
-  `}
+  }
 `;
 const OwnerName = styled.p`
   font-size: 1.25rem;
   font-weight: bold;
   margin-top: 10px;
-  ${media.pc`
+  ${mediaQ.pc}{
     font-size: 1.375rem;
     margin-top: 0;
-  `}
+  }
 `;
 const List = styled.ul`
     align-items: center;
     display: flex;
     justify-content: center;
     margin-top: 10px;
-    ${media.pc`
+    ${mediaQ.pc}{
       margin-top: 0;
-    `}
+    }
 `;
 const OwnerLink = styled.a`
     margin: 0 12px;
-    ${media.pc`
+    ${mediaQ.pc}{
       margin: 0 0 0 15px;
-    `}
+    }
 `;
 
 const HomeIcon = styled.img`

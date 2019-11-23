@@ -2,10 +2,10 @@ import React from 'react';
 import styled, {css} from 'styled-components';
 import { connect } from 'react-redux';
 
-import { LoginPageState } from '../reducers';
-import LoginConst from '../LoginConst';
-import media, {mediaQ} from '../../commonModules/media';
-import StyleConst from '../styles/define';
+import { LoginPageState } from '../../reducers';
+import LoginConst from '../../LoginConst';
+import { mediaQ } from '../../../commonModules/media';
+import StyleConst from '../../styles/define';
 
 interface HeadLabel {
   line1: string
@@ -47,10 +47,10 @@ const PageHeader = ({ appName } :PageHeaderProps) => {
     height: 200px;
     padding: 30px 35px 15px;
     width: 100%;
-    ${media.pc`
+    ${mediaQ.pc}{
       height: ${StyleConst.pcHeaderHeight};
       padding: 25px 0;
-    `}
+    }
   `;
 
   return (

@@ -3,7 +3,7 @@ import styled,{ css } from 'styled-components';
 import { connect } from 'react-redux';
 
 import { LoginPageState } from '../../reducers';
-import media from '../../../commonModules/media';
+import { mediaQ } from '../../../commonModules/media';
 import StyleConst from '../../styles/define';
 import LoginConst from '../../LoginConst';
 import AppButtons from '../molecules/AppButtons';

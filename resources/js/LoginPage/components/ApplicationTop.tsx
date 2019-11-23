@@ -5,7 +5,7 @@ import { match } from 'react-router-dom';
 import { LoginPageState } from '../reducers';
 import { setAppName } from '../Actions';
 
-import PageHeader from './PageHeader';
+import PageHeader from './auganisms/PageHeader';
 import LoginSection from './auganisms/LoginSection';
 import ReadMore from './molecules/ReadMore';
 import Carousel from './auganisms/Carousel';

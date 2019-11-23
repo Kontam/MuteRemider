@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import media from '../../../commonModules/media';
+import { mediaQ } from '../../../commonModules/media';
 import StyleConst from '../../styles/define';
 import LoginConst from '../../LoginConst';
 import OwnerInfo from '../molecules/OwnerInfo';
@@ -24,25 +24,25 @@ const Footer = styled.footer`
   color: ${StyleConst.basicWhite};
   padding: 10px;
   text-align: center;
-  ${media.pc`
+  ${mediaQ.pc}{
     height: 150px;
     padding: 75px 0 8px;
-    text-align: right;`
+    text-align: right;
   }
 `;
 const Wrapper = styled.div`
-  ${media.pc`
+  ${mediaQ.pc}{
     margin: 0 auto;
     max-width: 1220px;
     padding-right: 20px;
-  `}
+  }
 `;
 
 const Copyright = styled.p`
     font-size: 12px;
     margin-top: 40px;
-    ${media.pc`
+    ${mediaQ.pc}{
       font-size: 1.25rem;
       margin-top: 8px;
-    `}
+    }
 `;

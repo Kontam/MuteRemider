@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import media from '../../commonModules/media.ts';
+import { mediaQ } from '../../commonModules/media.ts';
 import TwitterLinkButton from './TwitterLinkButton';
 import LineLinkButton from './LineLinkButton';
 import FacebookLinkButton from './FacebookLinkButton';
@@ -33,7 +33,7 @@ export default SNSLinks;
 
 const Container = styled.div`
     margin-top: 50px;
-    ${media.pc`
+    ${mediaQ.pc}{
       margin-top: 130px;
-    `}
+    }
 `;
