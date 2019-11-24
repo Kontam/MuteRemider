@@ -9,12 +9,15 @@
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "server": "php artisan serve --port=80",
-        "start": "npm run server & npm run watch"
+        "start": "npm run server & npm run watch",
+        "puppeteer": "./node_modules/.bin/ts-node tests/Puppeteer/index.ts",
+        "test": "npx jest"
     },
     "devDependencies": {
         "@babel/preset-react": "^7.0.0",
         "@types/bootstrap": "^4.3.1",
         "@types/jquery": "^3.3.31",
+        "@types/puppeteer": "^2.0.0",
         "autoprefixer": "^9.6.1",
         "axios": "^0.18",
         "bootstrap": "^4.1.0",
@@ -29,10 +32,12 @@
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
+        "puppeteer": "^2.0.0",
         "resolve-url-loader": "^2.3.2",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
         "ts-loader": "^6.2.0",
+        "ts-node": "^8.5.2",
         "typescript": "^3.6.4"
     },
     "dependencies": {
