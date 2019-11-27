@@ -1,14 +1,1 @@
-{
-    "/js/login_index.js": "/js/login_index.js",
-    "/js/login_index.js.map": "/js/login_index.js.map",
-    "/js/manifest.js": "/js/manifest.js",
-    "/js/manifest.js.map": "/js/manifest.js.map",
-    "/js/muter_index.js": "/js/muter_index.js",
-    "/css/muter_index.css": "/css/muter_index.css",
-    "/js/muter_index.js.map": "/js/muter_index.js.map",
-    "/css/muter_index.css.map": "/css/muter_index.css.map",
-    "/js/test_index.js": "/js/test_index.js",
-    "/js/test_index.js.map": "/js/test_index.js.map",
-    "/js/vendor.js": "/js/vendor.js",
-    "/js/vendor.js.map": "/js/vendor.js.map"
-}
+{}

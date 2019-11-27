@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import setSlickCarousel from '../../modules/setSlickCarousel.js';
+import setSlickCarousel from '../../modules/setSlickCarousel';
 import CarouselPage from '../atoms/CarouselPage';
-import CarouselArrows from '../molecules/CarouselArrows';
+import CarouselArrows from '../molecules/CrouselArrows';
 import StyleConst, { resetButton } from '../../styles/define';
 import { mediaQ } from '../../../commonModules/media';
 
@@ -21,7 +21,7 @@ const Carousel = () => {
 
     // slickのカルーセル化の処理が終わるまで隠す
     useEffect(() => {
-      setSlickCarousel('[js_slick="container"]');
+      setSlickCarousel('[data-js-slick="container"]');
       setHidden(false);
     },[]);
 
@@ -48,7 +48,7 @@ const Carousel = () => {
     return (
       <Container>
         <CarouselBody style={hidden ? {opacity: 0} : {opacity: 1}}>
-          {carouselInfos.map((carouselInfo, index) :JSX.Element =>(
+          {carouselInfos.map((carouselInfo, index) =>(
             <CarouselPage carouselInfo={carouselInfo} key={index} />
           ))}
         </CarouselBody>
@@ -64,7 +64,7 @@ const Container = styled.div`
 `;
 
 const Slick = ({className, children} :{className: string, children: JSX.Element}) :JSX.Element => (
-  <div className={className} js_slick="container">
+  <div className={className} data-js-slick="container">
     {children}
   </div>
 );

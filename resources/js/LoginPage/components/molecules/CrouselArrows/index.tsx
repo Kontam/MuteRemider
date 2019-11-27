@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import StyleConst, { resetButton } from '../../styles/define';
-import { mediaQ } from '../../../commonModules/media';
+import StyleConst, { resetButton } from '../../../styles/define';
+import { mediaQ } from '../../../../commonModules/media';
 
 const CarouselArrows = () => {
   return (
     <Arrows>
-      <Arrow js_slick="prev">
+      <Arrow data_js_slick="prev">
         <ArrowImg src="img/slick/slick-arrow-left.svg" alt="prev" />
       </Arrow>
-      <Arrow js_slick="next">
+      <Arrow data_js_slick="next">
         <ArrowImg src="img/slick/slick-arrow-right.svg" alt="next" />
       </Arrow>
     </Arrows>
@@ -43,13 +43,13 @@ const ArrowImg = styled.img`
   max-width: 50px;
 `;
 
-const SlickArrow = ({className, js_slick, children} :{className: string, js_slick: string, children: JSX.Element}) => (
-  <button js_slick={js_slick} className={className}>
+const SlickArrow = ({className, data_js_slick, children} :{className: string, data_js_slick: string, children: JSX.Element}) => (
+  <button data-js-slick={data_js_slick} className={className}>
     {children}
   </button>
 );
 
-const Arrow = styled(SlickArrow)`
+const Arrow = styled(SlickArrow)<{className: string}>`
  ${mediaQ.pc}{
      ${resetButton};
      cursor: pointer;

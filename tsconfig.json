@@ -26,6 +26,6 @@
     "include": [
       "resources/js/**/*.ts", // TypeScriptのソース配置場所
       "resources/js/**/*.tsx", // TypeScriptのソース配置場所
-      "tests/Puppeteer/**/*.ts",
+      "tests/Puppeteer/**/*.ts", "resources/js/LoginPage/modules/setSlickCarousel.js",
     ]
 }

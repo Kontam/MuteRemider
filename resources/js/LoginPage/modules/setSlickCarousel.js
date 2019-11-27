@@ -1,18 +1,17 @@
 import $ from 'jquery';
 import slick from 'slick-carousel';
 
-import LoginConst from '../LoginConst';
+import LoginConst from '../LoginConst.ts';
 
 
 const setSlickCarousel = (containerSelector) => {
-  const test = $(`${containerSelector}`);
   $(`${containerSelector}`).slick({
     infinite: true,
     dots: true,
     arrows: true,
     dragable: true,
-    nextArrow: '[js_slick="next"]',
-    prevArrow: '[js_slick="prev"]',
+    nextArrow: '[data-js-slick="next"]',
+    prevArrow: '[data-js-slick="prev"]',
     responsive: [{
       breakpoint: LoginConst.BREAKPOINT_TABLET,
       settings: {
