@@ -1,8 +1,8 @@
-/node_modules
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
+node_modules
+public/hot
+public/storage
+storage/*.key
+vendor
 .env
 .phpunit.result.cache
 Homestead.json
@@ -11,3 +11,4 @@ npm-debug.log
 yarn-error.log
 config/const.php
 .DS_store
+.next
