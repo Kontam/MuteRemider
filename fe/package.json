@@ -34,7 +34,6 @@
         "eslint-plugin-react": "^7.14.3",
         "file-loader": "^5.0.2",
         "jest-cli": "^24.9.0",
-        "jquery": "^3.4.1",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.5",
         "next-images": "^1.2.0",
@@ -73,8 +72,8 @@
         "redux": "^4.0.4",
         "redux-devtools-extension": "^2.13.8",
         "redux-thunk": "^2.3.0",
-        "slick-carousel": "^1.8.1",
         "styled-components": "^4.4.0",
+        "styled-reset": "^4.0.8",
         "ts-jest": "^24.2.0"
     }
 }

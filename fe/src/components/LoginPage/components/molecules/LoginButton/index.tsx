@@ -6,6 +6,7 @@ import LoginState, { LoginPageState } from '../../../../../reducers';
 import LoginConst from '../../../LoginConst';
 import StyleConst, { resetAnchor } from '../../../styles/define';
 import { mediaQ } from '../../../../../commonModules/media';
+const whiteTwitterIcon = require('../../../../../../img/twitter_white_icon.svg')
 
 // interface StateByProps {
 //   basePath: string,
@@ -20,7 +21,7 @@ const LoginButton = ({ basePath } :LoginButtonProps):JSX.Element => {
   return (
     <LoginLink href={`${basePath}${LoginConst.LOGIN_SLAG}`}>
       ログイン
-      <TwitterIcon src="img/twitter_white_icon.svg" alt="twitter" />
+      <TwitterIcon src={whiteTwitterIcon} alt="twitter" />
     </LoginLink>
   );
 };

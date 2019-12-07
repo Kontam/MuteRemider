@@ -7,6 +7,8 @@ const LoginConst = {
 
   APPNAME_MUTER: 'MuteReminder',
   APPNAME_BLOCKER: 'BlockReminder',
+  ARROW_DIRECTION_RIGHT: 'right',
+  ARROW_DIRECTION_LEFT: 'left',
   DESCRIPTION_FIRST_MUTER: 'あなたがミュートしている\r\nユーザーを整理しましょう',
   DESCRIPTION_SECOND_MUTER: '見ても良いと思ったら\r\nミュートを解除しましょう',
   DESCRIPTION_LOGIN_TWITTER: 'このツールがあなたのアカウントで\r\nツイートすることはありません',

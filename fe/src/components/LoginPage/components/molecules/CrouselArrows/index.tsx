@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-import StyleConst, { resetButton } from '../../../styles/define';
+import { resetButton } from '../../../styles/define';
 import { mediaQ } from '../../../../../commonModules/media';
+import CarouselArrow from '../../atoms/CarouselArrow'
+import LoginConst from '../../../LoginConst';
+const arrowLeft = require(`../../../../../../img/slick/slick-arrow-left.svg`);
+const arrowRight = require(`../../../../../../img/slick/slick-arrow-right.svg`);
 
 const CarouselArrows = () => {
   return (
     <Arrows>
-      <Arrow data_js_slick="prev">
-        <ArrowImg src="img/slick/slick-arrow-left.svg" alt="prev" />
-      </Arrow>
-      <Arrow data_js_slick="next">
-        <ArrowImg src="img/slick/slick-arrow-right.svg" alt="next" />
-      </Arrow>
+      {/* <Arrow data_js_slick="prev"> */}
+      {/* <CarouselArrow onClick={() => {console.log("aasda")}} imgSrc={arrowLeft} direction={LoginConst.ARROW_DIRECTION_LEFT} /> */}
+      {/* </Arrow> */}
+      {/* <Arrow data_js_slick="next">
+        <ArrowImg src={arrowRight} alt="next" />
+      </Arrow> */}
     </Arrows>
   );
 }

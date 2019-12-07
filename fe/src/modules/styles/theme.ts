@@ -1,6 +1,6 @@
-import { css } from 'styled-components';
+import { css, DefaultTheme, ThemeProviderProps, ThemeProps, ThemedStyledProps } from 'styled-components';
 
-export default {
+export const theme = {
   colors: {
     basicWhite: '#ffffff',
     basicLabelColor: '#5D5D5D',
@@ -35,8 +35,13 @@ export default {
     muterMenuWidth: '300px',
     pcHeaderHeight: '280px',
     pcReadmoreHeight: '100px',
+  },
+  z_index: {
+    ZI_carouselArrow: 9999,
   }
 } as const
+
+export type MyThemeProps<T> = ThemedStyledProps<T,typeof theme>;
 
 export const resetAnchor = css`
   color: inherit;
