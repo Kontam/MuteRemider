@@ -36,10 +36,9 @@ const ApplicationTop = ({ basePath, setAppName }: AppicationTopProps) :JSX.Eleme
       />
       <ReadMore />
       <Carousel />
-       {/*
-      <SwitchSection />
+      {/* <SwitchSection /> */}
       <SNSAdSection />
-      <PageFooter />*/}
+      <PageFooter />
     </>
   );
 };

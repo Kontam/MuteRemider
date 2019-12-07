@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import { mediaQ } from '../../../../commonModules/media';
 // import StyleConst from '../styles/define';
 import LoginConst from '../../LoginConst';
-
+const house_white_icon = require('../../../../../img/house_white_icon.svg');
+const twitter_white_icon = require('../../../../../img/twitter_white_icon.svg');
 
 const OwnerInfo = () => (
   <Container>
@@ -13,12 +14,12 @@ const OwnerInfo = () => (
     <List>
       <li>
         <OwnerLink href={LoginConst.OWNER_LINK} target="_blank" rel="noopener noreferrer">
-          <HomeIcon src="img/house_white_icon.svg" alt="home" className="footerOwnerInfo__homeIcon" />
+          <HomeIcon src={house_white_icon} alt="home" className="footerOwnerInfo__homeIcon" />
         </OwnerLink>
       </li>
       <li>
         <OwnerLink href={LoginConst.OWNER_TWITTER_LINK} target="_blank" rel="noopener noreferrer">
-          <TwitterIcon src="img/twitter_white_icon.svg" alt="twitter" className="footerOwnerInfo__twitterIcon" />
+          <TwitterIcon src={twitter_white_icon} alt="twitter" className="footerOwnerInfo__twitterIcon" />
         </OwnerLink>
       </li>
     </List>

@@ -7,16 +7,19 @@ import TwitterLinkButton from './TwitterLinkButton';
 import LineLinkButton from './LineLinkButton';
 import FacebookLinkButton from './FacebookLinkButton';
 
-const SNSLinks = ({ logEndPoint }) => (
+const SNSLinks = ({ logEndPoint, shareUrl }) => (
   <Container>
     <TwitterLinkButton
       logEndPoint={logEndPoint}
+      shareUrl={shareUrl}
     />
     <LineLinkButton
       logEndPoint={logEndPoint}
+      shareUrl={shareUrl}
     />
     <FacebookLinkButton
       logEndPoint={logEndPoint}
+      shareUrl={shareUrl}
     />
   </Container>
 );

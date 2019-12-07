@@ -1,22 +1,27 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { connect } from 'react-redux';
 
 
-import SNSLinks from '../../../SNSLinks/components/SNSLinks';
-import StyleConst from '../../styles/define';
-import { mediaQ } from '../../../../commonModules/media';
+import SNSLinks from '../../../../SNSLinks/components/SNSLinks';
+import StyleConst from '../../../styles/define';
+import { mediaQ } from '../../../../../commonModules/media';
 
-const SNSAdSection = () => (
+const SNSAdSection = ({ basePath }) => (
   <Container>
     <Head>気に入ってくださいましたら</Head>
     <FirstP>{'「あの人は今？チェッカー」は\r\n個人で開発されました'}</FirstP>
     <SecondP>{'たくさんのユーザーに利用されることが\r\n開発者の励みになります'}</SecondP>
     <ThirdP>{'あなたのお友達にもこのアプリを\r\nぜひご紹介ください'}</ThirdP>
-    <SNSLinks />
+    <SNSLinks shareUrl={basePath}/>
   </Container>
 );
 
-export default SNSAdSection;
+export default connect(
+  (state:any) => ({
+    basePath: state.basePath,
+  })
+)(SNSAdSection);
 
 const Container = styled.div`
   padding: 150px 0;

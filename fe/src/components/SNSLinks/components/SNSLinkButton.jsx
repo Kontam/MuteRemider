@@ -11,8 +11,7 @@ class SNSLinkButton extends Component {
     super(props);
     this.width = 800;
     this.height = 470;
-    const { origin, pathname } = window.location;
-    this.shareURL = origin + pathname;
+    this.shareURL = props.shareUrl;
     this.href = ''; // リンク先
     this.text = ''; // ラベル
     this.styledComponent = styled.button``;
