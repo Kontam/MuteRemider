@@ -18,7 +18,6 @@ class LoginController extends Controller
 
     public function twLogin(Request $request)
     {
-
         $consumer_key = config('const.CONSUMER_KEY');
         $consumer_secret = config('const.CONSUMER_SECRET');
 
@@ -50,7 +49,7 @@ class LoginController extends Controller
 
         session(['twAccessToken' => $access_token]);
 
-        return redirect('/muter_top#/MuteReminder');
+        return redirect('http://127.0.0.1:3000/muter');
 
     }
 }

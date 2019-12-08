@@ -7,8 +7,15 @@ const dev = process.env.NODE_ENV !== "production";
 const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
 
+var login_controller = require('./controllers/loginController');
+var muter_controller = require('./controllers/muterController');
+
 nextApp.prepare().then(() => {
   const app = express();
+
+  app.get("/login", login_controller.loginToTwitter);
+
+  app.get("/muter", muter_controller.muter_top);
 
   app.get("*", (req, res) => {
     return handle(req, res);

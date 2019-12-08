@@ -19,9 +19,6 @@ const Button = (props :{ className :string, children :string, onClick: React.Mou
   return (
     <Link
       href={`${linkTo}`}
-      className={className}
-      type="button"
-      onClick={onClick}
     >
       {children}
     </Link>

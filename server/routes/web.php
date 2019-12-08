@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'LoginController@top');
-Route::get('/login', 'LoginController@twLogin');
+Route::get('/login_api', 'LoginController@twLogin');
 Route::get('/callback', 'LoginController@callback');
 
 // Route::get('/show', 'MuteReminderController@list');
