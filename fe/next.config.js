@@ -1,32 +1,27 @@
-// module.exports = withTypescript({
-//   webpack (config, options) {
-//     config.module.rules.push({
-//       test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-//       use: {
-//         loader: 'url-loader',
-//         options: {
-//           limit: 100000
-//         }
-//       }
-//     })
-//     return config
-//   }
-// })
+require('dotenv').config()
+
+const path = require('path');
+const Dotenv = require('dotenv-webpack');
+
 const withImages = require('next-images')
 const withSass = require('@zeit/next-sass')
 module.exports = withImages(withSass({
     cssModules: true,
-    webpack(config, options) {
+    webpack: config => {
+      config.plugins = config.plugins || []
+      config.plugins = [
+        ...config.plugins,
 
-      // config.module.rules.push({
-      //   test: /\.(png|jpg|gif|svg)$/,
-      //   use: {
-      //     loader: 'file-loader',
-      //     options: {
-      //       limit: 100000
-      //     }
-      //   }
-      // })
+      // 設定を記述
+      new Dotenv({
+          path: path.join(__dirname, '.env'),
+          systemvars: true
+        })
+      ]
+
+      config.node = {
+        fs: 'empty'
+      }
 
       return config
     }

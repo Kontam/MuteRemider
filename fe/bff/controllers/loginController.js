@@ -1,8 +1,11 @@
+const Const = require('../const');
+const apiBaseUrl = Const.API_BASE_URL;
+
 exports.loginToTwitter = function(req, res) {
   // res.send("loginToTwitter");
   const axiosBase = require('axios');
   const axios = axiosBase.create({
-    baseURL: 'http://localhost:3101',
+    baseURL: apiBaseUrl,
     headers: {
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest'
@@ -10,7 +13,7 @@ exports.loginToTwitter = function(req, res) {
     responseType: 'json',
   })
 
-  res.redirect('http://127.0.0.1:3101/login_api');
+  res.redirect(`${apiBaseUrl}${Const.API_LOGIN_SLUG}`);
 
   // axios.get('/login_api').then(function(responce) {
   //   console.log(responce);
