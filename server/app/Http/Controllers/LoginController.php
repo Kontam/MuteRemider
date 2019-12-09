@@ -48,8 +48,7 @@ class LoginController extends Controller
         $access_token = $connection->oauth("oauth/access_token", array("oauth_verifier" => $_REQUEST['oauth_verifier']));
 
         session(['twAccessToken' => $access_token]);
-
-        return redirect('http://127.0.0.1:3000/muter');
+        return redirect(config('const.FRONT_APP_URL') . '/muter');
 
     }
 }

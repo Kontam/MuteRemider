@@ -4,7 +4,9 @@ import Head from '../components/Common/Header';
 
 const Page: NextPage = () => {
 
-  const base_path = "http://localhost:3000";
+  const base_path = process.env.NODE_ENV === "production"
+  ? process.env.BASE_URL
+  : process.env.BASE_URL_DEV;
 
   return (
     <>
