@@ -14,7 +14,7 @@ const Page: NextPage = () => {
       <Head />
       <LoginPage
         basePath={base_path}
-        appName={LoginConst.APPNAME_MUTER}
+        appName={LoginConst.APPNAME_BLOCKER}
       />
     </>
   );
