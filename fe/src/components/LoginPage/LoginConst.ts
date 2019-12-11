@@ -12,6 +12,9 @@ const LoginConst = {
   DESCRIPTION_FIRST_MUTER: 'あなたがミュートしている\r\nユーザーを整理しましょう',
   DESCRIPTION_SECOND_MUTER: '見ても良いと思ったら\r\nミュートを解除しましょう',
   DESCRIPTION_LOGIN_TWITTER: 'このツールがあなたのアカウントで\r\nツイートすることはありません',
+
+  MUTER_SLAG: '/',
+  BLOCKER_SLAG: '/BlockReminder',
 } as const;
 
 export default LoginConst;

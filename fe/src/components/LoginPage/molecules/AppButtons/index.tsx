@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Link from 'next/link';
 
-import { setAppName } from '../../../../actions';
 import { LoginPageState } from '../../../../reducers';
 import { resetAnchor } from '../../../../modules/styles/theme';
 import LoginConst from '../../LoginConst';
@@ -36,7 +35,6 @@ export const BlockerButton = styled(commonButton)<any>`
   opacity: ${(props) => props.appName === LoginConst.APPNAME_MUTER ? 1 : .5};
   margin-top: 80px;
 `;
-
 export const List = styled.ul`
   margin-top: 80px;
 `;
@@ -67,5 +65,4 @@ export default connect(
   (state :LoginPageState) => ({
     appName: state.appName,
   }),
-  { setAppName },
 )(AppButtons);

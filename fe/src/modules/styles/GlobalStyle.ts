@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    color: ${ ({theme} :MyThemeProps<{}>) => theme.colors.basicGray};
+    color: ${({ theme } :MyThemeProps<{}>) => theme.colors.basicGray};
     font-family: 'Noto Sans', 'Noto ヒラギノ角ゴ ProN', '游ゴシック Medium', 'YuGothic', 'YuGothicM', 'Hiragino Kaku Gothic ProN', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', sans-serif;
   }
 `;

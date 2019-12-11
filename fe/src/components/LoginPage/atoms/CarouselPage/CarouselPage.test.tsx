@@ -1,10 +1,10 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import CarouselPage, { StyledImg } from '../CarouselPage';
-import Carousel, { CarouselInfo } from '../../auganisms/Carousel';
+import CarouselPage from '../CarouselPage';
+import { CarouselInfo } from '../../auganisms/Carousel/Carousel';
 
-import { storeFactory, commonInitialState, adapter } from '../../../../modules/testUtils';
+import { adapter } from '../../../../modules/testUtils';
 adapter();
 
 const testCarouselInfo: CarouselInfo = {

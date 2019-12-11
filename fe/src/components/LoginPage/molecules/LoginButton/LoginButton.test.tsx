@@ -2,7 +2,7 @@ import { shallow,mount } from 'enzyme';
 import * as React from 'react';
 import LoginButton, { LoginLink, TwitterIcon } from '../LoginButton';
 
-import { LoginPageState } from '../../../reducers';
+// import { LoginPageState } from '../../../../reducers';
 import LoginConst from '../../LoginConst';
 import { storeFactory, commonInitialState, adapter } from '../../../../modules/testUtils';
 adapter();

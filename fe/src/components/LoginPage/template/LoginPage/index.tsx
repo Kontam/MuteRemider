@@ -8,7 +8,7 @@ import LoginConst from '../../LoginConst';
 
 
 interface LoginPageProps {
-  basePath :string;
+  basePath? :string;
   setBasePath: Function;
   setAppName: Function;
   appName :typeof LoginConst.APPNAME_MUTER | typeof LoginConst.APPNAME_BLOCKER;

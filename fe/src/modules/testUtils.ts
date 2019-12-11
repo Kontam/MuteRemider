@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import rootReducer, { LoginPageState } from '../reducers';
 
 import * as enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import * as Adapter from 'enzyme-adapter-react-16';
 
 export const adapter = () => { enzyme.configure({ adapter: new Adapter() }) };
 

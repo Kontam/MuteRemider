@@ -1,29 +1,37 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "outDir": "./built/",
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "module": "esnext",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "target": "es6",
     "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
+      "esnext",
+      "dom"
     ],
+    "allowSyntheticDefaultImports": true,
+    "jsx": "preserve",
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve"
+    "isolatedModules": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "vendor"
   ],
   "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
+    "resources/js/**/*.ts",
+    "resources/js/**/*.tsx",
+    "tests/Puppeteer/**/*.ts",
+    "resources/js/LoginPage/modules/setSlickCarousel.js"
   ]
 }
