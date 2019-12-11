@@ -15,7 +15,7 @@
       "dom"
     ],
     "allowSyntheticDefaultImports": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "allowJs": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -29,9 +29,6 @@
     "vendor"
   ],
   "include": [
-    "resources/js/**/*.ts",
-    "resources/js/**/*.tsx",
     "tests/Puppeteer/**/*.ts",
-    "resources/js/LoginPage/modules/setSlickCarousel.js"
   ]
 }
