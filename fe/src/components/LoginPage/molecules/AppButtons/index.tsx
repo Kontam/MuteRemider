@@ -1,36 +1,25 @@
 import * as React from 'react';
-import styled,{ css } from 'styled-components';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Link from 'next/link';
 
 import { setAppName } from '../../../../actions';
 import { LoginPageState } from '../../../../reducers';
-import StyleConst, { resetAnchor } from '../../styles/define';
+import { resetAnchor } from '../../../../modules/styles/theme';
 import LoginConst from '../../LoginConst';
+import { MyThemeProps } from '../../../../modules/styles/theme';
 
 export type AppButtonsProps = {
   appName :string,
-  setAppName :Function,
   store?: any,
 };
 
-const Button = (props :{ className :string, children :string, onClick: React.MouseEventHandler, linkTo :string }) => {
-  const { className, children, linkTo, onClick } = props;
-  return (
-    <Link
-      href={`${linkTo}`}
-    >
-      {children}
-    </Link>
-  );
-};
-
-const commonButton = styled(Button)`
+const commonButton = styled.a`
   ${resetAnchor}
   width: 250px;
   height: 50px;
-  color: ${StyleConst.basicWhite};
-  font-weight: ${StyleConst.fwBold};
+  color: ${({theme}: MyThemeProps<{}>) => theme.colors.basicWhite};
+  font-weight: ${({theme}: MyThemeProps<{}>) => theme.fonts.fwBold};
   font-size: 1.25rem;
   display: flex;
   justify-content: center;
@@ -39,11 +28,11 @@ const commonButton = styled(Button)`
   border-radius: 5px;
 `;
 export const MuterButton = styled(commonButton)<any>`
-  background: ${StyleConst.muterLightGreen};
+  background: ${({theme}: MyThemeProps<{}>) => theme.colors.muterLightGreen};
   opacity: ${(props) => props.appName !== LoginConst.APPNAME_MUTER ? 1 : .5};
 `;
 export const BlockerButton = styled(commonButton)<any>`
-  background: ${StyleConst.blockerBlue};
+  background: ${({theme}: MyThemeProps<{}>) => theme.colors.blockerBlue};
   opacity: ${(props) => props.appName === LoginConst.APPNAME_MUTER ? 1 : .5};
   margin-top: 80px;
 `;
@@ -52,25 +41,23 @@ export const List = styled.ul`
   margin-top: 80px;
 `;
 
-const AppButtons = ({ appName, setAppName } :AppButtonsProps) => {
+const AppButtons = ({ appName } :AppButtonsProps) => {
 
   return (
     <List>
       <li>
-        <MuterButton
-          appName={appName}
-          linkTo={`/${LoginConst.APPNAME_MUTER}`}
-          onClick={() => { setAppName(LoginConst.APPNAME_MUTER); }}
-        >ミュートリマインダー</MuterButton>
+        <Link href={`/`} passHref>
+          <MuterButton appName={appName}>
+            ミュートリマインダー
+          </MuterButton>
+        </Link>
       </li>
       <li>
-        <BlockerButton
-          appName={appName}
-          linkTo={`/${LoginConst.APPNAME_BLOCKER}`}
-          onClick={() => { setAppName(LoginConst.APPNAME_BLOCKER); }}
-        >
-          ブロックリマインダー
-        </BlockerButton>
+        <Link href={`/${LoginConst.APPNAME_BLOCKER}`}>
+          <BlockerButton appName={appName}>
+            ブロックリマインダー
+          </BlockerButton>
+        </Link>
       </li>
     </List>
   );

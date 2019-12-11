@@ -1,4 +1,4 @@
-import { css, DefaultTheme, ThemeProviderProps, ThemeProps, ThemedStyledProps } from 'styled-components';
+import { css, ThemedStyledProps } from 'styled-components';
 
 export const theme = {
   colors: {

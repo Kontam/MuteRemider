@@ -6,7 +6,6 @@ import { CarouselInfo } from "../../auganisms/Carousel/Carousel";
 
 interface CarouselPageProps {
   carouselInfo :CarouselInfo;
-  key: number;
 }
 
 const CarouselPage:React.FC<CarouselPageProps> = ({carouselInfo} :CarouselPageProps) => (
