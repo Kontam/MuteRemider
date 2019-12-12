@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { LoginPageState } from '../../../../reducers';
+import { RootState } from '../../../../reducers';
 
 import PageHeader from '../../auganisms/PageHeader';
 import LoginSection from '../../auganisms/LoginSection';
@@ -33,7 +33,7 @@ const ApplicationTop = ({ basePath }: AppicationTopProps) :JSX.Element => {
 };
 
 export default connect(
-  (state :LoginPageState) => ({
+  (state :RootState) => ({
     basePath: state.basePath,
   }),
 )(ApplicationTop);

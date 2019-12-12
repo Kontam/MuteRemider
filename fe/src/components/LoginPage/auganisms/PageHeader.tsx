@@ -2,7 +2,7 @@ import React from 'react';
 import styled, {css} from 'styled-components';
 import { connect } from 'react-redux';
 
-import { LoginPageState } from '../../../reducers';
+import { RootState } from '../../../reducers';
 import LoginConst from '../LoginConst';
 import { mediaQ } from '../../../commonModules/media';
 import StyleConst from '../styles/define';
@@ -105,7 +105,7 @@ const EnglishHead = styled.div`
 `;
 
 export default connect(
-  (state :LoginPageState) :propsByState => ({
+  (state :RootState) :propsByState => ({
     appName: state.appName,
   }),
 )(PageHeader);

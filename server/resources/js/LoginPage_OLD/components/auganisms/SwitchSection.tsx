@@ -2,7 +2,7 @@ import React from 'react';
 import styled,{ css } from 'styled-components';
 import { connect } from 'react-redux';
 
-import { LoginPageState } from '../../../reducers';
+import { RootState } from '../../../reducers';
 import { mediaQ } from '../../../commonModules/media';
 import StyleConst from '../../styles/define';
 import LoginConst from '../../LoginConst';
@@ -41,7 +41,7 @@ const SwitchSection = ({ appName } :SwitchSectionProps) :JSX.Element => {
 };
 
 export default connect(
-  (state :LoginPageState) :PropsByState => ({
+  (state :RootState) :PropsByState => ({
     appName: state.appName,
   }),
 )(SwitchSection);

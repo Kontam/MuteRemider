@@ -11,7 +11,7 @@ interface basePathAction {
   payload: string;
 }
 
-export interface LoginPageState {
+export interface RootState {
   appName :string;
   basePath :string;
 }
@@ -34,7 +34,7 @@ const basePath = (state :string = "", action :basePathAction) => {
   };
 };
 
-export default combineReducers<LoginPageState>({
+export default combineReducers<RootState>({
   appName,
   basePath
 });

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Link from 'next/link';
 
 import { setAppName } from '../../../../actions';
-import { LoginPageState } from '../../../../reducers';
+import { RootState } from '../../../../reducers';
 import StyleConst, { resetAnchor } from '../../../styles/define';
 import LoginConst from '../../../LoginConst';
 
@@ -81,7 +81,7 @@ const AppButtons = ({ appName, setAppName } :AppButtonsProps) => {
 };
 
 export default connect(
-  (state :LoginPageState) => ({
+  (state :RootState) => ({
     appName: state.appName,
   }),
   { setAppName },

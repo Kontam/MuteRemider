@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Link from 'next/link';
 
-import { LoginPageState } from '../../../../reducers';
+import { RootState } from '../../../../reducers';
 import { resetAnchor } from '../../../../modules/styles/theme';
 import LoginConst from '../../LoginConst';
 import { MyThemeProps } from '../../../../modules/styles/theme';
@@ -62,7 +62,7 @@ const AppButtons = ({ appName } :AppButtonsProps) => {
 };
 
 export default connect(
-  (state :LoginPageState) => ({
+  (state :RootState) => ({
     appName: state.appName,
   }),
 )(AppButtons);

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux'
 import styled from 'styled-components';
-import LoginState, { LoginPageState } from '../../../../reducers';
+import LoginState, { RootState } from '../../../../reducers';
 
 import LoginConst from '../../LoginConst';
 import StyleConst, { resetAnchor } from '../../styles/define';
@@ -57,5 +57,5 @@ export const TwitterIcon = styled.img`
 `;
 
 export default connect(
-  (state :LoginPageState) => ({ basePath: state.basePath, }),
+  (state :RootState) => ({ basePath: state.basePath, }),
   {})(LoginButton);

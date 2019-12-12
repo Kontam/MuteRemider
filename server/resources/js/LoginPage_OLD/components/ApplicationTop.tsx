@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { match } from 'react-router-dom';
 
-import { LoginPageState } from '../reducers';
+import { RootState } from '../reducers';
 import { setAppName } from '../../actions';
 
 import PageHeader from './auganisms/PageHeader';
@@ -44,7 +44,7 @@ const ApplicationTop = ({ basePath, match, setAppName }: AppicationTopProps) :JS
 };
 
 export default connect(
-  (state :LoginPageState) :LoginPageState => ({
+  (state :RootState) :RootState => ({
     appName: state.appName,
   }),
   {
