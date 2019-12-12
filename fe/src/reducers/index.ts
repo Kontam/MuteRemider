@@ -1,5 +1,13 @@
 import ActionTypes from '../actions/types';
 import { combineReducers } from 'redux';
+import userInfo from './resource/userInfo';
+import mutedUsers from './resource/mutedUsers';
+import isMuterMenuOpened from './page/isMuterMenuOpened';
+import muted from './page/muted';
+import muteRequestStatus from './meta/muterRequestStatus';
+import userRequestStatus from './meta/userRequestStatus';
+import errMessage from './page/errMessage';
+import popUpMessage from './page/popUpMessage';
 
 interface appNameAction {
   type :string;
@@ -12,8 +20,16 @@ interface basePathAction {
 }
 
 export interface RootState {
-  appName :string;
-  basePath :string;
+  appName :string,
+  basePath :string,
+  isMuterMenuOpened: any,
+  userInfo :any,
+  mutedUsers :any,
+  muted :any,
+  muteRequestStatus :any,
+  userRequestStatus :any,
+  errMessage :any,
+  popUpMessage :any,
 }
 
 const appName = (state :string = "", action :appNameAction) => {
@@ -36,5 +52,13 @@ const basePath = (state :string = "", action :basePathAction) => {
 
 export default combineReducers<RootState>({
   appName,
-  basePath
+  basePath,
+  isMuterMenuOpened,
+  userInfo,
+  mutedUsers,
+  muted,
+  muteRequestStatus,
+  userRequestStatus,
+  errMessage,
+  popUpMessage,
 });

@@ -1,8 +1,12 @@
-export const userInfo = (state = {}, action) => {
+export const ACTION_CHANGE_USER_INFO = 'CHANGE_USER_INFO';
+
+const userInfo = (state = {}, action) => {
   switch (action.type) {
-  case TwAppsConst.ACTION_CHANGE_USER_INFO:
+  case ACTION_CHANGE_USER_INFO:
     return action.userInfo;
   default:
     return state;
   }
 };
+
+export default userInfo;
