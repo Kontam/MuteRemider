@@ -4,7 +4,7 @@ import userInfo from './resource/userInfo';
 import mutedUsers from './resource/mutedUsers';
 import isMuterMenuOpened from './page/isMuterMenuOpened';
 import muted from './page/muted';
-import muteRequestStatus from './meta/muterRequestStatus';
+import muteRequestStatus from './meta/muteRequestStatus';
 import userRequestStatus from './meta/userRequestStatus';
 import errMessage from './page/errMessage';
 import popUpMessage from './page/popUpMessage';

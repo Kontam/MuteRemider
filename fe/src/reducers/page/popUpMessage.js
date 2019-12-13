@@ -1,5 +1,10 @@
 export const ACTION_CHANGE_POPUP_MESSAGE = 'CHANGE_POPUP_MESSAGE';
 
+// ポップアップ表示するメッセージの設定
+export const setPopUpMessage = message => (dispatch) => {
+  dispatch({ type: ACTION_CHANGE_ERR_MESSAGE, message });
+};
+
 // ユーザーに通知する小さなメッセージ
 // なにもない場合はから文字列
 const popUpMessage = (state = '', action) => {
