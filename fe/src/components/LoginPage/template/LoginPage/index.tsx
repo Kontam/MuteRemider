@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { setBasePath, setAppName  } from '../../../../actions';
+import { setBasePath } from '../../../../redux/reducers/meta/basePath';
+import { setAppName } from '../../../../redux/reducers/meta/appName';
 import ApplicationTop from '../ApplicationTop';
 import LoginConst from '../../LoginConst';
 

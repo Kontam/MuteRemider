@@ -1,4 +1,3 @@
-import ActionTypes from '../actions/types';
 import { combineReducers } from 'redux';
 import userInfo from './resource/userInfo';
 import mutedUsers from './resource/mutedUsers';
@@ -8,16 +7,8 @@ import muteRequestStatus from './meta/muteRequestStatus';
 import userRequestStatus from './meta/userRequestStatus';
 import errMessage from './page/errMessage';
 import popUpMessage from './page/popUpMessage';
-
-interface appNameAction {
-  type :string;
-  payload: string;
-}
-
-interface basePathAction {
-  type :string;
-  payload: string;
-}
+import basePath from './meta/basePath';
+import appName from './meta/appName';
 
 export interface RootState {
   appName :string,
@@ -31,24 +22,6 @@ export interface RootState {
   errMessage :any,
   popUpMessage :any,
 }
-
-const appName = (state :string = "", action :appNameAction) => {
-  switch (action.type) {
-    case ActionTypes.SET_APPNAME:
-      return action.payload;
-    default:
-      return state;
-  };
-};
-
-const basePath = (state :string = "", action :basePathAction) => {
-  switch (action.type) {
-    case ActionTypes.SET_BASEPATH:
-      return action.payload;
-    default:
-      return state;
-  };
-};
 
 export default combineReducers<RootState>({
   appName,
