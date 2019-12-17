@@ -1,7 +1,7 @@
 import { setErrMessage } from '../page/errMessage'
 import { startUserRequest, endUserRequest } from '../meta/userRequestStatus';
 import { startMuteRequest, endMuteRequest } from '../meta/muteRequestStatus';
-import requestToServer from '../../modules/requestToServer';
+import requestToServer from '../../../modules/requestToServer';
 
 export const ACTION_CHANGE_MUTED_USERS = 'CHANGE_MUTED_USERS';
 

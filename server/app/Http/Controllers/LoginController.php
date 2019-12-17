@@ -48,7 +48,9 @@ class LoginController extends Controller
         $access_token = $connection->oauth("oauth/access_token", array("oauth_verifier" => $_REQUEST['oauth_verifier']));
 
         session(['twAccessToken' => $access_token]);
-        return redirect(config('const.FRONT_APP_URL') . '/muter');
-
+        $responce = [
+          "message" => "succeed",
+        ];
+        return responce()->json($responce);
     }
 }

@@ -127,7 +127,7 @@ class MuteReminderController extends Controller
       $summarized_user_info = summarizeUserInfo($authorized_user_info);
 
       // ユーザーIDをクッキーに保存
-      session([config('pg-const.SESSION_TW_USERINFO') => $summarized_user_info]);
+      // session([config('pg-const.SESSION_TW_USERINFO') => $summarized_user_info]);
 
       // 利用経験のあるユーザーかどうかを検証する
       if(!Users::where(config('pg-const.USERS_SCREEN_NAME'), $summarized_user_info["screen_name"])->exists()) {
@@ -137,6 +137,6 @@ class MuteReminderController extends Controller
              config('pg-const.USERS_USER_ID') => $summarized_user_info["user_id"],
           ]);
       }
-        return view('muter.top');
+        return response()->json($summarized_user_info);
     }
 }

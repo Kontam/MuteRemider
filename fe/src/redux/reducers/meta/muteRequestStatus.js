@@ -1,4 +1,4 @@
-import TwAppsConst from '../../components/TwApps/TwAppsConst';
+import TwAppsConst from '../../../components/TwApps/TwAppsConst';
 
 export const ACTION_MUTE_REQUEST_START = 'MUTE_REQUEST_START';
 export const ACTION_MUTE_REQUEST_END = 'MUTE_REQUEST_END';

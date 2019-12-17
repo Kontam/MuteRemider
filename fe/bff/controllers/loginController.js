@@ -1,25 +1,25 @@
 const Const = require('../const');
 const apiBaseUrl = Const.API_BASE_URL;
+const request = require('request');
 
+// ログインページにリクエストを発行する
 exports.loginToTwitter = function(req, res) {
-  // res.send("loginToTwitter");
-  const axiosBase = require('axios');
-  const axios = axiosBase.create({
-    baseURL: apiBaseUrl,
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest'
-    },
-    responseType: 'json',
-  })
+  // const options = {
+  //   url: `${apiBaseUrl}${Const.API_LOGIN_SLUG}`,
+  //   method: 'GET',
+  //   headers: {
+  //     'Accept': 'application/json'
+  //   },
+  // }
+  // request(options, (error, responce, body) => {
+  //   if (!error) {
+  //     console.log(responce);
+  //     res.send(body);
+  //   } else {
+  //     console.log('Error');
+  //     res.status(500);
+  //     res.end('Internal Server Error')
+  //   }
+  // })
 
-  res.redirect(`${apiBaseUrl}${Const.API_LOGIN_SLUG}`);
-
-  // axios.get('/login_api').then(function(responce) {
-  //   console.log(responce);
-  //   res.send("axios success");
-  // }).catch(function(error) {
-  //   console.log(error.response);
-  //   res.send("error ocuerd");
-  // });
 }
