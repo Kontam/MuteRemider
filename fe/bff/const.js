@@ -5,5 +5,6 @@ module.exports = {
   ? process.env.BASE_URL : process.env.BASE_URL_DEV,
   API_LOGIN_SLUG: '/login_api',
   API_MUTER_TOP_SLUG: '/muter_top',
+  API_MUTED_LIST_SLUG: '/muted_list_api',
   API_CALLBACK_SLUG: '/callback',
 }

@@ -11,7 +11,6 @@ const axios = axiosBase.create({
   responseType: 'json'
 })
 
-module.exports = (slug) => axios.get(slug).then(data => {
-  console.log("execRequest", data);
+module.exports = (slug, params) => axios.get(slug, params).then(data => {
   return data;
 });

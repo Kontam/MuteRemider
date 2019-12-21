@@ -29,6 +29,19 @@ function createTwitterConnection() {
     return $objTwitterConnection;
 }
 
+/**
+ * パラメーターでtokenを渡して認証を行う
+ */
+function createTwitterConnectionWithToken($token, $token_secret) {
+  $objTwitterConnection = new TwitterOAuth(
+    config('const.CONSUMER_KEY'),
+    config('const.CONSUMER_SECRET'),
+    $token,
+    $token_secret
+  );
+  return $objTwitterConnection;
+}
+
 // 返却されたTwitterConnectionのエラーチェック
 function checkTwitterConnection($objTwitterConnection) {
     if (is_array($objTwitterConnection)) {

@@ -7,7 +7,7 @@ require_once(__DIR__ . '/../../modules/createTwitterConnection.php');
 require_once(__DIR__ . '/../../modules/summarizeTwitterObjects.php');
 // require_once(__DIR__ . '/../../Users.php');
 
-
+use Log;
 use Illuminate\Http\Request;
 use Abraham\TwitterOAuth\TwitterOAuth;
 // use Illuminate\Database\Eloquent\Model;
@@ -18,12 +18,11 @@ class MuteReminderController extends Controller
 {
     public function list_api(Request $request)
     {
-        // TwitterOAuthのインスタンスを生成する
-        $objTwitterConnection = createTwitterConnection();
-        // エラー配列が返却されて入ればそれがレスポンスになる
-        if(! checkTwitterConnection($objTwitterConnection)) {
-            return response()->json($objTwitterConnection);
-        }
+        Log::debug($_GET);
+        $oauth_token = $_GET['twitter_token'];
+        $oauth_token_secret = $_GET['twitter_token_secret'];
+        $objTwitterConnection = createTwitterConnectionWithToken($oauth_token, $oauth_token_secret);
+
 
         $tweets_params = [];
         $tweets_params = ['count' => 20];
@@ -50,17 +49,17 @@ class MuteReminderController extends Controller
         };
 
         //ミュートユーザーの情報をDBに格納
-        $tw_user_info = session("twUserInfo");
+        $tw_user_id = $_GET["user_id"];
         foreach ($simple_users_array as $muted_user) {
             $where = [
                 ['user_id', '=', $muted_user["user_id"]],
-                ['muted_by', '=', $tw_user_info["user_id"]],
+                ['muted_by', '=', $tw_user_id],
             ];
             if (!MutedUsers::where($where)->exists()) {
                 MutedUsers::create([
                    'user_id' => $muted_user["user_id"],
                    'screen_name' => $muted_user["screen_name"],
-                   'muted_by' => $tw_user_info["user_id"],
+                   'muted_by' => $tw_user_id,
                 ]);
             }
         };
@@ -110,14 +109,18 @@ class MuteReminderController extends Controller
 
     public function top()
     {
-        //TwitterOAuthのインスタンスを生成する
-        $objTwitterConnection = createTwitterConnection();
-        // エラー配列が返却されて入ればそれがレスポンスになる
-        if(! checkTwitterConnection($objTwitterConnection)) {
-            return response()->json($objTwitterConnection);
-        }
+      // Log::debug($_GET);
+      $oauth_token = $_GET['twitter_token'];
+      $oauth_token_secret = $_GET['twitter_token_secret'];
 
-        $params = [
+      //TwitterOAuthのインスタンスを生成する
+      $objTwitterConnection = createTwitterConnectionWithToken($oauth_token, $oauth_token_secret);
+      // エラー配列が返却されて入ればそれがレスポンスになる
+      if(! checkTwitterConnection($objTwitterConnection)) {
+          return response()->json($objTwitterConnection);
+      }
+
+      $params = [
         'include_entities' => false,
         'skip_status'      => true,
         'include_email'    => false
@@ -127,9 +130,9 @@ class MuteReminderController extends Controller
       $summarized_user_info = summarizeUserInfo($authorized_user_info);
 
       // ユーザーIDをクッキーに保存
-      // session([config('pg-const.SESSION_TW_USERINFO') => $summarized_user_info]);
+      session([config('pg-const.SESSION_TW_USERINFO') => $summarized_user_info]);
 
-      // 利用経験のあるユーザーかどうかを検証する
+      //利用経験のあるユーザーかどうかを検証する
       if(!Users::where(config('pg-const.USERS_SCREEN_NAME'), $summarized_user_info["screen_name"])->exists()) {
           // 初めて利用したユーザー情報をDBにロギングする
           Users::create([

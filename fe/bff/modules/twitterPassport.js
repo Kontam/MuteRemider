@@ -19,7 +19,6 @@ passport.use(new TwitterStrategy({
     callbackURL: callbackURL,
   },
   function(token, tokenSecret, profile, done) {
-    console.log(profile);
     passport.session.id = profile.id;
 
     // tokenとtoken_secretをセット
@@ -27,10 +26,6 @@ passport.use(new TwitterStrategy({
     profile.twitter_token_secret = tokenSecret;
 
     done(null, profile);
-
-    // process.nextTick(function () {
-    //     return done(null, profile);
-    // });
   }
 ));
 
