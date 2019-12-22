@@ -1,17 +1,19 @@
 const express = require("express");
 const next = require("next");
+
 const http = require("http");
 const session = require("express-session");
 const port :any = parseInt(process.env.PORT as string, 10) || 80;
 const dev = process.env.NODE_ENV !== "production";
 const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
+import BffConst from './const'; //Nextの初期処理以降に記述しなければDotenvが動作しない
 
 const login_controller = require('./controllers/loginController');
 const muter_controller = require('./controllers/muterController');
-const BffConst = require('./const');
 const auth = require('./modules/twitterPassport');
 const passport = auth.passport;
+
 console.log(auth.passport);
 export {};
 
@@ -31,8 +33,6 @@ nextApp.prepare().then(() => {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  // console.log(passport);
-
   app.get("/login", passport.authenticate('twitter'));
 
   app.get("/callback", passport.authenticate('twitter',
@@ -42,8 +42,8 @@ nextApp.prepare().then(() => {
     })
   );
 
-  app.get("/muter", muter_controller.muter_top);
-  app.get("/muted_list", muter_controller.muter_muted_users);
+  app.get(BffConst.MUTER_TOP_SLUG, muter_controller.muter_top);
+  app.get(BffConst.MUTED_LIST_SLUG, muter_controller.muter_muted_users);
 
   app.get("*", (req :any, res:any) => {
     return handle(req, res);
