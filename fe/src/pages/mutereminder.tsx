@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
-import LoginPage from '../components/LoginPage/template/LoginPage';
+import TwitterApps from '../components/TwApps/templates/TwitterApps';
 import Head from '../components/Common/Header';
-import LoginConst from '../components/LoginPage/LoginConst';
+import TwAppsConst from '../components/TwApps/TwAppsConst';
 
 const Page: NextPage = () => {
 
@@ -12,9 +12,9 @@ const Page: NextPage = () => {
   return (
     <>
       <Head />
-      <LoginPage
+      <TwitterApps
         basePath={base_path}
-        appName={LoginConst.APPNAME_BLOCKER}
+        appName={TwAppsConst.APPNAME_MUTER}
       />
     </>
   );

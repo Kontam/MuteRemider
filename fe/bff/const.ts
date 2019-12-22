@@ -11,10 +11,15 @@ const BffConst = {
   API_MUTER_TOP_SLUG: '/muter_top',
   API_MUTED_LIST_SLUG: '/muted_list_api',
 
-  //Slugs
+  //Bff Slugs
   MUTER_TOP_SLUG: '/muter',
   CALLBACK_SLUG: '/callback',
-  MUTED_LIST_SLUG: '/muted_list'
+  MUTED_LIST_SLUG: '/muted_list',
+  USER_INFO_SLUG: '/user_info',
+
+  //Front Slugs
+  FRONT_MUTER_SLUG:'/mutereminder',
+
 } as const;
 
 export default BffConst;

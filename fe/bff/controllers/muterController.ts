@@ -4,16 +4,6 @@ import BffConst from '../const';
 import execRequest from '../modules/execRequest';
 import { createParamsWithToken } from '../modules/createParams';
 
-const jwt = require('jsonwebtoken');
-
-export type VerifiedUserInfo = {
-  user_id: string
-  user_name: string
-  screen_name: string
-  profile_image_url_https: string
-  token: string
-};
-
 export type MutedUserInfo = {
   user_id: string,
   user_name: string,
@@ -48,19 +38,7 @@ export type MutedUsersAPIResource = {
  * 利用ユーザー本人の情報を取得する
  */
 exports.muter_top = async function(req :Request, res: Response) {
-  let params = {};
-  if (req.session) {
-    params = createParamsWithToken(req.session);
-  }
-  const responce = await execRequest(BffConst.API_MUTER_TOP_SLUG, {params});
-  // DB操作のキーとしてセッションにuser_idを保存
-  req!.session!.user_id = responce.data.user_id;
 
-  const token = jwt.sign(responce.data.user_id, process.env.JWT_SECRET);
-  const verifiedUserInfo :VerifiedUserInfo = Object.assign(responce.data, {token});
-
-  // res.send(verifiedUserInfo);
-  res.redirect(BffConst.MUTED_LIST_SLUG);
 }
 
 /**

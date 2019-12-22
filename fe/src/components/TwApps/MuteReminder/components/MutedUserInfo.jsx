@@ -6,7 +6,8 @@ import UnmuteButton from './UnmuteButton';
 import ShowTweetsButton from './ShowTweetsButton';
 import MutedTweetList from './MutedTweetList';
 import TwAppsConst from '../../TwAppsConst';
-import { toggleMuted, requestUnmuteUser } from '../actions';
+import { toggleMuted } from '../../../../redux/reducers/page/muted';
+import { requestUnmuteUser } from '../../../../redux/reducers/resource/mutedUsers';
 
 class MutedUserInfo extends Component {
   constructor(props) {

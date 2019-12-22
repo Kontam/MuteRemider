@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import TwAppsConst from '../../TwAppsConst';
 import MutedUserInfo from '../components/MutedUserInfo';
-import { requestMutedUsers } from '../actions';
+import { requestMutedUsers } from '../../../../redux/reducers/resource/mutedUsers';
 
 class MutedUserList extends Component {
   constructor(props) {
@@ -15,8 +15,8 @@ class MutedUserList extends Component {
   }
 
   componentDidMount() {
-    const { baseUrl } = this.props;
-    this.props.requestMutedUsers(baseUrl + TwAppsConst.MUTED_USERS_ENDPOINT);
+    const { basePath } = this.props;
+    this.props.requestMutedUsers(basePath + TwAppsConst.MUTED_USERS_ENDPOINT);
   }
 
   handleLoad() {
@@ -56,7 +56,7 @@ MutedUserList.propTypes = {
     }),
   ).isRequired,
   muted: PropTypes.arrayOf(PropTypes.bool).isRequired,
-  baseUrl: PropTypes.string.isRequired,
+  basePath: PropTypes.string.isRequired,
   isMuterMenuOpened: PropTypes.bool.isRequired,
 };
 
@@ -64,7 +64,7 @@ export default connect(
   state => ({
     mutedUsers: state.mutedUsers,
     muted: state.muted,
-    baseUrl: state.baseUrl,
+    basePath: state.basePath,
     isMuterMenuOpened: state.isMuterMenuOpened,
     userInfo: state.userInfo,
   }),

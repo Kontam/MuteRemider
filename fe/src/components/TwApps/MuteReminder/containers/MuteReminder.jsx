@@ -15,7 +15,7 @@ class MuteReminder extends Component {
     const { errMessage } = this.props;
     return (
       <div className="mutereminder">
-        <MuterMenu />
+        {/* <MuterMenu /> */}
         { errMessage ? <FatalMessage /> : <MutedUserList /> }
       </div>
     );

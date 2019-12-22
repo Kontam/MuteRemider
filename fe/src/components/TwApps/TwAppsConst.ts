@@ -1,12 +1,16 @@
 const TwAppsConst = {
+  STORAGE_TOKEN: 'key',
   STYLE_DARK_GRAY: '#bcbcbc',
 
   IMG_DIR_PATH: 'img',
 
-  USER_INFO_ENDPOINT: '/user_api',
-  MUTED_USERS_ENDPOINT: '/list_api',
+  USER_INFO_ENDPOINT: '/user_info',
+  MUTED_USERS_ENDPOINT: '/muted_list',
   UNMUTE_USER_ENDPOINT: '/unmute',
   MUTE_USER_ENDPOINT: '/mute',
+
+  APPNAME_MUTER: 'MuteReminder',
+  APPNAME_BLOCKER: 'BlockReminder',
 
   /*
     ==============================================
@@ -26,6 +30,7 @@ const TwAppsConst = {
   ACTION_CHANGE_ERR_MESSAGE: 'CHANG_ERR_MESSAGE',
   ACTION_CHANGE_POPUP_MESSAGE: 'CHANGE_POPUP_MESSAGE',
 
+
   HEADER_MENU_INITIAL: 'initial',
   HEADER_MENU_CLOSED: 'closed',
   HEADER_MENU_OPENED: 'opened',
@@ -34,6 +39,6 @@ const TwAppsConst = {
   SHOW_TWEETS_OPENED: 'opened',
   REQUEST_STATUS_COMPLETE: 'complete',
   REQUEST_STATUS_LOADING: 'loading',
-};
+} as const;
 
 export default TwAppsConst;
