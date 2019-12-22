@@ -1,4 +1,4 @@
-module.exports = {
+const BffConst = {
   API_BASE_URL: process.env.NODE_ENV === 'production'
    ? process.env.API_BASE_URL : process.env.API_BASE_URL_DEV,
   BASE_URL: process.env.NODE_ENV === 'production'
@@ -7,4 +7,7 @@ module.exports = {
   API_MUTER_TOP_SLUG: '/muter_top',
   API_MUTED_LIST_SLUG: '/muted_list_api',
   API_CALLBACK_SLUG: '/callback',
-}
+} as const;
+
+export default  BffConst;
+

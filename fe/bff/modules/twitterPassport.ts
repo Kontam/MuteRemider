@@ -1,15 +1,18 @@
-const passport = require('passport');
+// const passport = require('passport');
+import BffConst from '../const';
+
 const TwitterStrategy = require('passport-twitter');
-const Const = require('../const');
+const passport = require('passport');
 
 const twitterConsumerKey = process.env.CONSUMER_KEY;
 const twitterSecretKey = process.env.CONSUMER_SECRET;
-const callbackURL = `${Const.BASE_URL}${Const.API_CALLBACK_SLUG}`;
+const callbackURL = `${BffConst.BASE_URL}${BffConst.API_CALLBACK_SLUG}`;
+console.log("BFFconst", BffConst);
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function(user :any, done :any) {
   done(null, user);
 });
-passport.deserializeUser(function(user, done) {
+passport.deserializeUser(function(user :any, done :any) {
   done(null, user);
 });
 
@@ -18,7 +21,7 @@ passport.use(new TwitterStrategy({
     consumerSecret: twitterSecretKey,
     callbackURL: callbackURL,
   },
-  function(token, tokenSecret, profile, done) {
+  function(token :string, tokenSecret :string, profile :any, done :any) {
     passport.session.id = profile.id;
 
     // tokenとtoken_secretをセット
@@ -29,4 +32,4 @@ passport.use(new TwitterStrategy({
   }
 ));
 
-module.exports = { passport: passport };
+export { passport };

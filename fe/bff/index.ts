@@ -2,16 +2,18 @@ const express = require("express");
 const next = require("next");
 const http = require("http");
 const session = require("express-session");
-const port = parseInt(process.env.PORT, 10) || 80;
+const port :any = parseInt(process.env.PORT as string, 10) || 80;
 const dev = process.env.NODE_ENV !== "production";
 const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
 
-const auth = require('./modules/twitterPassport');
-const passport = auth.passport;
 const login_controller = require('./controllers/loginController');
 const muter_controller = require('./controllers/muterController');
-const Const = require('./const');
+const BffConst = require('./const');
+const auth = require('./modules/twitterPassport');
+const passport = auth.passport;
+console.log(auth.passport);
+export {};
 
 nextApp.prepare().then(() => {
   const app = express();
@@ -43,14 +45,15 @@ nextApp.prepare().then(() => {
   app.get("/muter", muter_controller.muter_top);
   app.get("/muted_list", muter_controller.muter_muted_users);
 
-  app.get("*", (req, res) => {
+  app.get("*", (req :any, res:any) => {
     return handle(req, res);
   });
 
 
   const server = http.createServer(app);
-  server.listen(port, err => {
+  server.listen(port, (err :any) => {
     if (err) throw err;
     console.log(`>Server is running`);
   });
 });
+

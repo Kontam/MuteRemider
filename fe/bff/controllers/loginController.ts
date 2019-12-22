@@ -1,9 +1,12 @@
-const Const = require('../const');
-const apiBaseUrl = Const.API_BASE_URL;
+import { Request, Response } from 'express';
+import BffConst from '../const';
+
+// const MyConst = require('../const');
+const apiBaseUrl = BffConst.API_BASE_URL;
 const request = require('request');
 
 // ログインページにリクエストを発行する
-exports.loginToTwitter = function(req, res) {
+exports.loginToTwitter = function(req: Request, res: Response) {
   // const options = {
   //   url: `${apiBaseUrl}${Const.API_LOGIN_SLUG}`,
   //   method: 'GET',
