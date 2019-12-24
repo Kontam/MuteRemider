@@ -13,8 +13,6 @@ type UserInfo = {
   profile_image_url_https: string
 }
 
-type AccessToken = string
-
 type UserInfoAction = {
   type: typeof ACTION_CHANGE_USER_INFO,
   payload: UserInfo,
@@ -25,17 +23,14 @@ export const requestUserInfo = (endpoint: string,) => (dispatch: Dispatch) => {
   dispatch(startUserRequest());
   requestToServer(endpoint)
     .then(({ data }) => {
-      const userInfo: UserInfo = data.userInfo;
-      const token :AccessToken = data.token;
+      // console.log(data);
+      const userInfo: UserInfo = data;
       // if ('code' in data[0]) {
       //   dispatch(setErrMessage(data[0].message));
       //   dispatch(endUserRequest());
       //   return;
       // }
-
       dispatch(endUserRequest());
-      //　アクセストークンを保存
-      localStorage.setItem(TwAppsConst.STORAGE_TOKEN, token);
       // ミュートユーザーをstoreに登録
       dispatch(setUserInfo(userInfo));
     });

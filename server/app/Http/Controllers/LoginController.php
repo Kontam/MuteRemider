@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Abraham\TwitterOAuth\TwitterOAuth;
 
+use App\AuthrizedUsers;
 
 class LoginController extends Controller
 {
@@ -52,5 +53,23 @@ class LoginController extends Controller
           "message" => "succeed",
         ];
         return responce()->json($responce);
+    }
+
+    public function storeToken(Request $request)
+    {
+      $auth_token = $_GET['twitter_token'];
+      $auth_token_secret = $_GET['twitter_token_secret'];
+      $user_id = $_GET['user_id'];
+
+      //登録済みのユーザーかどうかをチェック
+      if (!AuthrizedUsers::where('user_id',$user_id)->exists()){
+        // 登録済みでなければDBに保存する
+          AuthrizedUsers::create([
+            'user_id' => $user_id,
+            'token' => $auth_token,
+            'token_secret' => $auth_token_secret,
+          ]);
+      }
+      return 'success';
     }
 }

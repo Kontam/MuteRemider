@@ -10,6 +10,7 @@ const BffConst = {
   //Backend API
   API_MUTER_TOP_SLUG: '/muter_top',
   API_MUTED_LIST_SLUG: '/muted_list_api',
+  API_STORE_LOGIN_SLUG: '/login_store_api',
 
   //Bff Slugs
   MUTER_TOP_SLUG: '/muter',

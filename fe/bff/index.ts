@@ -1,7 +1,7 @@
 const express = require("express");
 const next = require("next");
-
 const http = require("http");
+const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const port :any = parseInt(process.env.PORT as string, 10) || 80;
 const dev = process.env.NODE_ENV !== "production";
@@ -15,12 +15,11 @@ const common_controller = require('./controllers/commonController');
 const auth = require('./modules/twitterPassport');
 const passport = auth.passport;
 
-console.log(auth.passport);
 export {};
 
 nextApp.prepare().then(() => {
   const app = express();
-
+  app.use(cookieParser());
   app.use(
     session({
       secret: "secret",

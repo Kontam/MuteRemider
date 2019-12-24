@@ -12,8 +12,9 @@
 */
 
 Route::get('/', 'LoginController@top');
-Route::get('/login_api', 'LoginController@twLogin');
-Route::get('/callback', 'LoginController@callback');
+// Route::get('/login_api', 'LoginController@twLogin');
+// Route::get('/callback', 'LoginController@callback');
+Route::get('/login_store_api', 'LoginController@storeToken');
 
 // Route::get('/show', 'MuteReminderController@list');
 Route::get('/muter_top', 'MuteReminderController@top');
