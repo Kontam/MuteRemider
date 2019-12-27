@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const requestToServer = (endpoint, params = {}) => axios
+const requestToServer = (endpoint:string, params = {}) => axios
   .get(endpoint, params)
   .then((result) => {
     const { data, status } = result;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux'
 import styled from 'styled-components';
-import LoginState, { RootState } from '../../../../reducers';
+import { RootState } from '../../../../redux/reducers';
 
 import LoginConst from '../../LoginConst';
 import StyleConst, { resetAnchor } from '../../styles/define';

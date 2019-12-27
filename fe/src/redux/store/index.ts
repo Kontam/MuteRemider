@@ -3,7 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import reducer, { RootState } from '../reducers';
 
-const initialState :RootState = {
+export const initialState :RootState = {
   appName: "",
   basePath: "",
   isMuterMenuOpened: true,

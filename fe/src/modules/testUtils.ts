@@ -1,10 +1,10 @@
 import { createStore, Store, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-
-import rootReducer, { RootState } from '../reducers';
-
 import * as enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+
+import rootReducer, { RootState } from '../redux/reducers';
+import { initialState } from '../redux/store';
 
 export const adapter = () => { enzyme.configure({ adapter: new Adapter() }) };
 
@@ -13,14 +13,11 @@ export const adapter = () => { enzyme.configure({ adapter: new Adapter() }) };
  * @param initialState
  */
 
-const defaultInitialState :RootState = {
-  basePath: "",
-  appName: "",
-}
+
 
 export type LoginPageStore = Store<RootState>
-export const storeFactory = (initialState :RootState = defaultInitialState) => {
-  return createStore(rootReducer, initialState, applyMiddleware(thunk),);
+export const storeFactory = (state :RootState = initialState) => {
+  return createStore(rootReducer, state, applyMiddleware(thunk),);
 }
 
 /**
@@ -29,6 +26,14 @@ export const storeFactory = (initialState :RootState = defaultInitialState) => {
 export const commonInitialState :RootState = {
   basePath: "https://basepath.com",
   appName: "MuteReminder",
+  isMuterMenuOpened: true,
+  userInfo :{},
+  mutedUsers :[],
+  muted :"",
+  muteRequestStatus :"initial",
+  userRequestStatus :"initial",
+  errMessage :"",
+  popUpMessage :"",
 }
 
 

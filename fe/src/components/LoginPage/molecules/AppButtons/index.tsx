@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Link from 'next/link';
 
-import { RootState } from '../../../../reducers';
+import { RootState } from '../../../../redux/reducers';
 import { resetAnchor } from '../../../../modules/styles/theme';
 import LoginConst from '../../LoginConst';
 import { MyThemeProps } from '../../../../modules/styles/theme';

@@ -5,15 +5,15 @@ import requestToServer from '../../../modules/requestToServer';
 
 export const ACTION_CHANGE_MUTED_USERS = 'CHANGE_MUTED_USERS';
 
-export const setMutedUsers = mutedUsers => (dispatch) => {
+export const setMutedUsers = (mutedUsers: any) => (dispatch:any) => {
   dispatch({ ACTION_CHANGE_MUTED_USERS, mutedUsers });
 };
 
 // ミュートユーザーのリストを取得し、ミュート状態のstateを初期化する
-export const requestMutedUsers = (endpoint, params = {}) => (dispatch) => {
+export const requestMutedUsers = (endpoint :string, params = {}) => (dispatch:any) => {
   dispatch(startUserRequest());
-  requestToServer(endpoint, params, dispatch)
-    .then(({ data }) => {
+  requestToServer(endpoint, params)
+    .then(({ data }:any) => {
       if ('code' in data[0]) {
         dispatch(setErrMessage(data[0].message));
         dispatch(endUserRequest());
@@ -23,13 +23,13 @@ export const requestMutedUsers = (endpoint, params = {}) => (dispatch) => {
       // ユーザーリストよりも先にこちらを作る（依存しているため）
       dispatch(endUserRequest());
       const initializedMuted = Array(data.length).fill(true);
-      dispatch(setMuted(initializedMuted));
+      // dispatch(setMuted(initializedMuted));
       // ミュートユーザーをstoreに登録
       dispatch(setMutedUsers(data));
     });
 };
 
-export const requestUnmuteUser = (endpoint, screenName, index, params = {}) => (dispatch) => {
+export const requestUnmuteUser = (endpoint: string, screenName: string, index: number, params = {}) => (dispatch:any) => {
   dispatch(startMuteRequest());
   requestToServer(endpoint, params)
     .then(({ data, status }) => {
@@ -37,12 +37,12 @@ export const requestUnmuteUser = (endpoint, screenName, index, params = {}) => (
       // スクリーンネームを照合して成否を確認する
       dispatch(endMuteRequest());
       if (data.screen_name === screenName) {
-        dispatch(toggleMuted(index));
+        // dispatch(toggleMuted(index));
       }
     });
 };
 
-const mutedUsers = (state = [], action) => {
+const mutedUsers = (state = [], action:any) => {
   switch (action.type) {
   case ACTION_CHANGE_MUTED_USERS:
     return action.mutedUsers;
