@@ -6,7 +6,7 @@ import reducer, { RootState } from '../reducers';
 const initialState :RootState = {
   appName: "",
   basePath: "",
-  isMuterMenuOpened: "any",
+  isMuterMenuOpened: true,
   userInfo :"any",
   mutedUsers :"any",
   muted :"any",

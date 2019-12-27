@@ -11,12 +11,15 @@ const BffConst = {
   API_MUTER_TOP_SLUG: '/muter_top',
   API_MUTED_LIST_SLUG: '/muted_list_api',
   API_STORE_LOGIN_SLUG: '/login_store_api',
+  API_CHECK_LOGIN_API: '/login_check_api',
 
   //Bff Slugs
+  LOGIN_CHECK_SLUG: '/login',
   MUTER_TOP_SLUG: '/muter',
   CALLBACK_SLUG: '/callback',
   MUTED_LIST_SLUG: '/muted_list',
   USER_INFO_SLUG: '/user_info',
+  TWITTER_LOGIN_SLUG: '/twitter_login',
 
   //Front Slugs
   FRONT_MUTER_SLUG:'/mutereminder',

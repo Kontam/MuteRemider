@@ -55,6 +55,10 @@ class LoginController extends Controller
         return responce()->json($responce);
     }
 
+    /**
+     * bffで認証完了後にアクセスするAPI
+     * 取得したアクセストークンをidとセットで保存する
+     */
     public function storeToken(Request $request)
     {
       $auth_token = $_GET['twitter_token'];
@@ -71,5 +75,22 @@ class LoginController extends Controller
           ]);
       }
       return 'success';
+    }
+
+    /**
+     * ユーザーが認証済みであるかをチェックする
+     * @param {string} user_id
+     */
+    public function checkAuthrized(Request $request)
+    {
+      if (! array_key_exists('user_id', $_GET)) return 'invalid paramator';
+
+      $user_id = $_GET['user_id'];
+      //登録済みユーザーかどうかをチェック
+      if (AuthrizedUsers::where('user_id',$user_id)->exists()) {
+        $token_info = AuthrizedUsers::where('user_id', $user_id)->first();
+        return response()->json($token_info);
+      }
+      return 'unauthrized';
     }
 }

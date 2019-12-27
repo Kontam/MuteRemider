@@ -6,14 +6,14 @@ import TwAppsConst from '../../../components/TwApps/TwAppsConst';
 
 export const ACTION_CHANGE_USER_INFO = 'CHANGE_USER_INFO' as const;
 
-type UserInfo = {
+export type UserInfo = {
   user_id: string
   user_name: string
   screen_name: string
   profile_image_url_https: string
 }
 
-type UserInfoAction = {
+export type UserInfoAction = {
   type: typeof ACTION_CHANGE_USER_INFO,
   payload: UserInfo,
 }

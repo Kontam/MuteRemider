@@ -5,6 +5,39 @@ import { createParamsWithToken } from '../modules/createParams';
 
 const jwt = require('jsonwebtoken');
 
+type AuthInfo = {
+  user_id: string,
+  token: string,
+  token_secret: string,
+}
+
+/**
+ * 認証済みユーザーチェック
+ * ログインユーザーのブラウザにトークンがあればAPIに問い合わせ
+ * クッキーがなければログイン画面にリダイレクトする
+ */
+exports.login_check = async function(req :Request, res: Response) {
+  const token = req.cookies.token || "";
+  if (token) {
+    const user_id = jwt.verify(token, process.env.JWT_SECRET);
+    const params = { user_id };
+    const responce = await execRequest(BffConst.API_CHECK_LOGIN_API,{ params });
+    const authInfo: AuthInfo = responce.data;
+
+    if (authInfo.token) {
+      const passportSession = { user: {
+        twitter_token: authInfo.token,
+        twitter_token_secret: authInfo.token_secret,
+      }};
+      const session = req.session;
+      if ( session ) session.passport = passportSession;
+      return res.redirect(BffConst.FRONT_MUTER_SLUG);
+    }
+  }
+
+  return res.redirect(BffConst.TWITTER_LOGIN_SLUG);
+}
+
 /**
  * ログイン成功後の処理
  * cookieにアクセストークンを埋め込んでリダイレクトする

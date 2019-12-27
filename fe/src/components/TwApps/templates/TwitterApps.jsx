@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // import TwAppsConst from '../TwAppsConst';
-// import TwAppsHeader from './TwAppsHeader';
-// import MuteReminder from '../MuteReminder/containers/MuteReminder';
+import TwAppsHeader from '../organisms/TwAppsHeader';
+import MuteReminder from '../organisms/ListContainer';
 import TwAppsConst from '../TwAppsConst';
 // import BlockReminder from '../BlockReminder/components/BlockReminder.tsx';
 // import { setUserInfo } from '../MuteReminder/actions';
@@ -30,8 +30,8 @@ class TwitterApps extends Component {
       <div className="twitter-apps">
         TwitterApps
         {/* <LoadingImg /> */}
-        {/* <TwAppsHeader /> */}
-        {/* <MuteReminder /> */}
+        <TwAppsHeader />
+        <MuteReminder />
       </div>
     );
   }
