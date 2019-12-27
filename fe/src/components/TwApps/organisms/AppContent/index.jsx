@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import MuterMenu from '../molecules/MuterMenu';
-import MutedUserList from '../MuteReminder/containers/MutedUserList';
+import MuterMenu from '../../molecules/MuterMenu';
+import MutedUserList from '../../MuteReminder/containers/MutedUserList';
 // import FatalMessage from '../MuteReminder/components/FatalMessage';
 
 /**

@@ -7,13 +7,13 @@ const initialState :RootState = {
   appName: "",
   basePath: "",
   isMuterMenuOpened: true,
-  userInfo :"any",
-  mutedUsers :"any",
-  muted :"any",
-  muteRequestStatus :"any",
-  userRequestStatus :"any",
-  errMessage :"any",
-  popUpMessage :"any",
+  userInfo :{},
+  mutedUsers :[],
+  muted :"",
+  muteRequestStatus :"initial",
+  userRequestStatus :"initial",
+  errMessage :"",
+  popUpMessage :"",
 }
 
 export function initializeStore() {

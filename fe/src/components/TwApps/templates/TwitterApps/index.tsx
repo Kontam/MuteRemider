@@ -3,17 +3,21 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // import TwAppsConst from '../TwAppsConst';
-import TwAppsHeader from '../organisms/TwAppsHeader';
-import MuteReminder from '../organisms/ListContainer';
-import TwAppsConst from '../TwAppsConst';
+import TwAppsHeader from '../../organisms/TwAppsHeader';
+import AppContent from '../../organisms/AppContent';
+import TwAppsConst from '../../TwAppsConst';
 // import BlockReminder from '../BlockReminder/components/BlockReminder.tsx';
 // import { setUserInfo } from '../MuteReminder/actions';
 // import { getBasePath } from '../../../redux/'
 // import LoadingImg from './LoadingImg';
-import { requestUserInfo } from '../../../redux/reducers/resource/userInfo';
+import { requestUserInfo } from '../../../../redux/reducers/resource/userInfo';
 
 
-class TwitterApps extends Component {
+type Props = {
+  requestUserInfo: (endPoint: string) => void,
+}
+
+class TwitterApps extends Component<Props> {
   constructor(props) {
     super(props);
   }
@@ -31,7 +35,7 @@ class TwitterApps extends Component {
         TwitterApps
         {/* <LoadingImg /> */}
         <TwAppsHeader />
-        <MuteReminder />
+        <AppContent />
       </div>
     );
   }
