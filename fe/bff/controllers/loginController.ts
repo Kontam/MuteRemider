@@ -30,7 +30,10 @@ exports.login_check = async function(req :Request, res: Response) {
         twitter_token_secret: authInfo.token_secret,
       }};
       const session = req.session;
-      if ( session ) session.passport = passportSession;
+      if ( session ) {
+        session.passport = passportSession;
+        session.user_id = user_id;
+      }
       return res.redirect(BffConst.FRONT_MUTER_SLUG);
     }
   }
@@ -39,7 +42,7 @@ exports.login_check = async function(req :Request, res: Response) {
 }
 
 /**
- * ログイン成功後の処理
+ * passport経由のtwitterログイン成功後の処理
  * cookieにアクセストークンを埋め込んでリダイレクトする
  */
 exports.login_success = async function(req :Request, res: Response) {

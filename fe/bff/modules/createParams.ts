@@ -11,7 +11,6 @@ type ParamsWithToken = {
  * @param {object} 個別に指定するパラメータ
  */
 export const createParamsWithToken = (session :Express.Session, params = {}) => {
-  console.log(session.passport);
   const accessToken: ParamsWithToken = {
     twitter_token: session.passport.user.twitter_token,
     twitter_token_secret: session.passport.user.twitter_token_secret

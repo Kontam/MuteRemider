@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/reducers';
 import { MyThemeProps, resetButton } from '../../../../modules/styles/theme';
 import { mediaQ } from '../../../../modules/styles/media';
@@ -77,15 +76,14 @@ export const CountButton = styled.button`
   }
 `;
 
-type Props = {
-  isMuterMenuOpened: boolean;
-}
+const isOpendSelector = (state: RootState) => state.isMuterMenuOpened;
 
-const MuterMenu = ({ isMuterMenuOpened }: Props) => {
-  const Container = createContainer(isMuterMenuOpened);
+const MuterMenu = () => {
+  const isOpened = useSelector(isOpendSelector);
+  const Container = createContainer(isOpened);
 
   return(
-    <Container isOpend={isMuterMenuOpened}>
+    <Container>
     <ToggleMenuButton />
       <CountButton>
         <span className="tweets-count">3</span>
@@ -94,12 +92,4 @@ const MuterMenu = ({ isMuterMenuOpened }: Props) => {
   )
 };
 
-MuterMenu.propTypes = {
-  isMuterMenuOpened: PropTypes.bool.isRequired,
-};
-
-export default connect(
-  (state: RootState) => ({
-    isMuterMenuOpened: state.isMuterMenuOpened,
-  }),
-)(MuterMenu);
+export default MuterMenu;

@@ -46,9 +46,11 @@ exports.muter_top = async function(req :Request, res: Response) {
  * @param {string} user_id DBにログを保存するためのキー
  */
 exports.muter_muted_users = async function(req :Request,res: Response) {
+  console.log("mutedUsers_session",req.session);
   const extraParams = {
     user_id: req!.session!.user_id,
   }
+  console.log(extraParams);
   let params = {};
   if (req.session) {
     params = createParamsWithToken(req.session, extraParams);

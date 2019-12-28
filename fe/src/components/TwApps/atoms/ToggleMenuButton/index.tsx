@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { connect } from 'react-redux';
+import React from 'react';
+import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { setIsMuterMenuOpened } from '../../../../redux/reducers/page/isMuterMenuOpened';
 import { resetButton, MyThemeProps } from '../../../../modules/styles/theme';
@@ -9,18 +9,11 @@ import { RootState } from '../../../../redux/reducers';
 const cross_icon = require('../../../../../img/cross_icon.svg');
 const hambargar_icon = require('../../../../../img/hambargar_icon.svg');
 
-
-type Props = {
-  isMuterMenuOpened: boolean,
-  setIsMuterMenuOpened: (isMuterMenuOpened: boolean) => void,
-}
-
 export const Container = styled.div`
   display: none;
   ${mediaQ.pc} {
     display: block;
     text-align: right;
-    /* animation: ${({theme, isOpened}: MyThemeProps<{isOpened: boolean}>) => isOpened ? openKeyframes + ".3s forwards" : "none"} */
   }
 `;
 
@@ -40,37 +33,35 @@ export const Button = styled.button`
   }
 `;
 
-class ToggleMuterMenuButton extends Component<Props> {
-  handleToggleClicked() {
-    const { isMuterMenuOpened } = this.props;
-    if (isMuterMenuOpened) {
-      this.props.setIsMuterMenuOpened(false);
+const isOpenedSelector = (state: RootState):boolean => state.isMuterMenuOpened;
+
+/**
+ * メニュー開閉状態をトグルするボタン
+ * 状態に応じてアイコン画像を変える
+ * @param {boolean} isOpened 開いてるときはtrue
+ */
+const ToggleMuterMenuButton = () => {
+  const isOpened = useSelector(isOpenedSelector);
+  const dispatch = useDispatch();
+  const imgUrl = isOpened ? `${cross_icon}` : `${hambargar_icon}`;
+  const handleToggleClicked = () => {
+    if (isOpened) {
+      dispatch(setIsMuterMenuOpened(false));
       return;
     }
-    this.props.setIsMuterMenuOpened(true);
+      dispatch(setIsMuterMenuOpened(true));
   }
-
-  render() {
-    const { isMuterMenuOpened } = this.props;
-    const imgUrl = isMuterMenuOpened ? `${cross_icon}` : `${hambargar_icon}`;
-    return (
-      <Container>
-        <Button
-          onClick={() => { this.handleToggleClicked(); }}
-        >
-          <Icon className="menu-toggle-icon" src={imgUrl} alt="close"/>
-        </Button>
-      </Container>
-    );
-  }
+  return (
+    <Container>
+      <Button
+        onClick={() => { handleToggleClicked(); }}
+      >
+        <Icon className="menu-toggle-icon" src={imgUrl} alt="close"/>
+      </Button>
+    </Container>
+  );
 }
 
 
-export default connect(
-  (state: RootState) => ({
-    isMuterMenuOpened: state.isMuterMenuOpened,
-  }),
-  {
-    setIsMuterMenuOpened,
-  },
-)(ToggleMuterMenuButton);
+
+export default ToggleMuterMenuButton;

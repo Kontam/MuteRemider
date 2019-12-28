@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import userInfo from './resource/userInfo';
 import mutedUsers from './resource/mutedUsers';
 import isMuterMenuOpened from './page/isMuterMenuOpened';
-import muted from './page/muted';
+import muted from './resource/muted';
 import muteRequestStatus from './meta/muteRequestStatus';
 import userRequestStatus from './meta/userRequestStatus';
 import errMessage from './page/errMessage';
