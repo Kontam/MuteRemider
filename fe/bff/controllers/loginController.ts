@@ -34,6 +34,7 @@ exports.login_check = async function(req :Request, res: Response) {
         session.passport = passportSession;
         session.user_id = user_id;
       }
+      console.log("login_check", req.session);
       return res.redirect(BffConst.FRONT_MUTER_SLUG);
     }
   }

@@ -1,5 +1,5 @@
-import React, { Component, useEffect } from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { RootState } from '../../../../redux/reducers';
 import TwAppsConst from '../../TwAppsConst';

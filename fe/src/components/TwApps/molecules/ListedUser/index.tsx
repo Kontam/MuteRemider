@@ -1,11 +1,10 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { mediaQ } from '../../../../modules/styles/media';
-import UnmuteButton from '../../MuteReminder/components/UnmuteButton';
-import ShowTweetsButton from '../../MuteReminder/components/ShowTweetsButton';
+import UnmuteButton from '../../atoms/UnmuteButton';
+import ShowTweetsButton from '../../atoms/ShowTweetsButton';
 import MutedTweetList from '../../MuteReminder/components/MutedTweetList';
 import TwAppsConst from '../../TwAppsConst';
 import { requestUnmuteUser, MutedUser } from '../../../../redux/reducers/resource/mutedUsers';
@@ -77,7 +76,6 @@ type ListedUserProps = {
   mutedUserInfo: MutedUser
   index: number
   isUserMuted: boolean
-  baseUrl: string
 };
 
 const stateSelector = (state: RootState) => state.basePath;

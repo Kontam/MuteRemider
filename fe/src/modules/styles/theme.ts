@@ -58,3 +58,59 @@ export const resetButton = css`
     outline: 0;
   }
 `;
+
+export const divIcon = (iconUrl: string) => css`
+  background: url(${iconUrl}) center center / contain no-repeat;
+  height: 25px;
+  margin-right: 5px;
+  width: 35px;
+`;
+
+export const pcDivIcon = (iconUrl: string) => css`
+  background: ${iconUrl} center center / contain no-repeat;
+  height: 25px;
+  margin-right: 5px;
+  width: 35px;
+`;
+
+/**
+ * ミュートもしくはミュート解除を行うモバイル用のボタン
+ * @param bgColor ボタンの背景色
+ * @param labelColor ボタン中のラベルの色　デフォルト値あり
+ */
+export const mobileMuteButton = (bgColor: string, labelColor: string = theme.colors.buttonLabelColor) => css`
+    ${resetButton};
+    background-color: ${bgColor};
+    color: ${labelColor};
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    white-space: nowrap;
+    width: 50%;
+`;
+
+// export const pcShowButton = () => css`
+//   cursor: pointer;
+//   font-size: 1.25rem;
+//   height: 50px;
+//   justify-content: flex-start;
+//   /* アイコン250px + 名前コンテナ420px + ミュートボタンのpaddingLeft15px - 微調整5px */
+//   padding-left: 680px;
+//   white-space: nowrap;
+//   width: 100%;
+// `;
+
+export const pcMuteButton = (bgColor :string, labelColor: string) => css`
+  ${resetButton}
+  align-items: center;
+  background-color: ${bgColor};
+  color: ${labelColor};
+  cursor: pointer;
+  display: flex;
+  font-size: 1.25rem;
+  height: 50px;
+  padding-left: 15px;
+  padding-top: 5px;
+  white-space: nowrap;
+  width: 200px;
+`;
