@@ -30,6 +30,7 @@ exports.login_check = async function(req :Request, res: Response) {
         twitter_token_secret: authInfo.token_secret,
       }};
       const session = req.session;
+      console.log("login_check", session);
       if ( session ) {
         session.passport = passportSession;
         session.user_id = user_id;

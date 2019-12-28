@@ -1,9 +1,58 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import TwAppsConst from '../../TwAppsConst';
+import { mobileMuteButton, theme, pcMuteButton, divIcon, pcDivIcon, pcShowButton } from '../../../../modules/styles/theme';
+import { mediaQ } from '../../../../modules/styles/media';
 
-const ShowTweetsButton = ({ showTweets, onClick }) => {
+const eye_icon = require('../../../../../img/eye_icon.svg');
+const hide_icon = require('../../../../../img/hide_icon.svg');
+
+
+export const createButton = (showTweets: ShowTweets) => {
+  const bgColor = showTweets !== TwAppsConst.SHOW_TWEETS_OPENED
+  ? theme.colors.showButtonColor : theme.colors.hideButtonColor;
+  const labelColor = showTweets !== TwAppsConst.SHOW_TWEETS_OPENED
+  ? theme.colors.buttonLabelColor : theme.colors.basicWhite;
+  return styled.button`
+    ${mobileMuteButton(bgColor, labelColor)}
+    ${mediaQ.pc} {
+      ${pcShowButton()}
+    }
+  `;
+}
+
+export const createIcon = (showTweets: ShowTweets) => {
+  const imgUrl = showTweets !== TwAppsConst.SHOW_TWEETS_OPENED
+  ? eye_icon : hide_icon;
+
+  return styled.div`
+    ${divIcon(imgUrl)};
+    ${mediaQ.pc} {
+      ${pcDivIcon(imgUrl)};
+    }
+  `;
+}
+
+export const LabelForPC = styled.span`
+  display: none;
+  ${mediaQ.pc} {
+    display: inline;
+  }
+`;
+
+type ShowTweets = typeof TwAppsConst.SHOW_TWEETS_OPENED | typeof TwAppsConst.SHOW_TWEETS_CLOSED | typeof TwAppsConst.SHOW_TWEETS_INITIAL;
+
+type ShowTweetsButtonProps = {
+  showTweets: ShowTweets
+  onClick: MouseEventHandler
+}
+
+const ShowTweetsButton = ({ showTweets, onClick }: ShowTweetsButtonProps) => {
+  const Button = createButton(showTweets);
+  const Icon = createIcon(showTweets);
+
   let buttonClassName = 'muted-hide-button';
   let iconClassName = 'hide-icon';
   let buttonLabel = '隠す';
@@ -12,25 +61,20 @@ const ShowTweetsButton = ({ showTweets, onClick }) => {
   if (showTweets !== TwAppsConst.SHOW_TWEETS_OPENED) {
     buttonClassName = 'muted-show-button';
     iconClassName = 'show-icon';
-    buttonLabel = 'チラ見';
+    // buttonLabel = 'チラ見';
   }
 
   return (
-    <button
+    <Button
       type="button"
       className={buttonClassName}
       onClick={onClick}
     >
-      <div className={iconClassName} />
-      {forPCDOM}
-      {buttonLabel}
-    </button>
+      <Icon />
+      <LabelForPC>ツイートを</LabelForPC>
+      {showTweets === TwAppsConst.SHOW_TWEETS_CLOSED ? 'チラ見' : '隠す'}
+    </Button>
   );
-};
-
-ShowTweetsButton.propTypes = {
-  showTweets: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
 };
 
 export default ShowTweetsButton;

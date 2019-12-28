@@ -1,18 +1,18 @@
-.muted-show-button {
-  @include mobile-mute-button($show-button-color);
-}
+// .muted-show-button {
+//   @include mobile-mute-button($show-button-color);
+// }
 
-.show-icon {
-  @include div-icon($image-dir + 'eye_icon.svg');
-}
+// .show-icon {
+//   @include div-icon($image-dir + 'eye_icon.svg');
+// }
 
-.muted-hide-button {
-  @include mobile-mute-button($hide-button-color);
-}
+// .muted-hide-button {
+//   @include mobile-mute-button($hide-button-color);
+// }
 
-.hide-icon {
-  @include div-icon($image-dir + 'hide_icon.svg');
-}
+// .hide-icon {
+//   @include div-icon($image-dir + 'hide_icon.svg');
+// }
 
 .pc-show-button-label {
   display: none;
@@ -32,11 +32,11 @@
     @include pc-show-button;
   }
 
-  .show-icon {
-    @include pc-div-icon($image-dir + 'eye_icon.svg');
-  }
+  // .show-icon {
+  //   @include pc-div-icon($image-dir + 'eye_icon.svg');
+  // }
 
-  .hide-icon {
-    @include pc-div-icon($image-dir + 'hide_icon.svg');
-  }
+  // .hide-icon {
+  //   @include pc-div-icon($image-dir + 'hide_icon.svg');
+  // }
 }

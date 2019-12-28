@@ -1,39 +1,39 @@
 
-@mixin media-forPC {
-  @media screen and (min-width: 768px) {
-    @content;
-  }
-}
+// @mixin media-forPC {
+//   @media screen and (min-width: 768px) {
+//     @content;
+//   }
+// }
 
-@mixin media-forTablet {
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    @content;
-  }
-}
+// @mixin media-forTablet {
+//   @media screen and (min-width: 768px) and (max-width: 1024px) {
+//     @content;
+//   }
+// }
 
-@mixin media-forNotMobile {
-  @media screen and (min-width: 1024px) {
-    @content;
-  }
-}
+// @mixin media-forNotMobile {
+//   @media screen and (min-width: 1024px) {
+//     @content;
+//   }
+// }
 
-// ボタンタグリセット
-@mixin reset-button {
-  appearance: none;
-  background-color: transparent;
-  border: 0;
-  padding: 0;
+// // ボタンタグリセット
+// @mixin reset-button {
+//   appearance: none;
+//   background-color: transparent;
+//   border: 0;
+//   padding: 0;
 
-  &:focus {
-    outline: 0;
-  }
-}
+//   &:focus {
+//     outline: 0;
+//   }
+// }
 
-// aタグリセット {
-@mixin reset-anchor {
-  color: inherit;
-  text-decoration: none;
-}
+// // aタグリセット {
+// @mixin reset-anchor {
+//   color: inherit;
+//   text-decoration: none;
+// }
 
 //携帯用の隠す、チラ見、ミュート、ミュート解除アイコン
 // @mixin div-icon($icon-url) {

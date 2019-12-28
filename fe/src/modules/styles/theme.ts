@@ -31,8 +31,8 @@ export const theme = {
     engHeadFont: "'brush-script-std', sans-serif",
   },
   sizes: {
-    menuAmimationDistance: '220px',
-    muterMenuWidth: '300px',
+    menuAmimationDistance: 220,
+    muterMenuWidth: 300,
     pcHeaderHeight: '280px',
     pcReadmoreHeight: '100px',
   },
@@ -89,16 +89,16 @@ export const mobileMuteButton = (bgColor: string, labelColor: string = theme.col
     width: 50%;
 `;
 
-// export const pcShowButton = () => css`
-//   cursor: pointer;
-//   font-size: 1.25rem;
-//   height: 50px;
-//   justify-content: flex-start;
-//   /* アイコン250px + 名前コンテナ420px + ミュートボタンのpaddingLeft15px - 微調整5px */
-//   padding-left: 680px;
-//   white-space: nowrap;
-//   width: 100%;
-// `;
+export const pcShowButton = () => css`
+  cursor: pointer;
+  font-size: 1.25rem;
+  height: 50px;
+  justify-content: flex-start;
+  /* アイコン250px + 名前コンテナ420px + ミュートボタンのpaddingLeft15px - 微調整5px */
+  padding-left: 680px;
+  white-space: nowrap;
+  width: 100%;
+`;
 
 export const pcMuteButton = (bgColor :string, labelColor: string) => css`
   ${resetButton}

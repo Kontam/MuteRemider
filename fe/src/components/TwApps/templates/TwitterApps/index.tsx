@@ -16,7 +16,6 @@ const TwitterApps = () => {
 
   return (
     <div className="twitter-apps">
-      TwitterApps
       {/* <LoadingImg /> */}
       <TwAppsHeader />
       <AppContent />

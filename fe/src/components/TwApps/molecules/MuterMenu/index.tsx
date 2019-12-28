@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/reducers';
-import { MyThemeProps, resetButton } from '../../../../modules/styles/theme';
+import { theme, MyThemeProps, resetButton } from '../../../../modules/styles/theme';
 import { mediaQ } from '../../../../modules/styles/media';
 const transparent_eye_icon = require('../../../../../img/transparent_eye_icon.svg');
 
@@ -10,7 +10,7 @@ import ToggleMenuButton from '../../atoms/ToggleMenuButton';
 
 const openKeyframes = keyframes`
   0% {
-    left: -220px;
+    left: -${theme.sizes.menuAmimationDistance}px;
   }
   100% {
     left: 0;
@@ -22,7 +22,7 @@ const closeKeyframes = keyframes`
     left: 0;
   }
   100% {
-    left: -220px;
+    left: -${theme.sizes.menuAmimationDistance}px;
   }
 `;
 
