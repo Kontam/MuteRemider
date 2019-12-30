@@ -52,22 +52,9 @@ type ShowTweetsButtonProps = {
 const ShowTweetsButton = ({ showTweets, onClick }: ShowTweetsButtonProps) => {
   const Button = createButton(showTweets);
   const Icon = createIcon(showTweets);
-
-  let buttonClassName = 'muted-hide-button';
-  let iconClassName = 'hide-icon';
-  let buttonLabel = '隠す';
-  let forPCDOM = <span className="pc-show-button-label">ツイートを</span>;
-
-  if (showTweets !== TwAppsConst.SHOW_TWEETS_OPENED) {
-    buttonClassName = 'muted-show-button';
-    iconClassName = 'show-icon';
-    // buttonLabel = 'チラ見';
-  }
-
   return (
     <Button
       type="button"
-      className={buttonClassName}
       onClick={onClick}
     >
       <Icon />

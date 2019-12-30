@@ -5,14 +5,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { mediaQ } from '../../../../modules/styles/media';
 import UnmuteButton from '../../atoms/UnmuteButton';
 import ShowTweetsButton from '../../atoms/ShowTweetsButton';
-import MutedTweetList from '../../MuteReminder/components/MutedTweetList';
+import MutedTweetList from '../TweetList';
 import TwAppsConst from '../../TwAppsConst';
 import { requestUnmuteUser, MutedUser } from '../../../../redux/reducers/resource/mutedUsers';
 import { MyThemeProps } from '../../../../modules/styles/theme';
 import { MutedUserInfo } from '../../../../../bff/controllers/muterController';
 import { RootState } from '../../../../redux/reducers';
 
-const Item = styled.li`
+const Item = styled.li<any>`
   list-style: none;
   width: 100%;
 `;
@@ -78,25 +78,20 @@ type ListedUserProps = {
   isUserMuted: boolean
 };
 
+export type ShowTweets = typeof TwAppsConst.SHOW_TWEETS_INITIAL
+  | typeof TwAppsConst.SHOW_TWEETS_CLOSED
+  | typeof TwAppsConst.SHOW_TWEETS_OPENED;
+
 const stateSelector = (state: RootState) => state.basePath;
 
 const ListedUser = ({ mutedUserInfo, index, isUserMuted } :ListedUserProps) => {
-  const [showTweets, setShowTweets] = useState(TwAppsConst.SHOW_TWEETS_INITIAL);
+  let [showTweets, setShowTweets]:[ShowTweets, Function] = useState(TwAppsConst.SHOW_TWEETS_INITIAL);
   const [listHeight, setListHeight] = useState(0);
   const baseUrl = useSelector(stateSelector);
   const mutedUser = mutedUserInfo.muted_user;
   const dispatch = useDispatch();
 
-  const userClassName = `user-${mutedUser.screen_name}`;
-  const listClassName = `list-${mutedUser.screen_name}`;
-  const itemClassName = `item-${mutedUser.screen_name}`;
-  let itemElems;
-  let userElems;
-
-  useEffect(() => {
-    itemElems = document.getElementsByClassName(itemClassName);
-    userElems = document.getElementsByClassName(userClassName);
-  },[])
+  const listedUserRef = React.createRef<HTMLElement>();
 
   const handleUnmuteClicked = () => {
     const {
@@ -114,27 +109,16 @@ const ListedUser = ({ mutedUserInfo, index, isUserMuted } :ListedUserProps) => {
    * ユーザーのツイート数とツイートリストの高さをステートに保存する
    */
   const handleShowTweetsClicked = () => {
-    const { showTweets } = this.state;
     if (showTweets === TwAppsConst.SHOW_TWEETS_OPENED) {
-      this.setState({ showTweets: TwAppsConst.SHOW_TWEETS_CLOSED });
-      // 固定ヘッダで隠れる分を考慮してスクロールする
-      window.scrollTo(0, this.userElems[0].offsetTop - 50);
+      setShowTweets(TwAppsConst.SHOW_TWEETS_CLOSED);
       return;
     }
-    // アニメーション用にツイートリストの高さを計算する
-    // ListのComponentDidMountでは画像ロード前の高さになってしまうためズレる
-    let listHeight = 0;
-    for (let i = 0; i < this.itemElems.length; i += 1) {
-      // border-bottomの分1pxを加算する
-      listHeight += this.itemElems[i].clientHeight + 1;
-    }
-    this.setState({ listHeight });
-    this.setState({ showTweets: TwAppsConst.SHOW_TWEETS_OPENED });
+    setShowTweets(TwAppsConst.SHOW_TWEETS_OPENED);
   }
-    const TopContainer = createTopContainer(isUserMuted);
+  const TopContainer = createTopContainer(isUserMuted);
 
     return (
-      <Item>
+      <Item ref={listedUserRef}>
         <TopContainer>
           <Icon src={mutedUser.profile_image_url_https} alt="icon" />
           <UserNameContainer>
@@ -147,24 +131,21 @@ const ListedUser = ({ mutedUserInfo, index, isUserMuted } :ListedUserProps) => {
           <UnmuteButton
             isForMobile={false}
             muted={isUserMuted}
-            onClick={() => { this.handleUnmuteClicked(); }}
+            onClick={() => { handleUnmuteClicked(); }}
           />
         </TopContainer>
-        {/* <MutedTweetList
+        <MutedTweetList
           showTweets={showTweets}
-          listClassName={this.listClassName}
-          itemClassName={this.itemClassName}
-          listHeight={listHeight}
           mutedTweets={mutedUserInfo.tweets_info}
-        /> */}
+        />
         <BottomContainer>
           <UnmuteButton
             muted={isUserMuted}
-            onClick={() => { this.handleUnmuteClicked(); }}
+            onClick={() => { handleUnmuteClicked(); }}
           />
           <ShowTweetsButton
             showTweets={showTweets}
-            onClick={() => { this.handleShowTweetsClicked(); }}
+            onClick={() => { handleShowTweetsClicked(); }}
           />
         </BottomContainer>
       </Item>

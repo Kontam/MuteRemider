@@ -75,7 +75,7 @@ const stateSelector = (state: RootState) => ({
   userInfo: state.userInfo,
 });
 
-const MutedUserList = () => {
+const UserList = () => {
   const {basePath, mutedUsers, muted, isMuterMenuOpened, userInfo}: MutedUserListProps = useSelector(stateSelector);
   const dispatch = useDispatch();
   const List = createList(isMuterMenuOpened);
@@ -103,4 +103,4 @@ const MutedUserList = () => {
   );
 }
 
-export default MutedUserList;
+export default UserList;

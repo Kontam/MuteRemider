@@ -1,6 +1,6 @@
 const TwAppsConst = {
   STORAGE_TOKEN: 'key',
-  STYLE_DARK_GRAY: '#bcbcbc',
+  // STYLE_DARK_GRAY: '#bcbcbc',
 
   IMG_DIR_PATH: 'img',
 

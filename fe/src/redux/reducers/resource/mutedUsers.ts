@@ -13,7 +13,7 @@ export type TweetsInfo = {
   tweet_text: string,
   retweet_count: number,
   favorite_count: number,
-  media_infos: string[],
+  media_infos: MediaInfo[],
 }
 
 export type UserInfo = {
@@ -27,7 +27,13 @@ export type UserInfo = {
 
 export type MutedUser = {
   muted_user: UserInfo
-  tweets_info: TweetsInfo
+  tweets_info: TweetsInfo[]
+}
+
+export type MediaInfo = {
+  media_url_https: string
+  short_url: string
+  type: string
 }
 
 type SetMutedUsersAction = {
@@ -49,7 +55,6 @@ export const requestMutedUsers = (endpoint :string, dispatch :Dispatch, params =
   dispatch(startUserRequest());
   requestToServer(endpoint, params)
     .then(({ data }:any) => {
-      console.log(data);
       if ('code' in data[0]) {
         dispatch(setErrMessage(data[0].message));
         dispatch(endUserRequest());
