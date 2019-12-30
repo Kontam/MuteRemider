@@ -61,13 +61,14 @@ export const resetButton = css`
 
 export const divIcon = (iconUrl: string) => css`
   background: url(${iconUrl}) center center / contain no-repeat;
-  height: 25px;
-  margin-right: 5px;
-  width: 35px;
+  flex-shrink: 0;
+  height: 18px;
+  margin-right: 3px;
+  width: 25px;
 `;
 
 export const pcDivIcon = (iconUrl: string) => css`
-  background: ${iconUrl} center center / contain no-repeat;
+  background: url(${iconUrl}) center center / contain no-repeat;
   height: 25px;
   margin-right: 5px;
   width: 35px;

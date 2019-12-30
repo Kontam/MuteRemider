@@ -3,7 +3,7 @@
     "scripts": {
         "dev:next": "next",
         "build:next": "next build",
-        "start:fe": "NODE_ENV=production node bff/index.js",
+        "start:fe": "NODE_PATH=./bff NODE_ENV=production ./node_modules/.bin/ts-node --project tsconfig.bff.json bff/index.ts",
         "start:dev:fe": "NODE_PATH=./bff NODE_ENV=development ./node_modules/.bin/ts-node --project tsconfig.bff.json bff/index.ts",
         "start:nodemon": "nodemon",
         "dev": "npm run development",
