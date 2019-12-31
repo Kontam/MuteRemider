@@ -23,7 +23,7 @@ nextApp.prepare().then(() => {
   app.use(
     session({
       secret: process.env.SESSION_SECRET,
-      resave: true,
+      resave: false,
       saveUninitialized: false,
       // trueが推奨だがhttps通信が必須になるのでproiductionのみとする
       cookie: { secure: process.env.NODE_ENV === 'production' }
@@ -34,9 +34,9 @@ nextApp.prepare().then(() => {
   app.use(passport.session());
 
 
+  //ログイン
   app.get(BffConst.LOGIN_CHECK_SLUG, login_controller.login_check);
   app.get(BffConst.TWITTER_LOGIN_SLUG, passport.authenticate('twitter'));
-
   app.get("/callback", passport.authenticate('twitter',
     {
       successRedirect: '/success',
@@ -49,7 +49,6 @@ nextApp.prepare().then(() => {
   app.get(BffConst.USER_INFO_SLUG, common_controller.user_info);
 
   //ミュートリマインダーAPI
-  // app.get(BffConst.MUTER_TOP_SLUG, muter_controller.muter_top);
   app.get(BffConst.MUTED_LIST_SLUG, muter_controller.muter_muted_users);
 
   // pages/muteriminder

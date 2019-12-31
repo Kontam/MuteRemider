@@ -39,18 +39,13 @@ export type MutedUsersAPIResource = {
  */
 
 exports.muter_muted_users = async function(req :Request,res: Response) {
-  console.log("mutedUsers_session",req.session);
   const extraParams = {
-    user_id: req!.session!.user_id,
+    user_id: req!.session!.passport.user.id,
   }
-  console.log(extraParams);
   let params = {};
   if (req.session) {
     params = createParamsWithToken(req.session, extraParams);
   }
-  const responce = await execRequest(BffConst.API_MUTED_LIST_SLUG, {params});
+  const responce = await execRequest(BffConst.API_MUTED_LIST_SLUG, { params });
   res.send(responce.data);
-}
-
-exports.muter_user_info = function(req :Request, res: Response) {
 }

@@ -21,8 +21,6 @@ exports.user_info = async function(req :Request, res: Response) {
   }
   const responce = await execRequest(BffConst.API_MUTER_TOP_SLUG, {params});
   const userInfo :UserInfo = responce.data;
-  // DB操作のキーとしてセッションにuser_idを保存
-  req!.session!.user_id = userInfo.user_id;
 
   res.send(userInfo);
 }

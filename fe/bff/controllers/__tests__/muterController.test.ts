@@ -8,10 +8,10 @@ jest.mock('../../modules/execRequest');
 describe('ミュートユーザー一覧取得API', () => {
   test('正常終了時、APIリソースをレスポンスする', async () => {
     const req = { session: {
-      user_id: "test_user_id",
       passport:{ user:{
         twitter_token: "test_token",
         twitter_token_secret: "test_token_secret",
+        id: "test_user_id",
       } }
     }, };
     const res = { send: jest.fn().mockReturnThis() };

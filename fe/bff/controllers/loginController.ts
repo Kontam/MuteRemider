@@ -35,14 +35,12 @@ exports.login_check = async function(req :Request, res: Response) {
       const passportSession = { user: {
         twitter_token: authInfo.token,
         twitter_token_secret: authInfo.token_secret,
+        id: user_id,
       }};
       const session = req.session;
-      console.log("login_check", session);
       if ( session ) {
         session.passport = passportSession;
-        session.user_id = user_id;
       }
-      console.log("login_check", session);
       return res.redirect(BffConst.FRONT_MUTER_SLUG);
     }
   }
@@ -60,12 +58,13 @@ exports.login_success = async function(req :Request, res: Response) {
     user_id,
   };
   const params = req.session ? createParamsWithToken(req.session, exrtraParams) : {};
-  const responce = await execRequest(BffConst.API_STORE_LOGIN_SLUG, { params });
-  //TODO エラーハンドリング処理を追記する
-  console.log(responce);
+  const response = await execRequest(BffConst.API_STORE_LOGIN_SLUG, { params });
+  // TODO エラーハンドリング処理を追記する
+  if ( response.data !== 'success' ) {
+    console.log('failed store');
+  }
 
   const token = jwt.sign(user_id, process.env.JWT_SECRET);
-  console.log("jest",token);
   res.cookie("token", token);
   res.redirect(BffConst.FRONT_MUTER_SLUG);
 }
