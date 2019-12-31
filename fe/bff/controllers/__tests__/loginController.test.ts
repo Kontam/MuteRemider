@@ -55,25 +55,42 @@ describe('ログインチェック',() => {
 });
 
 describe('passportログイン後の処理', () => {
+  const req = { session: { passport: { user: {
+    id: '123456789',
+  }}}};
+  const res = {
+    cookie: jest.fn().mockReturnThis(),
+    redirect: jest.fn().mockReturnThis(),
+  };
+  const next = jest.fn().mockReturnThis();
+  const jwtResult = "TEST_TOKEN";
+  beforeEach(() => {
+    res.cookie.mockClear();
+    res.redirect.mockClear();
+    next.mockClear();
+  })
+
   test('jwtトークンをクッキーに埋めてログイン後画面にリダイレクトする',(done) => {
-    const req = { session: { passport: { user: {
-            id: '123456789',
-      }}}};
-    const res = {
-      cookie: jest.fn().mockReturnThis(),
-      redirect: jest.fn().mockReturnThis(),
-    }
-    const axiosResult = "success";
-    const jwtResult = "TEST_TOKEN";
+    const axiosResult = { data: "success" };
     (execRequest as any).mockResolvedValue(axiosResult);
     jwt.sign.mockReturnValue(jwtResult);
-
-    loginController.login_success(req, res).then(() => {
+    loginController.login_success(req, res, next).then(() => {
       assert.strictEqual(res.cookie.mock.calls[0][1], jwtResult);
       assert.strictEqual(res.redirect.mock.calls[0][0], BffConst.FRONT_MUTER_SLUG);
       done();
     });
   })
+
+  test('jwtトークンを処理した後、APIからログイン失敗のレスポンスがあった場合はログインページにリダイレクトする', (done) => {
+    const axiosResult = "failure";
+    (execRequest as any).mockResolvedValue(axiosResult);
+    jwt.sign.mockReturnValue(jwtResult);
+    loginController.login_success(req, res, next).then(() => {
+      assert.strictEqual(next.mock.calls[0][0], BffConst.MSG_API_LOGIN_FAIL);
+      assert.strictEqual(res.redirect.mock.calls[0][0], BffConst.TWITTER_LOGIN_SLUG);
+      done();
+    });
+  });
 });
 
   // jwtの検証エラー時の処理をテストするためモックを解除する

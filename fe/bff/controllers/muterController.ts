@@ -37,7 +37,6 @@ export type MutedUsersAPIResource = {
  * ミュートユーザー一覧を取得するAPI
  * @param {string} user_id DBにログを保存するためのキー
  */
-
 exports.muter_muted_users = async function(req :Request,res: Response) {
   const extraParams = {
     user_id: req!.session!.passport.user.id,

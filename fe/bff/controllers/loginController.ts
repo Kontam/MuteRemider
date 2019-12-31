@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import BffConst from '../const';
 import execRequest from '../modules/execRequest';
 import { createParamsWithToken } from '../modules/createParams';
@@ -22,7 +22,7 @@ exports.login_check = async function(req :Request, res: Response) {
     let user_id;
     try {
       user_id = jwt.verify(token, process.env.JWT_SECRET);
-    }catch(e){
+    } catch(e) {
       console.log("jwt_fail", e);
       res.redirect(BffConst.TWITTER_LOGIN_SLUG);
     }
@@ -52,7 +52,7 @@ exports.login_check = async function(req :Request, res: Response) {
  * passport経由のtwitterログイン成功後の処理
  * cookieにアクセストークンを埋め込んでリダイレクトする
  */
-exports.login_success = async function(req :Request, res: Response) {
+exports.login_success = async function(req :Request, res: Response, next: NextFunction) {
   const user_id = req?.session?.passport.user.id;
   const exrtraParams = {
     user_id,
@@ -61,7 +61,8 @@ exports.login_success = async function(req :Request, res: Response) {
   const response = await execRequest(BffConst.API_STORE_LOGIN_SLUG, { params });
   // TODO エラーハンドリング処理を追記する
   if ( response.data !== 'success' ) {
-    console.log('failed store');
+    next(BffConst.MSG_API_LOGIN_FAIL);
+    res.redirect(BffConst.TWITTER_LOGIN_SLUG);
   }
 
   const token = jwt.sign(user_id, process.env.JWT_SECRET);
@@ -69,7 +70,5 @@ exports.login_success = async function(req :Request, res: Response) {
   res.redirect(BffConst.FRONT_MUTER_SLUG);
 }
 
-
 exports.login_failure = async function(req :Request,res: Response) {
-
 }

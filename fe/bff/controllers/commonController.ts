@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import BffConst from '../const';
 
 import { createParamsWithToken } from '../modules/createParams';
@@ -14,12 +14,12 @@ export type UserInfo = {
 /*
 * ユーザー情報の取得（認証トークンを含む）
 */
-exports.user_info = async function(req :Request, res: Response) {
+exports.user_info = async function(req :Request, res: Response, next: NextFunction) {
   let params = {};
   if (req.session) {
     params = createParamsWithToken(req.session);
   }
-  const responce = await execRequest(BffConst.API_MUTER_TOP_SLUG, {params});
+  const responce = await execRequest(BffConst.API_MUTER_TOP_SLUG, {params}).catch(next);
   const userInfo :UserInfo = responce.data;
 
   res.send(userInfo);

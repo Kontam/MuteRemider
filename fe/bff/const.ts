@@ -24,6 +24,9 @@ const BffConst = {
   //Front Slugs
   FRONT_MUTER_SLUG:'/mutereminder',
 
+  //Messages
+  MSG_API_LOGIN_FAIL: 'login failure',
+
 } as const;
 
 export default BffConst;
