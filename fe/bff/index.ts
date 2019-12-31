@@ -22,7 +22,7 @@ nextApp.prepare().then(() => {
   app.use(cookieParser());
   app.use(
     session({
-      secret: "secret",
+      secret: process.env.SESSION_SECRET,
       resave: true,
       saveUninitialized: false,
       // trueが推奨だがhttps通信が必須になるのでproiductionのみとする
@@ -34,7 +34,7 @@ nextApp.prepare().then(() => {
   app.use(passport.session());
 
 
-  app.get("/login", login_controller.login_check);
+  app.get(BffConst.LOGIN_CHECK_SLUG, login_controller.login_check);
   app.get(BffConst.TWITTER_LOGIN_SLUG, passport.authenticate('twitter'));
 
   app.get("/callback", passport.authenticate('twitter',

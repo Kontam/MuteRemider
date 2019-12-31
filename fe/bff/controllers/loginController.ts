@@ -5,7 +5,7 @@ import { createParamsWithToken } from '../modules/createParams';
 
 const jwt = require('jsonwebtoken');
 
-type AuthInfo = {
+export type AuthInfo = {
   user_id: string,
   token: string,
   token_secret: string,
@@ -19,7 +19,14 @@ type AuthInfo = {
 exports.login_check = async function(req :Request, res: Response) {
   const token = req.cookies.token || "";
   if (token) {
-    const user_id = jwt.verify(token, process.env.JWT_SECRET);
+    let user_id;
+    try {
+      user_id = jwt.verify(token, process.env.JWT_SECRET);
+    }catch(e){
+      console.log("jwt_fail", e);
+      res.redirect(BffConst.TWITTER_LOGIN_SLUG);
+    }
+
     const params = { user_id };
     const responce = await execRequest(BffConst.API_CHECK_LOGIN_API,{ params });
     const authInfo: AuthInfo = responce.data;
@@ -35,12 +42,12 @@ exports.login_check = async function(req :Request, res: Response) {
         session.passport = passportSession;
         session.user_id = user_id;
       }
-      console.log("login_check", req.session);
+      console.log("login_check", session);
       return res.redirect(BffConst.FRONT_MUTER_SLUG);
     }
   }
 
-  return res.redirect(BffConst.TWITTER_LOGIN_SLUG);
+  res.redirect(BffConst.TWITTER_LOGIN_SLUG);
 }
 
 /**
@@ -54,9 +61,11 @@ exports.login_success = async function(req :Request, res: Response) {
   };
   const params = req.session ? createParamsWithToken(req.session, exrtraParams) : {};
   const responce = await execRequest(BffConst.API_STORE_LOGIN_SLUG, { params });
+  //TODO エラーハンドリング処理を追記する
   console.log(responce);
 
   const token = jwt.sign(user_id, process.env.JWT_SECRET);
+  console.log("jest",token);
   res.cookie("token", token);
   res.redirect(BffConst.FRONT_MUTER_SLUG);
 }

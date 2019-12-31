@@ -34,17 +34,10 @@ export type MutedUsersAPIResource = {
 }
 
 /**
- * ミュートリマインダーの初期画面
- * 利用ユーザー本人の情報を取得する
- */
-exports.muter_top = async function(req :Request, res: Response) {
-
-}
-
-/**
  * ミュートユーザー一覧を取得するAPI
  * @param {string} user_id DBにログを保存するためのキー
  */
+
 exports.muter_muted_users = async function(req :Request,res: Response) {
   console.log("mutedUsers_session",req.session);
   const extraParams = {
