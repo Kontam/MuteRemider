@@ -19,7 +19,7 @@ exports.user_info = async function(req :Request, res: Response, next: NextFuncti
   if (req.session) {
     params = createParamsWithToken(req.session);
   }
-  const responce = await execRequest(BffConst.API_MUTER_TOP_SLUG, {params}).catch(next);
+  const responce = await execRequest(BffConst.API_MUTER_TOP_SLUG, {params});
   const userInfo :UserInfo = responce.data;
 
   res.send(userInfo);
