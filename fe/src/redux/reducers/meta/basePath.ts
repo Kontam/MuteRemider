@@ -4,15 +4,15 @@ export const SET_BASEPATH = 'SET_BASEPATH';
 
 export type basePathAction = {
   type :string;
-  payload: string;
+  payload: BasePath;
 }
 
-export const setBasePath = (basePath :string) => (dispatch :Dispatch) => {
-  dispatch({type: SET_BASEPATH, payload: basePath})
-}
+export type BasePath = string;
+
+export const setBasePath = (basePath :BasePath) => ({type: SET_BASEPATH, payload: basePath});
 
 
-const basePath = (state :string = "", action :basePathAction) => {
+const basePath = (state :BasePath = "", action :basePathAction) => {
   switch (action.type) {
     case SET_BASEPATH:
       return action.payload;

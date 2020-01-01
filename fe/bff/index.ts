@@ -50,6 +50,8 @@ nextApp.prepare().then(() => {
 
   //ミュートリマインダーAPI
   app.get(BffConst.MUTED_LIST_SLUG, muter_controller.muter_muted_users);
+  app.get(`${BffConst.UNMUTE_USER_SLUG}/:screen_name`, muter_controller.muter_unmute_user);
+  app.get(`${BffConst.MUTE_USER_SLUG}/:screen_name`, muter_controller.muter_mute_user);
 
   // pages/muteriminder
   app.get(BffConst.FRONT_MUTER_SLUG, (req: any, res: any) => {

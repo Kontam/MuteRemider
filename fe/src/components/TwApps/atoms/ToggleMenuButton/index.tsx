@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setIsMuterMenuOpened } from '../../../../redux/reducers/page/isMuterMenuOpened';
-import { resetButton, MyThemeProps } from '../../../../modules/styles/theme';
+import { resetButton } from '../../../../modules/styles/theme';
 import { mediaQ } from '../../../../modules/styles/media';
 import { RootState } from '../../../../redux/reducers';
 const cross_icon = require('../../../../../img/cross_icon.svg');

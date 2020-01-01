@@ -25,7 +25,7 @@ export const toggleMuted = (index :number): ToggleMutedAction => ({ type: ACTION
 const muted = (state: Muted = [], action: MutedAction) => {
   // stateのアドレスが変わらないとレンダリングがされない
   // 旧stateの値をコピーした変数を用意する
-  const newMuted:any = state.concat();
+  const newMuted: Muted = state.concat();
   switch (action.type) {
   case ACTION_CHANGE_MUTED:
     return action.payload;

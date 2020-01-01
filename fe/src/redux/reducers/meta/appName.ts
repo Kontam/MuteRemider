@@ -3,15 +3,15 @@ import { Dispatch } from 'redux';
 export const SET_APPNAME = 'SET_APPNAME';
 
 interface appNameAction {
-  type :string;
+  type :AppName;
   payload: string;
 }
 
-export const setAppName = (appName :string) => (dispatch :Dispatch) => {
-  dispatch({type: SET_APPNAME, payload: appName})
-}
+export type AppName = string
 
-const appName = (state :string = "", action :appNameAction) => {
+export const setAppName = (appName :AppName) => ({type: SET_APPNAME, payload: appName});
+
+const appName = (state :AppName = "", action :appNameAction) => {
   switch (action.type) {
     case SET_APPNAME:
       return action.payload;

@@ -1,8 +1,9 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import BffConst from '../const';
 
 import execRequest from '../modules/execRequest';
 import { createParamsWithToken } from '../modules/createParams';
+import { exec } from 'child_process';
 
 export type MutedUserInfo = {
   user_id: string,
@@ -45,6 +46,36 @@ exports.muter_muted_users = async function(req :Request,res: Response) {
   if (req.session) {
     params = createParamsWithToken(req.session, extraParams);
   }
-  const responce = await execRequest(BffConst.API_MUTED_LIST_SLUG, { params });
-  res.send(responce.data);
+  const response = await execRequest(BffConst.API_MUTED_LIST_SLUG, { params });
+  res.send(response.data);
+}
+
+/**
+ * 特定のユーザー一人をミュート解除する
+ * @param {string} screen_name　GETパラメータから取得する対象ユーザーの名前
+ */
+exports.muter_unmute_user = async function(req: Request, res: Response, next: NextFunction) {
+  const extraParams = {};
+  let params = {};
+  if(req.session) {
+    params = createParamsWithToken(req.session, extraParams);
+  }
+  const endPoint = BffConst.API_UNMUTE_USER_SLUG + `/${req.params.screen_name || ''}`;
+  const response = await execRequest(endPoint, { params });
+  res.send(response.data);
+}
+
+/**
+ * 特定のユーザー一人をミュートにする
+ * @param {string} screen_name　GETパラメータから取得する対象ユーザーの名前
+ */
+exports.muter_mute_user = async function(req: Request, res: Response, next: NextFunction) {
+  const extraParams = {};
+  let params = {};
+  if(req.session) {
+    params = createParamsWithToken(req.session, extraParams);
+  }
+  const endPoint = BffConst.API_MUTE_USER_SLUG + `/${req.params.screen_name || ''}`;
+  const response = await execRequest(endPoint, { params });
+  res.send(response.data);
 }

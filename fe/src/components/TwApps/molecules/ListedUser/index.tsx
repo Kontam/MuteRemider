@@ -94,9 +94,6 @@ const ListedUser = ({ mutedUserInfo, index, isUserMuted } :ListedUserProps) => {
   const listedUserRef = React.createRef<HTMLElement>();
 
   const handleUnmuteClicked = () => {
-    const {
-      index, mutedUserInfo, baseUrl, isUserMuted
-    } = this.props;
     const accessPath = isUserMuted ?
       TwAppsConst.UNMUTE_USER_ENDPOINT : TwAppsConst.MUTE_USER_ENDPOINT;
 

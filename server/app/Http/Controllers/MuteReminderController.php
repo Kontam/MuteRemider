@@ -87,7 +87,9 @@ class MuteReminderController extends Controller
 
     public function unmute($screen_name) {
         //TwitterOAuthのインスタンスを生成する
-        $objTwitterConnection = createTwitterConnection();
+        $oauth_token = $_GET['twitter_token'];
+        $oauth_token_secret = $_GET['twitter_token_secret'];
+        $objTwitterConnection = createTwitterConnectionWithToken($oauth_token, $oauth_token_secret);
 
         $unmute_params = ['screen_name' => $screen_name];
 
@@ -98,7 +100,9 @@ class MuteReminderController extends Controller
 
     public function mute($screen_name) {
         //TwitterOAuthのインスタンスを生成する
-        $objTwitterConnection = createTwitterConnection();
+        $oauth_token = $_GET['twitter_token'];
+        $oauth_token_secret = $_GET['twitter_token_secret'];
+        $objTwitterConnection = createTwitterConnectionWithToken($oauth_token, $oauth_token_secret);
 
         $mute_params = ['screen_name' => $screen_name];
 

@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 
 import MuterMenu from '../../molecules/MuterMenu';
 import UserList from '../../molecules/UserList';
-// import FatalMessage from '../MuteReminder/components/FatalMessage';
+import FatalMessage from '../../molecules/FatalMessage';
 
 /**
- * 各
+ *
  */
 class ListContainer extends Component {
   constructor(props) {
@@ -18,8 +18,7 @@ class ListContainer extends Component {
     return (
       <div className="mutereminder">
         <MuterMenu />
-        <UserList />
-        {/* { errMessage ? <FatalMessage /> : <MutedUserList /> } */}
+        { errMessage ? <FatalMessage /> : <UserList /> }
       </div>
     );
   }

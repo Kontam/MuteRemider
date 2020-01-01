@@ -1,13 +1,15 @@
 export const ACTION_CHANGE_ERR_MESSAGE = 'CHANG_ERR_MESSAGE';
 
-type SetErrMessageAction = {
+export type SetErrMessageAction = {
   type: typeof ACTION_CHANGE_ERR_MESSAGE
   payload: string
 }
-type ErrMessageAction = SetErrMessageAction;
+export type ErrMessageAction = SetErrMessageAction;
+
+export type ErrMessage = string;
 
 // 致命的なエラーメッセージの指定
-export const setErrMessage = (message: string):SetErrMessageAction => ({ type: ACTION_CHANGE_ERR_MESSAGE, payload: message });
+export const setErrMessage = (message: ErrMessage):SetErrMessageAction => ({ type: ACTION_CHANGE_ERR_MESSAGE, payload: message });
 
 
 // 致命的なエラー発生時に表示するメッセージ

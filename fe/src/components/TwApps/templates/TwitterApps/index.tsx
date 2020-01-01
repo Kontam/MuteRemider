@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import TwAppsHeader from '../../organisms/TwAppsHeader';
 import AppContent from '../../organisms/AppContent';
 import TwAppsConst from '../../TwAppsConst';
-// import LoadingImg from './LoadingImg';
+import FrontDisplayContainer from '../../molecules/FrontDisplayContainer';
 import { requestUserInfo } from '../../../../redux/reducers/resource/userInfo';
 
 const TwitterApps = () => {
@@ -16,7 +16,7 @@ const TwitterApps = () => {
 
   return (
     <div className="twitter-apps">
-      {/* <LoadingImg /> */}
+      <FrontDisplayContainer />
       <TwAppsHeader />
       <AppContent />
     </div>

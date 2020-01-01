@@ -11,7 +11,7 @@ export type UserInfo = {
   user_name: string
   screen_name: string
   profile_image_url_https: string
-}
+} | {};
 
 export type UserInfoAction = {
   type: typeof ACTION_CHANGE_USER_INFO,
