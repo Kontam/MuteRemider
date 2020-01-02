@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+//@ts-ignore
 import Slider from 'react-slick';
 
 import CarouselPage from '../../atoms/CarouselPage';
 import CarouselArrows from '../../molecules/CrouselArrows';
-import StyleConst, { resetButton } from '../../styles/define';
+import StyleConst from '../../styles/define';
 
 import { CarouselInfo, carouselInfos, slickConfig } from './Carousel';
 

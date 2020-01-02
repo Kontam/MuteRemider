@@ -7,7 +7,7 @@ import SNSLinks from '../../../SNSLinks/components/SNSLinks';
 import StyleConst from '../../styles/define';
 import { mediaQ } from '../../../../commonModules/media';
 
-const SNSAdSection = ({ basePath }) => (
+const SNSAdSection = ({ basePath }: {basePath: string}) => (
   <Container>
     <Head>気に入ってくださいましたら</Head>
     <FirstP>{'「あの人は今？チェッカー」は\r\n個人で開発されました'}</FirstP>

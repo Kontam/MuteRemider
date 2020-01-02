@@ -1,9 +1,8 @@
 import React from 'react';
-import styled,{ css } from 'styled-components';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { RootState } from '../../../reducers';
-import { mediaQ } from '../../../commonModules/media';
+import { RootState } from '../../../redux/reducers';
 import StyleConst from '../styles/define';
 import LoginConst from '../LoginConst';
 import AppButtons from '../molecules/AppButtons';

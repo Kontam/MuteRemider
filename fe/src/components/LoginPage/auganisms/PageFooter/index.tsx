@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { mediaQ } from '../../../../commonModules/media';
 import StyleConst from '../../styles/define';
-import LoginConst from '../../LoginConst';
 import OwnerInfo from '../../molecules/OwnerInfo';
 
 const PageFooter = () => (

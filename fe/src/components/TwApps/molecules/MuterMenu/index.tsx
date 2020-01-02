@@ -31,7 +31,7 @@ const closeKeyframes = keyframes`
  * 開閉状態を動的に変更し、かつテスト可能にするために関数にする
  * @param {boolean} isOpened メニューの開閉を表すboolean
  */
-export const createContainer = (isOpened) => styled.div<any>`
+export const createContainer = (isOpened :boolean) => styled.div<any>`
   background-color: ${({ theme }: MyThemeProps<{}>) => theme.colors.basicGray};
   bottom: 0;
   display: flex;

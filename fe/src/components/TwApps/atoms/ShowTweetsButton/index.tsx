@@ -1,9 +1,8 @@
 import React, { MouseEventHandler } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import TwAppsConst from '../../TwAppsConst';
-import { mobileMuteButton, theme, pcMuteButton, divIcon, pcDivIcon, pcShowButton } from '../../../../modules/styles/theme';
+import { mobileMuteButton, theme, divIcon, pcDivIcon, pcShowButton } from '../../../../modules/styles/theme';
 import { mediaQ } from '../../../../modules/styles/media';
 
 const eye_icon = require('../../../../../img/eye_icon.svg');

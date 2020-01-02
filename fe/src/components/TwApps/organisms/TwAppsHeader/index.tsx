@@ -38,8 +38,8 @@ type TwAppsHeaderState = {
  * TwitterAppsの共通ヘッダ
  * 全アプリ感で共通のアイコン、メニューなどを提供する
  */
-class TwAppsHeader extends React.Component<TwAppsHeaderProps, TwAppsHeaderState> {
-  constructor(props) {
+class TwAppsHeader extends React.Component<any, TwAppsHeaderState> {
+  constructor(props :any) {
     super(props);
     this.state = {
       menu: TwAppsConst.HEADER_MENU_INITIAL,

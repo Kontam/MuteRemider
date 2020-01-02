@@ -13,8 +13,8 @@ const Page: NextPage = () => {
     <>
       <Head />
       <TwitterApps
-        basePath={base_path}
-        appName={TwAppsConst.APPNAME_MUTER}
+        // basePath={base_path}
+        // appName={TwAppsConst.APPNAME_MUTER}
       />
     </>
   );

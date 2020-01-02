@@ -17,7 +17,7 @@ const Item = styled.li<any>`
   width: 100%;
 `;
 
-const createTopContainer = (isMuted) => styled.div`
+const createTopContainer = (isMuted :boolean) => styled.div`
   align-items: center;
   background: ${isMuted
   ? ({ theme } : MyThemeProps<{}>) => theme.colors.basicWhite

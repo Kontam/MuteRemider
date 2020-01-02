@@ -2,7 +2,7 @@ import React from 'react';
 import styled, {css} from 'styled-components';
 import { connect } from 'react-redux';
 
-import { RootState } from '../../../reducers';
+import { RootState } from '../../../redux/reducers';
 import LoginConst from '../LoginConst';
 import { mediaQ } from '../../../commonModules/media';
 import StyleConst from '../styles/define';

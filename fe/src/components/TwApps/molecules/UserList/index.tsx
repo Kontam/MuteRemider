@@ -10,6 +10,7 @@ import { UserInfo } from '../../../../redux/reducers/resource/userInfo';
 import { MyThemeProps } from '../../../../modules/styles/theme';
 import { mediaQ } from '../../../../modules/styles/media';
 import { theme } from '../../../../modules/styles/theme';
+import { Muted } from '../../../../redux/reducers/resource/muted';
 
 const mute_icon = require('../../../../../img/mute_icon.svg');
 
@@ -61,7 +62,7 @@ const createList = (isMenuOpened: boolean) => styled.ul`
 
 type MutedUserListProps = {
   mutedUsers: MutedUser[],
-  muted: boolean,
+  muted: Muted,
   basePath: string,
   isMuterMenuOpened: boolean,
   userInfo: UserInfo,
@@ -76,7 +77,7 @@ const stateSelector = (state: RootState) => ({
 });
 
 const UserList = () => {
-  const {basePath, mutedUsers, muted, isMuterMenuOpened, userInfo}: MutedUserListProps = useSelector(stateSelector);
+  const {basePath, mutedUsers, muted, isMuterMenuOpened}: MutedUserListProps = useSelector(stateSelector);
   const dispatch = useDispatch();
   const List = createList(isMuterMenuOpened);
 

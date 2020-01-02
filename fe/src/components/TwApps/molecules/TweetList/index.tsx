@@ -30,7 +30,7 @@ type Props = {
  */
 const TweetList = ({ showTweets, mutedTweets, }: Props) => {
   const [maxHeight, setMaxHeight] = useState(0);
-  const itemWrapperRefs = [];
+  const itemWrapperRefs: React.RefObject<HTMLElement>[] = [];
   mutedTweets.forEach(() => {
     itemWrapperRefs.push(React.createRef<HTMLElement>());
   })

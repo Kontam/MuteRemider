@@ -45,7 +45,7 @@ export const slickConfig = {
   dragable: true,
   nextArrow: <CarouselArrow imgSrc={arrowLeft} direction={LoginConst.ARROW_DIRECTION_LEFT} />,
   prevArrow: <CarouselArrow imgSrc={arrowRight} direction={LoginConst.ARROW_DIRECTION_RIGHT} />,
-  appendDots: dots => <DotList>{dots}</DotList>,
+  appendDots: (dots :any) => <DotList>{dots}</DotList>,
   customPaging: () => CarouselDot(),
   responsive: [{
     breakpoint: LoginConst.BREAKPOINT_TABLET,

@@ -29,9 +29,9 @@ export const commonInitialState :RootState = {
   isMuterMenuOpened: true,
   userInfo :{},
   mutedUsers :[],
-  muted :"",
-  muteRequestStatus :"initial",
-  userRequestStatus :"initial",
+  muted :[],
+  muteRequestStatus :"complete",
+  userRequestStatus :"complete",
   errMessage :"",
   popUpMessage :"",
 }

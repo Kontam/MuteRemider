@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "./built/",
     "sourceMap": true,
-    "strict": true,
+    "strict": false,
     "noImplicitReturns": true,
     "noImplicitAny": true,
     "module": "esnext",
@@ -29,10 +29,10 @@
     "vendor"
   ],
   "include": [
-    "src/**/*.ts",
-    "bff/**/*.ts",
-    "resources/js/**/*.ts",
-    "resources/js/**/*.tsx",
-    "tests/Puppeteer/**/*.ts",
+    "src/**/*",
+    // "bff/**/*.ts",
+    // "resources/js/**/*.ts",
+    // "resources/js/**/*.tsx",
+    // "tests/Puppeteer/**/*.ts",
   ]
 }

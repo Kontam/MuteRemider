@@ -127,7 +127,11 @@ type Props = {
   mutedTweet: TweetsInfo
 };
 
-const MutedTweet: React.FC<Props> = ({ mutedTweet }: Props) => {
+/**
+ * ユーザーのツイートを表すコンポーネント
+ * @param {TweetsInfo} mutedTweet ツイート情報（１件）
+ */
+const Tweet: React.FC<Props> = ({ mutedTweet }: Props) => {
   return (
     <Container>
       <TweetText>{mutedTweet.tweet_text}</TweetText>
@@ -160,4 +164,4 @@ const MutedTweet: React.FC<Props> = ({ mutedTweet }: Props) => {
   );
 };
 
-export default MutedTweet;
+export default Tweet;

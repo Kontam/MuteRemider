@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { RootState } from '../../../../reducers';
+import { RootState } from '../../../../redux/reducers';
 
 import PageHeader from '../../auganisms/PageHeader';
 import LoginSection from '../../auganisms/LoginSection';
