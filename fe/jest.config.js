@@ -4,7 +4,7 @@ module.exports = {
   testEnvironment: 'node',
   transform: {
     "^.+\\.svg$": "<rootDir>/svgTransform.js",
-    "^.+\\.tsx?$": "ts-jest"
+    "^.+\\.(tsx|ts|js)?$": "ts-jest"
   },
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
   moduleFileExtensions: [
@@ -19,5 +19,7 @@ module.exports = {
     'ts-jest': {
       tsConfig: 'tsconfig.test.json'
     }
-  }
+  },
+  // StoryBook snapshotsテスト用
+  setupFiles: ['<rootDir>/.jest/register-context.js']
 };

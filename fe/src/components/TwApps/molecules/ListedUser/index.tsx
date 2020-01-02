@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -9,8 +9,8 @@ import MutedTweetList from '../TweetList';
 import TwAppsConst from '../../TwAppsConst';
 import { requestUnmuteUser, MutedUser } from '../../../../redux/reducers/resource/mutedUsers';
 import { MyThemeProps } from '../../../../modules/styles/theme';
-import { MutedUserInfo } from '../../../../../bff/controllers/muterController';
 import { RootState } from '../../../../redux/reducers';
+import { setIsMuterMenuOpened } from '../../../../redux/reducers/page/isMuterMenuOpened';
 
 const Item = styled.li<any>`
   list-style: none;
@@ -86,11 +86,9 @@ const stateSelector = (state: RootState) => state.basePath;
 
 const ListedUser = ({ mutedUserInfo, index, isUserMuted } :ListedUserProps) => {
   let [showTweets, setShowTweets]:[ShowTweets, Function] = useState(TwAppsConst.SHOW_TWEETS_INITIAL);
-  const [listHeight, setListHeight] = useState(0);
   const baseUrl = useSelector(stateSelector);
   const mutedUser = mutedUserInfo.muted_user;
   const dispatch = useDispatch();
-
   const listedUserRef = React.createRef<HTMLElement>();
 
   const handleUnmuteClicked = () => {
@@ -103,6 +101,7 @@ const ListedUser = ({ mutedUserInfo, index, isUserMuted } :ListedUserProps) => {
   }
 
   /**
+   * 「ツイートを見る」ボタンクリック時の動作
    * ユーザーのツイート数とツイートリストの高さをステートに保存する
    */
   const handleShowTweetsClicked = () => {
@@ -112,6 +111,7 @@ const ListedUser = ({ mutedUserInfo, index, isUserMuted } :ListedUserProps) => {
     }
     setShowTweets(TwAppsConst.SHOW_TWEETS_OPENED);
   }
+
   const TopContainer = createTopContainer(isUserMuted);
 
     return (

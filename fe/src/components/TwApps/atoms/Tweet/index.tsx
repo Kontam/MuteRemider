@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
-import convertBreak from '../../MuteReminder/modules/convertBreak';
 import { TweetsInfo } from '../../../../redux/reducers/resource/mutedUsers';
 import { mediaQ } from '../../../../modules/styles/media';
 import { resetAnchor, MyThemeProps, divIcon } from '../../../../modules/styles/theme';

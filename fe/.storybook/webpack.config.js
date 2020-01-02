@@ -7,6 +7,11 @@ module.exports = ({ config }) => {
     loader: require.resolve('babel-loader'),
     options: {
       presets: [require.resolve('babel-preset-react-app')],
+      env: {
+        test: {
+          plugins: ["require-context-hook"]
+        }
+      }
     },
   })
 

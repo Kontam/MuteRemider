@@ -1,9 +1,10 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../../../redux/reducers';
 import { theme, MyThemeProps, resetButton } from '../../../../modules/styles/theme';
 import { mediaQ } from '../../../../modules/styles/media';
+import { setIsMuterMenuOpened } from '../../../../redux/reducers/page/isMuterMenuOpened';
 const transparent_eye_icon = require('../../../../../img/transparent_eye_icon.svg');
 
 import ToggleMenuButton from '../../atoms/ToggleMenuButton';
@@ -81,10 +82,19 @@ const isOpendSelector = (state: RootState) => state.isMuterMenuOpened;
 const MuterMenu = () => {
   const isOpened = useSelector(isOpendSelector);
   const Container = createContainer(isOpened);
+  const dispatch = useDispatch();
+  const onMenuButtonClick = () => {
+    isOpened
+    ? dispatch(setIsMuterMenuOpened(false))
+    : dispatch(setIsMuterMenuOpened(true))
+  };
 
   return(
     <Container>
-    <ToggleMenuButton />
+    <ToggleMenuButton
+      onClick={() => {onMenuButtonClick();}}
+      isMenuOpened={isOpened}
+    />
       <CountButton>
         <span className="tweets-count">3</span>
       </CountButton>

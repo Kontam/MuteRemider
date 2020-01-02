@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setIsMuterMenuOpened } from '../../../../redux/reducers/page/isMuterMenuOpened';
+import { setIsMuterMenuOpened, IsMuterMenuOpened } from '../../../../redux/reducers/page/isMuterMenuOpened';
 import { resetButton } from '../../../../modules/styles/theme';
 import { mediaQ } from '../../../../modules/styles/media';
 import { RootState } from '../../../../redux/reducers';
@@ -33,28 +33,24 @@ export const Button = styled.button`
   }
 `;
 
-const isOpenedSelector = (state: RootState):boolean => state.isMuterMenuOpened;
+type Props = {
+  onClick: React.MouseEventHandler,
+  isMenuOpened: IsMuterMenuOpened,
+}
+
 
 /**
  * メニュー開閉状態をトグルするボタン
  * 状態に応じてアイコン画像を変える
- * @param {boolean} isOpened 開いてるときはtrue
+ * @param {boolean} isMenuOpened 開いてるときはtrue
+ * @param {function} onClick メニュー開閉処理
  */
-const ToggleMuterMenuButton = () => {
-  const isOpened = useSelector(isOpenedSelector);
-  const dispatch = useDispatch();
-  const imgUrl = isOpened ? `${cross_icon}` : `${hambargar_icon}`;
-  const handleToggleClicked = () => {
-    if (isOpened) {
-      dispatch(setIsMuterMenuOpened(false));
-      return;
-    }
-      dispatch(setIsMuterMenuOpened(true));
-  }
+const ToggleMuterMenuButton = ({ onClick, isMenuOpened }: Props) => {
+  const imgUrl = isMenuOpened ? `${cross_icon}` : `${hambargar_icon}`;
   return (
     <Container>
       <Button
-        onClick={() => { handleToggleClicked(); }}
+        onClick={onClick}
       >
         <Icon className="menu-toggle-icon" src={imgUrl} alt="close"/>
       </Button>
