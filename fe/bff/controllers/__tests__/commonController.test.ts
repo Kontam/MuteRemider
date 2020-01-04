@@ -21,6 +21,6 @@ describe('ログインユーザー情報の取得処理', () => {
     (execRequest as any).mockReturnValue(axiosResult);
 
     await commonController.user_info(req, res);
-    assert.deepStrictEqual(res.send.mock.calls[0][0], "axiosResult.data");
+    assert.deepStrictEqual(res.send.mock.calls[0][0], axiosResult.data);
   });
 });
