@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ../fe
+cd ../../fe
 npm install
 npx jest
 if [ $? = 0 ]; then
