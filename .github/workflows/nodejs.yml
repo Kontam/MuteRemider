@@ -22,5 +22,6 @@ jobs:
         cd fe
         npm install
         npx jest
+        curl -X POST --data-urlencode "payload={\"channel\": \"#development\", \"text\": \"GitHubでのジョブが終了したようです。\"}" https://hooks.slack.com/services/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
       env:
         CI: true
