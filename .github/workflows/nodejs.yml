@@ -23,10 +23,10 @@ jobs:
         npm install
         npx jest
         if [ $? = 0 ]; then
-          BOT_MESSAGE="@here\nGitHubのジョブは無事に成功したようです。\nお疲れ様でした。"
+          BOT_MESSAGE="<!here>\nGitHubのジョブは無事に成功したようです。\nお疲れ様でした。"
           STATUS=0
         else
-          BOT_MESSAGE="@here\nGitHubのジョブが失敗したようです。お手隙の際に確認してくださいね。\nhttps://github.com/Kanta0111/MuteRemider/actions"
+          BOT_MESSAGE="<!here>\nGitHubのジョブが失敗したようです。お手隙の際に確認してくださいね。\nhttps://github.com/Kanta0111/MuteRemider/actions"
           STATUS=1
         fi
 
