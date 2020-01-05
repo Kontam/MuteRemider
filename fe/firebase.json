@@ -1,6 +1,12 @@
 {
   "functions": {
-    "source": "dist/bff"
+    "source": "dist/bff",
+    "predeploy": [
+      "npm run build-funcs",
+      "npm run build-app",
+      "npm run copy-deps",
+      "npm run install-deps"
+    ]
   },
   "hosting": {
     "public": "dist/public",

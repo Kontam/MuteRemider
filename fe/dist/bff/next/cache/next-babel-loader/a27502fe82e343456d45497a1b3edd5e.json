@@ -1,0 +1,1 @@
+{"ast":null,"code":"import axios from 'axios';\n\nconst requestToServer = (endpoint, params = {}) => axios.get(endpoint, params).then(result => {\n  const {\n    data,\n    status\n  } = result;\n  return {\n    data,\n    status\n  };\n});\n\nexport default requestToServer;","map":null,"metadata":{},"sourceType":"module"}

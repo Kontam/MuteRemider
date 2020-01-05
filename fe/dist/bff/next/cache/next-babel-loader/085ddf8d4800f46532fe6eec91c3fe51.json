@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const mediaQ = {\n  pc: '@media screen and (min-width: 768px)',\n  tablet: '@media screen and (min-width: 768px) and (max-width: 1024px)',\n  notMobile: '@media screen and (min-width: 1024px)'\n};","map":null,"metadata":{},"sourceType":"module"}
