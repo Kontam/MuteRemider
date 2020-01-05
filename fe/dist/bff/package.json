@@ -108,6 +108,7 @@
     "jest-enzyme": "^7.1.2",
     "jsonwebtoken": "^8.5.1",
     "next": "^9.1.5",
+    "next-routes": "^1.4.2",
     "passport": "^0.4.1",
     "passport-twitter": "^1.0.4",
     "prop-types": "^15.7.2",
