@@ -12,7 +12,7 @@ const session = require("express-session");
 const routes = require("next-routes");
 // const port :any = parseInt(process.env.PORT as string, 10) || 80;
 const dev = process.env.NODE_ENV !== "production";
-const nextApp = next({ dev, conf: { distDir: 'next' } });
+const nextApp = next({ dev: false, conf: { distDir: 'next' } });
 const const_1 = __importDefault(require("./const")); //Nextの初期処理以降に記述しなければDotenvが動作しない
 const login_controller = require('./controllers/loginController');
 const muter_controller = require('./controllers/muterController');
