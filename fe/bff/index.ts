@@ -1,13 +1,15 @@
+const functions = require("firebase-functions");
 const express = require("express");
 const next = require("next");
 const http = require("http");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const port :any = parseInt(process.env.PORT as string, 10) || 80;
+// const port :any = parseInt(process.env.PORT as string, 10) || 80;
 const dev = process.env.NODE_ENV !== "production";
 const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
-import BffConst from './const'; //Nextの初期処理以降に記述しなければDotenvが動作しない
+import BffConst from './const';
+//Nextの初期処理以降に記述しなければDotenvが動作しない
 
 const login_controller = require('./controllers/loginController');
 const muter_controller = require('./controllers/muterController');
@@ -17,7 +19,8 @@ const passport = auth.passport;
 
 export {};
 
-nextApp.prepare().then(() => {
+export const Next = functions.https.onRequest((req:any, res:any) => {
+  return nextApp.prepare().then(() => {
   const app = express();
   app.use(cookieParser());
   app.use(
@@ -68,11 +71,10 @@ nextApp.prepare().then(() => {
     return handle(req, res);
   });
 
-
-  const server = http.createServer(app);
-  server.listen(port, (err :any) => {
-    if (err) throw err;
-    console.log(`>Server is running`);
-  });
+  // const server = http.createServer(app);
+  // server.listen(port, (err :any) => {
+  //   if (err) throw err;
+  //   console.log(`>Server is running`);
+  // });
 });
-
+});

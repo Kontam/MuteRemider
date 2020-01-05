@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./built/",
+    "outDir": "./dist/functions/",
     "sourceMap": true,
     "strict": false,
     "noImplicitReturns": true,

@@ -1,0 +1,41 @@
+{
+  "modules": {
+    "byIdentifier": {},
+    "usedIds": {}
+  },
+  "chunks": {
+    "byName": {
+      "commons": 0,
+      "static/runtime/webpack.js": 1,
+      "static/hOP6OIedqNYWrd9LArRUN/pages/BlockReminder.js": 2,
+      "static/hOP6OIedqNYWrd9LArRUN/pages/_app.js": 3,
+      "static/hOP6OIedqNYWrd9LArRUN/pages/_error.js": 4,
+      "static/hOP6OIedqNYWrd9LArRUN/pages/index.js": 5,
+      "static/hOP6OIedqNYWrd9LArRUN/pages/mutereminder.js": 6,
+      "static/runtime/main.js": 7,
+      "static/runtime/polyfills.js": 8,
+      "static/RfVBU7tk_rnZuSou71QYu/pages/BlockReminder.js": 9,
+      "static/RfVBU7tk_rnZuSou71QYu/pages/_app.js": 10,
+      "static/RfVBU7tk_rnZuSou71QYu/pages/_error.js": 11,
+      "static/RfVBU7tk_rnZuSou71QYu/pages/index.js": 12,
+      "static/RfVBU7tk_rnZuSou71QYu/pages/mutereminder.js": 13,
+      "static/8Ra8GI3DZbrQTYdVdZjkP/pages/BlockReminder.js": 2,
+      "static/8Ra8GI3DZbrQTYdVdZjkP/pages/_app.js": 3,
+      "static/8Ra8GI3DZbrQTYdVdZjkP/pages/_error.js": 4,
+      "static/8Ra8GI3DZbrQTYdVdZjkP/pages/index.js": 5,
+      "static/8Ra8GI3DZbrQTYdVdZjkP/pages/mutereminder.js": 6
+    },
+    "bySource": {},
+    "usedIds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  }
+}

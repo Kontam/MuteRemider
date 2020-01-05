@@ -1,7 +1,6 @@
 
 {
   "compilerOptions": {
-    "outDir": "./built/",
     "sourceMap": true,
     "strict": true,
     "noImplicitReturns": true,
@@ -29,7 +28,6 @@
     "vendor"
   ],
   "include": [
-    "src/**/*.ts",
-    "bff/**/*.ts",
+    "bff/index.ts",
   ]
 }

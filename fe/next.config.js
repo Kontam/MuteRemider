@@ -7,6 +7,7 @@ const withImages = require('next-images')
 const withSass = require('@zeit/next-sass')
 module.exports = withImages(withSass({
     cssModules: true,
+    distDir: '/dist/bff/next',
     webpack: config => {
       config.plugins = config.plugins || []
       config.plugins = [
