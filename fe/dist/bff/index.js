@@ -11,7 +11,7 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 // const port :any = parseInt(process.env.PORT as string, 10) || 80;
 const dev = process.env.NODE_ENV !== "production";
-const nextApp = next({ dev });
+const nextApp = next({ dev: false, conf: { distDir: 'next' } });
 const handle = nextApp.getRequestHandler();
 const const_1 = __importDefault(require("./const"));
 //Nextの初期処理以降に記述しなければDotenvが動作しない
@@ -25,7 +25,8 @@ exports.Next = functions.https.onRequest((req, res) => {
         const app = express();
         app.use(cookieParser());
         app.use(session({
-            secret: process.env.SESSION_SECRET,
+            // secret: process.env.SESSION_SECRET,
+            secret: "temp secret",
             resave: false,
             saveUninitialized: false,
             // trueが推奨だがhttps通信が必須になるのでproiductionのみとする

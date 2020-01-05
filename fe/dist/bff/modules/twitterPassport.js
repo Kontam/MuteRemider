@@ -9,8 +9,10 @@ const jwt = require('jsonwebtoken');
 const TwitterStrategy = require('passport-twitter');
 const passport = require('passport');
 exports.passport = passport;
-const twitterConsumerKey = process.env.CONSUMER_KEY;
-const twitterSecretKey = process.env.CONSUMER_SECRET;
+// const twitterConsumerKey = process.env.CONSUMER_KEY;
+// const twitterSecretKey = process.env.CONSUMER_SECRET;
+const twitterConsumerKey = "AF1zSzO8jstlQbYn7Q5saL7km";
+const twitterSecretKey = "OUjeMSBmbxcMJI2PiLEHsrKq4tte7KL9GMGidEa4PqkNyrKTFJ";
 const callbackURL = `${const_1.default.BASE_URL}${const_1.default.CALLBACK_SLUG}`;
 passport.serializeUser(function (user, done) {
     done(null, user);

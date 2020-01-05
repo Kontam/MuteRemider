@@ -6,8 +6,10 @@ const jwt = require('jsonwebtoken');
 const TwitterStrategy = require('passport-twitter');
 const passport = require('passport');
 
-const twitterConsumerKey = process.env.CONSUMER_KEY;
-const twitterSecretKey = process.env.CONSUMER_SECRET;
+// const twitterConsumerKey = process.env.CONSUMER_KEY;
+// const twitterSecretKey = process.env.CONSUMER_SECRET;
+const twitterConsumerKey = "AF1zSzO8jstlQbYn7Q5saL7km";
+const twitterSecretKey = "OUjeMSBmbxcMJI2PiLEHsrKq4tte7KL9GMGidEa4PqkNyrKTFJ";
 const callbackURL = `${BffConst.BASE_URL}${BffConst.CALLBACK_SLUG}`;
 
 
