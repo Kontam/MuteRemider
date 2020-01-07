@@ -12,3 +12,4 @@ yarn-error.log
 server/config/const.php
 .DS_store
 .next
+dist

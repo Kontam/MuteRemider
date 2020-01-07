@@ -14,8 +14,10 @@ export type UserInfo = {
 /*
 * ユーザー情報の取得（認証トークンを含む）
 */
-exports.user_info = async function(req :Request, res: Response, next: NextFunction) {
+exports.user_info = async function(req :Request, res: Response) {
   let params = {};
+  console.log("commonController",req.session)
+  console.log("commonController",req.sessionID);
   if (req.session) {
     params = createParamsWithToken(req.session);
   }

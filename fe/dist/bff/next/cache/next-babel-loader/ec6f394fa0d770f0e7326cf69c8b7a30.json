@@ -1,1 +1,0 @@
-{"ast":null,"code":"const SNSLinksConst = {\n  LOG_FILENAME_KEY: 'f_name',\n  LOG_SNS_FILENAME: 'js_sns',\n  LOG_SNS_KEY_NAME: 'sns_name',\n  LOG_SNS_KEY_SHARE_URL: 'share_url'\n};\nexport default SNSLinksConst;","map":null,"metadata":{},"sourceType":"module"}

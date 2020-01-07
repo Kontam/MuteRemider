@@ -19,7 +19,10 @@ export type UserInfoAction = {
 }
 
 // ミュートユーザーのリストを取得し、ミュート状態のstateを初期化する
-export const requestUserInfo = (endpoint: string,) => (dispatch: Dispatch) => {
+export const requestUserInfo = (
+  endpoint: string,
+  dispatch: Dispatch,
+  ) => {
   dispatch(startUserRequest());
   requestToServer(endpoint)
     .then(({ data }) => {
