@@ -21,7 +21,7 @@ const TwitterApps = ({ basePath }: Props) => {
      * Loadingのステータスを見て発行を待ち合わせるようにする
      * ２つ以上同時に走ると少なくともfirebaseではセッションが維持できなくなる模様
      */
-    setTimeout(() => {requestUserInfo(basePath　+ TwAppsConst.USER_INFO_ENDPOINT, dispatch)}, 5000);
+    requestUserInfo(basePath　+ TwAppsConst.USER_INFO_ENDPOINT, dispatch)
     dispatch(setBasePath(basePath));
   },[])
 
