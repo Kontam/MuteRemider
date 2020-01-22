@@ -20,7 +20,7 @@ Route::get('/login_check_api', 'LoginController@checkAuthrized');
 // Route::get('/show', 'MuteReminderController@list');
 Route::get('/muter_top', 'MuteReminderController@top');
 
-Route::get('/user_api', 'MuteReminderController@authorized_user_api');
+// Route::get('/user_api', 'MuteReminderController@authorized_user_api');
 Route::get('/muted_list_api', 'MuteReminderController@list_api');
 Route::get('/unmute_api/{screen_name}', 'MuteReminderController@unmute');
 Route::get('/mute_api/{screen_name}', 'MuteReminderController@mute');
