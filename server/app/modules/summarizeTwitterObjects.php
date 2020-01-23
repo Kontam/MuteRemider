@@ -3,6 +3,7 @@ require_once(__DIR__ . '/TwitterAPIErrorCheck.php');
 
 function summarizeUserInfo($user_obj)
 {
+    print_r($user_obj);
     // デフォルトアイコンはnormalサイズ(48x48)なのでoriginalに変更(500x500)
     $original_image_url = replaceProfileImgUrl($user_obj->profile_image_url_https, 'original');
 
