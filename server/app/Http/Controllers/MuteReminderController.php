@@ -113,13 +113,12 @@ class MuteReminderController extends Controller
 
     public function top()
     {
-      Log::debug($_GET);
+      // Log::debug($_GET);
       $oauth_token = $_GET['twitter_token'];
       $oauth_token_secret = $_GET['twitter_token_secret'];
 
       //TwitterOAuthのインスタンスを生成する
       $objTwitterConnection = createTwitterConnectionWithToken($oauth_token, $oauth_token_secret);
-      Log::debug(print_r($objTwitterConnection, true));
       // エラー配列が返却されて入ればそれがレスポンスになる
       if(! checkTwitterConnection($objTwitterConnection)) {
           return response()->json($objTwitterConnection);
@@ -132,7 +131,6 @@ class MuteReminderController extends Controller
       ];
 
       $authorized_user_info = $objTwitterConnection->get('account/verify_credentials', $params);
-      Log::debug(print_r($authorized_user_info, true));
       $summarized_user_info = summarizeUserInfo($authorized_user_info);
 
       // ユーザーIDをクッキーに保存

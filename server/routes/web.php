@@ -30,4 +30,4 @@ Route::get('/block_list_api', 'BlockReminderController@block_list');
 
 // テストコード
 // 動作確認を行わないときはコメントアウトされていて良い
-Route::get('/test', 'TestController@test');
+// Route::get('/test', 'TestController@test');
