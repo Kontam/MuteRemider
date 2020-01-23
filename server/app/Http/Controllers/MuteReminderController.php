@@ -18,7 +18,7 @@ class MuteReminderController extends Controller
 {
     public function list_api(Request $request)
     {
-        Log::debug($_GET);
+        //Log::debug($_GET);
         $oauth_token = $_GET['twitter_token'];
         $oauth_token_secret = $_GET['twitter_token_secret'];
         $objTwitterConnection = createTwitterConnectionWithToken($oauth_token, $oauth_token_secret);
@@ -113,12 +113,13 @@ class MuteReminderController extends Controller
 
     public function top()
     {
-      // Log::debug($_GET);
+      Log::debug($_GET);
       $oauth_token = $_GET['twitter_token'];
       $oauth_token_secret = $_GET['twitter_token_secret'];
 
       //TwitterOAuthのインスタンスを生成する
       $objTwitterConnection = createTwitterConnectionWithToken($oauth_token, $oauth_token_secret);
+      Log::debug(print_r($objTwitterConnection, true));
       // エラー配列が返却されて入ればそれがレスポンスになる
       if(! checkTwitterConnection($objTwitterConnection)) {
           return response()->json($objTwitterConnection);
