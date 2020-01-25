@@ -18,7 +18,7 @@ class MuteReminderController extends Controller
 {
     public function list_api(Request $request)
     {
-        Log::debug($_GET);
+        //Log::debug($_GET);
         $oauth_token = $_GET['twitter_token'];
         $oauth_token_secret = $_GET['twitter_token_secret'];
         $objTwitterConnection = createTwitterConnectionWithToken($oauth_token, $oauth_token_secret);
