@@ -1,14 +1,14 @@
 require('dotenv').config()
-const functions = require("firebase-functions");
+// const functions = require("firebase-functions");
 const express = require("express");
 const next = require("next");
 const http = require("http");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const port :any = parseInt(process.env.PORT as string, 10) || 80;
+const port :any = parseInt(process.env.PORT as string, 10) || 5000;
 const dev = process.env.NODE_ENV !== "production";
-const nextApp = next({ dev: false, conf: { distDir: 'next' } });
-// const nextApp = next({ dev });
+// const nextApp = next({ dev: false, conf: { distDir: 'next' } });
+const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
 import BffConst from './const'; //Nextの初期処理以降に記述しなければDotenvが動作しない
 
@@ -62,15 +62,15 @@ const app = async () => {
   return server;
 }
 
-// app().then((server) => {
-//   const devServer = http.createServer(server);
-//   devServer.listen(port, (err :any) => {
-//     if (err) throw err;
-//   });
-// });
-
-export const Next = functions.https.onRequest(async (req:any, res:any) => {
-  const server = await app();
-  server(req,res);
+app().then((server) => {
+  const devServer = http.createServer(server);
+  devServer.listen(port, (err :any) => {
+    if (err) throw err;
+  });
 });
+
+// export const Next = functions.https.onRequest(async (req:any, res:any) => {
+//   const server = await app();
+//   server(req,res);
+// });
 

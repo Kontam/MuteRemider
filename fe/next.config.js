@@ -6,7 +6,7 @@ const withSass = require('@zeit/next-sass')
 
 module.exports = withImages(withSass({
     cssModules: true,
-    distDir: 'dist/bff/next',
+    // distDir: 'dist/bff/next',
     env: {
       // Reference a variable that was defined in the .env file and make it available at Build Time
       TEST_VAR: process.env.TEST_VAR,
