@@ -11,8 +11,15 @@ class Users extends Model
     protected $table = 'users';
     protected $fillable = ['screen_name', 'user_id']; // 挿入可能なカラム一覧
 
-    public function getData() {
-
+    public static function isUserExists($screen_name) {
+      return Users::where(config('pg-const.USERS_SCREEN_NAME'), $screen_name)->exists();
     }
 
+    public static function createUser($user_id, $screen_name) {
+        // 初めて利用したユーザー情報をDBにロギングする
+        Users::create([
+           config('pg-const.USERS_SCREEN_NAME') => $screen_name,
+           config('pg-const.USERS_USER_ID') => $user_id,
+        ]);
+    }
 }
