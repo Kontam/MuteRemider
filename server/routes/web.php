@@ -11,23 +11,15 @@
 |
 */
 
-Route::get('/', 'LoginController@top');
-// Route::get('/login_api', 'LoginController@twLogin');
-// Route::get('/callback', 'LoginController@callback');
+// ログイン API
 Route::get('/login_store_api', 'LoginController@storeToken');
 Route::get('/login_check_api', 'LoginController@checkAuthrized');
 
-// Route::get('/show', 'MuteReminderController@list');
-Route::get('/muter_top', 'MuteReminderController@top');
-
-// Route::get('/user_api', 'MuteReminderController@authorized_user_api');
+// MuteRimider API
+Route::get('/user_info_api', 'MuteReminderController@user_info');
 Route::get('/muted_list_api', 'MuteReminderController@list_api');
 Route::get('/unmute_api/{screen_name}', 'MuteReminderController@unmute');
 Route::get('/mute_api/{screen_name}', 'MuteReminderController@mute');
 
 // ブロックユーザー
 Route::get('/block_list_api', 'BlockReminderController@block_list');
-
-// テストコード
-// 動作確認を行わないときはコメントアウトされていて良い
-// Route::get('/test', 'TestController@test');
