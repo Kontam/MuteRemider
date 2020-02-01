@@ -1,6 +1,10 @@
 <?php
 require_once(__DIR__ . '/TwitterAPIErrorCheck.php');
 
+/**
+ * ユーザー情報取得APIの結果をアプリで必要な情報だけに絞り込む
+ * @param {user_obj} TwitterAPIから返却されるレスポンス
+ */
 function summarizeUserInfo($user_obj)
 {
     // デフォルトアイコンはnormalサイズ(48x48)なのでoriginalに変更(500x500)
@@ -14,6 +18,10 @@ function summarizeUserInfo($user_obj)
     ];
 }
 
+/**
+ * ミュートユーザーリストの結果をアプリで必要な情報だけに絞り込む
+ * @param {users_obj} TwitterAPIから返却されるレスポンス
+ */
 function summarizeMutedUsersInfo($users_obj)
 {
     // API制限回数等のTwitterからのエラー処理
@@ -48,6 +56,11 @@ function summarizeMutedUsersInfo($users_obj)
     return $simple_users_array;
 }
 
+/**
+ * ツイート情報をアプリが利用する情報だけに絞り込む
+ * @param {tweets} TwitterAPIが返却するツイートオブジェクト
+ * @param {max_length} アプリが利用するツイートの数
+ */
 function summarizeTweetsInfo($tweets, $max_length = 3)
 {
     $simple_tweets_array = [];
@@ -90,6 +103,25 @@ function summarizeTweetsInfo($tweets, $max_length = 3)
     }
 
     return $simple_tweets_array;
+}
+
+/**
+ * ミュートorミュート解除リクエストのレスポンスをアプリが利用する情報に
+ * 絞り込む
+ * @param {responce_obj} TwitterAPIが返却するオブジェクト
+ */
+function summarizeToggleMuteResponce($responce_obj) {
+  // API制限回数等のTwitterからのエラー処理
+  $error_status = TwitterAPIErrorCheck($responce_obj);
+  if ($error_status !== "OK") {
+      return $error_status;
+  }
+
+  $simple_togglemute_response = [
+    "screen_name" => $responce_obj->screen_name,
+  ];
+
+  return $simple_togglemute_response;
 }
 
 //========================================================
