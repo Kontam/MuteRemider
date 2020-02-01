@@ -107,9 +107,10 @@ class MuteReminderController extends Controller
 
         $unmute_params = ['screen_name' => $screen_name];
 
-        $result = $objTwitterConnection->post('mutes/users/destroy', $unmute_params);
+        $response = $objTwitterConnection->post('mutes/users/destroy', $unmute_params);
+        $summarized_response = summarizeToggleMuteResponce($response);
 
-        return response()->json($result);
+        return response()->json($summarized_response);
     }
 
     public function mute($screen_name) {
@@ -120,8 +121,9 @@ class MuteReminderController extends Controller
 
         $mute_params = ['screen_name' => $screen_name];
 
-        $result = $objTwitterConnection->post('mutes/users/create', $mute_params);
+        $response = $objTwitterConnection->post('mutes/users/create', $mute_params);
+        $summarized_response = summarizeToggleMuteResponce($response);
 
-        return response()->json($result);
+        return response()->json($summarized_response);
     }
 }
