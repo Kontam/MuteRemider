@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Abraham\TwitterOAuth\TwitterOAuth;
 
+use Log;
 use App\AuthrizedUsers;
 
 class LoginController extends Controller
@@ -40,7 +41,7 @@ class LoginController extends Controller
       $user_id = $_GET['user_id'];
       //登録済みユーザーかどうかをチェック
       if (AuthrizedUsers::isUserAuthrized($user_id)) {
-        response()->json(AuthrizedUsers::getUser($user_id));
+        return response()->json(AuthrizedUsers::getUser($user_id));
       }
       return 'unauthrized';
     }
